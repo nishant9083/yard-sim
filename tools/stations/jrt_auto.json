@@ -1,0 +1,17 @@
+{
+ "code": "JRTA",
+ "name": "Jarati (auto)",
+ "zone": "ECoR",
+ "sipRef": "SIP.ECoR.WAT.JRT.03",
+ "ends": {
+  "west": "KTV end",
+  "east": "KRDL end"
+ },
+ "yExaggeration": 4,
+ "yardBox": [
+  350,
+  625,
+  6900,
+  765
+ ]
+}

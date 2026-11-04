@@ -1,0 +1,8 @@
+{
+  "code": "R&D",
+  "name": "VPT R&D Yard",
+  "zone": "ECoR",
+  "sipRef": "SI-23207",
+  "ends": { "west": "Nalco Yard", "east": "E Cabin Controls" },
+  "yExaggeration": 1
+}

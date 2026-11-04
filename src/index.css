@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+/*
+ * Semantic tokens (MD3-style names). `static` makes Tailwind always emit the
+ * CSS variables so the canvas renderer can read them at runtime.
+ * The palette borrows the vocabulary of an EI operator VDU: black field,
+ * grey track, yellow route/selection, cyan hover, magenta labels.
+ */
+@theme static {
+  --color-surface: #0a0c10;
+  --color-surface-container: #11151b;
+  --color-surface-container-high: #1a2029;
+  --color-on-surface: #dde2ea;
+  --color-on-surface-variant: #8f99a8;
+  --color-outline: #3a4452;
+  --color-outline-variant: #242c37;
+  --color-primary: #f2c94c;
+  --color-on-primary: #1b1500;
+  --color-secondary: #4cc9f0;
+  --color-error: #ff6b81;
+
+  --color-sip-track-main: #d3d9e2;
+  --color-sip-track-loop: #a3adbb;
+  --color-sip-track-siding: #8893a3;
+  --color-sip-track-overrun: #6a7585;
+  --color-sip-connection: #b4bcc8;
+  --color-sip-node-junction: #5aa9ff;
+  --color-sip-node-end: #ff6b81;
+  --color-sip-label: #d68cff;
+  --color-sip-label-muted: #8f99a8;
+  --color-sip-signal: #ffffff;
+  --color-sip-point: #5aa9ff;
+  --color-sip-joint: #ffb454;
+  --color-sip-tc-a: #4cc9f0;
+  --color-sip-tc-b: #7bd88f;
+  --color-sip-tc-c: #f2a65a;
+  --color-sip-platform: #7f8aa0;
+  --color-sip-structure: #9aa7bd;
+  --color-sip-bridge: #c9a46b;
+  --color-sip-dimension: #6f8aa8;
+  --color-sip-chainage: #8f99a8;
+  --color-sip-route: #f2c94c;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
