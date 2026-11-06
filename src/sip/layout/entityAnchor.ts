@@ -63,6 +63,10 @@ export function entityAnchor(layout: StationLayout, ref: EntityRef): Point | nul
       const m = assets.chainageMarks.find((m) => m.id === ref.id)
       return m ? { x: m.x, y: m.lane === 'top' ? layout.bounds.minY : layout.bounds.maxY } : null
     }
+    case 'annotation': {
+      const a = assets.annotations.find((a) => a.id === ref.id)
+      return a ? layout.place(a) : null
+    }
     case 'gradient': {
       const g = assets.gradients.find((g) => g.id === ref.id)
       return g ? { x: g.x, y: g.direction === 'DN' ? layout.bounds.maxY : layout.bounds.minY } : null

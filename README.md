@@ -83,3 +83,26 @@ Wheel = zoom, drag = pan, hover = inspect, click = pin, double-click = fit stati
 * `tools/sipx/` reads a SIP PDF and writes the station JSON; see `tools/METHODOLOGY.md` for the one-command workflow, what it detects, how to correct it and its limits.
 * Every `*.json` in `src/sip/data/` appears in the station picker automatically.
 * Waltair RYD & CYD (`src/sip/data/ryd.json`, config `tools/stations/ryd.json`) is produced entirely by the extractor. Jarati stays on its hand-checked generator.
+
+## Step 4 – the SIP editor
+
+Draw or edit a station directly in the app. Header buttons: **Edit** (copy of the station being viewed), **New station**, **Import** (a station JSON).
+Edits are autosaved as a *draft* in the browser (the bundled file is never touched); the viewer always shows the bundled stations, and **Edit** reopens your saved draft if there is one (the editor's *Draft* picker switches between drafts).
+Export the JSON from the editor's *Station* tab and drop it in `src/sip/data/` to ship it. Design and rationale: `docs/EDITOR_PLAN.md`.
+
+| Tool (key) | What a click does |
+|---|---|
+| Select (V) | select / drag symbols and vertices, double-click a line to add a bend, Delete removes |
+| Line (T) | click points, double-click or Enter to finish; start/end on another line to join it |
+| Crossover / turnout (X) | click a spot on each of two lines; junctions and points `nA`/`nB` are created |
+| Signal (S) | click beside a line: number (UP odd / DN even), direction, side and head come from where you click |
+| Point (P), Joint (J) | on a junction / on a line |
+| Track circuit (C) | click a section between joints: limits and code (`31/33T`) are generated |
+| Platform (L), Building/box (B) | drag a rectangle; lengths and chainages come from the chainage scale |
+| Bridge (G), Text (A) | click |
+
+Space+drag pans, wheel zooms, Ctrl+Z / Ctrl+Y undo and redo, Alt while dragging turns the grid snap off.
+Generated fields show an **auto** badge and a reset button. The *Issues* tab lists structural errors and blanks only the user can fill (bridge number, platform width, point ratio).
+
+Code: pure edit functions in `src/sip/edit/` (`ops.ts`, `autogen.ts`, `snap.ts`, `history.ts`), UI in `src/sip/components/editor/`.
+The editor reuses the viewer's renderer, so what you draw is what the viewer shows.

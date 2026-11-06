@@ -17,6 +17,8 @@ import type { DrawArgs, HitRegion } from './types'
 
 export interface RenderArgs extends Omit<DrawArgs, 'placer' | 'regions'> {
   dpr: number
+  /** Drawn right after the background, beneath everything else (the editor's grid). */
+  underlay?: (ctx: CanvasRenderingContext2D) => void
 }
 
 /**
@@ -30,6 +32,7 @@ export function renderStation(args: RenderArgs): HitRegion[] {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
   ctx.fillStyle = theme.background
   ctx.fillRect(0, 0, viewport.width, viewport.height)
+  args.underlay?.(ctx)
 
   const regions: HitRegion[] = []
   const draw: DrawArgs = { ...args, placer: new LabelPlacer(viewport), regions }

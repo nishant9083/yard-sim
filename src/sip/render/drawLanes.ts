@@ -110,7 +110,7 @@ export function drawLanes(args: DrawArgs): void {
   }
 
   // ----- ruler
-  if (layers.chainage && scale) {
+  if (layers.chainage && scale && layout.nodes.size > 0) {
     const xs = [...layout.nodes.values()].map((n) => n.x)
     const x0 = sx(Math.min(...xs))
     const x1 = sx(Math.max(...xs))

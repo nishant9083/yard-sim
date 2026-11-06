@@ -3,13 +3,14 @@ import type { Point } from './types'
 export type Side = 'above' | 'below'
 export type HeadDirection = 'east' | 'west'
 export type LampStyle = 'slash' | 'vbar' | 'hbar' | 'solid'
+export type RouteIndicatorDirection = 'both' | 'upleft' | 'upright' | 'downleft' | 'downright'
 
 /** Parts of a signal head, listed outward from the wire anchor. */
 export type SignalElement =
   | { kind: 'lamp'; style: LampStyle }
   | { kind: 'marker'; text: 'P' | 'C' | 'B' }
   | { kind: 'callingOn' }
-  | { kind: 'routeIndicator' }
+  | { kind: 'routeIndicator'; direction: RouteIndicatorDirection }
   | { kind: 'shunt'; text?: string }
 
 export type SignalKind = 'signal' | 'distant' | 'home' | 'starter' | 'advancedStarter' | 'shunt'

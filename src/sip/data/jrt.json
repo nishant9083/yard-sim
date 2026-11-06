@@ -1180,11 +1180,15 @@
     "elements": [
      {
       "kind": "lamp",
-      "style": "slash"
+      "style": "vbar"
      },
      {
       "kind": "lamp",
-      "style": "vbar"
+      "style": "slash"
+     },
+     {
+      "kind": "routeIndicator",
+      "direction": "upright"
      }
     ],
     "control": 13,
@@ -1205,18 +1209,18 @@
     "side": "above",
     "headDir": "east",
     "elements": [
-     {
-      "kind": "lamp",
-      "style": "solid"
-     },
-     {
-      "kind": "lamp",
-      "style": "vbar"
-     },
-     {
-      "kind": "shunt",
-      "text": "SH15"
-     }
+        {
+            "kind": "shunt",
+            "text": "SH15"
+        },
+        {
+            "kind": "lamp",
+            "style": "vbar"
+        },
+        {
+         "kind": "lamp",
+         "style": "solid"
+        }
     ],
     "control": 15,
     "fullCode": "S/SH15",
@@ -1490,7 +1494,8 @@
       "style": "hbar"
      },
      {
-      "kind": "routeIndicator"
+      "kind": "routeIndicator",
+      "direction": "downleft"
      }
     ],
     "control": 2,
@@ -2576,7 +2581,7 @@
    {
     "id": "BOX_W",
     "kind": "detector",
-    "name": "Detection point (box with circle), UP side, 1.4KM",
+    "name": "Signal Warning board (box with circle), UP side, 1.4KM",
     "shape": {
      "type": "rect",
      "x0": 377.4,
@@ -2592,7 +2597,7 @@
    {
     "id": "BOX_E",
     "kind": "detector",
-    "name": "Detection point (box with circle), DN side, 1.4KM",
+    "name": "Signal Warning board (box with circle), DN side, 1.4KM",
     "shape": {
      "type": "rect",
      "x0": 6236.9,

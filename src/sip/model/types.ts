@@ -105,6 +105,7 @@ export type EntityType =
   | 'dimension'
   | 'chainageMark'
   | 'gradient'
+  | 'annotation'
 
 export interface EntityRef {
   type: EntityType

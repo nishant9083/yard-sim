@@ -66,9 +66,25 @@ function drawElements(ctx: CanvasRenderingContext2D, g: SignalGeometry, ink: str
       }
       case 'routeIndicator': {
         const vx = cx - dir * (w / 2)
-        line(ctx, vx, cy, vx + dir * w, cy - r * 0.85)
-        line(ctx, vx, cy, vx + dir * w, cy + r * 0.85)
-        break
+        switch (element.direction) {
+          case 'upleft':
+            line(ctx, vx, cy, vx + dir * w, cy - r * 0.85)
+            break
+          case 'upright':
+            line(ctx, vx, cy, vx + dir * w, cy + r * 0.85)
+            break
+          case 'downleft':
+            line(ctx, vx, cy, vx + dir * w, cy + r * 0.85)
+            break
+          case 'downright':
+            line(ctx, vx, cy, vx + dir * w, cy - r * 0.85)
+            break
+          default:
+            line(ctx, vx, cy, vx + dir * w, cy - r * 0.85)
+            line(ctx, vx, cy, vx + dir * w, cy + r * 0.85)
+            break
+        }
+        break;
       }
       case 'shunt':
         shuntDisc(ctx, cx, cy, r, dir, sgn, ink, paper)

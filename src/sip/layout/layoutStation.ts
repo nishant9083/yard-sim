@@ -4,6 +4,8 @@ import { boundsOf, clipPolylineX, directionTo, padBounds, polylineYAt } from './
 export interface LayoutOptions {
   /** Vertical stretch. SIP yards are very long and thin; stretching y keeps parallel lines readable. */
   yExaggeration: number
+  /** Drawing-space y that maps to world y = 0. Defaults to the top node; the editor pins it so the view does not jump while drawing. */
+  originY?: number
 }
 
 export interface LaidOutNode extends Point {
@@ -44,7 +46,7 @@ export interface StationLayout {
 
 export function layoutStation(station: Station, options: LayoutOptions): StationLayout {
   const stretch = Math.max(0.1, options.yExaggeration)
-  const minY = station.nodes.reduce((m, n) => Math.min(m, n.y), Infinity)
+  const minY = options.originY ?? station.nodes.reduce((m, n) => Math.min(m, n.y), Infinity)
   const place = (p: Point): Point => ({ x: p.x, y: (p.y - minY) * stretch })
 
   const nodes = new Map<string, LaidOutNode>()
