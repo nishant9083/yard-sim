@@ -3,14 +3,70 @@ import type { Point } from './types'
 export type Side = 'above' | 'below'
 export type HeadDirection = 'east' | 'west'
 export type LampStyle = 'slash' | 'vbar' | 'hbar' | 'solid'
-export type RouteIndicatorDirection = 'both' | 'upleft' | 'upright' | 'downleft' | 'downright'
+/**
+ * One arm of a junction route indicator, named as the driver sees it on the real indicator: from the pivot, an arm
+ * points horizontally left, up and to the left, up and to the right, or horizontally right.
+ *
+ * On the plan the head is drawn lying along the line, so the indicator is drawn turned with it. For a head facing
+ * east (driver's left = up on the sheet) the four arms form
+ *
+ *      |      left
+ *      <      upper left (upper diagonal) / upper right (lower diagonal)
+ *      |      right
+ *
+ * and for a head facing west the same figure mirrored (`|>|`, left is the lower arm).
+ */
+export type RouteIndicatorRoute = 'left' | 'upperLeft' | 'upperRight' | 'right'
+
+/** In the order they are listed and drawn: left to right as the driver sees them. */
+export const ROUTE_INDICATOR_ROUTES: { id: RouteIndicatorRoute; label: string; short: string }[] = [
+  { id: 'left', label: 'Left', short: '←' },
+  { id: 'upperLeft', label: 'Upper left', short: '↖' },
+  { id: 'upperRight', label: 'Upper right', short: '↗' },
+  { id: 'right', label: 'Right', short: '→' },
+]
+
+/** The plain "<" fan of older sheets: both diagonal arms. */
+export const DEFAULT_ROUTE_INDICATOR_ROUTES: RouteIndicatorRoute[] = ['upperLeft', 'upperRight']
+
+const ROUTE_ORDER = ROUTE_INDICATOR_ROUTES.map((r) => r.id)
+const isRoute = (v: unknown): v is RouteIndicatorRoute => ROUTE_ORDER.includes(v as RouteIndicatorRoute)
+
+/** Distinct arms in the standard order. */
+export const sortRoutes = (routes: Iterable<RouteIndicatorRoute>): RouteIndicatorRoute[] => {
+  const set = new Set(routes)
+  return ROUTE_ORDER.filter((r) => set.has(r))
+}
+
+/**
+ * Arms of a stored route indicator element, whatever version wrote it:
+ *  - `routes: [...]` (current);
+ *  - `direction` from earlier versions: `both` or none = the "<" fan; `left` / `right` (driver's side) = that diagonal;
+ *    `upleft` / `downright` = the upper drawn diagonal, `upright` / `downleft` = the lower one.
+ */
+export function routeIndicatorRoutesOf(raw: { routes?: unknown; direction?: unknown }, headDir: HeadDirection): RouteIndicatorRoute[] {
+  if (Array.isArray(raw.routes)) {
+    const routes = sortRoutes(raw.routes.filter(isRoute))
+    if (routes.length) return routes
+  }
+  const d = raw.direction
+  if (d === 'left') return ['upperLeft']
+  if (d === 'right') return ['upperRight']
+  // The upper diagonal is the driver's upper left when the head faces east, upper right when it faces west.
+  const upperDiagonal: RouteIndicatorRoute = headDir === 'east' ? 'upperLeft' : 'upperRight'
+  const lowerDiagonal: RouteIndicatorRoute = headDir === 'east' ? 'upperRight' : 'upperLeft'
+  if (d === 'upleft' || d === 'downright') return [upperDiagonal]
+  if (d === 'upright' || d === 'downleft') return [lowerDiagonal]
+  return [...DEFAULT_ROUTE_INDICATOR_ROUTES]
+}
 
 /** Parts of a signal head, listed outward from the wire anchor. */
 export type SignalElement =
   | { kind: 'lamp'; style: LampStyle }
-  | { kind: 'marker'; text: 'P' | 'C' | 'B' }
+  | { kind: 'marker'; text: 'P' | 'C' | 'B' | (string & {}) }
   | { kind: 'callingOn' }
-  | { kind: 'routeIndicator'; direction: RouteIndicatorDirection }
+  /** Junction route indicator with the arms it can show (any combination, at least one). */
+  | { kind: 'routeIndicator'; routes: RouteIndicatorRoute[] }
   | { kind: 'shunt'; text?: string }
 
 export type SignalKind = 'signal' | 'distant' | 'home' | 'starter' | 'advancedStarter' | 'shunt'
@@ -90,7 +146,32 @@ export interface Platform {
 
 export type StructureKind = 'building' | 'smRoom' | 'fob' | 'goomty' | 'detector' | 'locoPilotBoard' | 'lvv'
 
-export type Shape = { type: 'rect'; x0: number; y0: number; x1: number; y1: number }
+/** A rectangle (as drawn by dragging) or any outline (after its corners are edited). */
+export type Shape = { type: 'rect'; x0: number; y0: number; x1: number; y1: number } | { type: 'polygon'; points: Point[] }
+
+/** Corners of a shape, clockwise from the top left for a rectangle. */
+export function shapePoints(shape: Shape): Point[] {
+  if (shape.type === 'polygon') return shape.points
+  return [
+    { x: shape.x0, y: shape.y0 },
+    { x: shape.x1, y: shape.y0 },
+    { x: shape.x1, y: shape.y1 },
+    { x: shape.x0, y: shape.y1 },
+  ]
+}
+
+/** Axis-aligned box around a shape. */
+export function shapeBox(shape: Shape): { x0: number; y0: number; x1: number; y1: number } {
+  const pts = shapePoints(shape)
+  const xs = pts.map((p) => p.x)
+  const ys = pts.map((p) => p.y)
+  return { x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys) }
+}
+
+export function shapeCentre(shape: Shape): Point {
+  const b = shapeBox(shape)
+  return { x: (b.x0 + b.x1) / 2, y: (b.y0 + b.y1) / 2 }
+}
 
 export interface Structure {
   id: string
@@ -114,7 +195,7 @@ export interface Bridge {
   isNew?: boolean
 }
 
-export type ChainageMarkKind = 'PT' | 'FM' | 'DS' | 'DE' | 'PF END'
+export type ChainageMarkKind = 'PT' | 'FM' | 'DS' | 'DE' | 'PF END' | (string & {})
 
 export interface ChainageMark {
   id: string
@@ -164,6 +245,7 @@ export interface StationAssets {
   routeLabels: TextMark[]
   annotations: TextMark[]
   breaks: TrackBreak[]
+  connectionJoints?: { connectionId: string; x: number; y: number }[]
 }
 
 export const emptyAssets = (): StationAssets => ({

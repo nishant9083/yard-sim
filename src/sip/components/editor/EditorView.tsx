@@ -1,8 +1,12 @@
 import { ArrowLeft, Check, CircleAlert, Grid3x3, Maximize2, Redo2, Undo2 } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
+  addPlatformOutline,
+  addStructureOutline,
   addTrack,
   DEFAULT_TOOL_OPTIONS,
+  isMovable,
+  moveEntity,
   deleteEntity,
   downloadStation,
   editorIssues,
@@ -113,8 +117,24 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
     if (draft?.kind === 'track' && draft.anchors.length >= 2) {
       commitResult(addTrack(station, draft.anchors, { kind: options.trackKind, direction: 'BOTH' }))
     }
+    if (draft?.kind === 'poly') {
+      const result = tool === 'platform' ? addPlatformOutline(station, draft.points) : addStructureOutline(station, options.structureKind, draft.points)
+      if (result.station === station) setNotice('An outline needs at least three corners.')
+      else commitResult(result)
+    }
     setDraft(null)
-  }, [commitResult, draft, options.trackKind, station])
+  }, [commitResult, draft, options.structureKind, options.trackKind, station, tool])
+
+  /** Arrow keys nudge the selection by one drawing unit (ten with Shift). */
+  const nudge = useCallback(
+    (dx: number, dy: number) => {
+      if (!selected || !isMovable(selected)) return false
+      const next = moveEntity(station, selected, dx, dy)
+      if (next !== station) history.commit(next)
+      return true
+    },
+    [history, selected, station],
+  )
 
   const remove = useCallback(() => {
     if (!selected) return
@@ -147,10 +167,17 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
         if (draft?.kind === 'track') {
           e.preventDefault()
           setDraft(draft.anchors.length <= 1 ? null : { kind: 'track', anchors: draft.anchors.slice(0, -1) })
+        } else if (draft?.kind === 'poly') {
+          e.preventDefault()
+          setDraft(draft.points.length <= 1 ? null : { kind: 'poly', points: draft.points.slice(0, -1) })
         } else if (selected) {
           e.preventDefault()
           remove()
         }
+      } else if (e.key.startsWith('Arrow')) {
+        const step = e.shiftKey ? 10 : 1
+        const d = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] }[e.key]
+        if (d && nudge(d[0]!, d[1]!)) e.preventDefault()
       } else {
         const next = SHORTCUTS.get(e.key.toLowerCase())
         if (next) chooseTool(next)
@@ -158,7 +185,7 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [chooseTool, draft, finishTrack, history, remove, selected, tool])
+  }, [chooseTool, draft, finishTrack, history, nudge, remove, selected, tool])
 
   // Keep the selection valid after undo / redo / delete.
   useEffect(() => {
@@ -168,7 +195,11 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
   }, [station, selected])
 
   const hint =
-    draft?.kind === 'track'
+    draft?.kind === 'poly'
+      ? draft.points.length < 3
+        ? 'Click the next corner. Shift keeps the edge level. Esc cancels.'
+        : 'Click to add corners. Click the first corner, double-click, Enter or right-click to close the shape. Backspace removes the last corner.'
+      : draft?.kind === 'track'
       ? draft.anchors.length < 2
         ? 'Click the next point of the line. Esc cancels.'
         : 'Click to add bends. Double-click, Enter or right-click to finish. Backspace removes the last point.'
@@ -213,7 +244,7 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
           <Redo2 className="size-3.5" aria-hidden />
           Redo
         </button>
-        <button type="button" className={`${buttonClass} ${grid ? 'bg-surface-container-high' : ''}`} aria-pressed={grid} onClick={() => setGrid((g) => !g)} title="Snap to grid (Alt while dragging turns it off)">
+        <button type="button" className={`${buttonClass} ${grid ? 'bg-surface-container-high' : ''}`} aria-pressed={grid} onClick={() => setGrid((g) => !g)} title="Show the grid and snap new drawing to it. Moves are free: hold Ctrl while dragging to snap a move to the grid.">
           <Grid3x3 className="size-3.5" aria-hidden />
           Grid
         </button>
@@ -225,6 +256,11 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
         {draft?.kind === 'track' && draft.anchors.length >= 2 && (
           <button type="button" className="rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-on-primary" onClick={finishTrack}>
             Finish line
+          </button>
+        )}
+        {draft?.kind === 'poly' && draft.points.length >= 3 && (
+          <button type="button" className="rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-on-primary" onClick={finishTrack}>
+            Close shape
           </button>
         )}
         <span className="ml-auto flex items-center gap-1.5 text-xs text-on-surface-variant" aria-live="polite">
@@ -258,7 +294,7 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
             onCommit={commitResult}
             onLive={history.live}
             onGestureEnd={history.end}
-            onFinishTrack={finishTrack}
+            onFinishDraft={finishTrack}
             onNotice={setNotice}
           />
           <p className="pointer-events-none absolute bottom-3 left-1/2 max-w-[min(38rem,60%)] -translate-x-1/2 rounded-lg border border-outline-variant bg-surface-container/90 px-3 py-1.5 text-center text-xs text-on-surface-variant backdrop-blur">
@@ -276,7 +312,7 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
           )}
         </main>
 
-        <aside className="flex h-full w-[22rem] max-w-[40vw] shrink-0 flex-col border-l border-outline-variant bg-surface-container">
+        <aside className="flex h-full w-88 max-w-[40vw] shrink-0 flex-col border-l border-outline-variant bg-surface-container">
           <div role="tablist" aria-label="Editor panels" className="flex border-b border-outline-variant">
             {(
               [
@@ -309,6 +345,7 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
                 station={station}
                 selected={selected}
                 onEdit={(ref, patch) => history.live(updateEntity(stationRef.current, ref, patch))}
+                onChange={(change) => history.live(change(stationRef.current))}
                 onCommit={history.end}
                 onDelete={remove}
                 onSelect={(ref) => {

@@ -1,4 +1,4 @@
-import { emptyAssets } from './assets'
+import { emptyAssets, routeIndicatorRoutesOf, type Signal } from './assets'
 import { emptyInfo } from './info'
 import type { Station } from './types'
 import { validateStation, type ValidationIssue } from './validate'
@@ -24,6 +24,18 @@ function isStationShape(value: unknown): value is Omit<Station, 'assets' | 'info
 export function loadStation(raw: unknown): LoadedStation {
   if (!isStationShape(raw)) throw new Error('Invalid station JSON: expected { meta, nodes[], tracks[], connections[] }')
   // Assets and info are optional so a step-1 style file (tracks only) still renders.
-  const station: Station = { ...raw, assets: { ...emptyAssets(), ...raw.assets }, info: { ...emptyInfo(), ...raw.info } }
+  const assets = { ...emptyAssets(), ...raw.assets }
+  const station: Station = { ...raw, assets: { ...assets, signals: assets.signals.map(normalizeSignal) }, info: { ...emptyInfo(), ...raw.info } }
   return { station, issues: validateStation(station) }
+}
+
+/** Bring older signal data up to date: route indicators list their arms (`routes`) instead of a `direction`. */
+function normalizeSignal(s: Signal): Signal {
+  if (!s.elements?.some((e) => e.kind === 'routeIndicator')) return s
+  return {
+    ...s,
+    elements: s.elements.map((e) =>
+      e.kind === 'routeIndicator' ? { kind: 'routeIndicator', routes: routeIndicatorRoutesOf(e as { routes?: unknown; direction?: unknown }, s.headDir) } : e,
+    ),
+  }
 }

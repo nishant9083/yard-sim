@@ -13,7 +13,7 @@ const SIGNAL_SYMBOLS: Entry[] = [
   { glyph: 'lamps', title: 'Lamps', text: 'Circle with a slash, vertical bar, horizontal bar, or filled. The SIP does not state the colour of each; read it from the aspect chart.' },
   { glyph: 'markers', title: 'P, C, B markers', text: 'Marker plates printed beside heads. P is on distants, C on home signals (with the calling-on lamp), B on signal 26.' },
   { glyph: 'callingOn', title: 'Calling-on lamp', text: 'Capsule with a slash, on home signals 1A/B/C and 2A/B.' },
-  { glyph: 'routeIndicator', title: 'Route indicator', text: 'Fan at the end of the head, for the routes A, B, C.' },
+  { glyph: 'routeIndicator', title: 'Route indicator', text: 'Arms from a pivot at the end of the head, one per route: left and right stand across the head (|), upper left and upper right are the diagonals (<). Any combination; drawn |<| facing east and |>| facing west.' },
   { glyph: 'shunt', title: 'Shunt signal', text: 'Quarter disc with three holes: SH3A/B, SH4(A-D), SH6, and the shunt parts of S/SH15 and S/SH17.' },
 ]
 

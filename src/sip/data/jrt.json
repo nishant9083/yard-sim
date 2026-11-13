@@ -1128,7 +1128,8 @@
       "style": "slash"
      },
      {
-      "kind": "routeIndicator"
+      "kind": "routeIndicator",
+      "routes": ["upperLeft","upperRight"]
      }
     ],
     "control": 1,
@@ -1188,7 +1189,7 @@
      },
      {
       "kind": "routeIndicator",
-      "direction": "upright"
+      "routes": ["upperRight"]
      }
     ],
     "control": 13,
@@ -1495,7 +1496,7 @@
      },
      {
       "kind": "routeIndicator",
-      "direction": "downleft"
+      "routes": ["upperLeft"]
      }
     ],
     "control": 2,

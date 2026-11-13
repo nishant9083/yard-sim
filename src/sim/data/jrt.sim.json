@@ -1,0 +1,42 @@
+{
+  "station": "JRT",
+  "posts": {
+    "1": "SIG_1ABC",
+    "2": "SIG_2AB",
+    "3": "SIG_SH3AB",
+    "4": "SIG_SH4A-D",
+    "6": "SIG_SH6",
+    "10": "SIG_10",
+    "11": "SIG_11",
+    "12": "SIG_12",
+    "13": "SIG_13",
+    "14": "SIG_14",
+    "15": "SIG_15",
+    "16": "SIG_16",
+    "17": "SIG_17",
+    "25": "SIG_25",
+    "26": "SIG_26",
+    "29": "SIG_29"
+  },
+  "switchOverrides": {
+    "J36": { "normal": "T36", "reverse": "L1" }
+  },
+  "blockSections": [
+    {
+      "id": "JRT-MVG",
+      "label": "Jarati - MVG (UP, TLBI)",
+      "instrument": "TLBI",
+      "inputs": [{ "id": "TGT", "label": "TGT contact: line clear from MVG", "defaultValue": false, "consumedByRoute": "25" }]
+    },
+    {
+      "id": "JRT-MVF",
+      "label": "Jarati - MVF (DN line, DLBI)",
+      "instrument": "DLBI",
+      "inputs": [{ "id": "LC", "label": "LC: line clear from MVF", "defaultValue": false, "consumedByRoute": "26" }]
+    }
+  ],
+  "notes": [
+    "Point 36 is a derailing switch (DS36 on the control chart): normal sends the TM siding to the T36 stub, reverse joins it to L1.",
+    "Signals 14 and 16 have no route of their own in Phase I; they only end shunt routes SH4C and SH4D."
+  ]
+}

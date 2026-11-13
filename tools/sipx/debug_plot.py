@@ -1,26 +1,18 @@
-"""Draw the extracted graph over a white page so the result can be eyeballed."""
-import sys, colorsys
+"""Pictures of intermediate results, for eyeballing against the PDF."""
+import colorsys
+
 from PIL import Image, ImageDraw
 
 
-def plot(g, page, out, scale=3.0, crop=None, extra=None):
-    W, H = int(page.width * scale), int(page.height * scale)
-    im = Image.new("RGB", (W, H), "white")
+def plot_lines(lines, page, out, crop, scale=2.0, marks=None):
+    x0, y0, x1, y1 = crop
+    im = Image.new("RGB", (int((x1 - x0) * scale), int((y1 - y0) * scale)), "white")
     d = ImageDraw.Draw(im)
-    for i, e in enumerate(g.edges):
-        r, gg, b = colorsys.hsv_to_rgb((i * 0.618) % 1, 0.8, 0.8)
-        col = (int(r * 255), int(gg * 255), int(b * 255))
-        d.line([(x * scale, y * scale) for x, y in e.pts], fill=col, width=2)
-    deg = {}
-    for e in g.edges:
-        deg[e.a] = deg.get(e.a, 0) + 1
-        deg[e.b] = deg.get(e.b, 0) + 1
-    for v, n in deg.items():
-        x, y = g.verts[v]
-        c = {1: "blue", 2: "gray", 3: "red", 4: "green"}.get(n, "black")
-        d.ellipse([x * scale - 2.5, y * scale - 2.5, x * scale + 2.5, y * scale + 2.5], outline=c)
-    if extra:
-        extra(d, scale)
-    if crop:
-        im = im.crop(tuple(int(c * scale) for c in crop))
+    for i, ln in enumerate(lines):
+        r, g, b = colorsys.hsv_to_rgb((i * 0.618) % 1, 0.85, 0.75)
+        d.line([((x - x0) * scale, (y - y0) * scale) for x, y in ln.pts], fill=(int(r * 255), int(g * 255), int(b * 255)), width=3 if ln.thick else 2)
+        for p in (ln.pts[0], ln.pts[-1]):
+            d.ellipse([(p[0] - x0) * scale - 3, (p[1] - y0) * scale - 3, (p[0] - x0) * scale + 3, (p[1] - y0) * scale + 3], outline="black")
+    for (x, y, c) in marks or []:
+        d.rectangle([(x - x0) * scale - 3, (y - y0) * scale - 3, (x - x0) * scale + 3, (y - y0) * scale + 3], outline=c)
     im.save(out)

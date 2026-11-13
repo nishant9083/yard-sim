@@ -1,4 +1,4 @@
-import type { EntityRef, Point } from '@/sip/model'
+import { shapeCentre, type EntityRef, type Point } from '@/sip/model'
 import type { StationLayout } from './layoutStation'
 
 /** A representative world position for an entity, used to centre the camera on it. */
@@ -42,7 +42,7 @@ export function entityAnchor(layout: StationLayout, ref: EntityRef): Point | nul
     case 'structure': {
       const s = assets.structures.find((s) => s.id === ref.id)
       if (!s) return null
-      if (s.shape) return layout.place({ x: (s.shape.x0 + s.shape.x1) / 2, y: (s.shape.y0 + s.shape.y1) / 2 })
+      if (s.shape) return layout.place(shapeCentre(s.shape))
       const pos = s.at ?? s.foot
       return pos ? at(pos.x, pos.trackId) : null
     }

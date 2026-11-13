@@ -20,6 +20,7 @@ src/sip/edit/
   autogen.ts    codes, directions, circuit limits, platform sizes, line table
   snap.ts       snapping to nodes, tracks, grid
   ops.ts        add / move / update / delete (with cascade) – pure
+  outline.ts    free-form outlines, grab handles, exact positions, move to another line, add / extend vertices
   checks.ts     editor-only completeness checks (blank bridge number, duplicate codes ...)
   catalog.ts    tool palette + signal presets
   history.ts    undo/redo reducer with gesture coalescing
@@ -29,8 +30,18 @@ components/editor/            EditorView, EditorCanvas, ToolPalette, PropertiesP
 ```
 
 ## Tools (key)
-Select (V) · Track (T) · Crossover / turnout (X) · Signal (S) · Point (P) · Insulated joint (J) ·
+Select (V) · Track (T) · Add vertex (N) · Crossover / turnout (X) · Signal (S) · Point (P) · Insulated joint (J) ·
 Track circuit (C) · Platform (L) · Structure (B) · Bridge (G) · Text (A) · Pan (H or hold Space) · Delete (Del)
+
+## Moving and shaping
+- Drags are free (no jumps). Shift locks to one axis, Ctrl / Cmd snaps to the grid, arrow keys nudge 1 unit (Shift: 10).
+- Properties → Position takes an exact X / Y (or chainage). Things standing on a line (signals, joints, LVV, bridges) take X only.
+- Point machines: drag the ring to move the point (its junction vertex, label follows); drag the code to move only the label.
+- Signals, joints and LVVs can be moved to another line from Properties → On line.
+- Platforms and to-scale structures (building, S.M. room, FOB) have any outline: drag a rectangle or click corner by corner;
+  when selected, drag a corner, drag a mid-edge `+` to add a corner, double-click a corner to remove it, or edit the corner list.
+- Lines: drag a mid-segment `+` to pull out a bend; the Add vertex tool (N) adds a bend on a line, a corner on the selected
+  outline, or extends the selected line when you click past its end (the end style moves to the new end).
 
 ## Auto-generation
 | Thing | Generated from |
@@ -49,5 +60,5 @@ Track circuit (C) · Platform (L) · Structure (B) · Bridge (G) · Text (A) · 
 | line table (CSL) | track extents × chainage scale (marked approximate) |
 
 ## Out of scope for this iteration (documented, not forgotten)
-Editing legend / notes / interlocking tables, platform vertex editing, multi-select, route authoring,
+Editing legend / notes / interlocking tables, multi-select, route authoring,
 gradient and dimension tools, PDF import review (see `tools/`).

@@ -1,0 +1,8 @@
+{
+  "code": "RYD",
+  "name": "Waltair RYD & CYD",
+  "zone": "ECoR",
+  "sipRef": "SI-23265",
+  "ends": { "west": "GPT / SCMN side", "east": "CYD side" },
+  "yExaggeration": 1
+}

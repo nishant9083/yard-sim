@@ -1,6 +1,7 @@
 import {
   Building2,
   CircleDot,
+  DiamondPlus,
   Hand,
   MousePointer2,
   RectangleHorizontal,
@@ -36,6 +37,7 @@ export const TOOL_GROUPS: { title: string; tools: ToolDef[] }[] = [
     title: 'Lines',
     tools: [
       { id: 'track', label: 'Line', key: 'T', icon: TrainTrack },
+      { id: 'vertex', label: 'Add vertex', key: 'N', icon: DiamondPlus },
       { id: 'connect', label: 'Crossover / turnout', key: 'X', icon: Spline },
     ],
   },

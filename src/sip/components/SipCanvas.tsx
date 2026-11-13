@@ -11,6 +11,7 @@ import {
   type Camera,
   type FitInsets,
   type HitRegion,
+  type DrawArgs,
   type LayerVisibility,
   zoomToCenter,
 } from '@/sip/render'
@@ -47,6 +48,8 @@ interface SipCanvasProps {
   onSelect: (ref: EntityRef | null) => void
   /** World x under the pointer (drawing units), or null when it leaves. */
   onCursorX?: (worldX: number | null) => void
+  /** Extra drawing on top of the station; pass a new function to redraw. */
+  overlay?: (args: DrawArgs) => void
 }
 
 const HIT_TOLERANCE_PX = 7
@@ -54,7 +57,7 @@ const HIT_TOLERANCE_PX = 7
 const FIT_INSETS: FitInsets = { top: 150, bottom: 130 }
 const FOCUS_ZOOM = 3
 
-export function SipCanvas({ layout, layers, hovered, selected, fit, focus, zoomRequest, onZoomChange, onHover, onSelect, onCursorX }: SipCanvasProps) {
+export function SipCanvas({ layout, layers, hovered, selected, fit, focus, zoomRequest, onZoomChange, onHover, onSelect, onCursorX, overlay }: SipCanvasProps) {
   const [containerRef, size] = useElementSize<HTMLDivElement>()
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const regionsRef = useRef<HitRegion[]>([])
@@ -96,8 +99,8 @@ export function SipCanvas({ layout, layers, hovered, selected, fit, focus, zoomR
     canvas.height = Math.round(size.height * dpr)
     const ctx = canvas.getContext('2d')
     if (!ctx) return
-    regionsRef.current = renderStation({ ctx, layout, camera, theme, state: { hovered, selected, layers }, viewport: size, dpr })
-  }, [layout, camera, theme, hovered, selected, layers, size, hasSize])
+    regionsRef.current = renderStation({ ctx, layout, camera, theme, state: { hovered, selected, layers }, viewport: size, dpr, overlay })
+  }, [layout, camera, theme, hovered, selected, layers, size, hasSize, overlay])
 
   const pick = (screen: { x: number; y: number }) =>
     hitTest(layout, camera, screen, { includeNodes: layers.nodes, regions: regionsRef.current, tolerance: HIT_TOLERANCE_PX })

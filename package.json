@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "sip:extract": "uv run tools/sipx/run.py",
-    "sip:jrt": "uv run tools/jrt/gen_jrt.py"
+    "sip:jrt": "uv run tools/jrt/gen_jrt.py",
+    "test": "vitest run",
+    "rcc:jrt": "python3 tools/rcc/xlsx_to_rcc.py tools/rcc/source/JRT_PH_I_RCC_VER_03.xlsx JRT src/sim/data/jrt.rcc.json tools/rcc/source/jrt.patches.json"
   },
   "dependencies": {
     "lucide-react": "^1.64.0",
@@ -24,6 +26,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "tailwindcss": "^4.3.3",
     "typescript": "~5.9.3",
-    "vite": "^8.3.5"
+    "vite": "^8.3.5",
+    "vitest": "^3.2.7"
   }
 }

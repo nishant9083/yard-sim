@@ -1,6 +1,6 @@
 import type { LampStyle } from '@/sip/model'
 import { arrowHead, line } from './draw'
-import { signalGeometry, type SignalGeometry } from './signalGeometry'
+import { routeIndicatorArms, signalGeometry, type SignalGeometry } from './signalGeometry'
 import { emphasisOf, type DrawArgs } from './types'
 
 function lamp(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number, style: LampStyle, ink: string, paper: string): void {
@@ -65,26 +65,9 @@ function drawElements(ctx: CanvasRenderingContext2D, g: SignalGeometry, ink: str
         break
       }
       case 'routeIndicator': {
-        const vx = cx - dir * (w / 2)
-        switch (element.direction) {
-          case 'upleft':
-            line(ctx, vx, cy, vx + dir * w, cy - r * 0.85)
-            break
-          case 'upright':
-            line(ctx, vx, cy, vx + dir * w, cy + r * 0.85)
-            break
-          case 'downleft':
-            line(ctx, vx, cy, vx + dir * w, cy + r * 0.85)
-            break
-          case 'downright':
-            line(ctx, vx, cy, vx + dir * w, cy - r * 0.85)
-            break
-          default:
-            line(ctx, vx, cy, vx + dir * w, cy - r * 0.85)
-            line(ctx, vx, cy, vx + dir * w, cy + r * 0.85)
-            break
-        }
-        break;
+        // Arms from the pivot: |<| (head facing east) or |>| (west), only the ones this indicator has.
+        for (const arm of routeIndicatorArms({ element, cx, cy, w }, g)) line(ctx, arm.from.x, arm.from.y, arm.to.x, arm.to.y)
+        break
       }
       case 'shunt':
         shuntDisc(ctx, cx, cy, r, dir, sgn, ink, paper)

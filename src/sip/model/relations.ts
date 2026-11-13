@@ -1,4 +1,4 @@
-import type { PointMachine, Signal, SignalElement, TrackCircuit } from './assets'
+import { ROUTE_INDICATOR_ROUTES, type PointMachine, type Signal, type SignalElement, type TrackCircuit } from './assets'
 import type { Station } from './types'
 import { chainageAt } from './chainage'
 
@@ -65,6 +65,10 @@ export function describeElement(e: SignalElement): string {
       return `${e.text} marker`
     case 'shunt':
       return e.text ? `shunt disc ${e.text}` : ELEMENT_NAME.shunt
+    case 'routeIndicator':
+      return `route indicator (${ROUTE_INDICATOR_ROUTES.filter((r) => e.routes.includes(r.id))
+        .map((r) => r.label.toLowerCase())
+        .join(', ')})`
     default:
       return ELEMENT_NAME[e.kind]
   }

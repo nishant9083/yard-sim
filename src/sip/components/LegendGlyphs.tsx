@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 /** Small SVG pictures of the symbols the canvas draws, for the legend. */
 function Svg({ children }: { children: ReactNode }) {
   return (
-    <svg viewBox="0 0 72 28" className="h-7 w-[4.5rem] shrink-0 text-on-surface" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" aria-hidden>
+    <svg viewBox="0 0 72 28" className="h-7 w-18 shrink-0 text-on-surface" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" aria-hidden>
       {children}
     </svg>
   )
@@ -47,8 +47,9 @@ export const GLYPHS: Record<string, ReactNode> = {
   ),
   routeIndicator: (
     <Svg>
-      <Lamp x={26} style="vbar" />
-      <path d="M33 14 L48 6 M33 14 L48 22" />
+      {/* Head facing east with all four arms: | left, < upper left / upper right, | right. */}
+      <Lamp x={22} style="vbar" />
+      <path d="M33 14 L48 6 M33 14 L48 22 M33 14 V2 M33 14 V26" />
     </Svg>
   ),
   shunt: (

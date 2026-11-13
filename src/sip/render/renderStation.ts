@@ -19,6 +19,8 @@ export interface RenderArgs extends Omit<DrawArgs, 'placer' | 'regions'> {
   dpr: number
   /** Drawn right after the background, beneath everything else (the editor's grid). */
   underlay?: (ctx: CanvasRenderingContext2D) => void
+  /** Drawn last, on top of everything (the simulator's live state). */
+  overlay?: (args: DrawArgs) => void
 }
 
 /**
@@ -53,5 +55,6 @@ export function renderStation(args: RenderArgs): HitRegion[] {
   drawLanes(draw)
   drawAnnotations(draw)
   drawLabels(draw)
+  args.overlay?.(draw)
   return regions
 }

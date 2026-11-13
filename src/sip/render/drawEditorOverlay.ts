@@ -1,6 +1,6 @@
 import type { EntityRef, Point, Station } from '@/sip/model'
 import { clipPolylineX } from '@/sip/layout'
-import { anchorPoint, circuitLimits, gridPitch, trackPoints, type Draft, type Snap, type ToolId } from '@/sip/edit'
+import { anchorPoint, circuitLimits, editHandles, gridPitch, trackPoints, type Draft, type Snap, type ToolId } from '@/sip/edit'
 import { screenToWorld, worldToScreen, type Camera, type Viewport } from './camera'
 import { line, tracePath } from './draw'
 import type { CanvasTheme } from './theme'
@@ -103,6 +103,27 @@ export function drawEditorOverlay({ ctx, camera, theme, station, tool, draft, sn
         ctx.stroke()
       }
     }
+    // Corners to drag, and "+" in the middle of each edge / segment to pull out a new vertex.
+    for (const h of editHandles(station, selected)) {
+      const s = worldToScreen(camera, h.p)
+      ctx.lineWidth = 1.5
+      ctx.strokeStyle = theme.selected
+      ctx.fillStyle = theme.background
+      if (h.kind === 'corner') {
+        ctx.fillRect(s.x - 4, s.y - 4, 8, 8)
+        ctx.strokeRect(s.x - 4, s.y - 4, 8, 8)
+      } else {
+        ctx.globalAlpha = 0.85
+        ctx.beginPath()
+        ctx.arc(s.x, s.y, 4.5, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.stroke()
+        ctx.lineWidth = 1.2
+        line(ctx, s.x - 2.5, s.y, s.x + 2.5, s.y)
+        line(ctx, s.x, s.y - 2.5, s.x, s.y + 2.5)
+        ctx.globalAlpha = 1
+      }
+    }
   }
 
   // Track circuit tool: show the section that would be created.
@@ -155,6 +176,27 @@ export function drawEditorOverlay({ ctx, camera, theme, station, tool, draft, sn
       ctx.beginPath()
       ctx.arc(s.x, s.y, 4, 0, Math.PI * 2)
       ctx.fill()
+    }
+  } else if (draft?.kind === 'poly') {
+    const pts = draft.points
+    if (pts.length) {
+      tracePath(ctx, camera, pts)
+      ctx.stroke()
+      const to = snap?.p ?? cursor
+      if (to) {
+        // Rubber band to the pointer and the closing edge back to the first corner.
+        ctx.setLineDash([5, 4])
+        tracePath(ctx, camera, pts.length >= 2 ? [pts[pts.length - 1]!, to, pts[0]!] : [pts[0]!, to])
+        ctx.stroke()
+        ctx.setLineDash([])
+      }
+      pts.forEach((p, i) => {
+        const s = worldToScreen(camera, p)
+        ctx.beginPath()
+        ctx.arc(s.x, s.y, i === 0 && pts.length >= 3 ? 6 : 3.5, 0, Math.PI * 2)
+        if (i === 0 && pts.length >= 3) ctx.stroke()
+        else ctx.fill()
+      })
     }
   } else if (draft?.kind === 'rect') {
     const a = worldToScreen(camera, draft.a)

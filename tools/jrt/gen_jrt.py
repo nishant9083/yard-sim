@@ -11,7 +11,7 @@ import json
 import math
 import os
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "..", "src", "sip", "data", "jrt_new.json")
+OUT = os.path.join(os.path.dirname(__file__), "..", "..", "src", "sip", "data", "jrt.json")
 
 X0, Y0 = 350.0, 630.0            # shift PDF pts so the yard sits near the origin
 CSB_X = 3418.5                   # x of the station-building centre line in the PDF
@@ -231,7 +231,7 @@ for code, nid, cid, ratio, sw, inferred, ch, (lx, ly) in POINTS:
 L = lambda s: {"kind": "lamp", "style": s}
 MK = lambda t: {"kind": "marker", "text": t}
 CALL = {"kind": "callingOn"}
-RI = {"kind": "routeIndicator"}
+RI = {"kind": "routeIndicator", "routes": ["upperLeft", "upperRight"]}
 SH = lambda t=None: ({"kind": "shunt", "text": t} if t else {"kind": "shunt"})
 
 

@@ -10,16 +10,26 @@ import {
   addPoint,
   addSignal,
   addStructure,
+  addTrackVertex,
   anchorOfSnap,
   anchorPoint,
   gridPitch,
+  insertOutlineVertex,
   insertVertex,
   isMovable,
   moveEntity,
+  moveOutlineVertex,
+  nearestOutlineEdge,
   nearestTrack,
+  outlineOf,
+  OUTLINE_STRUCTURES,
+  removeOutlineVertex,
   snapPoint,
   snapToGrid,
+  editHandles,
   type Draft,
+  type EditHandle as Handle,
+  type MoveOptions,
   type OpResult,
   type Snap,
   type ToolId,
@@ -36,6 +46,7 @@ import {
   readCanvasTheme,
   renderStation,
   screenToWorld,
+  worldToScreen,
   zoomAt,
   type Camera,
   type HitRegion,
@@ -61,23 +72,33 @@ interface EditorCanvasProps {
   /** Live update while dragging; `onGestureEnd` closes it as one undo step. */
   onLive: (station: Station) => void
   onGestureEnd: () => void
-  onFinishTrack: () => void
+  /** Finish the line or outline being drawn. */
+  onFinishDraft: () => void
   onNotice: (text: string) => void
 }
 
 type Gesture =
   | { kind: 'pan'; lastX: number; lastY: number; moved: boolean; downAt: Point; tap: EntityRef | null }
-  | { kind: 'move'; ref: EntityRef; base: Station; startWorld: Point; moved: boolean }
-  | { kind: 'rect'; a: Point; moved: boolean }
+  | { kind: 'move'; ref: EntityRef; base: Station; startWorld: Point; moved: boolean; part?: MoveOptions['part'] }
+  /** Dragging one corner of a platform / building outline. */
+  | { kind: 'corner'; ref: EntityRef; index: number; base: Station; from: Point; startWorld: Point; moved: boolean }
+  /** Platform / building tool: a drag draws a rectangle, a click adds an outline corner. */
+  | { kind: 'rect'; a: Point; downAt: Point; moved: boolean }
 
 const HIT_PX = 8
 const NODE_PX = 9
+const HANDLE_PX = 7
 const NEAR_TRACK_PX = 28
+const VERTEX_TRACK_PX = 14
+const CLOSE_PX = 10
 const DRAG_PX = 4
 const DEFAULT_VIEW = { minX: 0, minY: -120, maxX: 2400, maxY: 480 }
 
 const POINT_ON_LINE_TOOLS: ToolId[] = ['signal', 'joint', 'circuit', 'bridge']
-const DRAW_TOOLS: ToolId[] = ['track', 'connect', 'point', 'text', 'origin', ...POINT_ON_LINE_TOOLS]
+const DRAW_TOOLS: ToolId[] = ['track', 'vertex', 'connect', 'point', 'text', 'origin', ...POINT_ON_LINE_TOOLS]
+
+/** Shift: keep only the larger of the two movements, so the drag runs along one axis. */
+const lockAxis = (dx: number, dy: number): [number, number] => (Math.abs(dx) >= Math.abs(dy) ? [dx, 0] : [0, dy])
 
 export function EditorCanvas({
   station,
@@ -94,7 +115,7 @@ export function EditorCanvas({
   onCommit,
   onLive,
   onGestureEnd,
-  onFinishTrack,
+  onFinishDraft,
   onNotice,
 }: EditorCanvasProps) {
   const [containerRef, size] = useElementSize<HTMLDivElement>()
@@ -161,6 +182,8 @@ export function EditorCanvas({
 
   const gridPitchNow = grid ? gridPitch(camera.zoom) : null
   const blocked = false
+  const handles = useMemo(() => (tool === 'select' ? editHandles(station, selected) : []), [selected, station, tool])
+  const drawsOutline = tool === 'platform' || (tool === 'structure' && OUTLINE_STRUCTURES.includes(options.structureKind))
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -190,6 +213,20 @@ export function EditorCanvas({
     const rect = e.currentTarget.getBoundingClientRect()
     return { x: e.clientX - rect.left, y: e.clientY - rect.top }
   }
+
+  /** Handle of the selected item under the pointer. Corners win over mid-edge handles. */
+  const pickHandle = useCallback(
+    (screen: Point): Handle | null => {
+      let best: { h: Handle; d: number } | null = null
+      for (const h of handles) {
+        const s = worldToScreen(camera, h.p)
+        const d = Math.hypot(s.x - screen.x, s.y - screen.y) + (h.kind === 'corner' ? 0 : 2)
+        if (d <= HANDLE_PX && (!best || d < best.d)) best = { h, d }
+      }
+      return best?.h ?? null
+    },
+    [camera, handles],
+  )
 
   /** Entity under the pointer. Vertices of the selected / hovered line count, as do junctions and line ends. */
   const pick = useCallback(
@@ -228,13 +265,28 @@ export function EditorCanvas({
         }
         return { kind: 'free', p: world }
       }
+      if (tool === 'vertex') return snapPoint(station, world, { tolerance: VERTEX_TRACK_PX / camera.zoom, grid: pitch, nodes: false })
       if (tool === 'point') return snapPoint(station, world, { tolerance: 12 / camera.zoom, grid: null })
       if (tool === 'connect') return snapPoint(station, world, { tolerance: 10 / camera.zoom, grid: null })
+      if (tool === 'platform' || tool === 'structure') {
+        const p = shift && last ? { x: world.x, y: last.y } : world
+        return { kind: 'free', p: snapToGrid(p, pitch) }
+      }
       const s = snapPoint(station, shift && last ? { x: world.x, y: last.y } : world, { tolerance: tol, grid: pitch })
       return s.kind === 'free' && shift && last ? { kind: 'free', p: { x: snapToGrid(world, pitch).x, y: last.y } } : s
     },
     [camera.zoom, gridPitchNow, layout, station, tool],
   )
+
+  /** Last fixed point of the line or outline being drawn (for Shift = keep level). */
+  const lastDraftPoint = (): Point | undefined => {
+    if (draft?.kind === 'track') {
+      const a = draft.anchors[draft.anchors.length - 1]
+      return a ? (anchorPoint(station, a) ?? undefined) : undefined
+    }
+    if (draft?.kind === 'poly') return draft.points[draft.points.length - 1]
+    return undefined
+  }
 
   const create = (result: OpResult, notice?: string) => {
     if (result.station === station) return onNotice(notice ?? 'Nothing was added there.')
@@ -254,18 +306,50 @@ export function EditorCanvas({
     if (e.button === 1 || e.button === 2 || spaceDown || tool === 'pan') return startPan(e)
 
     if (tool === 'select') {
+      // 1. handles of the selected item
+      const handle = pickHandle(screen)
+      if (handle?.kind === 'corner') {
+        gesture.current = { kind: 'corner', ref: handle.ref, index: handle.index, base: station, from: handle.p, startWorld: world, moved: false }
+        return
+      }
+      if (handle?.kind === 'edgeMid') {
+        // Pull a new corner out of the middle of the edge.
+        const r = insertOutlineVertex(station, handle.ref, handle.p)
+        if (r) {
+          onLive(r.station)
+          gesture.current = { kind: 'corner', ref: handle.ref, index: r.index, base: r.station, from: handle.p, startWorld: world, moved: true }
+          return
+        }
+      }
+      if (handle?.kind === 'trackMid') {
+        // Pull a new bend out of the middle of the segment; the line stays selected.
+        const r = insertVertex(station, handle.trackId, handle.p)
+        if (r.ref) {
+          onLive(r.station)
+          gesture.current = { kind: 'move', ref: r.ref, base: r.station, startWorld: world, moved: true }
+          return
+        }
+      }
+
+      // 2. anything movable
       const hit = pick(screen)
       if (hit && isMovable(hit)) {
+        let part: MoveOptions['part']
+        if (hit.type === 'point') {
+          // The ring moves the point; the code beside it moves only the label.
+          const pm = station.assets.points.find((p) => p.id === hit.id)
+          const node = pm && station.nodes.find((n) => n.id === pm.nodeId)
+          const ring = node ? worldToScreen(camera, node) : null
+          part = ring && Math.hypot(ring.x - screen.x, ring.y - screen.y) <= NODE_PX ? 'body' : 'label'
+        }
         onSelect(hit)
-        gesture.current = { kind: 'move', ref: hit, base: station, startWorld: world, moved: false }
+        gesture.current = { kind: 'move', ref: hit, base: station, startWorld: world, moved: false, part }
         return
       }
       return startPan(e, hit)
     }
-    if (tool === 'platform' || (tool === 'structure' && options.structureKind !== 'lvv')) {
-      const a = snapToGrid(world, gridPitchNow)
-      gesture.current = { kind: 'rect', a, moved: false }
-      onDraft({ kind: 'rect', a, b: a })
+    if (tool === 'platform' || tool === 'structure') {
+      gesture.current = { kind: 'rect', a: snapToGrid(world, gridPitchNow), downAt: screen, moved: false }
       return
     }
     startPan(e)
@@ -275,6 +359,8 @@ export function EditorCanvas({
     const screen = local(e)
     const world = screenToWorld(camera, screen)
     const g = gesture.current
+    // Ctrl / Cmd snaps a drag to the grid (whether or not the grid is shown); otherwise drags are free.
+    const pitch = e.ctrlKey || e.metaKey ? gridPitch(camera.zoom) : null
 
     if (g?.kind === 'pan') {
       if (!g.moved && Math.hypot(e.clientX - g.downAt.x, e.clientY - g.downAt.y) > DRAG_PX) g.moved = true
@@ -288,30 +374,45 @@ export function EditorCanvas({
       return
     }
 
-    if (g?.kind === 'move') {
+    if (g?.kind === 'move' || g?.kind === 'corner') {
       if (!g.moved && Math.hypot(world.x - g.startWorld.x, world.y - g.startWorld.y) * camera.zoom > DRAG_PX) g.moved = true
       if (!g.moved) return
-      const pitch = e.altKey ? null : gridPitchNow
       let dx = world.x - g.startWorld.x
       let dy = world.y - g.startWorld.y
-      if (g.ref.type === 'node') {
-        const node = g.base.nodes.find((n) => n.id === g.ref.id)
-        if (!node) return
-        const target = snapToGrid({ x: node.x + dx, y: node.y + dy }, pitch)
-        dx = target.x - node.x
-        dy = target.y - node.y
-      } else if (pitch) {
-        dx = Math.round(dx / pitch) * pitch
-        dy = Math.round(dy / pitch) * pitch
+      if (e.shiftKey) [dx, dy] = lockAxis(dx, dy)
+      setCursor(world)
+
+      if (g.kind === 'corner') {
+        let target = { x: g.from.x + dx, y: g.from.y + dy }
+        if (pitch) {
+          const snapped = snapToGrid(target, pitch)
+          target = { x: e.shiftKey && dx === 0 ? target.x : snapped.x, y: e.shiftKey && dy === 0 ? target.y : snapped.y }
+        }
+        onLive(moveOutlineVertex(g.base, g.ref, g.index, target))
+        return
       }
-      onLive(moveEntity(g.base, g.ref, dx, dy, world))
+
+      // Things whose position is a vertex snap that vertex to the grid; others snap the movement.
+      const vertexId = g.ref.type === 'node' ? g.ref.id : g.ref.type === 'point' && g.part !== 'label' ? g.base.assets.points.find((p) => p.id === g.ref.id)?.nodeId : undefined
+      if (pitch) {
+        const node = vertexId ? g.base.nodes.find((n) => n.id === vertexId) : undefined
+        if (node) {
+          const target = snapToGrid({ x: node.x + dx, y: node.y + dy }, pitch)
+          // With Shift one axis is already locked (0): keep it locked.
+          dx = e.shiftKey && dx === 0 ? 0 : target.x - node.x
+          dy = e.shiftKey && dy === 0 ? 0 : target.y - node.y
+        } else {
+          dx = Math.round(dx / pitch) * pitch
+          dy = Math.round(dy / pitch) * pitch
+        }
+      }
+      onLive(moveEntity(g.base, g.ref, dx, dy, { cursor: world, part: g.part }))
       return
     }
 
     if (g?.kind === 'rect') {
-      const b = snapToGrid(world, gridPitchNow)
-      g.moved = true
-      onDraft({ kind: 'rect', a: g.a, b })
+      if (!g.moved && Math.hypot(screen.x - g.downAt.x, screen.y - g.downAt.y) > DRAG_PX && draft?.kind !== 'poly') g.moved = true
+      if (g.moved) onDraft({ kind: 'rect', a: g.a, b: snapToGrid(world, gridPitchNow) })
       return
     }
 
@@ -322,8 +423,7 @@ export function EditorCanvas({
       setSnap(null)
     } else {
       if (hovered) setHovered(null)
-      const lastAnchor = draft?.kind === 'track' ? draft.anchors[draft.anchors.length - 1] : undefined
-      setSnap(snapFor(world, e.shiftKey, lastAnchor ? (anchorPoint(station, lastAnchor) ?? undefined) : undefined))
+      setSnap(snapFor(world, e.shiftKey, lastDraftPoint()))
     }
   }
 
@@ -335,16 +435,18 @@ export function EditorCanvas({
     const screen = local(e)
     const world = screenToWorld(camera, screen)
 
-    if (g.kind === 'move') return onGestureEnd()
+    if (g.kind === 'move' || g.kind === 'corner') return onGestureEnd()
 
     if (g.kind === 'rect') {
-      const b = snapToGrid(world, gridPitchNow)
-      onDraft(null)
-      if (tool === 'platform') {
-        if (!g.moved) return onNotice('Drag a rectangle to draw a platform.')
-        return create(addPlatform(station, g.a, b), 'That platform is too small.')
+      if (g.moved) {
+        const b = snapToGrid(world, gridPitchNow)
+        onDraft(null)
+        if (tool === 'platform') return create(addPlatform(station, g.a, b), 'That platform is too small.')
+        return create(addStructure(station, options.structureKind, g.a, b))
       }
-      return create(addStructure(station, options.structureKind, g.a, g.moved ? b : g.a))
+      if (drawsOutline) return addOutlineCorner(screen, world, e.shiftKey)
+      // Boxes on posts and the LVV are placed with a click.
+      return create(addStructure(station, options.structureKind, g.a, g.a), 'Place the LVV on a line.')
     }
 
     if (g.moved) return
@@ -353,10 +455,22 @@ export function EditorCanvas({
     tap(world, e.shiftKey)
   }
 
+  /** Platform / building outline: each click adds a corner; clicking the first corner closes it. */
+  const addOutlineCorner = (screen: Point, world: Point, shift: boolean) => {
+    const pts = draft?.kind === 'poly' ? draft.points : []
+    const first = pts[0]
+    if (first && pts.length >= 3) {
+      const s = worldToScreen(camera, first)
+      if (Math.hypot(s.x - screen.x, s.y - screen.y) <= CLOSE_PX) return onFinishDraft()
+    }
+    const p = snapFor(world, shift, pts[pts.length - 1]).p
+    const prev = pts[pts.length - 1]
+    if (prev && Math.hypot(prev.x - p.x, prev.y - p.y) < 0.5) return
+    onDraft({ kind: 'poly', points: [...pts, p] })
+  }
+
   const tap = (world: Point, shift: boolean) => {
-    const lastAnchor = draft?.kind === 'track' ? draft.anchors[draft.anchors.length - 1] : undefined
-    const last = lastAnchor ? (anchorPoint(station, lastAnchor) ?? undefined) : undefined
-    const s = snapFor(world, shift, last)
+    const s = snapFor(world, shift, lastDraftPoint())
 
     switch (tool) {
       case 'track': {
@@ -375,6 +489,29 @@ export function EditorCanvas({
         }
         onDraft({ kind: 'track', anchors: [...(draft?.kind === 'track' ? draft.anchors : []), a] })
         return
+      }
+      case 'vertex': {
+        // 1. the edge of the selected platform / building
+        const outline = outlineOf(station, selected)
+        if (outline && selected) {
+          const edge = nearestOutlineEdge(outline, world)
+          if (edge && edge.d * camera.zoom <= VERTEX_TRACK_PX) {
+            const r = insertOutlineVertex(station, selected, world)
+            if (r) return onCommit({ station: r.station, ref: selected })
+          }
+        }
+        // 2. a line under the pointer: add a bend there
+        if (s.kind === 'track') {
+          const r = addTrackVertex(station, s.trackId, s.p)
+          return create({ station: r.station, ref: { type: 'track', id: s.trackId } }, 'There is already a vertex there.')
+        }
+        // 3. beyond the end of the selected line: extend it
+        if (selected?.type === 'track') {
+          const r = addTrackVertex(station, selected.id, s.p)
+          return create({ station: r.station, ref: selected })
+        }
+        if (outline) return onNotice('Click on an edge of the selected shape to add a corner.')
+        return onNotice('Click a line to add a bend, or select a line first and click beyond its end to extend it.')
       }
       case 'connect': {
         if (s.kind === 'free') return onNotice('Click on a line.')
@@ -400,9 +537,6 @@ export function EditorCanvas({
         return create(addBridge(station, s.p.x))
       case 'text':
         return create(addAnnotation(station, snapToGrid(world, gridPitchNow)))
-      case 'structure':
-        // Only the LVV is placed by a click; the others use the rectangle gesture.
-        return create(addStructure(station, options.structureKind, world, world), 'Place the LVV on a line.')
       case 'origin': {
         const scale = station.meta.chainage
         if (!scale) return
@@ -415,15 +549,28 @@ export function EditorCanvas({
   }
 
   const onDoubleClick = (e: MouseEvent<HTMLCanvasElement>) => {
-    if (tool === 'track') return onFinishTrack()
+    if (tool === 'track' || draft?.kind === 'poly') return onFinishDraft()
     if (tool !== 'select') return
     const rect = e.currentTarget.getBoundingClientRect()
     const screen = { x: e.clientX - rect.left, y: e.clientY - rect.top }
-    const hit = pick(screen)
-    if (hit?.type === 'track') {
-      const world = screenToWorld(camera, screen)
-      create(insertVertex(station, hit.id, world))
+    const world = screenToWorld(camera, screen)
+
+    // Selected outline: double-click a corner to remove it, an edge to add one.
+    const outline = outlineOf(station, selected)
+    if (outline && selected) {
+      const handle = pickHandle(screen)
+      if (handle?.kind === 'corner') {
+        if (outline.length <= 3) return onNotice('A shape needs at least three corners.')
+        return onCommit({ station: removeOutlineVertex(station, selected, handle.index), ref: selected })
+      }
+      const edge = nearestOutlineEdge(outline, world)
+      if (edge && edge.d * camera.zoom <= HIT_PX) {
+        const r = insertOutlineVertex(station, selected, world)
+        if (r) return onCommit({ station: r.station, ref: selected })
+      }
     }
+    const hit = pick(screen)
+    if (hit?.type === 'track') create(insertVertex(station, hit.id, world))
   }
 
   const cursorClass =
@@ -439,6 +586,7 @@ export function EditorCanvas({
           ? 'cursor-crosshair'
           : 'cursor-default'
 
+  const shown = snap?.p ?? cursor
   return (
     <div ref={containerRef} className="absolute inset-0">
       <canvas
@@ -458,14 +606,14 @@ export function EditorCanvas({
         onDoubleClick={onDoubleClick}
         onContextMenu={(e) => {
           e.preventDefault()
-          if (draft?.kind === 'track') onFinishTrack()
+          if (draft?.kind === 'track' || draft?.kind === 'poly') onFinishDraft()
           else onDraft(null)
         }}
       />
-      {cursor && (
+      {shown && (
         <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-outline-variant bg-surface-container/90 px-2 py-1 text-xs text-on-surface-variant tabular-nums">
-          x {(snap?.p ?? cursor).x.toFixed(1)} · y {(snap?.p ?? cursor).y.toFixed(1)}
-          {station.meta.chainage && <span className="text-on-surface"> · CH {chainageAt(station.meta.chainage, (snap?.p ?? cursor).x).toFixed(1)} M</span>}
+          x {shown.x.toFixed(1)} · y {shown.y.toFixed(1)}
+          {station.meta.chainage && <span className="text-on-surface"> · CH {chainageAt(station.meta.chainage, shown.x).toFixed(1)} M</span>}
           {snap?.kind === 'node' && <span className="text-secondary"> · node {snap.nodeId}</span>}
           {snap?.kind === 'track' && <span className="text-secondary"> · on {station.tracks.find((t) => t.id === snap.trackId)?.name}</span>}
         </div>

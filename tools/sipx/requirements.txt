@@ -1,0 +1,6 @@
+pymupdf>=1.24
+pillow>=10
+numpy>=1.24
+opencv-python-headless>=4.8   # scans only
+scikit-image>=0.21           # scans only
+pytesseract>=0.3.10          # stroke-text sheets and scans (needs the tesseract program)

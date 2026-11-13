@@ -1,14 +1,34 @@
 import { ArrowDown, ArrowUp, Plus, Trash2 } from 'lucide-react'
 import {
   chainageAt,
+  DEFAULT_ROUTE_INDICATOR_ROUTES,
+  ROUTE_INDICATOR_ROUTES,
+  shapeCentre,
+  sortRoutes,
   type EntityRef,
+  type RouteIndicatorRoute,
   type Platform,
   type Signal,
   type SignalElement,
   type Station,
   type Structure,
 } from '@/sip/model'
-import { circuitCode, chainageOfX, numberOf, platformMetrics, TRACK_KINDS, STRUCTURE_NAMES, trackXRange } from '@/sip/edit'
+import {
+  circuitCode,
+  chainageOfX,
+  entityPosition,
+  insertOutlineVertex,
+  moveOutlineVertex,
+  moveToTrack,
+  numberOf,
+  outlineOf,
+  placeEntity,
+  platformMetrics,
+  removeOutlineVertex,
+  TRACK_KINDS,
+  STRUCTURE_NAMES,
+  trackXRange,
+} from '@/sip/edit'
 import { buttonClass, CheckField, NumberField, ReadOnly, Section, SelectField, TextField } from './fields'
 
 interface PropertiesPanelProps {
@@ -16,9 +36,91 @@ interface PropertiesPanelProps {
   selected: EntityRef | null
   /** Live edit while typing; `onCommit` closes it as one undo step. */
   onEdit: (ref: EntityRef, patch: Record<string, unknown>) => void
+  /** Live edit that rewrites the station (moves, reshapes); also closed by `onCommit`. */
+  onChange: (change: (s: Station) => Station) => void
   onCommit: () => void
   onDelete: () => void
   onSelect: (ref: EntityRef) => void
+}
+
+/** Exact X / Y for anything that can be moved. Things on a line only take a position along it. */
+function PositionSection({ station, selected, onChange, onCommit }: { station: Station; selected: EntityRef; onChange: PropertiesPanelProps['onChange']; onCommit: () => void }) {
+  const pos = entityPosition(station, selected)
+  if (!pos) return null
+  const scale = station.meta.chainage
+  return (
+    <Section title="Position">
+      <p className="text-[11px] text-on-surface-variant">{pos.what}. Type a value, or drag on the drawing (arrow keys nudge by 1, Shift + arrow by 10).</p>
+      <div className="grid grid-cols-2 gap-2">
+        <NumberField label="X" value={pos.p.x} onChange={(x) => onChange((s) => placeEntity(s, selected, { x, y: entityPosition(s, selected)?.p.y ?? pos.p.y }))} onCommit={onCommit} />
+        {pos.axes === 'xy' ? (
+          <NumberField label="Y" value={pos.p.y} onChange={(y) => onChange((s) => placeEntity(s, selected, { x: entityPosition(s, selected)?.p.x ?? pos.p.x, y }))} onCommit={onCommit} />
+        ) : (
+          <ReadOnly label="Y">{pos.p.y.toFixed(2)} (on line)</ReadOnly>
+        )}
+      </div>
+      {scale && (
+        <NumberField
+          label="At chainage"
+          unit="M"
+          value={Math.round(chainageAt(scale, pos.p.x) * 100) / 100}
+          hint={`Moves it to this chainage (${scale.label}). West of the centre line counts as negative.`}
+          onChange={(ch) => {
+            // chainage = |x - origin| × scale; keep it on the side of the centre line it is on now unless the value is negative.
+            const side = ch < 0 ? -1 : pos.p.x < scale.originX ? -1 : 1
+            const x = scale.originX + side * (Math.abs(ch) / scale.metresPerUnit)
+            onChange((s) => placeEntity(s, selected, { x, y: entityPosition(s, selected)?.p.y ?? pos.p.y }))
+          }}
+          onCommit={onCommit}
+        />
+      )}
+    </Section>
+  )
+}
+
+/** Corners of a platform or building, each editable, with add / remove. */
+function OutlineSection({ station, selected, onChange, onCommit }: { station: Station; selected: EntityRef; onChange: PropertiesPanelProps['onChange']; onCommit: () => void }) {
+  const pts = outlineOf(station, selected)
+  if (!pts) return null
+  const apply = (change: (s: Station) => Station) => {
+    onChange(change)
+    onCommit()
+  }
+  return (
+    <Section title={`Outline (${pts.length} corners)`}>
+      <p className="text-[11px] text-on-surface-variant">Any shape: drag a corner on the drawing, drag a + to add one, or double-click a corner to remove it.</p>
+      {pts.map((p, i) => (
+        <div key={i} className="flex items-end gap-1.5">
+          <span className="w-4 pb-1.5 text-[11px] text-on-surface-variant tabular-nums">{i + 1}</span>
+          <div className="grid min-w-0 flex-1 grid-cols-2 gap-1.5">
+            <NumberField label="X" value={p.x} onChange={(x) => onChange((s) => moveOutlineVertex(s, selected, i, { x, y: outlineOf(s, selected)?.[i]?.y ?? p.y }))} onCommit={onCommit} />
+            <NumberField label="Y" value={p.y} onChange={(y) => onChange((s) => moveOutlineVertex(s, selected, i, { x: outlineOf(s, selected)?.[i]?.x ?? p.x, y }))} onCommit={onCommit} />
+          </div>
+          <button
+            type="button"
+            aria-label={`Add a corner after corner ${i + 1}`}
+            title="Add a corner after this one"
+            onClick={() => {
+              const next = pts[(i + 1) % pts.length]!
+              apply((s) => insertOutlineVertex(s, selected, { x: (p.x + next.x) / 2, y: (p.y + next.y) / 2 })?.station ?? s)
+            }}
+            className="rounded p-1 pb-1.5 text-on-surface-variant hover:text-primary"
+          >
+            <Plus className="size-3.5" />
+          </button>
+          <button
+            type="button"
+            aria-label={`Remove corner ${i + 1}`}
+            disabled={pts.length <= 3}
+            onClick={() => apply((s) => removeOutlineVertex(s, selected, i))}
+            className="rounded p-1 pb-1.5 text-on-surface-variant hover:text-error disabled:opacity-30"
+          >
+            <Trash2 className="size-3.5" />
+          </button>
+        </div>
+      ))}
+    </Section>
+  )
 }
 
 const SIGNAL_KINDS = [
@@ -53,11 +155,71 @@ function defaultElement(kind: SignalElement['kind']): SignalElement {
       return { kind: 'marker', text: 'P' }
     case 'shunt':
       return { kind: 'shunt' }
-    case "routeIndicator":
-      return { kind: 'routeIndicator', direction: 'both' }
+    case 'routeIndicator':
+      return { kind: 'routeIndicator', routes: [...DEFAULT_ROUTE_INDICATOR_ROUTES] }
     default:
       return { kind }
   }
+}
+
+/** Small drawing of the indicator as it appears on the plan: |<| facing east, |>| facing west. */
+function RouteArmsPreview({ routes, headDir }: { routes: RouteIndicatorRoute[]; headDir: Signal['headDir'] }) {
+  const dir = headDir === 'east' ? 1 : -1
+  const px = dir === 1 ? 6 : 22 // pivot
+  const left = -dir // y sign of the driver's left
+  const tips: Record<RouteIndicatorRoute, [number, number]> = {
+    left: [px, 14 + left * 11],
+    upperLeft: [px + dir * 16, 14 + left * 8],
+    upperRight: [px + dir * 16, 14 - left * 8],
+    right: [px, 14 - left * 11],
+  }
+  return (
+    <svg viewBox="0 0 28 28" className="size-7 shrink-0 text-on-surface" aria-hidden>
+      {ROUTE_INDICATOR_ROUTES.map(({ id }) => (
+        <line
+          key={id}
+          x1={px}
+          y1={14}
+          x2={tips[id][0]}
+          y2={tips[id][1]}
+          stroke="currentColor"
+          strokeWidth={1.6}
+          strokeLinecap="round"
+          opacity={routes.includes(id) ? 1 : 0.15}
+        />
+      ))}
+    </svg>
+  )
+}
+
+/** Toggle the arms of a route indicator: any combination of left, upper left, upper right and right. */
+function RouteArmsEditor({ routes, headDir, onChange }: { routes: RouteIndicatorRoute[]; headDir: Signal['headDir']; onChange: (routes: RouteIndicatorRoute[]) => void }) {
+  return (
+    <div className="flex items-center gap-1.5 pl-1">
+      <RouteArmsPreview routes={routes} headDir={headDir} />
+      <div role="group" aria-label="Route indicator arms" className="flex flex-wrap gap-1">
+        {ROUTE_INDICATOR_ROUTES.map((r) => {
+          const on = routes.includes(r.id)
+          const last = on && routes.length === 1
+          return (
+            <button
+              key={r.id}
+              type="button"
+              aria-pressed={on}
+              disabled={last}
+              title={last ? 'A route indicator needs at least one arm' : `${on ? 'Remove' : 'Add'} the ${r.label.toLowerCase()} arm (as the driver sees it)`}
+              onClick={() => onChange(sortRoutes(on ? routes.filter((x) => x !== r.id) : [...routes, r.id]))}
+              className={`rounded-md border px-1.5 py-0.5 text-[11px] transition-colors disabled:cursor-not-allowed ${
+                on ? 'border-primary bg-primary text-on-primary' : 'border-outline-variant text-on-surface-variant hover:text-on-surface'
+              }`}
+            >
+              {r.short} {r.label}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
 function ElementsEditor({ signal, set, commit }: { signal: Signal; set: (patch: Record<string, unknown>) => void; commit: () => void }) {
@@ -75,7 +237,8 @@ function ElementsEditor({ signal, set, commit }: { signal: Signal; set: (patch: 
     <div className="space-y-1.5">
       <p className="text-[11px] text-on-surface-variant">Parts of the head, listed outward from the post.</p>
       {signal.elements.map((el, i) => (
-        <div key={i} className="flex items-center gap-1">
+        <div key={i} className="space-y-1">
+          <div className="flex items-center gap-1">
           <select
             value={el.kind}
             onChange={(e) => write(signal.elements.map((x, j) => (j === i ? defaultElement(e.target.value as SignalElement['kind']) : x)))}
@@ -129,6 +292,14 @@ function ElementsEditor({ signal, set, commit }: { signal: Signal; set: (patch: 
           <button type="button" aria-label="Remove part" onClick={() => write(signal.elements.filter((_, j) => j !== i))} className="rounded p-1 text-on-surface-variant hover:text-error">
             <Trash2 className="size-3.5" />
           </button>
+          </div>
+          {el.kind === 'routeIndicator' && (
+            <RouteArmsEditor
+              routes={el.routes}
+              headDir={signal.headDir}
+              onChange={(routes) => write(signal.elements.map((x, j) => (j === i ? { kind: 'routeIndicator', routes } : x)))}
+            />
+          )}
         </div>
       ))}
       <button type="button" className={buttonClass} onClick={() => write([...signal.elements, defaultElement('lamp')])}>
@@ -139,7 +310,7 @@ function ElementsEditor({ signal, set, commit }: { signal: Signal; set: (patch: 
   )
 }
 
-export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete, onSelect }: PropertiesPanelProps) {
+export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit, onDelete, onSelect }: PropertiesPanelProps) {
   if (!selected) {
     return (
       <div className="space-y-2 p-4 text-xs text-on-surface-variant">
@@ -158,6 +329,12 @@ export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete,
   const { assets } = station
   const scale = station.meta.chainage
   const ch = (x: number) => (scale ? `${chainageAt(scale, x).toFixed(2)} M ${scale.label}` : '–')
+  const trackOptions = station.tracks.map((t) => ({ id: t.id, label: `${t.name}${t.lineNo ? ` (line ${t.lineNo})` : ''}` }))
+  /** Move a signal / joint / LVV onto another line (one undo step). */
+  const toTrack = (trackId: string) => {
+    onChange((s) => moveToTrack(s, selected, trackId))
+    onCommit()
+  }
 
   const body = (() => {
     switch (selected.type) {
@@ -184,8 +361,27 @@ export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete,
               <NumberField label="Line number" value={t.lineNo} onChange={(v) => set({ lineNo: v })} onCommit={onCommit} />
               <TextField label="Remarks" value={t.remarks ?? ''} onChange={(v) => set({ remarks: v || undefined })} onCommit={onCommit} multiline />
             </Section>
+            <Section title={`Vertices (${t.nodeIds.length})`}>
+              <p className="text-[11px] text-on-surface-variant">Drag a + on the line to add a bend, or use the Add vertex tool (N), which also extends the line past its ends.</p>
+              <div className="flex flex-wrap gap-1">
+                {t.nodeIds.map((id, i) => {
+                  const n = station.nodes.find((n) => n.id === id)
+                  return (
+                    <button
+                      key={`${id}-${i}`}
+                      type="button"
+                      onClick={() => onSelect({ type: 'node', id })}
+                      title={n ? `x ${n.x}, y ${n.y} (${n.kind})` : id}
+                      className="rounded bg-surface-container-high px-2 py-0.5 text-xs text-secondary tabular-nums hover:text-primary"
+                    >
+                      {i + 1}
+                      {n ? ` · ${n.x.toFixed(0)}, ${n.y.toFixed(0)}` : ''}
+                    </button>
+                  )
+                })}
+              </div>
+            </Section>
             <Section title="Computed">
-              <ReadOnly label="Vertices">{t.nodeIds.length}</ReadOnly>
               {scale && <ReadOnly label="Length">{Math.round((hi - lo) * scale.metresPerUnit)} M</ReadOnly>}
               <ReadOnly label="Signals">{assets.signals.filter((s) => s.trackId === t.id).length}</ReadOnly>
               <ReadOnly label="Joints">{assets.joints.filter((j) => j.trackId === t.id).length}</ReadOnly>
@@ -244,9 +440,8 @@ export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete,
               onChange={(v) => setNow({ kind: v })}
             />
             <TextField label="Label" value={n.label ?? ''} onChange={(v) => set({ label: v || undefined })} onCommit={onCommit} />
-            <NumberField label="X" value={n.x} onChange={(v) => set({ x: v })} onCommit={onCommit} />
-            <NumberField label="Y" value={n.y} onChange={(v) => set({ y: v })} onCommit={onCommit} />
             <ReadOnly label="Chainage">{ch(n.x)}</ReadOnly>
+            <ReadOnly label="On lines">{station.tracks.filter((t) => t.nodeIds.includes(n.id)).map((t) => t.name).join(', ') || '–'}</ReadOnly>
           </Section>
         )
       }
@@ -289,7 +484,7 @@ export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete,
                 ]}
                 onChange={(v) => setNow({ board: v || undefined })}
               />
-              <ReadOnly label="On line">{station.tracks.find((t) => t.id === s.trackId)?.name ?? s.trackId}</ReadOnly>
+              <SelectField label="On line" value={s.trackId} options={trackOptions} onChange={toTrack} hint="Moves the signal to that line at the same place along the yard." />
               <ReadOnly label="Chainage">{ch(s.footX)}</ReadOnly>
             </Section>
             <Section title="Head">
@@ -338,9 +533,8 @@ export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete,
         if (!j) return null
         return (
           <Section title="Insulated joint">
-            <NumberField label="Position (x)" value={j.x} onChange={(v) => set({ x: v })} onCommit={onCommit} />
             <ReadOnly label="Chainage">{ch(j.x)}</ReadOnly>
-            <ReadOnly label="On line">{station.tracks.find((t) => t.id === j.trackId)?.name ?? j.trackId}</ReadOnly>
+            <SelectField label="On line" value={j.trackId} options={trackOptions} onChange={toTrack} />
           </Section>
         )
       }
@@ -399,7 +593,16 @@ export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete,
       case 'structure': {
         const st = assets.structures.find((s) => s.id === selected.id)
         if (!st) return null
-        return <StructureForm station={station} structure={st} set={set} setNow={setNow} commit={onCommit} />
+        return (
+          <>
+            <StructureForm station={station} structure={st} set={set} setNow={setNow} commit={onCommit} />
+            {(st.at ?? st.foot) && (
+              <Section title="Line">
+                <SelectField label={st.at ? 'On line' : 'Post stands on'} value={(st.at ?? st.foot)!.trackId} options={trackOptions} onChange={toTrack} />
+              </Section>
+            )}
+          </>
+        )
       }
       case 'bridge': {
         const b = assets.bridges.find((b) => b.id === selected.id)
@@ -458,6 +661,8 @@ export function PropertiesPanel({ station, selected, onEdit, onCommit, onDelete,
         </button>
       </div>
       {body}
+      <PositionSection station={station} selected={selected} onChange={onChange} onCommit={onCommit} />
+      <OutlineSection station={station} selected={selected} onChange={onChange} onCommit={onCommit} />
     </div>
   )
 }
@@ -516,7 +721,7 @@ function StructureForm({
   setNow: (patch: Record<string, unknown>) => void
   commit: () => void
 }) {
-  const cx = s.shape ? (s.shape.x0 + s.shape.x1) / 2 : s.at?.x
+  const cx = s.shape ? shapeCentre(s.shape).x : s.at?.x
   const auto = cx === undefined ? undefined : chainageOfX(station, cx)
   return (
     <Section title="Structure">

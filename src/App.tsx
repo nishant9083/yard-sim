@@ -1,5 +1,5 @@
-import { FilePlus2, Pencil, Upload } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { FilePlus2, Pencil, Play, Upload } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import {
   blankStation,
   cloneStation,
@@ -15,6 +15,8 @@ import {
   type NewStationInput,
   type Station,
 } from '@/sip'
+import { hasSimulation } from '@/sim/registry'
+import { SimulationView } from '@/sim/ui/SimulationView'
 
 const bundled = new Map(stationList.map((s) => [s.station.meta.code, s]))
 
@@ -27,6 +29,12 @@ export default function App() {
   const [code, setCode] = useState(stationList[0]!.station.meta.code)
   const [editing, setEditing] = useState<Station | null>(null)
   const [creating, setCreating] = useState(false)
+  const [hash, setHash] = useState(() => window.location.hash)
+  useEffect(() => {
+    const on = () => setHash(window.location.hash)
+    window.addEventListener('hashchange', on)
+    return () => window.removeEventListener('hashchange', on)
+  }, [])
   const [importError, setImportError] = useState<string | null>(null)
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -59,6 +67,28 @@ export default function App() {
     } catch (err) {
       setImportError(err instanceof Error ? err.message : 'That file is not a station.')
     }
+  }
+
+  // The simulator is its own page: #/simulate/<station code>.
+  const simCode = /^#\/simulate\/([^/]+)$/.exec(hash)?.[1]
+  const simStation = simCode ? stationList.find((e) => e.station.meta.code === decodeURIComponent(simCode))?.station : undefined
+  if (simStation && hasSimulation(simStation.meta.code)) {
+    return (
+      <div className="flex h-full flex-col">
+        <header className="flex items-center justify-between gap-4 border-b border-outline-variant bg-surface-container px-4 py-2">
+          <div className="min-w-0">
+            <h1 className="truncate text-sm font-medium text-on-surface">
+              {simStation.meta.name} <span className="text-on-surface-variant">({simStation.meta.code})</span> · Interlocking simulation
+            </h1>
+            <p className="truncate text-xs text-on-surface-variant">Driven by the route control chart · {simStation.meta.ends.west} ← → {simStation.meta.ends.east}</p>
+          </div>
+          <a className={headerButton} href="#/">Station viewer</a>
+        </header>
+        <main className="relative min-h-0 flex-1">
+          <SimulationView key={simStation.meta.code} station={simStation} />
+        </main>
+      </div>
+    )
   }
 
   if (editing) {
@@ -117,6 +147,12 @@ export default function App() {
           </label>
           <ValidationSummary issues={issues} />
           <span className="h-5 w-px bg-outline-variant" aria-hidden />
+          {hasSimulation(station.meta.code) && (
+            <a className={headerButton} href={`#/simulate/${station.meta.code}`} target="_blank" rel="noopener" title="Open the interlocking simulation for this station in a new page">
+              <Play className="size-3.5" aria-hidden />
+              Simulate
+            </a>
+          )}
           <button type="button" className={headerButton} onClick={() => openEditor(drafts[station.meta.code] ?? cloneStation(station))} title="Edit this station (continues your saved draft if there is one). The bundled station is not touched.">
             <Pencil className="size-3.5" aria-hidden />
             Edit

@@ -1,0 +1,4028 @@
+{
+ "meta": {
+  "code": "GNPR",
+  "name": "Gonpura",
+  "zone": "ECR",
+  "sipRef": "ECR/SIP/DNR/GONPURA/537/2023",
+  "coordinateSpace": "drawing-pt: sheet points shifted so the yard starts near the origin; x grows to the right-hand end, y grows downward",
+  "ends": {
+   "west": "NEORA (NEO END) AT KM:-0.00",
+   "east": "JAT DUMRI (JTDM END)"
+  },
+  "viewHints": {
+   "yExaggeration": 4
+  },
+  "chainage": {
+   "originX": 3447.64,
+   "metresPerUnit": 0.36422,
+   "label": "CH",
+   "origin": "Zero of the printed chainages (station centre line)"
+  },
+  "scale": {
+   "horizontal": "1cm = 10m",
+   "vertical": "1cm = 5m"
+  }
+ },
+ "nodes": [
+  {
+   "id": "N001",
+   "x": 40.0,
+   "y": 228.01,
+   "kind": "boundary"
+  },
+  {
+   "id": "N002",
+   "x": 515.11,
+   "y": 201.07,
+   "kind": "plain"
+  },
+  {
+   "id": "N003",
+   "x": 519.16,
+   "y": 201.79,
+   "kind": "plain"
+  },
+  {
+   "id": "N004",
+   "x": 1554.33,
+   "y": 201.79,
+   "kind": "junction"
+  },
+  {
+   "id": "N005",
+   "x": 1718.18,
+   "y": 201.79,
+   "kind": "junction"
+  },
+  {
+   "id": "N006",
+   "x": 5158.84,
+   "y": 201.79,
+   "kind": "junction"
+  },
+  {
+   "id": "N007",
+   "x": 5469.82,
+   "y": 201.79,
+   "kind": "junction"
+  },
+  {
+   "id": "N008",
+   "x": 6985.54,
+   "y": 201.79,
+   "kind": "boundary"
+  },
+  {
+   "id": "N009",
+   "x": 1558.96,
+   "y": 245.98,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N010",
+   "x": 1630.9,
+   "y": 241.12,
+   "kind": "plain"
+  },
+  {
+   "id": "N011",
+   "x": 1742.62,
+   "y": 237.22,
+   "kind": "plain"
+  },
+  {
+   "id": "N012",
+   "x": 1804.36,
+   "y": 236.5,
+   "kind": "plain"
+  },
+  {
+   "id": "N013",
+   "x": 1826.63,
+   "y": 236.5,
+   "kind": "junction"
+  },
+  {
+   "id": "N014",
+   "x": 1840.01,
+   "y": 236.5,
+   "kind": "junction"
+  },
+  {
+   "id": "N015",
+   "x": 5154.08,
+   "y": 236.5,
+   "kind": "junction"
+  },
+  {
+   "id": "N016",
+   "x": 5178.58,
+   "y": 236.5,
+   "kind": "junction"
+  },
+  {
+   "id": "N017",
+   "x": 5508.04,
+   "y": 236.5,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N018",
+   "x": 1979.32,
+   "y": 113.68,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N019",
+   "x": 2056.18,
+   "y": 117.52,
+   "kind": "plain"
+  },
+  {
+   "id": "N020",
+   "x": 2133.16,
+   "y": 119.32,
+   "kind": "plain"
+  },
+  {
+   "id": "N021",
+   "x": 2184.46,
+   "y": 119.38,
+   "kind": "plain"
+  },
+  {
+   "id": "N022",
+   "x": 2241.9,
+   "y": 118.12,
+   "kind": "junction"
+  },
+  {
+   "id": "N023",
+   "x": 2261.38,
+   "y": 117.7,
+   "kind": "plain"
+  },
+  {
+   "id": "N024",
+   "x": 4610.34,
+   "y": 117.7,
+   "kind": "junction"
+  },
+  {
+   "id": "N025",
+   "x": 4624.36,
+   "y": 117.7,
+   "kind": "plain"
+  },
+  {
+   "id": "N026",
+   "x": 4632.68,
+   "y": 117.6,
+   "kind": "junction"
+  },
+  {
+   "id": "N027",
+   "x": 4707.1,
+   "y": 116.74,
+   "kind": "plain"
+  },
+  {
+   "id": "N028",
+   "x": 4897.18,
+   "y": 109.84,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N029",
+   "x": 2190.88,
+   "y": 353.32,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N030",
+   "x": 2374.6,
+   "y": 341.08,
+   "kind": "plain"
+  },
+  {
+   "id": "N031",
+   "x": 2449.24,
+   "y": 337.36,
+   "kind": "junction"
+  },
+  {
+   "id": "N032",
+   "x": 4540.15,
+   "y": 337.36,
+   "kind": "junction"
+  },
+  {
+   "id": "N033",
+   "x": 4570.12,
+   "y": 337.36,
+   "kind": "plain"
+  },
+  {
+   "id": "N034",
+   "x": 4709.14,
+   "y": 340.78,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N035",
+   "x": 4131.34,
+   "y": 40.0,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N036",
+   "x": 4225.3,
+   "y": 58.06,
+   "kind": "plain"
+  },
+  {
+   "id": "N037",
+   "x": 4279.54,
+   "y": 66.64,
+   "kind": "plain"
+  },
+  {
+   "id": "N038",
+   "x": 4353.94,
+   "y": 74.42,
+   "kind": "junction"
+  },
+  {
+   "id": "N039",
+   "x": 4373.51,
+   "y": 73.95,
+   "kind": "junction"
+  }
+ ],
+ "tracks": [
+  {
+   "id": "L2",
+   "name": "MAIN LINE NEO-DHWN",
+   "kind": "main",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N001",
+    "N002",
+    "N003",
+    "N004",
+    "N005",
+    "N006",
+    "N007",
+    "N008"
+   ],
+   "lineNo": 2,
+   "remarks": "CAL- 1079.88m (FM TO FM). CSR- 1037.88m (STR. TO STR.)"
+  },
+  {
+   "id": "L3",
+   "name": "COMMON UNLOADING LINE",
+   "kind": "loop",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N009",
+    "N010",
+    "N011",
+    "N012",
+    "N013",
+    "N014",
+    "N015",
+    "N016",
+    "N017"
+   ],
+   "lineNo": 3,
+   "remarks": "CAL- 1030.38m (FM TO FM). CSR- 988.213m (STR. TO STR.). 120.0m OVER RUN LINE (NOT FOR STABLING)"
+  },
+  {
+   "id": "L1",
+   "name": "COMMON LOOP LINE",
+   "kind": "loop",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N018",
+    "N019",
+    "N020",
+    "N021",
+    "N022",
+    "N023",
+    "N024",
+    "N025",
+    "N026",
+    "N027",
+    "N028"
+   ],
+   "lineNo": 1,
+   "remarks": "CAL- 778.0m (PT TO FM). CSR- 750.0m (STR. TO STR.)"
+  },
+  {
+   "id": "L4",
+   "name": "COMMON UNLOADING LINE",
+   "kind": "loop",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N029",
+    "N030",
+    "N031",
+    "N032",
+    "N033",
+    "N034"
+   ],
+   "lineNo": 4,
+   "remarks": "CAL-764.0m (PT TO PT). CSR- 750.00m (STR. TO STR.)"
+  },
+  {
+   "id": "T05",
+   "name": "HOT AXLE SIDING (CSR 75.0m SH TO DSH)",
+   "kind": "siding",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N035",
+    "N036",
+    "N037",
+    "N038",
+    "N039"
+   ]
+  }
+ ],
+ "connections": [
+  {
+   "id": "C55",
+   "kind": "turnout",
+   "from": "N014",
+   "to": "N031",
+   "via": [
+    {
+     "x": 1852.96,
+     "y": 241.48
+    },
+    {
+     "x": 1962.64,
+     "y": 259.12
+    },
+    {
+     "x": 2078.8,
+     "y": 288.28
+    },
+    {
+     "x": 2098.72,
+     "y": 294.28
+    },
+    {
+     "x": 2301.4,
+     "y": 328.96
+    },
+    {
+     "x": 2377.36,
+     "y": 334.96
+    },
+    {
+     "x": 2449.24,
+     "y": 335.5
+    }
+   ],
+   "label": "55B/55A"
+  },
+  {
+   "id": "C53",
+   "kind": "crossover",
+   "from": "N032",
+   "to": "N015",
+   "via": [
+    {
+     "x": 4546.78,
+     "y": 334.24
+    },
+    {
+     "x": 4723.36,
+     "y": 318.88
+    },
+    {
+     "x": 4809.1,
+     "y": 305.26
+    },
+    {
+     "x": 5013.28,
+     "y": 253.48
+    },
+    {
+     "x": 5098.06,
+     "y": 241.24
+    },
+    {
+     "x": 5132.5,
+     "y": 240.4
+    },
+    {
+     "x": 5143.0,
+     "y": 240.76
+    }
+   ],
+   "label": "53A/53B"
+  },
+  {
+   "id": "C56",
+   "kind": "crossover",
+   "from": "N005",
+   "to": "N022",
+   "via": [
+    {
+     "x": 1725.04,
+     "y": 199.0
+    },
+    {
+     "x": 1884.16,
+     "y": 186.52
+    },
+    {
+     "x": 1964.92,
+     "y": 176.38
+    },
+    {
+     "x": 1987.96,
+     "y": 172.78
+    },
+    {
+     "x": 2206.48,
+     "y": 124.36
+    },
+    {
+     "x": 2232.82,
+     "y": 121.72
+    },
+    {
+     "x": 2236.96,
+     "y": 121.6
+    }
+   ],
+   "label": "56B/56A"
+  },
+  {
+   "id": "C52",
+   "kind": "crossover",
+   "from": "N026",
+   "to": "N006",
+   "via": [
+    {
+     "x": 4639.3,
+     "y": 124.3
+    },
+    {
+     "x": 4756.66,
+     "y": 137.14
+    },
+    {
+     "x": 5044.96,
+     "y": 186.22
+    },
+    {
+     "x": 5150.98,
+     "y": 198.46
+    }
+   ],
+   "label": "52A/52B"
+  },
+  {
+   "id": "C51",
+   "kind": "crossover",
+   "from": "N016",
+   "to": "N007",
+   "via": [
+    {
+     "x": 5178.58,
+     "y": 234.82
+    },
+    {
+     "x": 5251.6,
+     "y": 228.1
+    },
+    {
+     "x": 5370.04,
+     "y": 211.78
+    },
+    {
+     "x": 5420.92,
+     "y": 207.28
+    },
+    {
+     "x": 5463.16,
+     "y": 205.6
+    }
+   ],
+   "label": "51A/51B"
+  },
+  {
+   "id": "C57",
+   "kind": "crossover",
+   "from": "N004",
+   "to": "N013",
+   "via": [
+    {
+     "x": 1560.34,
+     "y": 204.1
+    },
+    {
+     "x": 1565.68,
+     "y": 204.34
+    },
+    {
+     "x": 1733.8,
+     "y": 228.22
+    },
+    {
+     "x": 1779.82,
+     "y": 232.06
+    },
+    {
+     "x": 1816.96,
+     "y": 232.78
+    }
+   ],
+   "label": "57B/57A"
+  },
+  {
+   "id": "C54",
+   "kind": "crossover",
+   "from": "N038",
+   "to": "N024",
+   "via": [
+    {
+     "x": 4359.1,
+     "y": 77.02
+    },
+    {
+     "x": 4518.88,
+     "y": 106.06
+    },
+    {
+     "x": 4603.48,
+     "y": 115.06
+    }
+   ],
+   "label": "54B/54A"
+  }
+ ],
+ "assets": {
+  "points": [
+   {
+    "id": "P51A",
+    "code": "51A",
+    "nodeId": "N016",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 51,
+    "label": {
+     "x": 5188.49,
+     "y": 229.82
+    },
+    "connectionId": "C51",
+    "crankHandle": "CH1"
+   },
+   {
+    "id": "P51B",
+    "code": "51B",
+    "nodeId": "N007",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 51,
+    "label": {
+     "x": 5450.51,
+     "y": 211.94
+    },
+    "connectionId": "C51",
+    "crankHandle": "CH1"
+   },
+   {
+    "id": "P52A",
+    "code": "52A",
+    "nodeId": "N026",
+    "ratio": "1 IN 8.5",
+    "switch": "SS",
+    "ratioInferred": false,
+    "control": 52,
+    "label": {
+     "x": 4649.21,
+     "y": 131.09
+    },
+    "connectionId": "C52",
+    "crankHandle": "CH2"
+   },
+   {
+    "id": "P52B",
+    "code": "52B",
+    "nodeId": "N006",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 52,
+    "label": {
+     "x": 5140.51,
+     "y": 193.67
+    },
+    "connectionId": "C52",
+    "crankHandle": "CH2"
+   },
+   {
+    "id": "P53A",
+    "code": "53A",
+    "nodeId": "N032",
+    "ratio": "1 IN 8.5",
+    "switch": "SS",
+    "ratioInferred": false,
+    "control": 53,
+    "label": {
+     "x": 4558.43,
+     "y": 329.66
+    },
+    "connectionId": "C53",
+    "crankHandle": "CH3"
+   },
+   {
+    "id": "P53B",
+    "code": "53B",
+    "nodeId": "N015",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 53,
+    "label": {
+     "x": 5130.41,
+     "y": 246.32
+    },
+    "connectionId": "C53",
+    "crankHandle": "CH3"
+   },
+   {
+    "id": "P54A",
+    "code": "54A",
+    "nodeId": "N024",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 54,
+    "label": {
+     "x": 4594.45,
+     "y": 99.95
+    },
+    "connectionId": "C54",
+    "crankHandle": "CH4"
+   },
+   {
+    "id": "P54B",
+    "code": "54B",
+    "nodeId": "N038",
+    "ratio": "",
+    "switch": "",
+    "ratioInferred": true,
+    "control": 54,
+    "label": {
+     "x": 4368.3,
+     "y": 84.12
+    },
+    "connectionId": "C54",
+    "crankHandle": "CH4"
+   },
+   {
+    "id": "P55A",
+    "code": "55A",
+    "nodeId": "N031",
+    "ratio": "1 IN 8.5",
+    "switch": "SS",
+    "ratioInferred": false,
+    "control": 55,
+    "label": {
+     "x": 2439.94,
+     "y": 331.4
+    },
+    "connectionId": "C55",
+    "crankHandle": "CH5"
+   },
+   {
+    "id": "P55B",
+    "code": "55B",
+    "nodeId": "N014",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 55,
+    "label": {
+     "x": 1864.57,
+     "y": 248.86
+    },
+    "connectionId": "C55",
+    "crankHandle": "CH5"
+   },
+   {
+    "id": "P56A",
+    "code": "56A",
+    "nodeId": "N022",
+    "ratio": "1 IN 8.5",
+    "switch": "SS",
+    "ratioInferred": false,
+    "control": 56,
+    "label": {
+     "x": 2227.27,
+     "y": 128.61
+    },
+    "connectionId": "C56",
+    "crankHandle": "CH6"
+   },
+   {
+    "id": "P56B",
+    "code": "56B",
+    "nodeId": "N005",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 56,
+    "label": {
+     "x": 1736.15,
+     "y": 192.5
+    },
+    "connectionId": "C56",
+    "crankHandle": "CH6"
+   },
+   {
+    "id": "P57A",
+    "code": "57A",
+    "nodeId": "N013",
+    "ratio": "1 IN 8.5",
+    "switch": "SS",
+    "ratioInferred": false,
+    "control": 57,
+    "label": {
+     "x": 1805.39,
+     "y": 229.46
+    },
+    "connectionId": "C57",
+    "crankHandle": "CH7"
+   },
+   {
+    "id": "P57B",
+    "code": "57B",
+    "nodeId": "N004",
+    "ratio": "1 IN 12",
+    "switch": "CS",
+    "ratioInferred": false,
+    "control": 57,
+    "label": {
+     "x": 1570.96,
+     "y": 210.83
+    },
+    "connectionId": "C57",
+    "crankHandle": "CH7"
+   }
+  ],
+  "signals": [
+   {
+    "id": "SIG_D_12",
+    "code": "D-12",
+    "name": "Signal D-12",
+    "kind": "distant",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 403.96,
+    "anchorX": 409.33,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "P"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 449.17,
+     "y": 172.56
+    },
+    "control": 12
+   },
+   {
+    "id": "SIG_S_12",
+    "code": "S-12",
+    "name": "Signal S-12",
+    "kind": "home",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 691.36,
+    "anchorX": 697.57,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "C"
+     },
+     {
+      "kind": "callingOn"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     },
+     {
+      "kind": "routeIndicator",
+      "routes": ["upperLeft","upperRight"]
+     }
+    ],
+    "label": {
+     "x": 750.43,
+     "y": 165.84
+    },
+    "control": 12,
+    "fullCode": "S-12 / C-12"
+   },
+   {
+    "id": "SIG_S_11",
+    "code": "S-11",
+    "name": "Signal S-11",
+    "kind": "advancedStarter",
+    "direction": "UP",
+    "trackId": "L2",
+    "footX": 1220.86,
+    "anchorX": 1215.32,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "B"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     }
+    ],
+    "label": {
+     "x": 1161.25,
+     "y": 228.84
+    },
+    "control": 11
+   },
+   {
+    "id": "SIG_SH_202",
+    "code": "SH-202",
+    "name": "Signal SH-202",
+    "kind": "shunt",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 1534.24,
+    "anchorX": 1540.35,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-202"
+     }
+    ],
+    "label": {
+     "x": 1550.08,
+     "y": 167.94
+    },
+    "control": 202
+   },
+   {
+    "id": "SIG_S_03",
+    "code": "S-03",
+    "name": "Signal S-03",
+    "kind": "starter",
+    "direction": "UP",
+    "trackId": "L2",
+    "footX": 2013.34,
+    "anchorX": 2007.59,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-103"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     }
+    ],
+    "label": {
+     "x": 1944.67,
+     "y": 217.92
+    },
+    "control": 3,
+    "fullCode": "S-03 / SH-103"
+   },
+   {
+    "id": "SIG_S_05",
+    "code": "S-05",
+    "name": "Signal S-05",
+    "kind": "starter",
+    "direction": "UP",
+    "trackId": "L3",
+    "footX": 2141.2,
+    "anchorX": 2135.75,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-105"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 2072.59,
+     "y": 251.1
+    },
+    "control": 5,
+    "fullCode": "S-05 / SH-105"
+   },
+   {
+    "id": "SIG_S_09",
+    "code": "S-09",
+    "name": "Signal S-09",
+    "kind": "starter",
+    "direction": "UP",
+    "trackId": "L1",
+    "footX": 2256.16,
+    "anchorX": 2292.11,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-109"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 2256.85,
+     "y": 148.62
+    },
+    "control": 9,
+    "fullCode": "S-09 / SH-109"
+   },
+   {
+    "id": "SIG_S_07",
+    "code": "S-07",
+    "name": "Signal S-07",
+    "kind": "starter",
+    "direction": "UP",
+    "trackId": "L4",
+    "footX": 2468.44,
+    "anchorX": 2458.43,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-107"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 2389.57,
+     "y": 357.78
+    },
+    "control": 7,
+    "fullCode": "S-07 / SH-107"
+   },
+   {
+    "id": "SIG_DSH_301",
+    "code": "DSH-301",
+    "name": "Signal DSH-301",
+    "kind": "shunt",
+    "direction": "UP",
+    "trackId": "T05",
+    "footX": 4140.06,
+    "anchorX": 4132.26,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "DSH-301"
+     }
+    ],
+    "label": {
+     "x": 4131.9,
+     "y": 83.34
+    },
+    "control": 301
+   },
+   {
+    "id": "SIG_S_06",
+    "code": "S-06",
+    "name": "Signal S-06",
+    "kind": "starter",
+    "direction": "DN",
+    "trackId": "L1",
+    "footX": 4315.18,
+    "anchorX": 4321.05,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-106"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 4383.31,
+     "y": 105.12
+    },
+    "control": 6,
+    "fullCode": "S-06 / SH-106"
+   },
+   {
+    "id": "SIG_SH_204",
+    "code": "SH-204",
+    "name": "Signal SH-204",
+    "kind": "shunt",
+    "direction": "DN",
+    "trackId": "T05",
+    "footX": 4341.2,
+    "anchorX": 4350.04,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-204"
+     }
+    ],
+    "label": {
+     "x": 4326.18,
+     "y": 51.26
+    },
+    "control": 204
+   },
+   {
+    "id": "SIG_S_10",
+    "code": "S-10",
+    "name": "Signal S-10",
+    "kind": "starter",
+    "direction": "DN",
+    "trackId": "L4",
+    "footX": 4527.52,
+    "anchorX": 4533.33,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-110"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 4595.65,
+     "y": 313.14
+    },
+    "control": 10,
+    "fullCode": "S-10 / SH-110"
+   },
+   {
+    "id": "SIG_S_08",
+    "code": "S-08",
+    "name": "Signal S-08",
+    "kind": "starter",
+    "direction": "DN",
+    "trackId": "L3",
+    "footX": 4854.28,
+    "anchorX": 4860.09,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-108"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 4922.41,
+     "y": 217.98
+    },
+    "control": 8,
+    "fullCode": "S-08 / SH-108"
+   },
+   {
+    "id": "SIG_S_04",
+    "code": "S-04",
+    "name": "Signal S-04",
+    "kind": "starter",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 4862.5,
+    "anchorX": 4868.37,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-104"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     }
+    ],
+    "label": {
+     "x": 4930.63,
+     "y": 183.36
+    },
+    "control": 4,
+    "fullCode": "S-04 / SH-104"
+   },
+   {
+    "id": "SIG_SH_201",
+    "code": "SH-201",
+    "name": "Signal SH-201",
+    "kind": "shunt",
+    "direction": "UP",
+    "trackId": "L2",
+    "footX": 5487.52,
+    "anchorX": 5481.41,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt",
+      "text": "SH-201"
+     }
+    ],
+    "label": {
+     "x": 5452.95,
+     "y": 226.34
+    },
+    "control": 201
+   },
+   {
+    "id": "SIG_S_02",
+    "code": "S-02",
+    "name": "Signal S-02",
+    "kind": "advancedStarter",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 5792.2,
+    "anchorX": 5797.44,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "B"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     }
+    ],
+    "label": {
+     "x": 5853.19,
+     "y": 183.54
+    },
+    "control": 2
+   },
+   {
+    "id": "SIG_S_01",
+    "code": "S-01",
+    "name": "Signal S-01",
+    "kind": "home",
+    "direction": "UP",
+    "trackId": "L2",
+    "footX": 6322.0,
+    "anchorX": 6315.91,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "C"
+     },
+     {
+      "kind": "callingOn"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     },
+     {
+      "kind": "routeIndicator",
+      "routes": ["upperLeft","upperRight"]
+     }
+    ],
+    "label": {
+     "x": 6266.15,
+     "y": 238.35
+    },
+    "control": 1,
+    "fullCode": "S-01 / C-01"
+   },
+   {
+    "id": "SIG_D_01",
+    "code": "D-01",
+    "name": "Signal D-01",
+    "kind": "distant",
+    "direction": "UP",
+    "trackId": "L2",
+    "footX": 6655.18,
+    "anchorX": 6649.03,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "P"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "label": {
+     "x": 6616.65,
+     "y": 241.98
+    },
+    "control": 1
+   }
+  ],
+  "joints": [
+   {
+    "id": "IJ_L2_549",
+    "trackId": "L2",
+    "x": 549.44
+   },
+   {
+    "id": "IJ_L2_698",
+    "trackId": "L2",
+    "x": 697.78
+   },
+   {
+    "id": "IJ_L2_1179",
+    "trackId": "L2",
+    "x": 1178.6
+   },
+   {
+    "id": "IJ_L2_1550",
+    "trackId": "L2",
+    "x": 1550.5
+   },
+   {
+    "id": "IJ_L2_1715",
+    "trackId": "L2",
+    "x": 1715.18
+   },
+   {
+    "id": "IJ_L2_2005",
+    "trackId": "L2",
+    "x": 2005.3
+   },
+   {
+    "id": "IJ_L2_2666",
+    "trackId": "L2",
+    "x": 2665.9
+   },
+   {
+    "id": "IJ_L2_3317",
+    "trackId": "L2",
+    "x": 3316.57
+   },
+   {
+    "id": "IJ_L2_3914",
+    "trackId": "L2",
+    "x": 3914.33
+   },
+   {
+    "id": "IJ_L2_4871",
+    "trackId": "L2",
+    "x": 4870.76
+   },
+   {
+    "id": "IJ_L2_5162",
+    "trackId": "L2",
+    "x": 5161.84
+   },
+   {
+    "id": "IJ_L2_5473",
+    "trackId": "L2",
+    "x": 5472.82
+   },
+   {
+    "id": "IJ_L2_5864",
+    "trackId": "L2",
+    "x": 5863.6
+   },
+   {
+    "id": "IJ_L2_6286",
+    "trackId": "L2",
+    "x": 6286.3
+   },
+   {
+    "id": "IJ_L2_6500",
+    "trackId": "L2",
+    "x": 6499.6
+   },
+   {
+    "id": "IJ_L1_2036",
+    "trackId": "L1",
+    "x": 2035.99
+   },
+   {
+    "id": "IJ_L1_2245",
+    "trackId": "L1",
+    "x": 2244.9
+   },
+   {
+    "id": "IJ_L1_2666",
+    "trackId": "L1",
+    "x": 2666.33
+   },
+   {
+    "id": "IJ_L1_3914",
+    "trackId": "L1",
+    "x": 3914.05
+   },
+   {
+    "id": "IJ_L1_4324",
+    "trackId": "L1",
+    "x": 4324.0
+   },
+   {
+    "id": "IJ_L1_4630",
+    "trackId": "L1",
+    "x": 4629.68
+   },
+   {
+    "id": "IJ_L1_4837",
+    "trackId": "L1",
+    "x": 4836.69
+   },
+   {
+    "id": "IJ_L3_1617",
+    "trackId": "L3",
+    "x": 1617.24
+   },
+   {
+    "id": "IJ_L3_1832",
+    "trackId": "L3",
+    "x": 1831.96
+   },
+   {
+    "id": "IJ_L3_2133",
+    "trackId": "L3",
+    "x": 2132.98
+   },
+   {
+    "id": "IJ_L3_2666",
+    "trackId": "L3",
+    "x": 2666.33
+   },
+   {
+    "id": "IJ_L3_3915",
+    "trackId": "L3",
+    "x": 3914.62
+   },
+   {
+    "id": "IJ_L3_4863",
+    "trackId": "L3",
+    "x": 4862.51
+   },
+   {
+    "id": "IJ_L3_5162",
+    "trackId": "L3",
+    "x": 5161.84
+   },
+   {
+    "id": "IJ_L3_5501",
+    "trackId": "L3",
+    "x": 5501.29
+   },
+   {
+    "id": "IJ_L4_2249",
+    "trackId": "L4",
+    "x": 2249.23
+   },
+   {
+    "id": "IJ_L4_2460",
+    "trackId": "L4",
+    "x": 2460.08
+   },
+   {
+    "id": "IJ_L4_2663",
+    "trackId": "L4",
+    "x": 2663.18
+   },
+   {
+    "id": "IJ_L4_3915",
+    "trackId": "L4",
+    "x": 3914.62
+   },
+   {
+    "id": "IJ_L4_4537",
+    "trackId": "L4",
+    "x": 4537.15
+   },
+   {
+    "id": "IJ_L4_4649",
+    "trackId": "L4",
+    "x": 4648.6
+   },
+   {
+    "id": "IJ_T05_4350",
+    "trackId": "T05",
+    "x": 4350.18
+   }
+  ],
+  "trackCircuits": [
+   {
+    "id": "TC_11_12T",
+    "code": "11/12T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 696.69,
+      "x1": 1176.77
+     }
+    ],
+    "label": {
+     "x": 953.11,
+     "y": 195.3
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_C12T",
+    "code": "C12T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 551.67,
+      "x1": 696.69
+     }
+    ],
+    "label": {
+     "x": 611.77,
+     "y": 195.54
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_011T",
+    "code": "011T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1176.77,
+      "x1": 1551.83
+     }
+    ],
+    "label": {
+     "x": 1354.87,
+     "y": 196.08
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_02T",
+    "code": "02T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 5472.32,
+      "x1": 5862.51
+     }
+    ],
+    "label": {
+     "x": 5528.99,
+     "y": 194.94
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_C01T",
+    "code": "C01T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 6287.71,
+      "x1": 6497.81
+     }
+    ],
+    "label": {
+     "x": 6401.86,
+     "y": 196.14
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_03T",
+    "code": "03T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 2005.74,
+      "x1": 2665.86
+     }
+    ],
+    "label": {
+     "x": 2408.27,
+     "y": 196.68
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_05T",
+    "code": "05T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 2132.87,
+      "x1": 2668.53
+     }
+    ],
+    "label": {
+     "x": 2407.19,
+     "y": 231.24
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_07T",
+    "code": "07T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L4",
+      "x0": 2461.75,
+      "x1": 2661.83
+     }
+    ],
+    "label": {
+     "x": 2558.51,
+     "y": 345.12
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_09T",
+    "code": "09T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 2245.15,
+      "x1": 2664.56
+     }
+    ],
+    "label": {
+     "x": 2406.71,
+     "y": 110.64
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_03_04T1",
+    "code": "03/04T1",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 2665.86,
+      "x1": 3315.99
+     }
+    ],
+    "label": {
+     "x": 2729.13,
+     "y": 210.42
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_05_08T",
+    "code": "05/08T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 2668.53,
+      "x1": 3915.06
+     }
+    ],
+    "label": {
+     "x": 2723.95,
+     "y": 231.6
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_06_09T",
+    "code": "06/09T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 2664.56,
+      "x1": 3911.66
+     }
+    ],
+    "label": {
+     "x": 2719.15,
+     "y": 111.24
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_57BT",
+    "code": "57BT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1551.83,
+      "x1": 1715.62
+     }
+    ],
+    "label": {
+     "x": 1647.59,
+     "y": 196.2
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_57AT",
+    "code": "57AT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 1618.05,
+      "x1": 1829.98
+     },
+     {
+      "connectionId": "C57"
+     }
+    ],
+    "label": {
+     "x": 1734.63,
+     "y": 244.59
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_9T",
+    "code": "9T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 2038.25,
+      "x1": 2245.15
+     }
+    ],
+    "label": {
+     "x": 2120.97,
+     "y": 113.58
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_7T",
+    "code": "7T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L4",
+      "x0": 2249.57,
+      "x1": 2461.75
+     },
+     {
+      "connectionId": "C55"
+     }
+    ],
+    "label": {
+     "x": 2283.33,
+     "y": 321.66
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_3T",
+    "code": "3T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1715.62,
+      "x1": 2005.74
+     },
+     {
+      "connectionId": "C56"
+     }
+    ],
+    "label": {
+     "x": 1871.19,
+     "y": 210.24
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_5T",
+    "code": "5T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 1829.98,
+      "x1": 2132.87
+     }
+    ],
+    "label": {
+     "x": 1994.37,
+     "y": 243.3
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_4T",
+    "code": "4T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 4871.28,
+      "x1": 5161.35
+     }
+    ],
+    "label": {
+     "x": 5017.47,
+     "y": 195.54
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_52AT",
+    "code": "52AT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 4628.52,
+      "x1": 4834.65
+     },
+     {
+      "connectionId": "C52"
+     }
+    ],
+    "label": {
+     "x": 4761.33,
+     "y": 109.62
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_10T",
+    "code": "10T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L4",
+      "x0": 4537.65,
+      "x1": 4649.93
+     },
+     {
+      "connectionId": "C53"
+     }
+    ],
+    "label": {
+     "x": 4616.87,
+     "y": 345.42
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_8T",
+    "code": "8T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 4861.22,
+      "x1": 5163.27
+     }
+    ],
+    "label": {
+     "x": 5017.47,
+     "y": 231.0
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_51BT",
+    "code": "51BT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 5161.35,
+      "x1": 5472.32
+     }
+    ],
+    "label": {
+     "x": 5310.83,
+     "y": 195.54
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_51AT",
+    "code": "51AT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 5163.27,
+      "x1": 5500.44
+     },
+     {
+      "connectionId": "C51"
+     }
+    ],
+    "label": {
+     "x": 5378.39,
+     "y": 230.46
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_6T",
+    "code": "6T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 4322.35,
+      "x1": 4628.52
+     },
+     {
+      "trackId": "T05",
+      "x0": 4351.28,
+      "x1": 4373.51
+     },
+     {
+      "connectionId": "C54"
+     }
+    ],
+    "label": {
+     "x": 4472.35,
+     "y": 112.68
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_1_2T",
+    "code": "1/2T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 5862.51,
+      "x1": 6287.71
+     }
+    ],
+    "label": {
+     "x": 6031.98,
+     "y": 196.14
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_04T",
+    "code": "04T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 3916.1,
+      "x1": 4871.28
+     }
+    ],
+    "label": {
+     "x": 4251.23,
+     "y": 196.68
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_08T",
+    "code": "08T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 3915.06,
+      "x1": 4861.22
+     }
+    ],
+    "label": {
+     "x": 4250.15,
+     "y": 231.24
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_06T",
+    "code": "06T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 3911.66,
+      "x1": 4322.35
+     }
+    ],
+    "label": {
+     "x": 4249.67,
+     "y": 110.64
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_010T",
+    "code": "010T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L4",
+      "x0": 3912.38,
+      "x1": 4537.65
+     }
+    ],
+    "label": {
+     "x": 4253.35,
+     "y": 332.28
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_03_04T",
+    "code": "03/04T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 3315.99,
+      "x1": 3916.1
+     }
+    ],
+    "label": {
+     "x": 3700.81,
+     "y": 210.0
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_07_010T",
+    "code": "07/010T",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L4",
+      "x0": 2661.83,
+      "x1": 3912.38
+     }
+    ],
+    "label": {
+     "x": 2727.15,
+     "y": 345.0
+    },
+    "approx": false
+   }
+  ],
+  "platforms": [
+   {
+    "id": "PF1",
+    "name": "Island Rail Level Platform",
+    "kind": "rail",
+    "text": "ISLAND RAIL LEVEL PLATFORM 600.0m LONG X 12.0m WIDE",
+    "lengthM": 600.0,
+    "widthM": 12.0,
+    "polygon": [
+     {
+      "x": 3443.68,
+      "y": 191.8
+     },
+     {
+      "x": 3443.68,
+      "y": 126.28
+     },
+     {
+      "x": 4130.02,
+      "y": 126.28
+     },
+     {
+      "x": 4130.02,
+      "y": 191.8
+     }
+    ],
+    "label": {
+     "x": 3813.89,
+     "y": 160.55
+    },
+    "startChainage": 1.44,
+    "endChainage": 248.54
+   },
+   {
+    "id": "PF2",
+    "name": "Unloading Rail Level Platform",
+    "kind": "rail",
+    "text": "UNLOADING RAIL LEVEL PLATFORM 600.0m LONG X 15.0m WIDE",
+    "lengthM": 600.0,
+    "widthM": 15.0,
+    "polygon": [
+     {
+      "x": 2482.78,
+      "y": 327.82
+     },
+     {
+      "x": 2482.78,
+      "y": 245.44
+     },
+     {
+      "x": 4130.02,
+      "y": 245.44
+     },
+     {
+      "x": 4130.02,
+      "y": 327.82
+     }
+    ],
+    "label": {
+     "x": 3793.29,
+     "y": 286.67
+    },
+    "startChainage": 351.42,
+    "endChainage": 248.54
+   }
+  ],
+  "structures": [
+   {
+    "id": "ST_CO_ON_BOARD_5RL",
+    "kind": "locoPilotBoard",
+    "name": "CO-ON BOARD (5RL)",
+    "foot": {
+     "trackId": "L2",
+     "x": 644.62
+    },
+    "shape": {
+     "type": "rect",
+     "x0": 650.2,
+     "y0": 178.12,
+     "x1": 669.4,
+     "y1": 188.38
+    }
+   },
+   {
+    "id": "ST_POST",
+    "kind": "locoPilotBoard",
+    "name": "POST",
+    "foot": {
+     "trackId": "L2",
+     "x": 6726.7
+    },
+    "shape": {
+     "type": "rect",
+     "x0": 6682.9,
+     "y0": 218.56,
+     "x1": 6715.84,
+     "y1": 235.06
+    }
+   },
+   {
+    "id": "ST_V_D_U",
+    "kind": "building",
+    "name": "V.D.U",
+    "shape": {
+     "type": "rect",
+     "x0": 3422.68,
+     "y0": 7.6,
+     "x1": 3465.1,
+     "y1": 33.25
+    },
+    "label": {
+     "x": 3443.55,
+     "y": 15.6
+    },
+    "chainage": 1.5
+   },
+   {
+    "id": "ST_STATION_BUILDING_6",
+    "kind": "building",
+    "name": "STATION BUILDING 62.210 m X 7.165 m",
+    "shape": {
+     "type": "rect",
+     "x0": 3379.3,
+     "y0": 44.98,
+     "x1": 3550.06,
+     "y1": 84.28
+    },
+    "label": {
+     "x": 3454.56,
+     "y": 69.57
+    },
+    "chainage": 2.5
+   }
+  ],
+  "bridges": [
+   {
+    "id": "BR11",
+    "number": "11",
+    "chainage": 2390.0,
+    "x": -3114.37,
+    "spec": "WATER WAY CROSSING / (1X4.0m RCC BOX) / UP / DN / NEXT BLOCK & JN. STATION NEORA (km 5.910)"
+   },
+   {
+    "id": "BR12",
+    "number": "12",
+    "chainage": 1141.98,
+    "x": 312.22,
+    "spec": "CANAL CROSSING 5.0m WIDE (km 6.367)"
+   },
+   {
+    "id": "BR13",
+    "number": "13",
+    "chainage": 1058.17,
+    "x": 542.32,
+    "spec": "WATER WAY CROSSING (km 7.067)"
+   },
+   {
+    "id": "BR14",
+    "number": "14",
+    "chainage": 851.86,
+    "x": 1108.76,
+    "spec": "CANAL CROSSING 5.0m WIDE / (2X5.0m RCC BOX) (km 7.44814)"
+   },
+   {
+    "id": "BR15",
+    "number": "15",
+    "chainage": 711.0,
+    "x": 1495.51,
+    "spec": "B.T. ROAD CROSSING / 3.50m WIDE / (2X5.0m RCC BOX),RUB (km 7.589)"
+   },
+   {
+    "id": "BR16",
+    "number": "16",
+    "chainage": 653.0,
+    "x": 5240.52,
+    "spec": "METAL ROAD CROSSING 3.50m WIDE / 2X 6.0m R.C.C.BOX, RUB (km 8.953)"
+   },
+   {
+    "id": "BR17",
+    "number": "17",
+    "chainage": 1014.0,
+    "x": 6231.68,
+    "spec": "CANAL CROSSING 4.0m WIDE / 1X 4.0m R.C.C.BOX, (km 9.314)"
+   },
+   {
+    "id": "BR18",
+    "number": "18",
+    "chainage": 1117.0,
+    "x": 6514.48,
+    "spec": "CANAL CROSSING 4.0m WIDE / 1X 4.0m R.C.C.BOX, (km 9.417)"
+   },
+   {
+    "id": "BR19",
+    "number": "19",
+    "chainage": 1466.0,
+    "x": 7472.7,
+    "spec": "WATER WAY CROSSING / 1X 3.0m R.C.C.BOX, (km 9.766)"
+   },
+   {
+    "id": "BR20",
+    "number": "20",
+    "chainage": 1920.0,
+    "x": 8719.21,
+    "spec": "1X 4.0m R.C.C.BOX, (km 10.220)"
+   },
+   {
+    "id": "BR21",
+    "number": "21",
+    "chainage": 2154.0,
+    "x": 9361.68,
+    "spec": "DRAIN CROSSING 4.0m WIDE / 1X 4.0m R.C.C.BOX, (km 10.454)"
+   }
+  ],
+  "chainageMarks": [
+   {
+    "id": "CM_2",
+    "kind": "SAND HUMP END",
+    "chainage": 704.443,
+    "x": 1513.51,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_3",
+    "kind": "PT-57B",
+    "chainage": 685.995,
+    "x": 1564.16,
+    "lane": "top"
+   },
+   {
+    "id": "CM_8",
+    "kind": "PT-56B",
+    "chainage": 626.0,
+    "x": 1728.89,
+    "lane": "top"
+   },
+   {
+    "id": "CM_5",
+    "kind": "FM",
+    "chainage": 601.995,
+    "x": 1794.79,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM",
+    "kind": "PT-57A",
+    "chainage": 592.42,
+    "x": 1821.08,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_12",
+    "kind": "PT-55B",
+    "chainage": 579.42,
+    "x": 1856.78,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_9",
+    "kind": "SAND HUMP END",
+    "chainage": 551.583,
+    "x": 1933.21,
+    "lane": "top"
+   },
+   {
+    "id": "CM_10",
+    "kind": "FM",
+    "chainage": 542.0,
+    "x": 1959.52,
+    "lane": "top"
+   },
+   {
+    "id": "CM_34",
+    "kind": "S-3",
+    "chainage": 521.0,
+    "x": 2017.17,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_13",
+    "kind": "FM",
+    "chainage": 495.42,
+    "x": 2087.41,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_35",
+    "kind": "S-5",
+    "chainage": 474.42,
+    "x": 2145.07,
+    "lane": "top"
+   },
+   {
+    "id": "CM_14",
+    "kind": "SAND HUMP END",
+    "chainage": 474.253,
+    "x": 2145.52,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_6",
+    "kind": "PT-56A",
+    "chainage": 439.56,
+    "x": 2240.78,
+    "lane": "top"
+   },
+   {
+    "id": "CM_7",
+    "kind": "S-9",
+    "chainage": 432.56,
+    "x": 2260.0,
+    "lane": "top"
+   },
+   {
+    "id": "CM_11",
+    "kind": "PT-55A",
+    "chainage": 362.23,
+    "x": 2453.1,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_33",
+    "kind": "RAMP END",
+    "chainage": 356.0,
+    "x": 2470.2,
+    "lane": "top"
+   },
+   {
+    "id": "CM_40",
+    "kind": "S-7",
+    "chainage": 355.23,
+    "x": 2472.31,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_32",
+    "kind": "PF END",
+    "chainage": 350.0,
+    "x": 2486.67,
+    "lane": "top"
+   },
+   {
+    "id": "CM_30",
+    "kind": "PF END",
+    "chainage": 250.0,
+    "x": 4134.04,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_29",
+    "kind": "BUFFER END",
+    "chainage": 250.44,
+    "x": 4135.25,
+    "lane": "top"
+   },
+   {
+    "id": "CM_31",
+    "kind": "RAMP END",
+    "chainage": 256.0,
+    "x": 4150.51,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_38",
+    "kind": "S-6",
+    "chainage": 317.44,
+    "x": 4319.2,
+    "lane": "top"
+   },
+   {
+    "id": "CM_27",
+    "kind": "T/S-54B",
+    "chainage": 333.44,
+    "x": 4363.13,
+    "lane": "top"
+   },
+   {
+    "id": "CM_28",
+    "kind": "FM",
+    "chainage": 338.44,
+    "x": 4376.86,
+    "lane": "top"
+   },
+   {
+    "id": "CM_39",
+    "kind": "S-10",
+    "chainage": 394.77,
+    "x": 4531.52,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_15",
+    "kind": "PT-53A",
+    "chainage": 401.77,
+    "x": 4550.74,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_26",
+    "kind": "PT-54A",
+    "chainage": 422.44,
+    "x": 4607.49,
+    "lane": "top"
+   },
+   {
+    "id": "CM_18",
+    "kind": "PT-52A",
+    "chainage": 435.44,
+    "x": 4643.19,
+    "lane": "top"
+   },
+   {
+    "id": "CM_16",
+    "kind": "SAND HUMP END",
+    "chainage": 478.793,
+    "x": 4762.22,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_37",
+    "kind": "S-8",
+    "chainage": 513.793,
+    "x": 4858.31,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_36",
+    "kind": "S-4",
+    "chainage": 516.88,
+    "x": 4866.79,
+    "lane": "top"
+   },
+   {
+    "id": "CM_24",
+    "kind": "FM",
+    "chainage": 534.96,
+    "x": 4916.43,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_19",
+    "kind": "FM",
+    "chainage": 537.88,
+    "x": 4924.45,
+    "lane": "top"
+   },
+   {
+    "id": "CM_20",
+    "kind": "SAND HUMP END",
+    "chainage": 547.463,
+    "x": 4950.76,
+    "lane": "top"
+   },
+   {
+    "id": "CM_17",
+    "kind": "PT-53B",
+    "chainage": 618.96,
+    "x": 5147.06,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_21",
+    "kind": "PT-52B",
+    "chainage": 621.88,
+    "x": 5155.08,
+    "lane": "top"
+   },
+   {
+    "id": "CM_22",
+    "kind": "PT-51A",
+    "chainage": 631.96,
+    "x": 5182.75,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_25",
+    "kind": "FM",
+    "chainage": 651.56,
+    "x": 5236.57,
+    "lane": "bottom"
+   },
+   {
+    "id": "CM_23",
+    "kind": "PT-51B",
+    "chainage": 735.56,
+    "x": 5467.2,
+    "lane": "top"
+   },
+   {
+    "id": "CM_4",
+    "kind": "DEAD END",
+    "chainage": 751.96,
+    "x": 5512.23,
+    "lane": "bottom"
+   }
+  ],
+  "gradients": [
+   {
+    "id": "G_2",
+    "direction": "BOTH",
+    "x": -3828.23,
+    "chainage": 2650.0,
+    "from": null,
+    "to": "1 IN 200",
+    "text": "CH: 2650.0m"
+   },
+   {
+    "id": "G",
+    "direction": "BOTH",
+    "x": 1072.69,
+    "chainage": 865.0,
+    "from": null,
+    "to": "F= 6851.85",
+    "text": "CH: 865.0m"
+   },
+   {
+    "id": "G_3",
+    "direction": "BOTH",
+    "x": 5644.12,
+    "chainage": 800.0,
+    "from": "F= 6851.85",
+    "to": null,
+    "text": "CH: 800.0m"
+   },
+   {
+    "id": "G_4",
+    "direction": "BOTH",
+    "x": 6330.53,
+    "chainage": 1050.0,
+    "from": null,
+    "to": "1 IN 1200.23",
+    "text": "CH: 1050.0m"
+   },
+   {
+    "id": "G_5",
+    "direction": "BOTH",
+    "x": 11959.03,
+    "chainage": 3100.0,
+    "from": "R1 IN 1200.23",
+    "to": null,
+    "text": "CH: 3100.0m"
+   },
+   {
+    "id": "G_6",
+    "direction": "BOTH",
+    "x": 12714.07,
+    "chainage": 3375.0,
+    "from": null,
+    "to": "R1 IN 299.76",
+    "text": "CH: 3375.0m"
+   }
+  ],
+  "dimensions": [
+   {
+    "id": "DH",
+    "kind": "horizontal",
+    "y": 224.05,
+    "x0": 549.46,
+    "x1": 691.36,
+    "text": "(65m)",
+    "label": {
+     "x": 621.6,
+     "y": 224.94
+    }
+   },
+   {
+    "id": "DH_2",
+    "kind": "horizontal",
+    "y": 148.51,
+    "x0": 6321.52,
+    "x1": 6499.72,
+    "text": "(65m)",
+    "label": {
+     "x": 6415.19,
+     "y": 150.54
+    }
+   },
+   {
+    "id": "DH_3",
+    "kind": "horizontal",
+    "y": 159.22,
+    "x0": 402.82,
+    "x1": 691.36,
+    "text": "1000.0m(MIN)",
+    "label": {
+     "x": 546.68,
+     "y": 159.18
+    }
+   },
+   {
+    "id": "DH_4",
+    "kind": "horizontal",
+    "y": 144.1,
+    "x0": 134.8,
+    "x1": 691.36,
+    "text": "1400.0m(MIN)",
+    "label": {
+     "x": 412.64,
+     "y": 144.0
+    }
+   },
+   {
+    "id": "DV",
+    "kind": "vertical",
+    "x": 3379.27,
+    "y0": 84.28,
+    "y1": 117.7,
+    "text": "6.12m",
+    "label": {
+     "x": 3372.6,
+     "y": 100.78
+    }
+   },
+   {
+    "id": "DV_2",
+    "kind": "vertical",
+    "x": 2642.74,
+    "y0": 201.7,
+    "y1": 236.44,
+    "text": "6.300m",
+    "label": {
+     "x": 2649.89,
+     "y": 219.65
+    }
+   },
+   {
+    "id": "DV_3",
+    "kind": "vertical",
+    "x": 5498.92,
+    "y0": 201.7,
+    "y1": 236.44,
+    "text": "6.30m",
+    "label": {
+     "x": 5504.27,
+     "y": 219.62
+    }
+   },
+   {
+    "id": "DV_4",
+    "kind": "vertical",
+    "x": 2642.86,
+    "y0": 118.24,
+    "y1": 201.04,
+    "text": "15.360m",
+    "label": {
+     "x": 2647.2,
+     "y": 157.65
+    }
+   },
+   {
+    "id": "DV_5",
+    "kind": "vertical",
+    "x": 2642.86,
+    "y0": 236.92,
+    "y1": 337.24,
+    "text": "18.360m",
+    "label": {
+     "x": 2647.2,
+     "y": 276.33
+    }
+   }
+  ],
+  "routeLabels": [
+   {
+    "id": "R",
+    "text": "12(L-1),C12(L-1),SH202(L-1).",
+    "x": 2934.06,
+    "y": 111.5,
+    "arrow": "east"
+   },
+   {
+    "id": "R_2",
+    "text": "12(L-2),C12(L-2),SH202(L-2).",
+    "x": 2933.04,
+    "y": 209.48,
+    "arrow": "east"
+   },
+   {
+    "id": "R_3",
+    "text": "12(L-3),C12(L-3),SH202(L-3).",
+    "x": 2932.5,
+    "y": 230.72,
+    "arrow": "east"
+   },
+   {
+    "id": "R_4",
+    "text": "12(L-4),C12(L-4),SH202(L-4).",
+    "x": 2931.96,
+    "y": 343.88,
+    "arrow": "east"
+   },
+   {
+    "id": "R_5",
+    "text": "01(L-1),C01(L-1),SH201(L-1).",
+    "x": 3601.86,
+    "y": 110.6,
+    "arrow": "west"
+   },
+   {
+    "id": "R_6",
+    "text": "01(L-2),C01(L-2),SH201(L-2).",
+    "x": 3603.18,
+    "y": 210.68,
+    "arrow": "west"
+   },
+   {
+    "id": "R_7",
+    "text": "01(L-3),C01(L-3),SH201(L-3).",
+    "x": 3603.78,
+    "y": 229.82,
+    "arrow": "west"
+   },
+   {
+    "id": "R_8",
+    "text": "01(L-4),C01(L-4),SH201(L-4).",
+    "x": 3600.18,
+    "y": 344.0,
+    "arrow": "west"
+   },
+   {
+    "id": "R_9",
+    "text": "03,05,07,09,SH103,SH105,SH107,SH109.",
+    "x": 1345.55,
+    "y": 209.3,
+    "arrow": "west"
+   },
+   {
+    "id": "R_10",
+    "text": "04,06,08,10,SH104,SH106,SH108,SH110, SH204.",
+    "x": 5653.05,
+    "y": 194.6,
+    "arrow": "east"
+   }
+  ],
+  "annotations": [
+   {
+    "id": "A",
+    "text": "SAND HUMP",
+    "x": 1533.31,
+    "y": 262.22,
+    "tone": "line"
+   },
+   {
+    "id": "A_2",
+    "text": "FM",
+    "x": 2074.08,
+    "y": 271.7,
+    "tone": "line"
+   },
+   {
+    "id": "A_3",
+    "text": "SAND HUMP",
+    "x": 4734.83,
+    "y": 355.82,
+    "tone": "line"
+   },
+   {
+    "id": "A_4",
+    "text": "SAND HUMP",
+    "x": 4918.48,
+    "y": 96.44,
+    "tone": "line"
+   },
+   {
+    "id": "A_5",
+    "text": "(5RL)",
+    "x": 6403.14,
+    "y": 208.86,
+    "tone": "end"
+   },
+   {
+    "id": "A_6",
+    "text": "CO-ON BOARD",
+    "x": 6363.09,
+    "y": 231.41,
+    "tone": "line"
+   },
+   {
+    "id": "A_7",
+    "text": "L-1",
+    "x": 792.25,
+    "y": 169.82,
+    "tone": "line"
+   },
+   {
+    "id": "A_8",
+    "text": "L-3",
+    "x": 792.01,
+    "y": 188.48,
+    "tone": "line"
+   },
+   {
+    "id": "A_9",
+    "text": "L-4",
+    "x": 778.45,
+    "y": 194.54,
+    "tone": "line"
+   },
+   {
+    "id": "A_10",
+    "text": "L-3",
+    "x": 6218.06,
+    "y": 234.72,
+    "tone": "line"
+   },
+   {
+    "id": "A_11",
+    "text": "L-4",
+    "x": 6234.74,
+    "y": 236.58,
+    "tone": "line"
+   },
+   {
+    "id": "A_12",
+    "text": "L-1",
+    "x": 6219.98,
+    "y": 215.58,
+    "tone": "line"
+   },
+   {
+    "id": "A_13",
+    "text": "FM",
+    "x": 1781.04,
+    "y": 213.86,
+    "tone": "line"
+   },
+   {
+    "id": "A_14",
+    "text": "SAND HUMP",
+    "x": 1950.16,
+    "y": 98.12,
+    "tone": "line"
+   },
+   {
+    "id": "A_15",
+    "text": "1.680m",
+    "x": 3345.08,
+    "y": 241.43,
+    "tone": "line"
+   },
+   {
+    "id": "A_16",
+    "text": "DE",
+    "x": 5515.95,
+    "y": 236.93,
+    "tone": "line"
+   },
+   {
+    "id": "A_17",
+    "text": "UP",
+    "x": 3402.35,
+    "y": 212.16,
+    "tone": "end"
+   },
+   {
+    "id": "A_18",
+    "text": "DN",
+    "x": 3496.93,
+    "y": 211.26,
+    "tone": "end"
+   },
+   {
+    "id": "A_19",
+    "text": "S/L HASSDAC",
+    "x": 5820.66,
+    "y": 220.28,
+    "tone": "line"
+   },
+   {
+    "id": "A_20",
+    "text": "BETWEEN",
+    "x": 5823.35,
+    "y": 230.12,
+    "tone": "line"
+   },
+   {
+    "id": "A_21",
+    "text": "GONPURA-JTDM",
+    "x": 5825.29,
+    "y": 240.56,
+    "tone": "line"
+   },
+   {
+    "id": "A_22",
+    "text": "FM",
+    "x": 1964.76,
+    "y": 189.56,
+    "tone": "line"
+   },
+   {
+    "id": "A_23",
+    "text": "SAND HUMP",
+    "x": 2166.91,
+    "y": 370.73,
+    "tone": "line"
+   },
+   {
+    "id": "A_24",
+    "text": "FM",
+    "x": 4929.48,
+    "y": 194.24,
+    "tone": "line"
+   },
+   {
+    "id": "A_25",
+    "text": "FM",
+    "x": 5241.6,
+    "y": 216.08,
+    "tone": "line"
+   },
+   {
+    "id": "A_26",
+    "text": "FM",
+    "x": 4921.5,
+    "y": 255.68,
+    "tone": "line"
+   },
+   {
+    "id": "A_27",
+    "text": "FM",
+    "x": 4363.26,
+    "y": 94.1,
+    "tone": "line"
+   },
+   {
+    "id": "A_28",
+    "text": "DE",
+    "x": 4123.63,
+    "y": 38.49,
+    "tone": "line"
+   },
+   {
+    "id": "A_29",
+    "text": "12.442m",
+    "x": 4176.57,
+    "y": 82.28,
+    "tone": "line"
+   },
+   {
+    "id": "A_30",
+    "text": "1.680m",
+    "x": 3344.3,
+    "y": 332.81,
+    "tone": "line"
+   },
+   {
+    "id": "A_31",
+    "text": "1.680m",
+    "x": 3345.08,
+    "y": 196.79,
+    "tone": "line"
+   },
+   {
+    "id": "A_32",
+    "text": "1.680m",
+    "x": 3345.08,
+    "y": 122.21,
+    "tone": "line"
+   },
+   {
+    "id": "A_33",
+    "text": "SH201(SDG.)",
+    "x": 4247.19,
+    "y": 68.51,
+    "tone": "line"
+   },
+   {
+    "id": "A_34",
+    "text": "UP",
+    "x": 6810.77,
+    "y": 192.6,
+    "tone": "end"
+   },
+   {
+    "id": "A_35",
+    "text": "NEXT HALT STN. ADPA AT km. 10.875 (FROM NEO)",
+    "x": 6895.88,
+    "y": 236.46,
+    "tone": "end"
+   },
+   {
+    "id": "A_36",
+    "text": "DN",
+    "x": 6923.59,
+    "y": 192.72,
+    "tone": "end"
+   },
+   {
+    "id": "A_37",
+    "text": "MAIN LINE (NEO-DHWN)",
+    "x": 6866.59,
+    "y": 195.69,
+    "tone": "line"
+   },
+   {
+    "id": "A_38",
+    "text": "(DISTANCE km. 2.575 FROM GONPURA)",
+    "x": 6925.52,
+    "y": 248.52,
+    "tone": "end"
+   },
+   {
+    "id": "A_39",
+    "text": "NEXT BLOCK & JN. STN. JATDUMRI AT km. 18.130 (FROM NEO)",
+    "x": 6861.9,
+    "y": 262.26,
+    "tone": "end"
+   },
+   {
+    "id": "A_40",
+    "text": "P.F.",
+    "x": 3445.06,
+    "y": 134.87,
+    "tone": "line"
+   },
+   {
+    "id": "A_41",
+    "text": "SHED",
+    "x": 3445.07,
+    "y": 149.51,
+    "tone": "line"
+   },
+   {
+    "id": "A_42",
+    "text": "16.0m",
+    "x": 3444.89,
+    "y": 165.59,
+    "tone": "line"
+   },
+   {
+    "id": "A_43",
+    "text": "LONG",
+    "x": 3444.99,
+    "y": 180.71,
+    "tone": "line"
+   },
+   {
+    "id": "A_44",
+    "text": "15.360m",
+    "x": 4178.02,
+    "y": 160.62,
+    "tone": "end"
+   },
+   {
+    "id": "A_45",
+    "text": "6.30m",
+    "x": 4178.47,
+    "y": 220.2,
+    "tone": "end"
+   },
+   {
+    "id": "A_46",
+    "text": "18.36m",
+    "x": 4178.07,
+    "y": 288.0,
+    "tone": "end"
+   },
+   {
+    "id": "A_47",
+    "text": "12.0m",
+    "x": 3373.33,
+    "y": 160.74,
+    "tone": "end"
+   },
+   {
+    "id": "A_48",
+    "text": "6.30m",
+    "x": 3373.75,
+    "y": 220.14,
+    "tone": "end"
+   },
+   {
+    "id": "A_49",
+    "text": "15.0m",
+    "x": 3373.33,
+    "y": 288.0,
+    "tone": "end"
+   },
+   {
+    "id": "A_50",
+    "text": "S/L HASSDAC",
+    "x": 1160.46,
+    "y": 166.58,
+    "tone": "line"
+   },
+   {
+    "id": "A_51",
+    "text": "BETWEEN",
+    "x": 1159.43,
+    "y": 176.36,
+    "tone": "line"
+   },
+   {
+    "id": "A_52",
+    "text": "GONPURA-NEO",
+    "x": 1162.7,
+    "y": 186.8,
+    "tone": "line"
+   }
+  ],
+  "breaks": [
+   {
+    "trackId": "L2",
+    "x": 360.7
+   },
+   {
+    "trackId": "L2",
+    "x": 255.58
+   },
+   {
+    "trackId": "L2",
+    "x": 517.13
+   },
+   {
+    "trackId": "L2",
+    "x": 6545.8
+   },
+   {
+    "trackId": "L2",
+    "x": 6671.14
+   }
+  ],
+  "connectionJoints": [
+   {
+    "connectionId": "C51",
+    "x": 5325.47,
+    "y": 217.92
+   },
+   {
+    "connectionId": "C53",
+    "x": 4886.33,
+    "y": 285.67
+   },
+   {
+    "connectionId": "C56",
+    "x": 1987.96,
+    "y": 172.78
+   },
+   {
+    "connectionId": "C55",
+    "x": 2098.15,
+    "y": 294.11
+   },
+   {
+    "connectionId": "C57",
+    "x": 1675.74,
+    "y": 219.97
+   }
+  ]
+ },
+ "info": {
+  "titleBlock": [
+   {
+    "label": "Title",
+    "value": "SIGNAL INTERLOCKING PLAN"
+   },
+   {
+    "label": "Station",
+    "value": "GONPURA"
+   },
+   {
+    "label": "Zone",
+    "value": "ECR"
+   },
+   {
+    "label": "Division",
+    "value": "DANAPUR"
+   },
+   {
+    "label": "Class",
+    "value": "B MACLS"
+   },
+   {
+    "label": "Standard of interlocking",
+    "value": "II"
+   },
+   {
+    "label": "Plan no.",
+    "value": "ECR/SIP/DNR/GONPURA/537/2023"
+   },
+   {
+    "label": "Scale",
+    "value": "SCALE (1:1000)"
+   },
+   {
+    "label": "Transverse scale",
+    "value": "1cm = 5m"
+   },
+   {
+    "label": "Longitudinal scale",
+    "value": "1cm = 10m"
+   }
+  ],
+  "lines": [
+   {
+    "track": "L1",
+    "lineNo": 1,
+    "name": "COMMON LOOP LINE",
+    "csl": "CSR- 750.0m (STR. TO STR.)",
+    "cslM": 750.0
+   },
+   {
+    "track": "L2",
+    "lineNo": 2,
+    "name": "MAIN LINE NEO-DHWN",
+    "csl": "CSR- 1037.88m (STR. TO STR.)",
+    "cslM": 1037.88
+   },
+   {
+    "track": "L3",
+    "lineNo": 3,
+    "name": "COMMON UNLOADING LINE",
+    "csl": "CSR- 988.213m (STR. TO STR.)",
+    "cslM": 988.213
+   },
+   {
+    "track": "L4",
+    "lineNo": 4,
+    "name": "COMMON UNLOADING LINE",
+    "csl": "CSR- 750.00m (STR. TO STR.)",
+    "cslM": 750.0
+   }
+  ],
+  "legend": [],
+  "notes": [
+   {
+    "no": "",
+    "text": "SIGNAL SPECIFIC NOTES - II"
+   },
+   {
+    "no": "10",
+    "text": "60 SEC. TIME DELAY PROVIDED FOR C-01& C-12 SIGNALS. 1"
+   },
+   {
+    "no": "11",
+    "text": "ANGLE OF XINGS ARE 1 IN 12 OR 1 IN 8 AS MENTIONED BELOW 2"
+   },
+   {
+    "no": "12",
+    "text": "SIGNAL OVERLAP-120m AND BLOCK OVERLAP-180m IS TAKEN"
+   },
+   {
+    "no": "13",
+    "text": "DUAL VDU IS PROVIDED FOR OPERATION IN VDU ROOM. ONE COLOUR MONITOR PROVIDED IN MAINTENANCE ROOM."
+   },
+   {
+    "no": "14",
+    "text": "CONTROL TELEPHONE PROVIDED AT VDU ROOM."
+   },
+   {
+    "no": "15",
+    "text": "L-XING DETAILS BETWEEN GONPURA - NEORA - NIL"
+   },
+   {
+    "no": "16",
+    "text": "L-XING DETAILS BETWEEN GONPURA - JATDUMRI - NIL"
+   },
+   {
+    "no": "17",
+    "text": "STANDARD COLOUR SCHEME NEEDS TO BE ADOPTED FOR DEPICTING:-: INTENDED ALTERATIONS IN THE SSP/SIP."
+   },
+   {
+    "no": "18",
+    "text": "FOULING TRACK CIRCUIT :- 01 NO. (3T). FOR OPERATION OF 57A/B IN REVERSE, 3T SHOULD BE CLEAR."
+   },
+   {
+    "no": "6",
+    "text": "DETAILS OF SIDING POINTS (IF ANY):-"
+   },
+   {
+    "no": "7",
+    "text": "INTERLOCKED LC GATE DETAILS: NIL"
+   },
+   {
+    "no": "8",
+    "text": "COMMUNICATION DETAILS: NIL"
+   },
+   {
+    "no": "17",
+    "text": "MAIN SIGNAL CALLING - ON SIGNAL C-01. C-12. SHUNT SIGNAL 103.104.105.106. 107. 108. 109. 110. 201. 202. 204."
+   },
+   {
+    "no": "",
+    "text": "GENERAL NOTES"
+   },
+   {
+    "no": "1",
+    "text": "THIS PLAN IS MADE FOR PROVISION OF NEW LINE BETWEEN NEORA TO JATDUMRI."
+   },
+   {
+    "no": "2",
+    "text": "THIS PLAN IS BASED ON ENGINEERING SCALE PLAN (ESP) NO : Y-103-2022"
+   },
+   {
+    "no": "3",
+    "text": "THIS PLAN SUPERSEDES SIP/SSP NO:-"
+   },
+   {
+    "no": "4",
+    "text": "THIS STATION IS LOCATED IN ELECTRIFIED SECTION."
+   },
+   {
+    "no": "5",
+    "text": "VISIBILITY OF NEW SIGNALS TO BE ENSURED BY SIGNAL SIGHTING COMMITTEE SUBJECT TO LIGHTING OF SIGNALS."
+   },
+   {
+    "no": "6",
+    "text": "SYSTEM OF WORKING IS ABSOLUTE BLOCK SYSTEM."
+   },
+   {
+    "no": "7",
+    "text": "THE GROUND MOUNTED LEVER FRAME ARE PROVIDED FOR SIDING POINT OPERATION AND LC GATE BOOM LOCKING:-"
+   },
+   {
+    "no": "8",
+    "text": "THE HPL IS PROVIDED FOR SIDING POINT AND STANDS NORMALLY IN. :-"
+   },
+   {
+    "no": "9",
+    "text": "ALL THE WORKS ARE CARRIED OUT AS PER THE PROVISIONS IN THE AND OTHER POLICY LETTERS."
+   },
+   {
+    "no": "10",
+    "text": "THE NEW EQUIPMENT IS PLACED AS PER SITE SURVEY."
+   },
+   {
+    "no": "11",
+    "text": "RECORD OF DESIGN DECISIONS ARE DETAILED IN SCHEME PLAN DESIGN LOG :-"
+   },
+   {
+    "no": "12",
+    "text": "FOULING POINTS ARE REQUIRED TO BE MEASURED ON SITE."
+   },
+   {
+    "no": "13",
+    "text": "SIGNAL AND SIGNAGES ARE IN ACCORDANCE WITH"
+   },
+   {
+    "no": "14",
+    "text": "THE CROSS OVER POINTS ARE OPERATED BY PARALLEL OPERATION."
+   },
+   {
+    "no": "15",
+    "text": "POINT ZONE TELEPHONES (PTZ) ARE PROVIDED AT TOP POINTS :-"
+   },
+   {
+    "no": "16",
+    "text": "NON-STANDARD SYMBOLS USED ON THIS PLAN ARE -"
+   },
+   {
+    "no": "17",
+    "text": "LIST OF ASSUMPTION BEING MADE WHILE SCHEME PLAN WAS IN PRODUCTION ARE"
+   },
+   {
+    "no": "18",
+    "text": "SCHEME PLAN SPECIFIC ISSUES WHICH ARE STILL TO BE RESOLVED"
+   },
+   {
+    "no": "19",
+    "text": "TYPE OF INTERLOCKING :"
+   },
+   {
+    "no": "20",
+    "text": "REFER INTERLOCKING CONTROL CHART FOR DETAILS OF ALL SIGNAL ROUTES."
+   },
+   {
+    "no": "21",
+    "text": "COMPLETION DETAILS TO BE INCORPORATED AFTER COMMISSIONING THE WORKS SUITING TO SITE CONDITIONS FOR GENERATING SIGNAL INTERLOCKING PLAN (RECORDS UPDATED)."
+   },
+   {
+    "no": "22",
+    "text": "SPECIAL NOTES RELATED TO SPECIFIC RAILWAY/ STATION LIKE SPT, EMERGENCY GATE KEY etc. - NIL"
+   },
+   {
+    "no": "23",
+    "text": "ALL MAIN SIGNALS, SUBSIDIARY SIGNALS, GROUND SHUNT SIGNALS, REPEATER SIGNALS, STANDARD AND MINIATURE INDICATORS, POSITION LIGHT JUNCTION INDICATORS ARE OF LED TYPE."
+   },
+   {
+    "no": "24",
+    "text": "AUTOMATIC MEDIA CHANGE OVER PROVIDED FOR BLOCK PANEL UFSBI."
+   }
+  ],
+  "tables": [
+   {
+    "id": "table1",
+    "title": "15.  L-XING DETAILS BETWEEN  GONPURA - NEORA  - NIL.",
+    "columns": [
+     "SL NO.",
+     "L.C. NO.",
+     "KM.",
+     "M/UM",
+     "CLASS",
+     "TVU",
+     "TELE.CONNECTED WITH STN.",
+     "INTERLOCKED NON-INTERLOCKED",
+     "REMARKS"
+    ],
+    "rows": [
+     [
+      "1.",
+      "NIL",
+      "_",
+      "_",
+      "_",
+      "_",
+      "_",
+      "_",
+      "_"
+     ]
+    ]
+   },
+   {
+    "id": "table2",
+    "title": "16. L-XING DETAILS BETWEEN GONPURA - JATDUMRI - NIL",
+    "columns": [
+     "SL NO.",
+     "L.C. NO.",
+     "KM.",
+     "M/UM",
+     "CLASS",
+     "TVU",
+     "TELE.CONNECTED WITH STN.",
+     "INTERLOCKED NON-INTERLOCKED",
+     "REMARKS"
+    ],
+    "rows": [
+     [
+      "1.",
+      "NIL",
+      "_",
+      "_",
+      "_",
+      "_",
+      "_",
+      "_",
+      "_"
+     ]
+    ]
+   },
+   {
+    "id": "table3",
+    "title": "SIDING POINT DETECTION TABLE (Elec):",
+    "columns": [
+     "SIDING POINT NO.",
+     "DETECTS POINT",
+     "PROVED IN SIGNAL NO.",
+     "LEADING TO"
+    ],
+    "rows": [
+     [
+      "-",
+      "-",
+      "-",
+      "-"
+     ]
+    ]
+   },
+   {
+    "id": "table4",
+    "title": "9. DETAILS OF SIGNAL ROUTES HAVING ALTERNATE OVERLAPS",
+    "columns": [
+     "SIGNAL NO.",
+     "LEADING TO",
+     "DETAILS OF OVERLAP"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "UP TO SAND HUMP WHEN POINT 56 NORMAL."
+     ],
+     [
+      "S1",
+      "LINE NO:-1 (S09)",
+      "UP TO LSS S11 WHEN POINT 56 REVERSE & 57 NORMAL."
+     ],
+     [
+      "S1",
+      "LINE NO:-2 (S03)",
+      "UP TO LSS S11 WHEN POINT 56 & 57 NORMAL."
+     ],
+     [
+      "",
+      "",
+      "UP TO SAND HUMP WHEN POINT 55 & 57 NORMAL."
+     ],
+     [
+      "S1",
+      "LINE NO:-3 (S05)",
+      "UP TO  LSS S11 WHEN POINT 55 NORMAL & 57 REVERSE."
+     ],
+     [
+      "",
+      "",
+      "UP TO SAND HUMP WHEN POINT 55 NORMAL."
+     ],
+     [
+      "S1",
+      "LINE NO:-4",
+      "UP TO LSS S11 WHEN POINT 55 & 57 REVERSE."
+     ],
+     [
+      "",
+      "(S07)",
+      "UP TO SAND HUMP WHEN POINT 55 REVERSE & 57 NORMAL."
+     ]
+    ]
+   },
+   {
+    "id": "table5",
+    "title": "SIGNAL NO.",
+    "columns": [
+     "SIGNAL NO.",
+     "LEADING TO",
+     "DETAILS OF OVERLAP"
+    ],
+    "rows": [
+     [
+      "",
+      "LINE NO:-1",
+      "UP TO SAND HUMP WHEN POINT 52 & 54 NORMAL."
+     ],
+     [
+      "S12",
+      "(S06)",
+      "UP TO LSS S02 WHEN POINT 51 NORMAL, 52 REVERSE & 54 NORMAL."
+     ],
+     [
+      "S12",
+      "LINE NO:-2 (S04)",
+      "UP TO LSS S02 WHEN POINT 51 & 52 NORMAL.."
+     ],
+     [
+      "",
+      "",
+      "UP TO DEAD WHEN POINT 51 & 53 NORMAL."
+     ],
+     [
+      "S12",
+      "LINE NO:-3 (S08)",
+      "UP TO  LSS S02 WHEN POINT 51 REVERSE & 53 NORMAL."
+     ],
+     [
+      "",
+      "",
+      "UP TO SAND HUMP WHEN POINT 53 NORMAL."
+     ],
+     [
+      "S12",
+      "LINE NO:-4",
+      "UP TO LSS S02 WHEN POINT 51 & 53 REVERSE."
+     ],
+     [
+      "",
+      "(S10)",
+      "UP TO DEAD END WHEN POINT 51 NORMAL & 53 REVERSE."
+     ]
+    ]
+   },
+   {
+    "id": "table6",
+    "title": "5. DETAILS OF IRS TYPE MOTOR OPERATED POINTS WITH CRANK HANDLE GROUPING:",
+    "columns": [
+     "GROUP",
+     "POINTS",
+     "CH EKT KEPT AT"
+    ],
+    "rows": [
+     [
+      "CH1",
+      "51",
+      "VDU ROOM"
+     ],
+     [
+      "CH2",
+      "52",
+      "VDU ROOM"
+     ],
+     [
+      "CH3",
+      "53",
+      "VDU ROOM"
+     ],
+     [
+      "CH4",
+      "54",
+      "VDU ROOM"
+     ],
+     [
+      "CH5",
+      "55",
+      "VDU ROOM"
+     ],
+     [
+      "CH6",
+      "56",
+      "VDU ROOM"
+     ],
+     [
+      "CH7",
+      "57",
+      "VDU ROOM"
+     ]
+    ]
+   },
+   {
+    "id": "table7",
+    "title": "4. DETAILS OF AXLE COUNTERS:",
+    "columns": [
+     "AXLE COUNTER SECTION",
+     "TYPE OF AXLE COUNTER",
+     "TYPE OF RESETTING",
+     "LOCATION OF RESETTING BOX",
+     "LOCATION OF CO OPERATION PLUNGER/LV BOX"
+    ],
+    "rows": [
+     [
+      "GONPURA - NEORA (UP)",
+      "S/L HASSDAC",
+      "PREPARATORY",
+      "NEORA",
+      "GONPURA"
+     ],
+     [
+      "NEORA - GONPURA (DN)",
+      "S/L HASSDAC",
+      "PREPARATORY",
+      "GONPURA",
+      "NEORA"
+     ],
+     [
+      "GONPURA - JAT DUMRI (DN)",
+      "S/L HASSDAC",
+      "PREPARATORY",
+      "JAT DUMRI",
+      "GONPURA"
+     ],
+     [
+      "JAT DUMRI - GONPURA (UP)",
+      "S/L HASSDAC",
+      "PREPARATORY",
+      "GONPURA",
+      "JAT DUMRI"
+     ]
+    ]
+   },
+   {
+    "id": "table8",
+    "title": "3. DETAILS OF TRACK CIRCUITS:",
+    "columns": [
+     "TRACK CIRCUITS",
+     "TYPE OF TRACK REMARKS, CIRCUITS",
+     "IF ANY"
+    ],
+    "rows": [
+     [
+      "C01T, 1/2T, 02T, 51AT, 51BT, 52AT, 4T, 6T, 8T, 10T, 04T, 06T, 08T, 010T, 03/04T, 03/04T1, 05/08T, 06/09T, 07/010T, 03T, 05T, 07T, 09T, 3T, 5T, 7T, 9T, 57AT, 57BT, 011T, 11/12T, C12T.",
+      "32 NOS. D.C. TRACK CIRCUIT",
+      "NIL."
+     ]
+    ]
+   },
+   {
+    "id": "table9",
+    "title": "1. NUMBER GRID:",
+    "columns": [
+     "FUNCTIONS",
+     "LOCATION or DIRECTION",
+     "RANGE",
+     "SPARES"
+    ],
+    "rows": [
+     [
+      "SIGNAL",
+      "RIGHT TO LEFT",
+      "01-29 (ODD NUMBERS)",
+      "13 to 29"
+     ],
+     [
+      "",
+      "RIGHT TO LEFT",
+      "02-30 (EVEN NUMBERS)",
+      "14 to 30"
+     ],
+     [
+      "",
+      "RIGHT TO LEFT",
+      "C-01 (ODD NUMBERS)",
+      "--"
+     ],
+     [
+      "CO-ON SIGNAL",
+      "LEFT TO RIGHT",
+      "C-12 (EVEN NUMBERS)",
+      "--"
+     ],
+     [
+      "DEPENDENT",
+      "LEFT TO RIGHT",
+      "104, 106, 108, 110",
+      "--"
+     ],
+     [
+      "SHUNT SIGNAL",
+      "RIGHT TO LEFT",
+      "103, 105, 107, 109",
+      "--"
+     ],
+     [
+      "INDEPENDENT",
+      "LEFT TO RIGHT",
+      "202, 204",
+      "--"
+     ],
+     [
+      "SHUNT SIGNAL",
+      "RIGHT TO LEFT",
+      "201",
+      "--"
+     ],
+     [
+      "DUMMY SHUNT",
+      "LEFT TO RIGHT",
+      "NIL.",
+      "--"
+     ],
+     [
+      "SIGNAL",
+      "RIGHT TO LEFT",
+      "DSH-301.",
+      "--"
+     ],
+     [
+      "POINTS",
+      "RIGHT",
+      "51, 52, 53, 54.",
+      "--"
+     ],
+     [
+      "",
+      "LEFT",
+      "55, 56, 57.",
+      "--"
+     ],
+     [
+      "SIDING POINTS",
+      "LEFT",
+      "NIL",
+      "--"
+     ],
+     [
+      "",
+      "RIGHT",
+      "NIL",
+      "--"
+     ],
+     [
+      "",
+      "LEFT",
+      "NIL",
+      "--"
+     ],
+     [
+      "LC GATE",
+      "RIGHT",
+      "NIL",
+      "--"
+     ]
+    ]
+   },
+   {
+    "id": "table10",
+    "title": "2. BLOCK WORKING:",
+    "columns": [
+     "SECTION",
+     "TYPE OF BLOCK WORKING",
+     "BLOCK INSTRUMENT TYPE",
+     "BPAC",
+     "REMARKS IF ANY"
+    ],
+    "rows": [
+     [
+      "`GONPURA'- `NEORA'",
+      "ABSOLUTE BLOCK",
+      "UFSBI-SL WITH BLOCK PANEL",
+      "SL/HASSDAC",
+      "LOCATED AT VDU ROOM"
+     ],
+     [
+      "`GONPURA'- `JAT DUMRI'",
+      "ABSOLUTE BLOCK",
+      "UFSBI-SL WITH BLOCK PANEL",
+      "SL/HASSDAC",
+      "LOCATED AT VDU ROOM"
+     ]
+    ]
+   }
+  ],
+  "procedures": [],
+  "aspectCharts": [
+   {
+    "direction": "DN",
+    "title": "ASPECT CONTROL CHART (DN DIRECTION) FROM NEORA END",
+    "signals": [
+     {
+      "name": "D-12",
+      "code": "D-12"
+     },
+     {
+      "name": "S-12",
+      "code": "S-12"
+     },
+     {
+      "name": "S-04",
+      "code": "S-04"
+     },
+     {
+      "name": "S-02",
+      "code": "S-02"
+     }
+    ],
+    "gaps": [
+     "1000m(MIN)",
+     "1530m",
+     "328m"
+    ],
+    "rows": [
+     [
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "YY",
+      "Y",
+      "R",
+      ""
+     ],
+     [
+      "",
+      "",
+      "(S-6/8/10)",
+      ""
+     ],
+     [
+      "YY",
+      "YwU",
+      "R",
+      ""
+     ],
+     [
+      "Y",
+      "R",
+      "Y",
+      ""
+     ]
+    ]
+   },
+   {
+    "direction": "UP",
+    "title": "ASPECT CONTROL CHART ( UP DIRECTION) FROM JAT DUMRI END",
+    "signals": [
+     {
+      "name": "S-11",
+      "code": "S-11"
+     },
+     {
+      "name": "S-03",
+      "code": "S-03"
+     },
+     {
+      "name": "S-01",
+      "code": "S-01"
+     },
+     {
+      "name": "D-01",
+      "code": "D-01"
+     }
+    ],
+    "gaps": [
+     "278m",
+     "1580m",
+     "1000m (min)"
+    ],
+    "rows": [
+     [
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "",
+      "R",
+      "Y",
+      "YY"
+     ],
+     [
+      "",
+      "(S-5/7/9)",
+      "",
+      ""
+     ],
+     [
+      "",
+      "R",
+      "YwU",
+      "YY"
+     ],
+     [
+      "",
+      "Y",
+      "R",
+      "Y"
+     ]
+    ]
+   }
+  ],
+  "revisions": []
+ }
+}

@@ -1,0 +1,862 @@
+{
+ "meta": {
+  "code": "ANGDU",
+  "name": "ANGDU",
+  "zone": "",
+  "sipRef": "",
+  "coordinateSpace": "drawing-pt: sheet points shifted so the yard starts near the origin; x grows to the right-hand end, y grows downward",
+  "ends": {
+   "west": "BSI",
+   "east": "3CFM"
+  },
+  "viewHints": {
+   "yExaggeration": 4
+  }
+ },
+ "nodes": [
+  {
+   "id": "N001",
+   "x": 1103.2,
+   "y": 45.4,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N002",
+   "x": 906.88,
+   "y": 45.4,
+   "kind": "junction"
+  },
+  {
+   "id": "N003",
+   "x": 905.08,
+   "y": 45.4,
+   "kind": "plain"
+  },
+  {
+   "id": "N004",
+   "x": 1271.68,
+   "y": 45.4,
+   "kind": "boundary"
+  },
+  {
+   "id": "N005",
+   "x": 40.0,
+   "y": 40.36,
+   "kind": "boundary"
+  },
+  {
+   "id": "N006",
+   "x": 210.16,
+   "y": 40.36,
+   "kind": "plain"
+  },
+  {
+   "id": "N007",
+   "x": 237.88,
+   "y": 40.0,
+   "kind": "plain"
+  },
+  {
+   "id": "N008",
+   "x": 565.48,
+   "y": 40.0,
+   "kind": "bufferStop"
+  },
+  {
+   "id": "N009",
+   "x": 843.04,
+   "y": 45.4,
+   "kind": "bufferStop"
+  }
+ ],
+ "tracks": [
+  {
+   "id": "T01",
+   "name": "Track 1",
+   "kind": "siding",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N001",
+    "N002",
+    "N003",
+    "N004"
+   ]
+  },
+  {
+   "id": "T02",
+   "name": "OVER RUN LINE 1 20m ?DP1?",
+   "kind": "overrun",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N005",
+    "N006",
+    "N007",
+    "N008"
+   ]
+  },
+  {
+   "id": "T03",
+   "name": "Track 3",
+   "kind": "siding",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N009",
+    "N002"
+   ]
+  }
+ ],
+ "connections": [],
+ "assets": {
+  "points": [
+   {
+    "id": "PX",
+    "code": "?",
+    "nodeId": "N002",
+    "ratio": "",
+    "switch": "",
+    "ratioInferred": true,
+    "control": 0,
+    "label": {
+     "x": 906.88,
+     "y": 35.4
+    }
+   }
+  ],
+  "signals": [],
+  "joints": [
+   {
+    "id": "IJ_T02_44",
+    "trackId": "T02",
+    "x": 44.32
+   },
+   {
+    "id": "IJ_T02_237",
+    "trackId": "T02",
+    "x": 237.14
+   }
+  ],
+  "trackCircuits": [
+   {
+    "id": "TC_01_BT",
+    "code": "01 BT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "T01",
+      "x0": 1103.2,
+      "x1": 1271.68
+     },
+     {
+      "trackId": "T03",
+      "x0": 843.04,
+      "x1": 906.88
+     }
+    ],
+    "label": {
+     "x": 1250.26,
+     "y": 33.82
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_O1AT",
+    "code": "O1AT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "T02",
+      "x0": 235.11,
+      "x1": 565.48
+     }
+    ],
+    "label": {
+     "x": 490.66,
+     "y": 29.62
+    },
+    "approx": false
+   }
+  ],
+  "platforms": [],
+  "structures": [
+   {
+    "id": "ST_1_1_C_9",
+    "kind": "building",
+    "name": "1 1 C.9",
+    "shape": {
+     "type": "rect",
+     "x0": 563.8,
+     "y0": 23.08,
+     "x1": 601.12,
+     "y1": 36.4
+    },
+    "label": {
+     "x": 582.46,
+     "y": 29.74
+    }
+   },
+   {
+    "id": "ST_1_7_32_32C",
+    "kind": "building",
+    "name": "1 7.32.32C.",
+    "shape": {
+     "type": "rect",
+     "x0": 1086.04,
+     "y0": -29.12,
+     "x1": 1144.36,
+     "y1": -15.56
+    },
+    "label": {
+     "x": 1115.2,
+     "y": -22.34
+    }
+   },
+   {
+    "id": "ST_1_7_32_32C_2",
+    "kind": "building",
+    "name": "1 7.32.32C.",
+    "shape": {
+     "type": "rect",
+     "x0": 1085.68,
+     "y0": 22.36,
+     "x1": 1144.0,
+     "y1": 35.92
+    },
+    "label": {
+     "x": 1114.84,
+     "y": 29.14
+    }
+   }
+  ],
+  "bridges": [],
+  "chainageMarks": [
+   {
+    "id": "CM",
+    "kind": "(TP)",
+    "chainage": 1.0,
+    "x": 69.94,
+    "lane": "top"
+   }
+  ],
+  "gradients": [],
+  "dimensions": [
+   {
+    "id": "DH",
+    "kind": "horizontal",
+    "y": -98.12,
+    "x0": -107.72,
+    "x1": 62.44,
+    "text": "{120m",
+    "label": {
+     "x": -20.72,
+     "y": -98.24
+    }
+   },
+   {
+    "id": "DH_2",
+    "kind": "horizontal",
+    "y": -93.32,
+    "x0": 119.44,
+    "x1": 319.84,
+    "text": "{ 1 20m",
+    "label": {
+     "x": 206.02,
+     "y": -93.44
+    }
+   },
+   {
+    "id": "DH_3",
+    "kind": "horizontal",
+    "y": 111.94,
+    "x0": 40.48,
+    "x1": 240.88,
+    "text": "{ 1 20m",
+    "label": {
+     "x": 127.06,
+     "y": 111.76
+    }
+   },
+   {
+    "id": "DH_4",
+    "kind": "horizontal",
+    "y": -119.3,
+    "x0": -1074.44,
+    "x1": 1606.6,
+    "text": "568m",
+    "label": {
+     "x": 104.8,
+     "y": -121.82
+    }
+   }
+  ],
+  "routeLabels": [
+   {
+    "id": "R",
+    "text": "1 1 C.9",
+    "x": 582.28,
+    "y": -20.78,
+    "arrow": "east"
+   }
+  ],
+  "annotations": [
+   {
+    "id": "A",
+    "text": "P L A T F O R M",
+    "x": 627.4,
+    "y": 60.4,
+    "tone": "line"
+   },
+   {
+    "id": "A_2",
+    "text": "L E V E L",
+    "x": 548.26,
+    "y": 60.4,
+    "tone": "line"
+   },
+   {
+    "id": "A_3",
+    "text": "51BT/XT",
+    "x": 209.32,
+    "y": -2.36,
+    "tone": "end"
+   },
+   {
+    "id": "A_4",
+    "text": "1 2",
+    "x": 188.62,
+    "y": -17.0,
+    "tone": "line"
+   },
+   {
+    "id": "A_5",
+    "text": "MAIN LINE",
+    "x": 988.84,
+    "y": -20.9,
+    "tone": "line"
+   },
+   {
+    "id": "A_6",
+    "text": "LOOP LINE",
+    "x": 997.12,
+    "y": 29.14,
+    "tone": "line"
+   },
+   {
+    "id": "A_7",
+    "text": "G H",
+    "x": 498.28,
+    "y": 60.4,
+    "tone": "line"
+   },
+   {
+    "id": "A_8",
+    "text": "1 2",
+    "x": 167.08,
+    "y": 35.86,
+    "tone": "line"
+   },
+   {
+    "id": "A_9",
+    "text": "31C",
+    "x": 303.76,
+    "y": 31.12,
+    "tone": "end"
+   },
+   {
+    "id": "A_10",
+    "text": "31",
+    "x": 255.64,
+    "y": 32.2,
+    "tone": "end"
+   },
+   {
+    "id": "A_11",
+    "text": "1 2",
+    "x": 112.0,
+    "y": -3.8,
+    "tone": "line"
+   },
+   {
+    "id": "A_12",
+    "text": "POINTS 64N",
+    "x": 917.8,
+    "y": 76.66,
+    "tone": "line"
+   },
+   {
+    "id": "A_13",
+    "text": "J L",
+    "x": -1.28,
+    "y": -0.2,
+    "tone": "line"
+   },
+   {
+    "id": "A_14",
+    "text": "POINTS 50N",
+    "x": 786.82,
+    "y": 76.0,
+    "tone": "line"
+   },
+   {
+    "id": "A_15",
+    "text": "30C",
+    "x": 224.26,
+    "y": 86.5,
+    "tone": "end"
+   },
+   {
+    "id": "A_16",
+    "text": "30",
+    "x": 182.68,
+    "y": 87.1,
+    "tone": "end"
+   },
+   {
+    "id": "A_17",
+    "text": "50AT/XT",
+    "x": 102.46,
+    "y": 32.68,
+    "tone": "end"
+   },
+   {
+    "id": "A_18",
+    "text": "DP06",
+    "x": 300.1,
+    "y": -1.7,
+    "tone": "line"
+   },
+   {
+    "id": "A_19",
+    "text": "FM",
+    "x": 195.82,
+    "y": 27.34,
+    "tone": "line"
+   },
+   {
+    "id": "A_20",
+    "text": "02BT",
+    "x": 1250.62,
+    "y": -20.42,
+    "tone": "line"
+   },
+   {
+    "id": "A_21",
+    "text": "O2AT",
+    "x": 491.02,
+    "y": -20.42,
+    "tone": "line"
+   }
+  ],
+  "breaks": [
+   {
+    "trackId": "T02",
+    "x": 224.02
+   }
+  ],
+  "connectionJoints": []
+ },
+ "info": {
+  "titleBlock": [],
+  "lines": [],
+  "legend": [],
+  "notes": [
+   {
+    "no": "",
+    "text": "NOTE"
+   },
+   {
+    "no": "2",
+    "text": "COMMUNIC?ION CIRCUIT 1 SM & EITHER SIDE OF TOP POINTS"
+   },
+   {
+    "no": "4",
+    "text": "UP AND DOWN SHUNT KEYS FOR UP AND DOWN BLOCK SECTIONS ARE PROVIDED IN ELECTRICAL KEY TRANSMI?ER WHEN REMOVED PREVENTS THE CLEARING OF UP AD?NCED S?RTER SIGNAL NO. 8 AND DOWN AD?NCED S?RTER SIGNAL NO. 25 RESPECTIVE?"
+   },
+   {
+    "no": "7",
+    "text": "CALLING ON SIGNALS 2C. 3C. 4C. 29C, 30C. & 31 C CAN BE CLEARED ON? A?ER TRAIN HAS OCCUPIED THE CONCERNED BERTHING TRACK AND STOPPED. THE SM SHALL ENSURE TH? THE TRAIN HAS STOPPED BEFORE CLEARING THE CALLING ON SIGNAL."
+   },
+   {
+    "no": "8",
+    "text": "DUAL MSDAC INTERLOCKED WITH INTEGR?ED EI BLOCK PANEL TO ENSURE COMPLETE ARRI?L OF TRAIN ARE PROVIDED FOR ANAGODU\u2014THN AND ALT 1 ANAGODU\u2014HEBBALU SECTIONS."
+   },
+   {
+    "no": "",
+    "text": "NEW FEATURES NOTE"
+   },
+   {
+    "no": "2",
+    "text": "POINT CAN BE OPER?ED MANUAL? EVEN IF CH K? IS OUT TILL THE TIME K? IS INSERTED INTO THE POINT MACHINE F?P. ROUTE CAN BE INITI?ED BUT SIGNAL CAN BE CLEARED WHEN CH KEY IS INSIDE THE KLCR RE?"
+   },
+   {
+    "no": "3",
+    "text": "A?ER ARRI?L OF TRAIN, IF ROUTE IS LOCKED AND ALL TRACK ARE IN UP CONDITION, THEN EMERGENCY ROUTE RELEASE IS USED TO UNLOCK THE ROUTE. NORMAL CANCEL?ION IS APPLICABLE ON? WHEN TRAIN HAS NOT PASSED THE SIGNAL."
+   },
+   {
+    "no": "2",
+    "text": "VISIBILI? TEST OBJECT UNDER THE PROVISION OF G.R.3.61 .2(b) (iii)."
+   },
+   {
+    "no": "3",
+    "text": "PROVISION OF G.R.3.47 FOR ?KING ,OFF, SIGNALS FOR MORE THAN ONE FOR ?KING OFF SIGNALS FOR MORE THAN ONE TRAIN ? A TIME. TRAIN ? A TIME."
+   }
+  ],
+  "tables": [
+   {
+    "id": "table1",
+    "title": "6. CALLING ON SIGNALS (TIME ?PSE FOR CL?RANCE:60SEC)",
+    "columns": [
+     "CALLING ON SIGNAL",
+     "READS TO THE ROUTES OF HOME SIGNAL",
+     "ASSUMES OFF WHEN OCCUPIED"
+    ],
+    "rows": [
+     [
+      "1 C. & 32C",
+      "1 & 32",
+      "1CT/XT & 32CT/XT"
+     ]
+    ]
+   },
+   {
+    "id": "table2",
+    "title": "5. FUNCTIONS:",
+    "columns": [
+     "FUNCTIONS",
+     "NUMBERS",
+     "SPARES"
+    ],
+    "rows": [
+     [
+      "SIGNALS",
+      "1 TO 32",
+      "5\u20147.1 0\u20141 6.1 8\u201424.26\u201428."
+     ],
+     [
+      "POINTS",
+      "50 TO 65",
+      "52 TO 63."
+     ]
+    ]
+   },
+   {
+    "id": "table3",
+    "title": "3. CRANK HANDLES:",
+    "columns": [
+     "GROUP",
+     "POINTS",
+     "KEPT AT"
+    ],
+    "rows": [
+     [
+      "1",
+      "50",
+      "S?ION HOUSE"
+     ],
+     [
+      "2",
+      "51",
+      "S?ION HOUSE"
+     ]
+    ]
+   },
+   {
+    "id": "table4",
+    "title": "9. RESE?ING OF BLOCK SECTION DUAL MSDAC INTERLOCKED WITH INTEGR?ED EI BLOCK PANEL IN CASE OF ?ILURE",
+    "columns": [
+     "SECTION",
+     "RESET BU?ON WITH COUNTER",
+     "KEPT ? S?ION HOUSE"
+    ],
+    "rows": [
+     [
+      "ANAGODU\u2014THN",
+      "ANAGODU",
+      "TO?HUNSE"
+     ],
+     [
+      "ANAGODU\u2014HEBBALU",
+      "ANAGODU",
+      "HEBBALU"
+     ]
+    ]
+   },
+   {
+    "id": "table5",
+    "title": "GROUP",
+    "columns": [
+     "GROUP",
+     "POINTS",
+     "KEPT AT"
+    ],
+    "rows": [
+     [
+      "3",
+      "64",
+      "S?ION HOUSE"
+     ],
+     [
+      "4",
+      "65",
+      "S?ION HOUSE"
+     ]
+    ]
+   },
+   {
+    "id": "table6",
+    "title": "SL.No",
+    "columns": [
+     "SL.No",
+     "TRACK SECTION",
+     "DP REQUIRED"
+    ],
+    "rows": [
+     [
+      "1",
+      "1 CXT",
+      "DP01 DP02"
+     ],
+     [
+      "2",
+      "25XT",
+      "DP03, DP02,"
+     ],
+     [
+      "3",
+      "9XT",
+      "DP03, DP04"
+     ],
+     [
+      "4",
+      "50AXT",
+      "DP09, DP1 0"
+     ],
+     [
+      "5",
+      "50BXT",
+      "DP04, DP05, DP09"
+     ],
+     [
+      "6",
+      "51AXT",
+      "DP07, DP08"
+     ],
+     [
+      "7",
+      "51 BXT",
+      "DP05, DP06, DP07"
+     ],
+     [
+      "8",
+      "O1 XT",
+      "DP1 0, DP1 1"
+     ]
+    ]
+   },
+   {
+    "id": "table7",
+    "title": "SL.No",
+    "columns": [
+     "SL.No",
+     "TRACK SECTION",
+     "DP REQUIRED"
+    ],
+    "rows": [
+     [
+      "9",
+      "O2XT",
+      "DP06, DP1 3"
+     ],
+     [
+      "1 0",
+      "O3XT",
+      "DP08, DP1 4"
+     ],
+     [
+      "1 1",
+      "64AXT",
+      "DP1 1 DP1 2."
+     ],
+     [
+      "1 2",
+      "64BXT",
+      "DP1 2, DP1 3, DP1 6"
+     ],
+     [
+      "1 3",
+      "65AXT",
+      "DP1 4, DP1 5"
+     ],
+     [
+      "1 4",
+      "65BXT",
+      "DP1 5, DP1 6, DP1 7"
+     ],
+     [
+      "1 5",
+      "1 7XT",
+      "DP1 7, DP1 8"
+     ],
+     [
+      "1 6",
+      "8XT",
+      "DP1 8, DP1 9,"
+     ],
+     [
+      "1 7",
+      "32CXT",
+      "DP1 9, DP20"
+     ],
+     [
+      "1 8",
+      "MSDAC BPAC",
+      "BPAC1 ,BPAC1A WITH HEBBALU MSDAC BPAC"
+     ],
+     [
+      "1 9",
+      "MSDAC BPAC",
+      "BPAC2,BPAC2A WITH THN MSDAC BPAC"
+     ]
+    ]
+   },
+   {
+    "id": "table8",
+    "title": "UP DIRECTION",
+    "columns": [
+     "{1 000m",
+     "{1 000m",
+     "1 204m",
+     "",
+     "298m"
+    ],
+    "rows": [
+     [
+      "1 D",
+      "1 ID",
+      "1",
+      "2",
+      "8"
+     ],
+     [
+      "YY",
+      "Y",
+      "R",
+      "",
+      ""
+     ],
+     [
+      "YY",
+      "YY",
+      "Y WITH RI",
+      "",
+      ""
+     ],
+     [
+      "G",
+      "YY",
+      "Y MAIN",
+      "R",
+      ""
+     ],
+     [
+      "G",
+      "YY",
+      "MAIN",
+      "Y",
+      "R"
+     ],
+     [
+      "G",
+      "G",
+      "G",
+      "G",
+      "G"
+     ]
+    ]
+   },
+   {
+    "id": "table9",
+    "title": "DOWN DIRECTION",
+    "columns": [
+     "300m",
+     "",
+     "1 200m {1 000m",
+     "",
+     "{1 000m"
+    ],
+    "rows": [
+     [
+      "25",
+      "31",
+      "32",
+      "32ID",
+      "32D"
+     ],
+     [
+      "",
+      "",
+      "R",
+      "Y",
+      "YY"
+     ],
+     [
+      "",
+      "",
+      "Y WITH RI",
+      "YY",
+      "YY"
+     ],
+     [
+      "",
+      "R",
+      "Y MAIN",
+      "YY",
+      "G"
+     ],
+     [
+      "R",
+      "Y",
+      "MAIN",
+      "YY",
+      "G"
+     ],
+     [
+      "G",
+      "G",
+      "G",
+      "G",
+      "G"
+     ]
+    ]
+   },
+   {
+    "id": "table10",
+    "title": "REV.",
+    "columns": [
+     "REV.",
+     "",
+     "DATE OF NAME OF WORK SANCTION CR NO. COMPLETION"
+    ],
+    "rows": [
+     [
+      "ALT 1",
+      "REF: HQ DRG. NO. SWR/W.573/ESP?NAGODU/MP/CN/1 P?N A?ERED TO SUIT PROVISION OF DUAL MSDAC INTERLOCKED WITH INTEGR?ED EI BLOCK BETWEEN ANAGODU\u2014HEBBALU S?ION AND ANAGODU THN S?ION.",
+      "NEW BG. LINE BETWEEN TUMAKURU\u2014D?NAGERE ?RD ARRANGEMENTS ? ANAGODU 51/Feb\u20142022?? 1"
+     ],
+     [
+      "",
+      "TO COMP? DATED: CRS/SC SWR/377.",
+      "OBSER?IONS VIDE L?ER No:Q.2201 1/31/2026\u201427 1 4\u201408\u20142026. (NO INTERLOCKING CHANGE)"
+     ],
+     [
+      "Digitally signed by S HARI Date: 2026.08.18 10:37:14+05'30' Digitally signed by VENKATESH",
+      "ALT 1 K ANIL KUMAR ?PM/SWR DigitaIIy signed by K ANIL KUMAR Date:2026.07.03 1 7:23:43 +05,30, S HARI DigitaIIy signed by S HARI CSTE\u2014CN\u2014BNC Date:2026.06.29 1 7:06:1 7 +05,30\u2019 RASHMI GUP? DY.CSTE DND CN BNC Date:2026.06.29 1 5:57:59 +05\u201930, C R?ASEKHAR C Date:2026.06.29 Digitally signed 4:32:49 by DSTE\u2014DND\u2014CN\u2014BNC RAJASEKHAR 1 +05'30, VENK?ESH B M signed by ASTE\u2014DND\u2014CN\u2014BNC B",
+      "SOUTH WESTERN RAI? Signature bIock MYSURU DIVISION HIREHALLI MALLIKARJUNAIAH DINESH SIGNAL & TELECOMMUNICATION CTPM/SWR DigitaIIy signed by HIREHALLI MALLIKARJUNAIAH DINESH Date:2025.09.1 2 1 7:01 :47 +05,30, ANAGODT S HARI DigitaIIy signed S HARI signed by RASHM) CSTE\u2014CN\u2014BNC Date:2025.09.1 2 1 7:32:58 DY.CSTE DND RASHMI GUP? DigitaIIy signed by RASHMI GUP? SIGNALLING P?N CN BNC Date:2025.08.28 1 7:1 3:59 +05\u00b030\u00b0 CLASS \u2018B STANDARD: III B M Di ASTE\u2014DND\u2014CNVENK?ESH signed by VENK?ESH B gitoly BNC TO SUIT 25? AC RE 1 7:03:05 +05,30, Date:2025.08.28"
+     ]
+    ]
+   }
+  ],
+  "procedures": [],
+  "aspectCharts": [],
+  "revisions": []
+ }
+}

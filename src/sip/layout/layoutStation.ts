@@ -1,4 +1,4 @@
-import type { Bounds, Point, Station, Track, TrackNode, Connection } from '@/sip/model'
+import { shapePoints, type Bounds, type Point, type Station, type Track, type TrackNode, type Connection } from '@/sip/model'
 import { boundsOf, clipPolylineX, directionTo, padBounds, polylineYAt } from './geometry'
 
 export interface LayoutOptions {
@@ -93,7 +93,7 @@ export function layoutStation(station: Station, options: LayoutOptions): Station
   const content: Point[] = [...tracks.flatMap((t) => t.points), ...connections.flatMap((c) => c.points)]
   for (const p of assets.platforms) content.push(...p.polygon.map(place))
   for (const s of assets.structures) {
-    if (s.shape) content.push(place({ x: s.shape.x0, y: s.shape.y0 }), place({ x: s.shape.x1, y: s.shape.y1 }))
+    if (s.shape) content.push(...shapePoints(s.shape).map(place))
   }
   for (const d of assets.dimensions) {
     if (d.kind === 'vertical') content.push(place({ x: d.x, y: d.y0 }), place({ x: d.x, y: d.y1 }))

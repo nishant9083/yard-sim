@@ -1,4 +1,4 @@
-import type { Signal, SignalElement } from '@/sip/model'
+import type { Point, RouteIndicatorRoute, Signal, SignalElement } from '@/sip/model'
 import type { StationLayout } from '@/sip/layout'
 import { worldToScreen, type Camera } from './camera'
 import { symbolRadius } from './scales'
@@ -17,6 +17,8 @@ export interface SignalGeometry {
   sgn: 1 | -1
   /** +1 for a head that runs east, -1 west. */
   dir: 1 | -1
+  /** Way the head faces; it turns the route indicator with the head. */
+  headDir: Signal['headDir']
   foot: { x: number; y: number }
   anchor: { x: number; y: number }
   parts: SignalPart[]
@@ -37,6 +39,34 @@ const widthOf = (e: SignalElement, r: number): number => {
     case 'shunt':
       return r * 2.4
   }
+}
+
+export interface RouteIndicatorArm {
+  route: RouteIndicatorRoute
+  from: Point
+  to: Point
+}
+
+/**
+ * Arms of a route indicator part, in screen px. All start at the pivot (the vertex of the "<", at the end of the head
+ * next to the post). The diagonals open outward; the left / right arms stand perpendicular to the head. The figure
+ * turns with the head: facing east the driver's left is up on the sheet, facing west it is down.
+ */
+export function routeIndicatorArms(part: SignalPart, g: Pick<SignalGeometry, 'r' | 'dir'>): RouteIndicatorArm[] {
+  const { element, cx, cy, w } = part
+  if (element.kind !== 'routeIndicator') return []
+  const { r, dir } = g
+  const pivot = { x: cx - dir * (w / 2), y: cy }
+  const left = -dir // screen y sign of the driver's left
+  const diag = r * 0.85
+  const arm = r * 1.15
+  const tip: Record<RouteIndicatorRoute, Point> = {
+    left: { x: pivot.x, y: cy + left * arm },
+    upperLeft: { x: pivot.x + dir * w, y: cy + left * diag },
+    upperRight: { x: pivot.x + dir * w, y: cy - left * diag },
+    right: { x: pivot.x, y: cy - left * arm },
+  }
+  return element.routes.map((route) => ({ route, from: pivot, to: tip[route] }))
 }
 
 /** Screen-space layout of one signal, shared by drawing and hit testing. */
@@ -70,6 +100,7 @@ export function signalGeometry(layout: StationLayout, camera: Camera, signal: Si
     r,
     sgn,
     dir,
+    headDir: signal.headDir,
     foot,
     anchor,
     parts,

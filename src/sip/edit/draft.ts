@@ -7,6 +7,8 @@ export type Draft =
   | { kind: 'track'; anchors: Anchor[] }
   | { kind: 'connect'; a: Anchor }
   | { kind: 'rect'; a: Point; b: Point }
+  /** Outline of a platform or building, corner by corner. */
+  | { kind: 'poly'; points: Point[] }
 
 export function anchorOfSnap(snap: Snap): Anchor {
   switch (snap.kind) {

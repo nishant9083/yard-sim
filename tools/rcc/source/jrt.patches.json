@@ -1,0 +1,12 @@
+{
+  "note": "Corrections to the OCR text of RCC.ECoR.WAT.JRT.01 ver 03, each read off the scanned PDF. 'from' must match the extract exactly.",
+  "patches": [
+    {
+      "sl": 2,
+      "field": "tcOverlap",
+      "from": "40AT 34BT 34/38AT 25AT",
+      "to": "40BT 40AT 34BT 34/38AT 25AT",
+      "note": "Sheet 01/08, row 2, column 10 lists 40BT first; the workbook lost the top line of the cell."
+    }
+  ]
+}

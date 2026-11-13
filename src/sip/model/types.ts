@@ -78,6 +78,8 @@ export interface StationMeta {
   chainage?: ChainageScale
   scale?: { horizontal: string; vertical: string }
   viewHints?: { yExaggeration?: number }
+  /** Where the drawing came from: sheet coordinate = JSON coordinate + offset (PDF points, page `page`). */
+  sheet?: { pdf: string; page: number; offset: [number, number] }
 }
 
 export interface Station {

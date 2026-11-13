@@ -1,6 +1,8 @@
 import {
   chainageAt,
+  shapeCentre,
   type Bridge,
+  type Shape,
   type EntityRef,
   type EntityType,
   type NodeKind,
@@ -419,11 +421,18 @@ export function updateEntity(s: Station, ref: EntityRef, patch: Record<string, u
 const shift = (p: Point, dx: number, dy: number): Point => ({ x: round2(p.x + dx), y: round2(p.y + dy) })
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v))
 
+export interface MoveOptions {
+  /** Pointer position: decides which side of the line a dragged signal ends up on. Without it the side is kept. */
+  cursor?: Point
+  /** Point machines: 'body' moves the point itself (its junction, with the label); 'label' moves only the code. */
+  part?: 'body' | 'label'
+}
+
 /**
  * Entity as it would be after the pointer moved by (dx, dy) from where `base` was grabbed.
  * Always computed from `base`, so a drag never accumulates rounding.
  */
-export function moveEntity(base: Station, ref: EntityRef, dx: number, dy: number, cursor: Point): Station {
+export function moveEntity(base: Station, ref: EntityRef, dx: number, dy: number, { cursor, part = 'body' }: MoveOptions = {}): Station {
   const { assets } = base
   switch (ref.type) {
     case 'node': {
@@ -444,7 +453,7 @@ export function moveEntity(base: Station, ref: EntityRef, dx: number, dy: number
       const [lo, hi] = trackXRange(base, track)
       const footX = round2(clamp(sig.footX + dx, lo, hi))
       const y = trackYAt(base, track.id, footX)
-      const side = y === null ? sig.side : cursor.y < y ? 'above' : 'below'
+      const side = y === null || !cursor ? sig.side : cursor.y < y ? 'above' : 'below'
       return updateEntity(base, ref, {
         footX,
         anchorX: round2(sig.anchorX + (footX - sig.footX)),
@@ -461,7 +470,10 @@ export function moveEntity(base: Station, ref: EntityRef, dx: number, dy: number
     }
     case 'point': {
       const p = assets.points.find((p) => p.id === ref.id)
-      return p ? updateEntity(base, ref, { label: shift(p.label, dx, dy) }) : base
+      if (!p) return base
+      // The point is drawn on its junction, so moving the point moves that vertex (and the label with it).
+      if (part === 'body') return moveEntity(base, { type: 'node', id: p.nodeId }, dx, dy)
+      return updateEntity(base, ref, { label: shift(p.label, dx, dy) })
     }
     case 'trackCircuit': {
       const tc = assets.trackCircuits.find((t) => t.id === ref.id)
@@ -483,8 +495,12 @@ export function moveEntity(base: Station, ref: EntityRef, dx: number, dy: number
       const st = assets.structures.find((t) => t.id === ref.id)
       if (!st) return base
       const scale = base.meta.chainage
-      const shape = st.shape && { ...st.shape, x0: round2(st.shape.x0 + dx), x1: round2(st.shape.x1 + dx), y0: round2(st.shape.y0 + dy), y1: round2(st.shape.y1 + dy) }
-      const cx = shape ? (shape.x0 + shape.x1) / 2 : st.at ? st.at.x + dx : 0
+      const shape: Shape | undefined =
+        st.shape &&
+        (st.shape.type === 'polygon'
+          ? { type: 'polygon', points: st.shape.points.map((q) => shift(q, dx, dy)) }
+          : { ...st.shape, x0: round2(st.shape.x0 + dx), x1: round2(st.shape.x1 + dx), y0: round2(st.shape.y0 + dy), y1: round2(st.shape.y1 + dy) })
+      const cx = shape ? shapeCentre(shape).x : st.at ? st.at.x + dx : 0
       return updateEntity(base, ref, {
         shape,
         label: st.label && shift(st.label, dx, dy),

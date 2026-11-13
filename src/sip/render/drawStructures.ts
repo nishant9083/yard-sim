@@ -1,4 +1,4 @@
-import type { Structure } from '@/sip/model'
+import { shapeBox, shapeCentre, shapePoints, type Structure } from '@/sip/model'
 import { worldToScreen } from './camera'
 import { arrowHead, line, withAlpha } from './draw'
 import { clampPx } from './scales'
@@ -11,27 +11,34 @@ function inkFor(args: DrawArgs, s: Structure): string {
   return e === 'selected' ? args.theme.selected : e === 'hovered' ? args.theme.hover : args.theme.structure
 }
 
-/** Buildings, FOB and S.M. room are drawn to scale. */
+/** Buildings, FOB and S.M. room are drawn to scale, along their outline. */
 function drawSolid(args: DrawArgs, s: Structure): void {
   const { ctx, layout, camera, regions } = args
   if (!s.shape) return
-  const a = worldToScreen(camera, layout.place({ x: s.shape.x0, y: s.shape.y0 }))
-  const b = worldToScreen(camera, layout.place({ x: s.shape.x1, y: s.shape.y1 }))
-  const x = Math.min(a.x, b.x)
-  const y = Math.min(a.y, b.y)
-  const w = Math.abs(b.x - a.x)
-  const h = Math.abs(b.y - a.y)
+  const pts = shapePoints(s.shape).map((p) => worldToScreen(camera, layout.place(p)))
+  if (pts.length < 3) return
+  const trace = () => {
+    ctx.beginPath()
+    pts.forEach((p, i) => (i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y)))
+    ctx.closePath()
+  }
+  const xs = pts.map((p) => p.x)
+  const ys = pts.map((p) => p.y)
+  const x = Math.min(...xs)
+  const y = Math.min(...ys)
+  const w = Math.max(...xs) - x
+  const h = Math.max(...ys) - y
   const ink = inkFor(args, s)
   ctx.strokeStyle = ink
   ctx.lineWidth = s.kind === 'building' ? 1.6 : 1.3
   ctx.setLineDash([])
   ctx.fillStyle = ink
-  withAlpha(ctx, s.kind === 'fob' ? 0.14 : 0.07, () => ctx.fillRect(x, y, w, h))
-  ctx.strokeRect(x, y, w, h)
+  trace()
+  withAlpha(ctx, s.kind === 'fob' ? 0.14 : 0.07, () => ctx.fill())
+  ctx.stroke()
   if (s.kind === 'smRoom') {
     ctx.save()
-    ctx.beginPath()
-    ctx.rect(x, y, w, h)
+    trace()
     ctx.clip()
     ctx.lineWidth = 1
     withAlpha(ctx, 0.6, () => {
@@ -46,8 +53,9 @@ function drawSolid(args: DrawArgs, s: Structure): void {
 function drawBox(args: DrawArgs, s: Structure): void {
   const { ctx, layout, camera, theme, regions } = args
   if (!s.shape) return
-  const centre = worldToScreen(camera, layout.place({ x: (s.shape.x0 + s.shape.x1) / 2, y: (s.shape.y0 + s.shape.y1) / 2 }))
-  const w = clampPx((s.shape.x1 - s.shape.x0) * camera.zoom, 22, 44)
+  const box = shapeBox(s.shape)
+  const centre = worldToScreen(camera, layout.place(shapeCentre(s.shape)))
+  const w = clampPx((box.x1 - box.x0) * camera.zoom, 22, 44)
   const h = w * 0.62
   const x = centre.x - w / 2
   const y = centre.y - h / 2
