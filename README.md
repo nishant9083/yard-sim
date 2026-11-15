@@ -16,7 +16,7 @@ Stack: React 19, Vite, Tailwind CSS v4, TypeScript (strict).
 
 | Entity       | What it is                                                              |
 |--------------|-------------------------------------------------------------------------|
-| `TrackNode`  | A vertex: `boundary`, `bufferStop`, `junction` or `plain`, with x/y.    |
+| `TrackNode`  | A vertex: `boundary`, `bufferStop`, `sandHump`, `junction` or `plain`, x/y. |
 | `Track`      | A named, ordered list of node ids (LINE 1..4, sidings, overruns).       |
 | `Connection` | A diagonal/curved link between nodes of two tracks, optional `via` shape points. |
 

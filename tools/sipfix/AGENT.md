@@ -72,7 +72,7 @@ thousands of lines. Keep the scripts out of the repository (use a scratch folder
 ```
 meta: code, name, zone, sipRef, coordinateSpace, ends {west, east}, chainage {originX, metresPerUnit, label, origin},
       scale {horizontal, vertical}, viewHints {yExaggeration}, sheet {pdf, page, offset}
-nodes[]:       {id "N001", x, y, kind: boundary | bufferStop | junction | plain, label?}
+nodes[]:       {id "N001", x, y, kind: boundary | bufferStop | sandHump | junction | plain, label?}
 tracks[]:      {id "L1".."Ln" running lines, "T01".. others; name, lineNo?, kind: main | loop | siding | overrun,
                 direction: UP | DN | BOTH, nodeIds[] ordered by x, remarks?}
 connections[]: {id "C<point no>", kind: crossover (two running lines) | turnout (to a siding/overrun/loop leg),
@@ -95,7 +95,7 @@ info:   titleBlock [{label,value}], lines, legend, notes [{no,text}], tables [{i
 ```
 
 Structural rules (`check` enforces them): every id unique; a track has at least 2 nodes, ordered so x only rises;
-only a track's first and last node may be `boundary`/`bufferStop`; both ends of a connection are nodes that lie on
+only a track's first and last node may be `boundary`/`bufferStop`/`sandHump`; both ends of a connection are nodes that lie on
 tracks; a node where a connection starts must be in the track's `nodeIds` (insert it in x order); every signal,
 joint and span refers to an existing track and lies within its x range; span `x1 > x0`; the yard is one connected
 graph. If you add or move a node on a sloping track, compute its y on the line between its neighbours.

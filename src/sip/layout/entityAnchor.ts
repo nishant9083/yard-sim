@@ -35,6 +35,10 @@ export function entityAnchor(layout: StationLayout, ref: EntityRef): Point | nul
       const j = assets.joints.find((j) => j.id === ref.id)
       return j ? at(j.x, j.trackId) : null
     }
+    case 'lineArrow': {
+      const a = assets.lineArrows.find((a) => a.id === ref.id)
+      return a ? at(a.x, a.trackId) : null
+    }
     case 'platform': {
       const p = assets.platforms.find((p) => p.id === ref.id)
       return p ? layout.place(p.label) : null

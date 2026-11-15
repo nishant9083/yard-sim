@@ -55,7 +55,7 @@ def main(argv=None):
         for n in st["nodes"]:
             if n["kind"] != "plain":
                 px, py = S((n["x"], n["y"]))
-                col = {"junction": (255, 0, 255, 255), "boundary": (0, 0, 0, 255), "bufferStop": (200, 0, 0, 255)}[n["kind"]]
+                col = {"junction": (255, 0, 255, 255), "boundary": (0, 0, 0, 255), "bufferStop": (200, 0, 0, 255), "sandHump": (200, 140, 0, 255)}.get(n["kind"], (120, 120, 255, 200))
                 d.ellipse([px - 5, py - 5, px + 5, py + 5], outline=col, width=2)
         for j in st["assets"]["joints"]:
             y = net.track_y(j["trackId"], j["x"])

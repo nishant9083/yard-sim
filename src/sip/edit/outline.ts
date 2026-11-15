@@ -1,5 +1,6 @@
 import {
   chainageAt,
+  isTrackEnd,
   shapeBox,
   shapePoints,
   type EntityRef,
@@ -211,6 +212,10 @@ export function entityPosition(s: Station, ref: EntityRef): EntityPosition | nul
       const j = assets.joints.find((j) => j.id === ref.id)
       return j ? { p: { x: j.x, y: trackYAt(s, j.trackId, j.x) ?? 0 }, axes: 'x', what: 'Along the line' } : null
     }
+    case 'lineArrow': {
+      const a = assets.lineArrows.find((a) => a.id === ref.id)
+      return a ? { p: { x: a.x, y: trackYAt(s, a.trackId, a.x) ?? 0 }, axes: 'x', what: 'Along the line' } : null
+    }
     case 'bridge': {
       const b = assets.bridges.find((b) => b.id === ref.id)
       return b ? { p: { x: b.x, y: 0 }, axes: 'x', what: 'Along the yard' } : null
@@ -282,6 +287,10 @@ export function moveToTrack(s: Station, ref: EntityRef, trackId: string): Statio
       const j = assets.joints.find((j) => j.id === ref.id)
       return j && j.trackId !== trackId ? updateEntity(s, ref, { trackId, x: clampX(j.x) }) : s
     }
+    case 'lineArrow': {
+      const a = assets.lineArrows.find((a) => a.id === ref.id)
+      return a && a.trackId !== trackId ? updateEntity(s, ref, { trackId, x: clampX(a.x) }) : s
+    }
     case 'structure': {
       const st = assets.structures.find((x) => x.id === ref.id)
       if (!st) return s
@@ -313,10 +322,10 @@ export function addTrackVertex(s: Station, trackId: string, p: Point): OpResult 
   const atEnd: 'first' | 'last' | null = p.x < lo - 0.5 ? lowEnd : p.x > hi + 0.5 ? (lowEnd === 'first' ? 'last' : 'first') : null
   if (!atEnd) return insertVertex(s, trackId, p)
 
-  // Extend: the new vertex takes over the end style (boundary / buffer stop), the old end becomes a bend.
+  // Extend: the new vertex takes over the end style (boundary / buffer stop / sand hump), the old end becomes a bend.
   const oldEnd = atEnd === 'first' ? first : last
   const shared = s.tracks.some((t) => t.id !== trackId && t.nodeIds.includes(oldEnd.id)) || s.connections.some((c) => c.from === oldEnd.id || c.to === oldEnd.id)
-  const isEndKind = oldEnd.kind === 'boundary' || oldEnd.kind === 'bufferStop'
+  const isEndKind = isTrackEnd(oldEnd.kind)
   const kind: NodeKind = isEndKind ? oldEnd.kind : track.kind === 'main' || track.kind === 'loop' ? 'boundary' : 'bufferStop'
   const node: TrackNode = { id: nextId('N', s.nodes.map((n) => n.id), 3), x: round2(p.x), y: round2(p.y), kind }
   const nodes = s.nodes.map((n) => (n.id === oldEnd.id && isEndKind ? { ...n, kind: (shared ? 'junction' : 'plain') as NodeKind } : n))

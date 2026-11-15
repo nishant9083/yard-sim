@@ -1,6 +1,7 @@
 import type { Point, Track } from '@/sip/model'
 import { polylineLength, polylineMidpoint } from '@/sip/layout'
 import { worldToScreen, type Camera } from './camera'
+import { SAND_HUMP, sandHumpCentre } from './drawNodes'
 import type { DrawArgs } from './types'
 
 /** Midpoint of the longest near-horizontal segment, in screen space. */
@@ -37,8 +38,15 @@ export function drawLabels({ ctx, layout, camera, theme, state, placer }: DrawAr
     }
     for (const laid of layout.nodes.values()) {
       const { node, tangent } = laid
-      if (!node.label || (node.kind !== 'boundary' && node.kind !== 'bufferStop')) continue
       const s = worldToScreen(camera, laid)
+      if (node.kind === 'sandHump') {
+        // Caption centred over the hump box, as on the printed SIP.
+        const c = sandHumpCentre(s, tangent ?? { x: 1, y: 0 })
+        const lift = SAND_HUMP.half + 9 + Math.abs(tangent?.y ?? 0) * (SAND_HUMP.length / 2)
+        placer.text(ctx, theme, node.label || 'SAND HUMP', c.x, c.y - lift, theme.labelMuted, { font: theme.fontSmall, height: 12 })
+        continue
+      }
+      if (!node.label || (node.kind !== 'boundary' && node.kind !== 'bufferStop')) continue
       const dir = tangent?.x ?? 1
       placer.text(ctx, theme, node.label, s.x + (dir >= 0 ? 16 : -16), s.y, theme.labelMuted, {
         font: theme.font,

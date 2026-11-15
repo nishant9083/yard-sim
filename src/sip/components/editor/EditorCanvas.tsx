@@ -5,6 +5,7 @@ import {
   addBridge,
   addConnection,
   addJoint,
+  addLineArrow,
   addCircuitAt,
   addPlatform,
   addPoint,
@@ -94,7 +95,7 @@ const CLOSE_PX = 10
 const DRAG_PX = 4
 const DEFAULT_VIEW = { minX: 0, minY: -120, maxX: 2400, maxY: 480 }
 
-const POINT_ON_LINE_TOOLS: ToolId[] = ['signal', 'joint', 'circuit', 'bridge']
+const POINT_ON_LINE_TOOLS: ToolId[] = ['signal', 'joint', 'arrow', 'circuit', 'bridge']
 const DRAW_TOOLS: ToolId[] = ['track', 'vertex', 'connect', 'point', 'text', 'origin', ...POINT_ON_LINE_TOOLS]
 
 /** Shift: keep only the larger of the two movements, so the drag runs along one axis. */
@@ -529,6 +530,9 @@ export function EditorCanvas({
       case 'joint':
         if (s.kind !== 'track') return onNotice('Click on a line.')
         return create(addJoint(station, s.trackId, s.p.x))
+      case 'arrow':
+        if (s.kind !== 'track') return onNotice('Click on a line.')
+        return create(addLineArrow(station, s.trackId, s.p.x, options.arrowDirection))
       case 'circuit':
         if (s.kind !== 'track') return onNotice('Click on a line.')
         return create(addCircuitAt(station, s.trackId, s.p.x), 'Could not work out the section here.')

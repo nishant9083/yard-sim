@@ -1,4 +1,4 @@
-import { Building2, CircleDot, Gauge, Hash, Landmark, Milestone, Route, Ruler, Signal, Spline, Tag, TrainTrack, Waypoints, type LucideIcon } from 'lucide-react'
+import { ArrowLeftRight, Building2, CircleDot, Gauge, Hash, Landmark, Milestone, Route, Ruler, Signal, Spline, Tag, TrainTrack, Waypoints, type LucideIcon } from 'lucide-react'
 import type { LayerVisibility } from '@/sip/render'
 
 export interface LayerEntry {
@@ -21,6 +21,7 @@ export const ASSET_LAYERS: LayerEntry[] = [
   { key: 'points', label: 'Points', icon: Spline, hint: 'Point numbers and ratios' },
   { key: 'trackCircuits', label: 'Track circuits', icon: TrainTrack, hint: 'Circuit bands and codes' },
   { key: 'joints', label: 'Joints', icon: Milestone, hint: 'Insulated joints' },
+  { key: 'lineArrows', label: 'Line arrows', icon: ArrowLeftRight, hint: 'Direction arrows on lines' },
   { key: 'platforms', label: 'Platforms', icon: Landmark, hint: 'Platform outlines' },
   { key: 'structures', label: 'Structures', icon: Building2, hint: 'Buildings, FOB, goomty, boards, LVV' },
   { key: 'dimensions', label: 'Dimensions', icon: Ruler, hint: 'Printed lengths' },

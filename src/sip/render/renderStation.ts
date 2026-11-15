@@ -5,6 +5,7 @@ import { drawDimensions } from './drawDimensions'
 import { drawJoints } from './drawJoints'
 import { drawLabels } from './drawLabels'
 import { drawLanes } from './drawLanes'
+import { drawLineArrows } from './drawLineArrows'
 import { drawNodes } from './drawNodes'
 import { drawPlatforms } from './drawPlatforms'
 import { drawPoints } from './drawPoints'
@@ -45,6 +46,7 @@ export function renderStation(args: RenderArgs): HitRegion[] {
   drawConnections(draw)
   drawTracks(draw)
   drawJoints(draw)
+  drawLineArrows(draw)
   drawBridges(draw)
   drawNodes(draw)
   drawSignals(draw)

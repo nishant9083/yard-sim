@@ -1,4 +1,4 @@
-import { Download, Focus, Maximize2, Pause, Play, RotateCcw, Signal, SkipForward, Spline, TrainTrack, Upload } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Download, Focus, Maximize2, Pause, Play, RotateCcw, Signal, SkipForward, Spline, TrainTrack, Upload } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { layoutStation } from '@/sip/layout'
 import type { EntityRef, Station } from '@/sip/model'
@@ -33,6 +33,7 @@ export function SimulationView({ station }: { station: Station }) {
   useSimVersion(sim)
   const layout = useMemo(() => layoutStation(station, { yExaggeration: station.meta.viewHints?.yExaggeration ?? 4 }), [station])
   const [tab, setTab] = useState<Tab>('Operate')
+  const [panelOpen, setPanelOpen] = useState(true)
   // The clock does not run until the first route or train, or until Start is pressed.
   const [started, setStarted] = useState(false)
   const [playing, setPlaying] = useState(false)
@@ -121,7 +122,7 @@ export function SimulationView({ station }: { station: Station }) {
             {SPEEDS.map((x) => <option key={x} value={x}>{x}×</option>)}
           </select>
           <span className="flex w-24 items-center justify-end gap-1.5 text-xs text-on-surface tabular-nums" title={!started ? 'Not started' : playing ? 'Running' : 'Paused'}>
-            <i className={`inline-block size-2 rounded-full ${!started ? 'bg-outline' : playing ? 'bg-[#3ddc84]' : 'bg-[#ffb454]'}`} />
+            <i className={`inline-block size-2 rounded-full ${!started ? 'bg-outline' : playing ? 'bg-[#3ddc84]' : 'bg-sip-joint'}`} />
             {formatTime(sim.time)}
           </span>
           <span className="h-5 w-px bg-outline-variant" aria-hidden />
@@ -140,13 +141,23 @@ export function SimulationView({ station }: { station: Station }) {
         </div>
         <Legend />
       </div>
-      <aside className="flex w-[400px] shrink-0 flex-col border-l border-outline-variant bg-surface-container">
+      <aside className={`flex shrink-0 flex-col border-l border-outline-variant bg-surface-container ${panelOpen ? 'w-100' : 'w-9'}`}>
+        {!panelOpen && (
+          <button onClick={() => setPanelOpen(true)} aria-label="Expand side panel" title="Expand side panel" className="flex w-full items-center justify-center py-2 text-on-surface-variant hover:text-on-surface">
+            <ChevronLeft size={18} />
+          </button>
+        )}
+        {panelOpen && (
+        <>
         <nav className="flex border-b border-outline-variant" role="tablist">
           {TABS.map((t) => (
             <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`flex-1 px-1 py-2 text-xs transition-colors ${tab === t ? 'border-b-2 border-primary text-on-surface' : 'text-on-surface-variant hover:text-on-surface'}`}>
               {t}
             </button>
           ))}
+          <button onClick={() => setPanelOpen(false)} aria-label="Collapse side panel" title="Collapse side panel" className="px-2 text-on-surface-variant hover:text-on-surface">
+            <ChevronRight size={16} />
+          </button>
         </nav>
         <div className="min-h-0 flex-1 overflow-y-auto">
           {tab === 'Operate' && <OperatePanel sim={sim} focusSignal={focusSignal} onClearFocus={() => setSelected(null)} />}
@@ -156,6 +167,8 @@ export function SimulationView({ station }: { station: Station }) {
           {tab === 'Checks' && <ChecksPanel sim={sim} />}
           {tab === 'Settings' && <SettingsPanel sim={sim} />}
         </div>
+        </>
+        )}
       </aside>
     </div>
   )

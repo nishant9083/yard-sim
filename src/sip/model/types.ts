@@ -19,8 +19,19 @@ export interface Bounds {
  * bufferStop - dead end of a siding / overrun line
  * junction   - a place where a connection leaves a track, or tracks meet
  * plain      - helper vertex that only shapes a line
+ * sandHump   - dead end where a sand drag / sand hump stops rolling stock
  */
-export type NodeKind = 'boundary' | 'bufferStop' | 'junction' | 'plain'
+export type NodeKind = 'boundary' | 'bufferStop' | 'sandHump' | 'junction' | 'plain'
+
+/** Kinds that terminate a track: they belong only at a track's first or last node. */
+export function isTrackEnd(kind: NodeKind): boolean {
+  return kind === 'boundary' || kind === 'bufferStop' || kind === 'sandHump'
+}
+
+/** Kinds where rolling stock must stop (as opposed to running off the drawing at a boundary). */
+export function isDeadEnd(kind: NodeKind): boolean {
+  return kind === 'bufferStop' || kind === 'sandHump'
+}
 
 export type TrackKind = 'main' | 'loop' | 'siding' | 'overrun'
 export type TrackDirection = 'UP' | 'DN' | 'BOTH'
@@ -101,6 +112,7 @@ export type EntityType =
   | 'signal'
   | 'trackCircuit'
   | 'joint'
+  | 'lineArrow'
   | 'platform'
   | 'structure'
   | 'bridge'

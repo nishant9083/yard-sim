@@ -118,6 +118,17 @@ export interface InsulatedJoint {
   x: number
 }
 
+/** `left` = "<", `right` = ">", `both` = "<>" (towards the west end, the east end, or both). */
+export type LineArrowDirection = 'left' | 'right' | 'both'
+
+/** A direction arrow sitting on a line. Any number can be placed anywhere along any line. */
+export interface LineArrow {
+  id: string
+  trackId: string
+  x: number
+  direction: LineArrowDirection
+}
+
 export type SpanRef = { trackId: string; x0: number; x1: number } | { connectionId: string }
 
 export interface TrackCircuit {
@@ -235,6 +246,7 @@ export interface StationAssets {
   points: PointMachine[]
   signals: Signal[]
   joints: InsulatedJoint[]
+  lineArrows: LineArrow[]
   trackCircuits: TrackCircuit[]
   platforms: Platform[]
   structures: Structure[]
@@ -252,6 +264,7 @@ export const emptyAssets = (): StationAssets => ({
   points: [],
   signals: [],
   joints: [],
+  lineArrows: [],
   trackCircuits: [],
   platforms: [],
   structures: [],

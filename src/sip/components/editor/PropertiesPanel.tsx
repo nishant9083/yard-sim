@@ -436,6 +436,7 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
                 { id: 'junction', label: 'Junction' },
                 { id: 'boundary', label: 'Yard boundary' },
                 { id: 'bufferStop', label: 'Buffer stop' },
+                { id: 'sandHump', label: 'Sand hump' },
               ]}
               onChange={(v) => setNow({ kind: v })}
             />
@@ -535,6 +536,26 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
           <Section title="Insulated joint">
             <ReadOnly label="Chainage">{ch(j.x)}</ReadOnly>
             <SelectField label="On line" value={j.trackId} options={trackOptions} onChange={toTrack} />
+          </Section>
+        )
+      }
+      case 'lineArrow': {
+        const a = assets.lineArrows.find((a) => a.id === selected.id)
+        if (!a) return null
+        return (
+          <Section title="Line arrow">
+            <SelectField
+              label="Direction"
+              value={a.direction}
+              options={[
+                { id: 'left', label: '<  (towards the west end)' },
+                { id: 'right', label: '>  (towards the east end)' },
+                { id: 'both', label: '<>  (both ways)' },
+              ]}
+              onChange={(v) => setNow({ direction: v })}
+            />
+            <ReadOnly label="Chainage">{ch(a.x)}</ReadOnly>
+            <SelectField label="On line" value={a.trackId} options={trackOptions} onChange={toTrack} />
           </Section>
         )
       }

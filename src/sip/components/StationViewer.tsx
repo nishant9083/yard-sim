@@ -60,8 +60,6 @@ export function StationViewer({ station }: StationViewerProps) {
           onFit={(mode) => setFit((f) => ({ mode, token: f.token + 1 }))}
           zoom={zoom}
           onZoomChange={(z) => setZoomRequest((r) => ({ zoom: z, token: (r?.token ?? 0) + 1 }))}
-          panelOpen={panelOpen}
-          onTogglePanel={() => setPanelOpen((v) => !v)}
         />
         <InspectorPanel station={station} index={index} entity={hovered ?? selected} onSelect={selectAndFocus} />
         {chainageText && (
@@ -70,7 +68,7 @@ export function StationViewer({ station }: StationViewerProps) {
           </div>
         )}
       </div>
-      {panelOpen && <SidePanel station={station} selected={selected} onSelect={selectAndFocus} />}
+      <SidePanel station={station} selected={selected} onSelect={selectAndFocus} open={panelOpen} onToggle={() => setPanelOpen((v) => !v)} />
     </div>
   )
 }

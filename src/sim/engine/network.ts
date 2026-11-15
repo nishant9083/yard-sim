@@ -1,4 +1,4 @@
-import type { Point, Station } from '@/sip/model'
+import { isDeadEnd, type Point, type Station } from '@/sip/model'
 import type { StationSimConfig } from '../config/types'
 import type { PointPos, RccTable } from '../rcc/types'
 
@@ -53,7 +53,7 @@ export interface Leg {
 }
 
 export type Stop =
-  | { kind: 'end'; node: string; buffer: boolean }
+  | { kind: 'end'; node: string; buffer: boolean; /** What stops the train at a dead end, e.g. 'buffer stop' / 'sand hump'. */ endName?: string }
   | { kind: 'blocked'; node: string; reason: 'misaligned' | 'moving' | 'unsupported'; unit: string | null }
 
 export interface TcPiece {
@@ -94,7 +94,8 @@ export class Network {
   readonly issues: NetworkIssue[] = []
   readonly metresPerUnit: number
   private readonly nodePos = new Map<string, Point>()
-  private readonly bufferNodes = new Set<string>()
+  /** Dead-end nodes (buffer stop, sand hump) and what to call them when a train stops there. */
+  private readonly bufferNodes = new Map<string, string>()
 
   constructor(
     readonly station: Station,
@@ -104,7 +105,7 @@ export class Network {
     this.metresPerUnit = station.meta.chainage?.metresPerUnit ?? 0.35278
     for (const n of station.nodes) {
       this.nodePos.set(n.id, { x: n.x, y: n.y })
-      if (n.kind === 'bufferStop') this.bufferNodes.add(n.id)
+      if (isDeadEnd(n.kind)) this.bufferNodes.set(n.id, n.kind === 'sandHump' ? 'sand hump' : 'buffer stop')
     }
     this.buildEdges()
     this.buildUnits(rcc)
@@ -397,7 +398,7 @@ export class Network {
   /** Where a train arriving at `node` along `arrival` goes next, given the points. */
   private through(node: string, arrival: Arm, unitPos: UnitPosition): PathPos | Stop {
     const arms = this.armsAt.get(node) ?? []
-    if (arms.length === 1) return { kind: 'end', node, buffer: this.bufferNodes.has(node) }
+    if (arms.length === 1) return { kind: 'end', node, buffer: this.bufferNodes.has(node), endName: this.bufferNodes.get(node) }
     if (arms.length === 2) {
       const other = arms.find((a) => !(a.edge === arrival.edge && a.end === arrival.end))
       return other ? this.exitFrom(other) : { kind: 'end', node, buffer: false }

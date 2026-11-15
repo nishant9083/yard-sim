@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { shapePoints, type Station } from '@/sip/model'
+import { shapePoints, validateStation, type Station } from '@/sip/model'
 import {
   addPlatformOutline,
   addPoint,
@@ -10,6 +10,7 @@ import {
   addTrackVertex,
   blankStation,
   entityPosition,
+  fixNodeKinds,
   insertOutlineVertex,
   moveEntity,
   moveOutlineVertex,
@@ -150,5 +151,36 @@ describe('adding vertices to lines', () => {
     const before = addTrackVertex(s, t.id, { x: -50, y: 0 })
     expect(before.station.tracks[0]!.nodeIds).toHaveLength(3)
     expect(before.station.nodes.find((n) => n.id === before.station.tracks[0]!.nodeIds[0])!.x).toBe(-50)
+  })
+})
+
+describe('sand hump end nodes', () => {
+  /** Line 0 with its east end turned into a sand hump. */
+  function withSandHump(): { s: Station; endId: string } {
+    const s = twoLines()
+    const endId = s.tracks[0]!.nodeIds[s.tracks[0]!.nodeIds.length - 1]!
+    return { s: { ...s, nodes: s.nodes.map((n) => (n.id === endId ? { ...n, kind: 'sandHump' as const } : n)) }, endId }
+  }
+
+  it('keeps the sand hump at the end when the line is extended', () => {
+    const { s, endId } = withSandHump()
+    const ext = addTrackVertex(s, s.tracks[0]!.id, { x: 500, y: 0 })
+    const ids = ext.station.tracks[0]!.nodeIds
+    expect(ext.station.nodes.find((n) => n.id === ids[ids.length - 1])!.kind).toBe('sandHump')
+    expect(ext.station.nodes.find((n) => n.id === endId)!.kind).toBe('plain')
+  })
+
+  it('flags a sand hump sitting inside a line', () => {
+    const { s, endId } = withSandHump()
+    const t = s.tracks[0]!
+    const extra = { id: 'NX', x: 500, y: 0, kind: 'plain' as const }
+    const bad: Station = { ...s, nodes: [...s.nodes, extra], tracks: s.tracks.map((x) => (x.id === t.id ? { ...x, nodeIds: [...x.nodeIds, 'NX'] } : x)) }
+    expect(validateStation(bad).some((i) => i.code === 'track.end-inside' && i.message.includes(endId))).toBe(true)
+  })
+
+  it('becomes a junction once another line joins it', () => {
+    const { s, endId } = withSandHump()
+    const fixed = fixNodeKinds({ ...s, tracks: [...s.tracks, { id: 'TX', name: 'X', kind: 'siding', direction: 'BOTH', nodeIds: [endId, s.tracks[1]!.nodeIds[1]!] }] })
+    expect(fixed.nodes.find((n) => n.id === endId)!.kind).toBe('junction')
   })
 })

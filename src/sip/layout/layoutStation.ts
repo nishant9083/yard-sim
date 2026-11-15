@@ -1,4 +1,4 @@
-import { shapePoints, type Bounds, type Point, type Station, type Track, type TrackNode, type Connection } from '@/sip/model'
+import { isDeadEnd, shapePoints, type Bounds, type Point, type Station, type Track, type TrackNode, type Connection } from '@/sip/model'
 import { boundsOf, clipPolylineX, directionTo, padBounds, polylineYAt } from './geometry'
 
 export interface LayoutOptions {
@@ -101,7 +101,7 @@ export function layoutStation(station: Station, options: LayoutOptions): Station
   }
   const bounds = padBounds(boundsOf(content), 20, 20)
 
-  const coreNodes = [...nodes.values()].filter((n) => n.node.kind === 'junction' || n.node.kind === 'bufferStop')
+  const coreNodes = [...nodes.values()].filter((n) => n.node.kind === 'junction' || isDeadEnd(n.node.kind))
   const coreBounds =
     coreNodes.length > 0
       ? { minX: Math.min(...coreNodes.map((n) => n.x)) - 300, maxX: Math.max(...coreNodes.map((n) => n.x)) + 300, minY: bounds.minY, maxY: bounds.maxY }

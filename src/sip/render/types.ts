@@ -15,6 +15,7 @@ export interface LayerVisibility {
   points: boolean
   trackCircuits: boolean
   joints: boolean
+  lineArrows: boolean
   platforms: boolean
   structures: boolean
   dimensions: boolean
@@ -34,6 +35,7 @@ export const DEFAULT_LAYERS: LayerVisibility = {
   points: true,
   trackCircuits: true,
   joints: true,
+  lineArrows: true,
   platforms: true,
   structures: true,
   dimensions: true,

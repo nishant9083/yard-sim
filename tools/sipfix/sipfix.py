@@ -165,7 +165,7 @@ def check(st):
                 continue
             used.add(nid)
             xs.append(n["x"])
-            if 0 < i < len(t["nodeIds"]) - 1 and n["kind"] in ("bufferStop", "boundary"):
+            if 0 < i < len(t["nodeIds"]) - 1 and n["kind"] in ("bufferStop", "sandHump", "boundary"):
                 W("track.end-inside", f"{t['id']}: {n['kind']} {nid} sits inside the track")
             if i + 1 < len(t["nodeIds"]):
                 m = g.node.get(t["nodeIds"][i + 1])
@@ -361,7 +361,7 @@ def render(st, a, x0, x1, y0, y1, out, overlay=True, grid=None, zoom=None):
         for n in st["nodes"]:
             if x0 <= n["x"] <= x1 and y0 <= n["y"] <= y1:
                 px, py = S(n["x"], n["y"])
-                col = {"junction": (255, 0, 255, 255), "boundary": (0, 0, 0, 255), "bufferStop": (200, 0, 0, 255)}.get(n["kind"], (120, 120, 255, 200))
+                col = {"junction": (255, 0, 255, 255), "boundary": (0, 0, 0, 255), "bufferStop": (200, 0, 0, 255), "sandHump": (200, 140, 0, 255)}.get(n["kind"], (120, 120, 255, 200))
                 r = 2.2 * zoom if n["kind"] != "plain" else 1.2 * zoom
                 d.ellipse([px - r, py - r, px + r, py + r], outline=col, width=2)
                 if n["kind"] != "plain":

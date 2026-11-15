@@ -1,4 +1,5 @@
 import {
+  ArrowLeftRight,
   Building2,
   CircleDot,
   DiamondPlus,
@@ -15,7 +16,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { SIGNAL_PRESETS, STRUCTURE_NAMES, TRACK_KINDS, type ToolId, type ToolOptions } from '@/sip/edit'
-import type { StructureKind } from '@/sip/model'
+import type { LineArrowDirection, StructureKind } from '@/sip/model'
 import { CheckField } from './fields'
 
 interface ToolDef {
@@ -47,6 +48,7 @@ export const TOOL_GROUPS: { title: string; tools: ToolDef[] }[] = [
       { id: 'signal', label: 'Signal', key: 'S', icon: TrafficCone },
       { id: 'point', label: 'Point machine', key: 'P', icon: CircleDot },
       { id: 'joint', label: 'Insulated joint', key: 'J', icon: SeparatorVertical },
+      { id: 'arrow', label: 'Line arrow', key: 'R', icon: ArrowLeftRight },
       { id: 'circuit', label: 'Track circuit', key: 'C', icon: Zap },
     ],
   },
@@ -59,6 +61,12 @@ export const TOOL_GROUPS: { title: string; tools: ToolDef[] }[] = [
       { id: 'text', label: 'Text', key: 'A', icon: Type },
     ],
   },
+]
+
+export const ARROW_CHOICES: { id: LineArrowDirection; label: string }[] = [
+  { id: 'left', label: '<' },
+  { id: 'right', label: '>' },
+  { id: 'both', label: '<>' },
 ]
 
 interface ToolPaletteProps {
@@ -125,6 +133,27 @@ export function ToolPalette({ tool, onTool, options, onOptions }: ToolPalettePro
             <span className="block">Number, direction and side are filled in. Change the head afterwards.</span>
           </label>
         )}
+        {tool === 'arrow' && (
+          <div className="space-y-1 text-[11px] text-on-surface-variant">
+            Arrow direction
+            <div className="flex gap-1" role="group" aria-label="Arrow direction">
+              {ARROW_CHOICES.map(({ id, label }) => (
+                <button
+                  key={id}
+                  type="button"
+                  aria-pressed={options.arrowDirection === id}
+                  onClick={() => onOptions({ ...options, arrowDirection: id })}
+                  className={`flex-1 rounded-md border px-2 py-1 font-mono text-sm focus-visible:outline-2 focus-visible:outline-secondary ${
+                    options.arrowDirection === id ? 'border-primary bg-primary text-on-primary' : 'border-outline-variant text-on-surface hover:bg-surface-container-high'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <span className="block">Click the line as many times as you like.</span>
+          </div>
+        )}
         {tool === 'structure' && (
           <label className="block space-y-1 text-[11px] text-on-surface-variant">
             What to place
@@ -137,7 +166,7 @@ export function ToolPalette({ tool, onTool, options, onOptions }: ToolPalettePro
             </select>
           </label>
         )}
-        {tool !== 'track' && tool !== 'connect' && tool !== 'signal' && tool !== 'structure' && (
+        {tool !== 'track' && tool !== 'connect' && tool !== 'signal' && tool !== 'structure' && tool !== 'arrow' && (
           <p className="text-[11px] text-on-surface-variant">Space + drag pans from any tool. Scroll to zoom. Ctrl+Z undoes.</p>
         )}
       </div>

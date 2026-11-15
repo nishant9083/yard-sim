@@ -1,7 +1,10 @@
 import {
   chainageAt,
+  isTrackEnd,
   shapeCentre,
   type Bridge,
+  type LineArrow,
+  type LineArrowDirection,
   type Shape,
   type EntityRef,
   type EntityType,
@@ -95,7 +98,7 @@ export function fixNodeKinds(s: Station): Station {
   const nodes = s.nodes.map((n): TrackNode => {
     const shared = (trackCount.get(n.id) ?? 0) >= 2
     const hasLink = linked.has(n.id)
-    const next: NodeKind = n.kind === 'plain' && (shared || hasLink) ? 'junction' : (n.kind === 'bufferStop' || n.kind === 'boundary') && shared ? 'junction' : n.kind
+    const next: NodeKind = n.kind === 'plain' && (shared || hasLink) ? 'junction' : isTrackEnd(n.kind) && shared ? 'junction' : n.kind
     if (next === n.kind) return n
     changed = true
     return { ...n, kind: next }
@@ -241,6 +244,18 @@ export function addJoint(s: Station, trackId: string, x: number): OpResult {
   if (near) return { station: s, ref: { type: 'joint', id: near.id } }
   const joint = { id: uniqueId(`IJ_${trackId}_${Math.round(x)}`, s.assets.joints.map((j) => j.id)), trackId, x: round2(x) }
   return { station: withAssets(s, { joints: [...s.assets.joints, joint] }), ref: { type: 'joint', id: joint.id } }
+}
+
+/** Drop a direction arrow on a line. Any number may be placed, anywhere along the line. */
+export function addLineArrow(s: Station, trackId: string, x: number, direction: LineArrowDirection): OpResult {
+  if (!s.tracks.some((t) => t.id === trackId)) return { station: s }
+  const arrow: LineArrow = {
+    id: nextId('ARW_', s.assets.lineArrows.map((a) => a.id), 2),
+    trackId,
+    x: round2(x),
+    direction,
+  }
+  return { station: withAssets(s, { lineArrows: [...s.assets.lineArrows, arrow] }), ref: { type: 'lineArrow', id: arrow.id } }
 }
 
 function makeCircuit(s: Station, trackId: string, x0: number, x1: number): TrackCircuit {
@@ -389,6 +404,7 @@ const COLLECTION: Partial<Record<EntityType, keyof StationAssets>> = {
   point: 'points',
   signal: 'signals',
   joint: 'joints',
+  lineArrow: 'lineArrows',
   trackCircuit: 'trackCircuits',
   platform: 'platforms',
   structure: 'structures',
@@ -468,6 +484,13 @@ export function moveEntity(base: Station, ref: EntityRef, dx: number, dy: number
       const [lo, hi] = trackXRange(base, track)
       return updateEntity(base, ref, { x: round2(clamp(j.x + dx, lo, hi)) })
     }
+    case 'lineArrow': {
+      const a = assets.lineArrows.find((a) => a.id === ref.id)
+      const track = base.tracks.find((t) => t.id === a?.trackId)
+      if (!a || !track) return base
+      const [lo, hi] = trackXRange(base, track)
+      return updateEntity(base, ref, { x: round2(clamp(a.x + dx, lo, hi)) })
+    }
     case 'point': {
       const p = assets.points.find((p) => p.id === ref.id)
       if (!p) return base
@@ -526,7 +549,7 @@ export function moveEntity(base: Station, ref: EntityRef, dx: number, dy: number
 }
 
 export const isMovable = (ref: EntityRef): boolean =>
-  ['node', 'signal', 'joint', 'point', 'platform', 'structure', 'bridge', 'annotation'].includes(ref.type)
+  ['node', 'signal', 'joint', 'lineArrow', 'point', 'platform', 'structure', 'bridge', 'annotation'].includes(ref.type)
 
 // --- delete ----------------------------------------------------------------------------------
 
@@ -556,6 +579,7 @@ function removeTrackOnly(s: Station, id: string): Station {
       ...a,
       trackCircuits,
       joints: a.joints.filter((j) => j.trackId !== id),
+      lineArrows: a.lineArrows.filter((l) => l.trackId !== id),
       signals: a.signals.filter((g) => g.trackId !== id),
       breaks: a.breaks.filter((b) => b.trackId !== id),
       structures: a.structures.flatMap((st): Structure[] => {

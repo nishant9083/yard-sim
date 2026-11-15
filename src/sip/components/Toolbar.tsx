@@ -1,4 +1,4 @@
-import { Focus, Maximize2, PanelRightClose, PanelRightOpen, Ruler, Signal, Spline, TrainTrack } from 'lucide-react'
+import { Focus, Maximize2, Ruler, Signal, Spline, TrainTrack } from 'lucide-react'
 import { MAX_ZOOM, MIN_ZOOM, type LayerVisibility } from '@/sip/render'
 import { LayerMenu } from './LayerMenu'
 import { LayerToggle } from './LayerToggle'
@@ -11,14 +11,12 @@ interface ToolbarProps {
   onFit: (mode: 'core' | 'all') => void
   zoom: number
   onZoomChange: (zoom: number) => void
-  panelOpen: boolean
-  onTogglePanel: () => void
 }
 
 const buttonClass =
   'flex h-8 items-center gap-1.5 rounded-md px-2 text-xs text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface focus-visible:outline-2 focus-visible:outline-secondary'
 
-export function Toolbar({ layers, onLayersChange, yExaggeration, onYExaggerationChange, onFit, zoom, onZoomChange, panelOpen, onTogglePanel }: ToolbarProps) {
+export function Toolbar({ layers, onLayersChange, yExaggeration, onYExaggerationChange, onFit, zoom, onZoomChange }: ToolbarProps) {
   const toggle = (key: keyof LayerVisibility) => () => onLayersChange({ ...layers, [key]: !layers[key] })
 
   return (
@@ -71,13 +69,6 @@ export function Toolbar({ layers, onLayersChange, yExaggeration, onYExaggeration
           aria-label="Zoom"
         />
       </label>
-
-      <span className="mx-1 h-5 w-px bg-outline-variant" aria-hidden />
-
-      <button type="button" className={buttonClass} onClick={onTogglePanel} title={panelOpen ? 'Hide legend and tables' : 'Show legend and tables'}>
-        {panelOpen ? <PanelRightClose className="size-4" aria-hidden /> : <PanelRightOpen className="size-4" aria-hidden />}
-        Legend &amp; tables
-      </button>
     </div>
   )
 }

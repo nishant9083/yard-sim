@@ -61,7 +61,10 @@ function drawElements(ctx: CanvasRenderingContext2D, g: SignalGeometry, ink: str
         ctx.fillStyle = paper
         ctx.fill()
         ctx.stroke()
-        line(ctx, cx - r * 0.5, cy + r * 0.5, cx + r * 0.5, cy - r * 0.5)
+        ctx.beginPath()
+        ctx.arc(cx, cy, r * 0.62, 0, Math.PI * 2)
+        ctx.stroke()
+        line(ctx, cx - r * 0.42, cy + r * 0.42, cx + r * 0.42, cy - r * 0.42)
         break
       }
       case 'routeIndicator': {

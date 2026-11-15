@@ -1,4 +1,4 @@
-import type { Station } from './types'
+import { isTrackEnd, type Station } from './types'
 
 export type IssueLevel = 'error' | 'warning'
 
@@ -42,7 +42,7 @@ export function validateStation(station: Station): ValidationIssue[] {
       usedByTrack.add(id)
 
       const interior = i > 0 && i < track.nodeIds.length - 1
-      if (interior && (node.kind === 'bufferStop' || node.kind === 'boundary'))
+      if (interior && isTrackEnd(node.kind))
         add('warning', 'track.end-inside', `Track ${track.id}: ${node.kind} ${id} sits inside the track`, track.id)
 
       const next = nodes.get(track.nodeIds[i + 1] ?? '')
@@ -109,6 +109,7 @@ function validateAssets(station: Station, nodes: Map<string, { id: string }>, ad
     ['point', assets.points],
     ['signal', assets.signals],
     ['joint', assets.joints],
+    ['lineArrow', assets.lineArrows],
     ['trackCircuit', assets.trackCircuits],
     ['platform', assets.platforms],
     ['structure', assets.structures],
@@ -134,6 +135,7 @@ function validateAssets(station: Station, nodes: Map<string, { id: string }>, ad
     if (s.elements.length === 0) add('warning', 'signal.empty', `Signal ${s.code} has no head elements`, s.id)
   }
   for (const j of assets.joints) needTrack('joint', j.id, j.trackId)
+  for (const a of assets.lineArrows) needTrack('lineArrow', a.id, a.trackId)
   for (const tc of assets.trackCircuits) {
     for (const span of tc.spans) {
       if ('trackId' in span) {

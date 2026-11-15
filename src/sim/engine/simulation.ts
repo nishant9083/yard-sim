@@ -738,7 +738,7 @@ export class Simulation {
     }
     if (r.stop) {
       if (r.stop.kind === 'blocked') return { d: acc * this.mpu(), why: r.stop.reason === 'moving' ? `point ${r.stop.unit ?? ''} moving` : `point ${r.stop.unit ?? r.stop.node} set against the train` }
-      if (r.stop.buffer) return { d: acc * this.mpu(), why: 'buffer stop' }
+      if (r.stop.buffer) return { d: acc * this.mpu(), why: r.stop.endName ?? 'buffer stop' }
     }
     return null
   }

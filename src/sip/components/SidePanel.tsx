@@ -1,4 +1,4 @@
-import { BookOpen, FileText, List, Table2, type LucideIcon } from 'lucide-react'
+import { BookOpen, ChevronLeft, ChevronRight, FileText, List, Table2, type LucideIcon } from 'lucide-react'
 import { useState } from 'react'
 import type { EntityRef, Station } from '@/sip/model'
 import { AssetsPanel } from './AssetsPanel'
@@ -19,10 +19,21 @@ interface SidePanelProps {
   station: Station
   selected: EntityRef | null
   onSelect: (ref: EntityRef) => void
+  open: boolean
+  onToggle: () => void
 }
 
-export function SidePanel({ station, selected, onSelect }: SidePanelProps) {
+export function SidePanel({ station, selected, onSelect, open, onToggle }: SidePanelProps) {
   const [tab, setTab] = useState<TabId>('assets')
+  if (!open) {
+    return (
+      <aside className="flex h-full w-9 shrink-0 flex-col border-l border-outline-variant bg-surface-container">
+        <button type="button" onClick={onToggle} aria-label="Expand side panel" title="Expand side panel" className="flex w-full items-center justify-center py-2.5 text-on-surface-variant hover:text-on-surface">
+          <ChevronLeft className="size-4" aria-hidden />
+        </button>
+      </aside>
+    )
+  }
   return (
     <aside className="flex h-full w-[26rem] max-w-[45vw] shrink-0 flex-col border-l border-outline-variant bg-surface-container">
       <div role="tablist" aria-label="Station information" className="flex border-b border-outline-variant">
@@ -41,6 +52,9 @@ export function SidePanel({ station, selected, onSelect }: SidePanelProps) {
             {label}
           </button>
         ))}
+        <button type="button" onClick={onToggle} aria-label="Collapse side panel" title="Collapse side panel" className="px-2 text-on-surface-variant hover:text-on-surface">
+          <ChevronRight className="size-4" aria-hidden />
+        </button>
       </div>
       <div role="tabpanel" className="min-h-0 flex-1 overflow-y-auto">
         {tab === 'assets' && <AssetsPanel station={station} selected={selected} onSelect={onSelect} />}

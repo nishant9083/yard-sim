@@ -424,6 +424,8 @@ function issuesLookup(station: Station, ref: EntityRef): boolean {
       return assets.trackCircuits.some((x) => x.id === ref.id)
     case 'joint':
       return assets.joints.some((x) => x.id === ref.id)
+    case 'lineArrow':
+      return assets.lineArrows.some((x) => x.id === ref.id)
     case 'platform':
       return assets.platforms.some((x) => x.id === ref.id)
     case 'structure':
