@@ -147,16 +147,10 @@
       "kind": "boundary"
     },
     {
-      "id": "N023",
-      "x": 1150.24,
-      "y": 157.96,
-      "kind": "junction"
-    },
-    {
       "id": "N026",
-      "x": 1156.72,
-      "y": 153.88,
-      "kind": "junction"
+      "x": 1149.63,
+      "y": 158.46,
+      "kind": "boundary"
     },
     {
       "id": "N027",
@@ -312,18 +306,6 @@
       "id": "N052",
       "x": 236.13,
       "y": 292.84,
-      "kind": "junction"
-    },
-    {
-      "id": "N053",
-      "x": 238.83,
-      "y": 295.91,
-      "kind": "junction"
-    },
-    {
-      "id": "N054",
-      "x": 265.84,
-      "y": 326.56,
       "kind": "junction"
     },
     {
@@ -967,6 +949,12 @@
       "x": 660,
       "y": 290,
       "kind": "plain"
+    },
+    {
+      "id": "N166",
+      "x": 265.47,
+      "y": 326.56,
+      "kind": "junction"
     }
   ],
   "tracks": [
@@ -1059,22 +1047,10 @@
       "kind": "loop",
       "direction": "BOTH",
       "nodeIds": [
-        "N023",
         "N026",
-        "N023",
         "N027",
         "N028",
         "N029"
-      ]
-    },
-    {
-      "id": "T09",
-      "name": "Track 9",
-      "kind": "loop",
-      "direction": "BOTH",
-      "nodeIds": [
-        "N026",
-        "N023"
       ]
     },
     {
@@ -1176,9 +1152,7 @@
       "direction": "BOTH",
       "nodeIds": [
         "N051",
-        "N052",
-        "N053",
-        "N054"
+        "N052"
       ]
     },
     {
@@ -1241,7 +1215,7 @@
         "N056",
         "N076",
         "N077",
-        "N054",
+        "N166",
         "N078"
       ]
     },
@@ -1602,13 +1576,6 @@
       "via": []
     },
     {
-      "id": "C02",
-      "kind": "crossover",
-      "from": "N052",
-      "to": "N053",
-      "via": []
-    },
-    {
       "id": "C04",
       "kind": "crossover",
       "from": "N043",
@@ -1739,6 +1706,14 @@
       "to": "N099",
       "via": [],
       "label": "275"
+    },
+    {
+      "id": "C21",
+      "kind": "turnout",
+      "from": "N052",
+      "to": "N166",
+      "via": [],
+      "label": "211"
     }
   ],
   "assets": {
@@ -1971,21 +1946,6 @@
           "y": 570.17
         },
         "crankHandle": "CH8"
-      },
-      {
-        "id": "P211",
-        "code": "211",
-        "nodeId": "N053",
-        "ratio": "",
-        "switch": "",
-        "ratioInferred": true,
-        "control": 211,
-        "label": {
-          "x": 245.87,
-          "y": 300.21
-        },
-        "connectionId": "C02",
-        "crankHandle": "CH11"
       },
       {
         "id": "P156",
@@ -2564,8 +2524,8 @@
         "ratioInferred": true,
         "control": 272,
         "label": {
-          "x": 575.95,
-          "y": 463.61
+          "x": 575.73,
+          "y": 464.93
         },
         "crankHandle": "CH10"
       },
@@ -2632,7 +2592,10 @@
           },
           {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperLeft",
+              "upperRight"
+            ]
           }
         ],
         "label": {
@@ -2678,7 +2641,10 @@
           },
           {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperLeft",
+              "upperRight"
+            ]
           }
         ],
         "label": {
@@ -2808,7 +2774,10 @@
           },
           {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperRight",
+              "right"
+            ]
           }
         ],
         "label": {
@@ -2908,7 +2877,9 @@
           },
           {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperRight"
+            ]
           }
         ],
         "label": {
@@ -3016,7 +2987,10 @@
           },
           {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperRight",
+              "right"
+            ]
           }
         ],
         "label": {
@@ -3158,8 +3132,15 @@
             "style": "slash"
           },
           {
+            "kind": "lamp",
+            "style": "hbar"
+          },
+          {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperRight",
+              "right"
+            ]
           }
         ],
         "label": {
@@ -3170,7 +3151,7 @@
       },
       {
         "id": "SIG_C82A_B",
-        "code": "82 A/BC82A/B",
+        "code": "82 A/B    C82A/B",
         "name": "Signal 82",
         "kind": "signal",
         "direction": "UP",
@@ -3196,8 +3177,14 @@
             "style": "slash"
           },
           {
+            "kind": "lamp",
+            "style": "hbar"
+          },
+          {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperRight"
+            ]
           }
         ],
         "label": {
@@ -3232,6 +3219,10 @@
           {
             "kind": "lamp",
             "style": "slash"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
           }
         ],
         "label": {
@@ -3262,7 +3253,10 @@
           },
           {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperRight",
+              "right"
+            ]
           }
         ],
         "label": {
@@ -4266,7 +4260,9 @@
           },
           {
             "kind": "routeIndicator",
-            "routes": ["upperLeft","upperRight"]
+            "routes": [
+              "upperRight"
+            ]
           }
         ],
         "label": {
@@ -6047,6 +6043,68 @@
         "x": 702.37
       }
     ],
+    "lineArrows": [
+      {
+        "id": "ARW_01",
+        "trackId": "T18",
+        "x": 61.17,
+        "direction": "left"
+      },
+      {
+        "id": "ARW_02",
+        "trackId": "T22",
+        "x": 61.17,
+        "direction": "right"
+      },
+      {
+        "id": "ARW_03",
+        "trackId": "T26",
+        "x": 61.62,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_04",
+        "trackId": "T48",
+        "x": 225.71,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_05",
+        "trackId": "T49",
+        "x": 226.42,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_06",
+        "trackId": "T50",
+        "x": 226.06,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_07",
+        "trackId": "T51",
+        "x": 717.41,
+        "direction": "right"
+      },
+      {
+        "id": "ARW_08",
+        "trackId": "T50",
+        "x": 758.06,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_09",
+        "trackId": "T49",
+        "x": 757.84,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_10",
+        "trackId": "T48",
+        "x": 757.95,
+        "direction": "both"
+      }
+    ],
     "trackCircuits": [
       {
         "id": "TC_151AXT",
@@ -7676,14 +7734,14 @@
           {
             "trackId": "T23",
             "x0": 655.96,
-            "x1": 703.39
+            "x1": 688.76
           }
         ],
         "label": {
           "x": 685.39,
           "y": 314.33
         },
-        "approx": true,
+        "approx": false,
         "text": "248XT"
       },
       {
@@ -7694,14 +7752,14 @@
           {
             "trackId": "T30",
             "x0": 709.1,
-            "x1": 737.02
+            "x1": 719.02
           }
         ],
         "label": {
           "x": 724.99,
           "y": 378.53
         },
-        "approx": true,
+        "approx": false,
         "text": "238XT"
       },
       {
@@ -7791,7 +7849,28 @@
       }
     ],
     "platforms": [],
-    "structures": [],
+    "structures": [
+      {
+        "id": "LOCOPILOTBOARD_1",
+        "kind": "locoPilotBoard",
+        "name": "LOCO PILOT BOARD",
+        "shape": {
+          "type": "rect",
+          "x0": 870.52,
+          "y0": 374.17,
+          "x1": 884.52,
+          "y1": 383.17
+        },
+        "label": {
+          "x": 877.52,
+          "y": 392.17
+        },
+        "foot": {
+          "trackId": "T25",
+          "x": 877.52
+        }
+      }
+    ],
     "bridges": [],
     "chainageMarks": [],
     "gradients": [],
@@ -7815,50 +7894,50 @@
       {
         "id": "A_DN",
         "text": "DN",
-        "x": 83.17,
-        "y": 364.6,
+        "x": 55.22,
+        "y": 368.15,
         "tone": "line"
       },
       {
         "id": "A_UP",
         "text": "UP",
-        "x": 68.95,
-        "y": 364.96,
+        "x": 66.96,
+        "y": 367.84,
         "tone": "line"
       },
       {
         "id": "A_UP_2",
         "text": "UP",
-        "x": 78.95,
-        "y": 331.24,
+        "x": 60.76,
+        "y": 332.35,
         "tone": "line"
       },
       {
         "id": "A_DN_2",
         "text": "DN",
-        "x": 231.01,
-        "y": 566.8,
+        "x": 223.38,
+        "y": 567.04,
         "tone": "line"
       },
       {
         "id": "A_UP_3",
         "text": "UP",
-        "x": 221.79,
-        "y": 567.29,
+        "x": 229.18,
+        "y": 567.05,
         "tone": "line"
       },
       {
         "id": "A_DN_3",
         "text": "DN",
-        "x": 231.01,
-        "y": 550,
+        "x": 223.5,
+        "y": 550.12,
         "tone": "line"
       },
       {
         "id": "A_UP_4",
         "text": "UP",
-        "x": 221.79,
-        "y": 550.36,
+        "x": 229.42,
+        "y": 549.88,
         "tone": "line"
       },
       {
@@ -7871,15 +7950,15 @@
       {
         "id": "A_DN_4",
         "text": "DN",
-        "x": 231.01,
+        "x": 222.3,
         "y": 532.96,
         "tone": "line"
       },
       {
         "id": "A_UP_5",
         "text": "UP",
-        "x": 221.79,
-        "y": 533.32,
+        "x": 227.87,
+        "y": 533.08,
         "tone": "line"
       },
       {
@@ -7906,15 +7985,15 @@
       {
         "id": "A_DN_5",
         "text": "DN",
-        "x": 762.85,
+        "x": 755.11,
         "y": 550,
         "tone": "line"
       },
       {
         "id": "A_UP_6",
         "text": "UP",
-        "x": 753.51,
-        "y": 550.36,
+        "x": 760.4,
+        "y": 550.04,
         "tone": "line"
       },
       {
@@ -7927,29 +8006,29 @@
       {
         "id": "A_DN_6",
         "text": "DN",
-        "x": 764.53,
-        "y": 532.73,
+        "x": 755.71,
+        "y": 531.87,
         "tone": "line"
       },
       {
         "id": "A_UP_7",
         "text": "UP",
-        "x": 755.19,
-        "y": 533.08,
+        "x": 761.21,
+        "y": 531.79,
         "tone": "line"
       },
       {
         "id": "A_DN_7",
         "text": "DN",
-        "x": 762.85,
-        "y": 566.8,
+        "x": 755.86,
+        "y": 566.47,
         "tone": "line"
       },
       {
         "id": "A_UP_8",
         "text": "UP",
-        "x": 753.51,
-        "y": 567.29,
+        "x": 761.04,
+        "y": 566.43,
         "tone": "line"
       },
       {
@@ -7962,8 +8041,8 @@
       {
         "id": "A_DN_8",
         "text": "DN",
-        "x": 80.17,
-        "y": 299.16,
+        "x": 61.31,
+        "y": 299.38,
         "tone": "line"
       },
       {
@@ -7977,35 +8056,35 @@
         "id": "A_HWH",
         "text": "HWH",
         "x": 204.83,
-        "y": 545.85,
+        "y": 545.23,
         "tone": "line"
       },
       {
         "id": "A_HWH_2",
         "text": "HWH",
         "x": 204.84,
-        "y": 562.71,
+        "y": 562.18,
         "tone": "line"
       },
       {
         "id": "A_SCMN",
         "text": "SCMN",
-        "x": 204.66,
-        "y": 549.57,
+        "x": 204.93,
+        "y": 547.26,
         "tone": "line"
       },
       {
         "id": "A_SCMN_2",
         "text": "SCMN",
-        "x": 204.66,
-        "y": 566.49,
+        "x": 204.75,
+        "y": 564.18,
         "tone": "line"
       },
       {
         "id": "A_KK_LINE",
         "text": "KK LINE",
-        "x": 804.56,
-        "y": 565.77,
+        "x": 808.32,
+        "y": 565.53,
         "tone": "line"
       },
       {
@@ -8018,8 +8097,8 @@
       {
         "id": "A_GPT_LINE",
         "text": "GPT LINE",
-        "x": 805.63,
-        "y": 531.87,
+        "x": 807.94,
+        "y": 532.23,
         "tone": "line"
       },
       {
@@ -8392,6 +8471,13 @@
         "x": 879,
         "y": 383,
         "tone": "end"
+      },
+      {
+        "id": "A_03",
+        "text": "ELS",
+        "x": 716.5,
+        "y": 576.74,
+        "tone": "line"
       }
     ],
     "breaks": []

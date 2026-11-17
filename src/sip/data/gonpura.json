@@ -6,17 +6,25 @@
   "sipRef": "ECR/SIP/DNR/GONPURA/537/2023",
   "coordinateSpace": "drawing-pt: sheet points shifted so the yard starts near the origin; x grows to the right-hand end, y grows downward",
   "ends": {
-   "west": "NEORA (NEO END) AT KM:-0.00",
+   "west": "NEORA (NEO END)",
    "east": "JAT DUMRI (JTDM END)"
   },
   "viewHints": {
    "yExaggeration": 4
   },
+  "sheet": {
+   "pdf": "GONPURA SIP (1).pdf",
+   "page": 0,
+   "offset": [
+    762.06,
+    286.7
+   ]
+  },
   "chainage": {
-   "originX": 3447.64,
-   "metresPerUnit": 0.36422,
+   "originX": 3443.7,
+   "metresPerUnit": 0.36425,
    "label": "CH",
-   "origin": "Zero of the printed chainages (station centre line)"
+   "origin": "Station centre line (CH. 0.00, km 8.300 from Neora); scale from the platform ends PF END CH 350.0m (x 2482.8) and CH 250.0m (x 4130.0)"
   },
   "scale": {
    "horizontal": "1cm = 10m",
@@ -76,7 +84,7 @@
    "id": "N009",
    "x": 1558.96,
    "y": 245.98,
-   "kind": "bufferStop"
+   "kind": "sandHump"
   },
   {
    "id": "N010",
@@ -130,7 +138,7 @@
    "id": "N018",
    "x": 1979.32,
    "y": 113.68,
-   "kind": "bufferStop"
+   "kind": "sandHump"
   },
   {
    "id": "N019",
@@ -190,13 +198,13 @@
    "id": "N028",
    "x": 4897.18,
    "y": 109.84,
-   "kind": "bufferStop"
+   "kind": "sandHump"
   },
   {
    "id": "N029",
    "x": 2190.88,
    "y": 353.32,
-   "kind": "bufferStop"
+   "kind": "sandHump"
   },
   {
    "id": "N030",
@@ -226,7 +234,7 @@
    "id": "N034",
    "x": 4709.14,
    "y": 340.78,
-   "kind": "bufferStop"
+   "kind": "sandHump"
   },
   {
    "id": "N035",
@@ -256,7 +264,14 @@
    "id": "N039",
    "x": 4373.51,
    "y": 73.95,
-   "kind": "junction"
+   "kind": "plain"
+  },
+  {
+   "id": "N040",
+   "x": 4387.5,
+   "y": 70.9,
+   "kind": "bufferStop",
+   "label": "T/S-54B"
   }
  ],
  "tracks": [
@@ -344,14 +359,15 @@
     "N036",
     "N037",
     "N038",
-    "N039"
+    "N039",
+    "N040"
    ]
   }
  ],
  "connections": [
   {
    "id": "C55",
-   "kind": "turnout",
+   "kind": "crossover",
    "from": "N014",
    "to": "N031",
    "via": [
@@ -545,7 +561,7 @@
   },
   {
    "id": "C54",
-   "kind": "crossover",
+   "kind": "turnout",
    "from": "N038",
    "to": "N024",
    "via": [
@@ -678,7 +694,7 @@
     "nodeId": "N038",
     "ratio": "",
     "switch": "",
-    "ratioInferred": true,
+    "ratioInferred": false,
     "control": 54,
     "label": {
      "x": 4368.3,
@@ -847,7 +863,11 @@
      },
      {
       "kind": "routeIndicator",
-      "routes": ["upperLeft","upperRight"]
+      "routes": [
+       "upperLeft",
+       "upperRight",
+       "right"
+      ]
      }
     ],
     "label": {
@@ -983,7 +1003,7 @@
     "direction": "UP",
     "trackId": "L1",
     "footX": 2256.16,
-    "anchorX": 2292.11,
+    "anchorX": 2298.0,
     "side": "below",
     "headDir": "west",
     "elements": [
@@ -1300,7 +1320,11 @@
      },
      {
       "kind": "routeIndicator",
-      "routes": ["upperLeft","upperRight"]
+      "routes": [
+       "upperLeft",
+       "upperRight",
+       "left"
+      ]
      }
     ],
     "label": {
@@ -1566,7 +1590,8 @@
      "x": 611.77,
      "y": 195.54
     },
-    "approx": false
+    "approx": false,
+    "text": "(5RL)"
    },
    {
     "id": "TC_011T",
@@ -1617,7 +1642,8 @@
      "x": 6401.86,
      "y": 196.14
     },
-    "approx": false
+    "approx": false,
+    "text": "(5RL)"
    },
    {
     "id": "TC_03T",
@@ -1972,8 +1998,8 @@
      },
      {
       "trackId": "T05",
-      "x0": 4351.28,
-      "x1": 4373.51
+      "x0": 4350.2,
+      "x1": 4387.5
      },
      {
       "connectionId": "C54"
@@ -2115,19 +2141,19 @@
     "widthM": 12.0,
     "polygon": [
      {
-      "x": 3443.68,
+      "x": 2482.8,
       "y": 191.8
      },
      {
-      "x": 3443.68,
-      "y": 126.28
+      "x": 2482.8,
+      "y": 125.9
      },
      {
-      "x": 4130.02,
-      "y": 126.28
+      "x": 4130.0,
+      "y": 125.9
      },
      {
-      "x": 4130.02,
+      "x": 4130.0,
       "y": 191.8
      }
     ],
@@ -2135,8 +2161,8 @@
      "x": 3813.89,
      "y": 160.55
     },
-    "startChainage": 1.44,
-    "endChainage": 248.54
+    "startChainage": 350.0,
+    "endChainage": 250.0
    },
    {
     "id": "PF2",
@@ -2167,15 +2193,15 @@
      "x": 3793.29,
      "y": 286.67
     },
-    "startChainage": 351.42,
-    "endChainage": 248.54
+    "startChainage": 350.0,
+    "endChainage": 250.0
    }
   ],
   "structures": [
    {
-    "id": "ST_CO_ON_BOARD_5RL",
+    "id": "ST_CO_ON_BOARD_W",
     "kind": "locoPilotBoard",
-    "name": "CO-ON BOARD (5RL)",
+    "name": "CO-ON BOARD",
     "foot": {
      "trackId": "L2",
      "x": 644.62
@@ -2189,9 +2215,9 @@
     }
    },
    {
-    "id": "ST_POST",
+    "id": "ST_BOARD_E",
     "kind": "locoPilotBoard",
-    "name": "POST",
+    "name": "Board (box with circle), 1400.0m (MIN) from S-01",
     "foot": {
      "trackId": "L2",
      "x": 6726.7
@@ -2237,6 +2263,64 @@
      "y": 69.57
     },
     "chainage": 2.5
+   },
+   {
+    "id": "ST_CO_ON_BOARD_E",
+    "kind": "locoPilotBoard",
+    "name": "CO-ON BOARD",
+    "foot": {
+     "trackId": "L2",
+     "x": 6376.4
+    },
+    "shape": {
+     "type": "rect",
+     "x0": 6352.1,
+     "y0": 212.1,
+     "x1": 6371.3,
+     "y1": 222.4
+    }
+   },
+   {
+    "id": "ST_BOARD_W",
+    "kind": "locoPilotBoard",
+    "name": "Board (box with circle), 1400.0m (MIN) from S-12",
+    "foot": {
+     "trackId": "L2",
+     "x": 136.8
+    },
+    "shape": {
+     "type": "rect",
+     "x0": 146.3,
+     "y0": 187.7,
+     "x1": 179.7,
+     "y1": 206.0
+    }
+   },
+   {
+    "id": "ST_HASSDAC_W",
+    "kind": "lvv",
+    "name": "S/L HASSDAC BETWEEN GONPURA-NEO",
+    "at": {
+     "trackId": "L2",
+     "x": 1192.5
+    },
+    "label": {
+     "x": 1161.0,
+     "y": 176.4
+    }
+   },
+   {
+    "id": "ST_HASSDAC_E",
+    "kind": "lvv",
+    "name": "S/L HASSDAC BETWEEN GONPURA-JTDM",
+    "at": {
+     "trackId": "L2",
+     "x": 5821.8
+    },
+    "label": {
+     "x": 5823.0,
+     "y": 230.1
+    }
    }
   ],
   "bridges": [
@@ -2244,77 +2328,77 @@
     "id": "BR11",
     "number": "11",
     "chainage": 2390.0,
-    "x": -3114.37,
-    "spec": "WATER WAY CROSSING / (1X4.0m RCC BOX) / UP / DN / NEXT BLOCK & JN. STATION NEORA (km 5.910)"
+    "x": 236.4,
+    "spec": "WATER WAY CROSSING / (1X4.0m RCC BOX) (km 5.910)"
    },
    {
     "id": "BR12",
     "number": "12",
     "chainage": 1141.98,
-    "x": 312.22,
+    "x": 276.2,
     "spec": "CANAL CROSSING 5.0m WIDE (km 6.367)"
    },
    {
     "id": "BR13",
     "number": "13",
     "chainage": 1058.17,
-    "x": 542.32,
+    "x": 495.8,
     "spec": "WATER WAY CROSSING (km 7.067)"
    },
    {
     "id": "BR14",
     "number": "14",
     "chainage": 851.86,
-    "x": 1108.76,
+    "x": 1105.1,
     "spec": "CANAL CROSSING 5.0m WIDE / (2X5.0m RCC BOX) (km 7.44814)"
    },
    {
     "id": "BR15",
     "number": "15",
     "chainage": 711.0,
-    "x": 1495.51,
+    "x": 1491.8,
     "spec": "B.T. ROAD CROSSING / 3.50m WIDE / (2X5.0m RCC BOX),RUB (km 7.589)"
    },
    {
     "id": "BR16",
     "number": "16",
     "chainage": 653.0,
-    "x": 5240.52,
+    "x": 5215.1,
     "spec": "METAL ROAD CROSSING 3.50m WIDE / 2X 6.0m R.C.C.BOX, RUB (km 8.953)"
    },
    {
     "id": "BR17",
     "number": "17",
     "chainage": 1014.0,
-    "x": 6231.68,
+    "x": 6227.6,
     "spec": "CANAL CROSSING 4.0m WIDE / 1X 4.0m R.C.C.BOX, (km 9.314)"
    },
    {
     "id": "BR18",
     "number": "18",
     "chainage": 1117.0,
-    "x": 6514.48,
+    "x": 6510.6,
     "spec": "CANAL CROSSING 4.0m WIDE / 1X 4.0m R.C.C.BOX, (km 9.417)"
    },
    {
     "id": "BR19",
     "number": "19",
     "chainage": 1466.0,
-    "x": 7472.7,
+    "x": 6570.6,
     "spec": "WATER WAY CROSSING / 1X 3.0m R.C.C.BOX, (km 9.766)"
    },
    {
     "id": "BR20",
     "number": "20",
     "chainage": 1920.0,
-    "x": 8719.21,
+    "x": 6630.2,
     "spec": "1X 4.0m R.C.C.BOX, (km 10.220)"
    },
    {
     "id": "BR21",
     "number": "21",
     "chainage": 2154.0,
-    "x": 9361.68,
+    "x": 6700.7,
     "spec": "DRAIN CROSSING 4.0m WIDE / 1X 4.0m R.C.C.BOX, (km 10.454)"
    }
   ],
@@ -2602,58 +2686,66 @@
   ],
   "gradients": [
    {
-    "id": "G_2",
+    "id": "G_1",
     "direction": "BOTH",
-    "x": -3828.23,
+    "x": 210.5,
     "chainage": 2650.0,
-    "from": null,
+    "from": "LEVEL",
     "to": "1 IN 200",
-    "text": "CH: 2650.0m"
+    "text": "km. 5.650, CH: 2650.0m"
    },
    {
-    "id": "G",
+    "id": "G_2",
     "direction": "BOTH",
-    "x": 1072.69,
-    "chainage": 865.0,
-    "from": null,
-    "to": "F= 6851.85",
-    "text": "CH: 865.0m"
+    "x": 432.0,
+    "from": "1 IN 200",
+    "to": "LEVEL",
+    "text": "km. 6.670"
    },
    {
     "id": "G_3",
     "direction": "BOTH",
-    "x": 5644.12,
-    "chainage": 800.0,
-    "from": "F= 6851.85",
-    "to": null,
-    "text": "CH: 800.0m"
+    "x": 1069.0,
+    "chainage": 865.0,
+    "from": "LEVEL",
+    "to": "F= 6851.85",
+    "text": "km. 7.435, FROM CSB CH: 865.0m"
    },
    {
     "id": "G_4",
     "direction": "BOTH",
-    "x": 6330.53,
-    "chainage": 1050.0,
-    "from": null,
-    "to": "1 IN 1200.23",
-    "text": "CH: 1050.0m"
+    "x": 5636.0,
+    "chainage": 800.0,
+    "from": "F= 6851.85",
+    "to": "LEVEL",
+    "text": "km. 9.100, FROM CSB CH: 800.0m"
    },
    {
     "id": "G_5",
     "direction": "BOTH",
-    "x": 11959.03,
-    "chainage": 3100.0,
-    "from": "R1 IN 1200.23",
-    "to": null,
-    "text": "CH: 3100.0m"
+    "x": 6450.0,
+    "chainage": 1050.0,
+    "from": "LEVEL",
+    "to": "1 IN 1200.23",
+    "text": "km. 9.350, FROM CSB CH: 1050.0m"
    },
    {
     "id": "G_6",
     "direction": "BOTH",
-    "x": 12714.07,
+    "x": 6797.0,
+    "chainage": 3100.0,
+    "from": "R1 IN 1200.23",
+    "to": "LEVEL",
+    "text": "km. 11.400, FROM CSB CH: 3100.0m"
+   },
+   {
+    "id": "G_7",
+    "direction": "BOTH",
+    "x": 6950.0,
     "chainage": 3375.0,
-    "from": null,
+    "from": "LEVEL",
     "to": "R1 IN 299.76",
-    "text": "CH: 3375.0m"
+    "text": "km. 11.675, FROM CSB CH: 3375.0m"
    }
   ],
   "dimensions": [
@@ -2764,6 +2856,78 @@
      "x": 2647.2,
      "y": 276.33
     }
+   },
+   {
+    "id": "DH_5",
+    "kind": "horizontal",
+    "y": 244.7,
+    "x0": 691.4,
+    "x1": 1188.0,
+    "text": "180m(MIN)",
+    "label": {
+     "x": 941.0,
+     "y": 244.7
+    }
+   },
+   {
+    "id": "DH_6",
+    "kind": "horizontal",
+    "y": 232.2,
+    "x0": 1221.5,
+    "x1": 1550.5,
+    "text": "120m(MIN)",
+    "label": {
+     "x": 1386.0,
+     "y": 232.2
+    }
+   },
+   {
+    "id": "DH_7",
+    "kind": "horizontal",
+    "y": 149.0,
+    "x0": 5463.3,
+    "x1": 5792.2,
+    "text": "120m(MIN)",
+    "label": {
+     "x": 5627.0,
+     "y": 149.0
+    }
+   },
+   {
+    "id": "DH_8",
+    "kind": "horizontal",
+    "y": 149.0,
+    "x0": 5827.9,
+    "x1": 6321.8,
+    "text": "180m(MIN)",
+    "label": {
+     "x": 6075.0,
+     "y": 149.0
+    }
+   },
+   {
+    "id": "DH_9",
+    "kind": "horizontal",
+    "y": 270.1,
+    "x0": 6321.9,
+    "x1": 6654.7,
+    "text": "1000.0m.(MIN)",
+    "label": {
+     "x": 6488.0,
+     "y": 268.0
+    }
+   },
+   {
+    "id": "DH_10",
+    "kind": "horizontal",
+    "y": 291.6,
+    "x0": 6321.9,
+    "x1": 6725.6,
+    "text": "1400.0m.(MIN)",
+    "label": {
+     "x": 6480.0,
+     "y": 289.0
+    }
    }
   ],
   "routeLabels": [
@@ -2836,35 +3000,21 @@
     "x": 5653.05,
     "y": 194.6,
     "arrow": "east"
+   },
+   {
+    "id": "R_11",
+    "text": "SH201(SDG.)",
+    "x": 4247.19,
+    "y": 68.51,
+    "arrow": "west"
    }
   ],
   "annotations": [
-   {
-    "id": "A",
-    "text": "SAND HUMP",
-    "x": 1533.31,
-    "y": 262.22,
-    "tone": "line"
-   },
    {
     "id": "A_2",
     "text": "FM",
     "x": 2074.08,
     "y": 271.7,
-    "tone": "line"
-   },
-   {
-    "id": "A_3",
-    "text": "SAND HUMP",
-    "x": 4734.83,
-    "y": 355.82,
-    "tone": "line"
-   },
-   {
-    "id": "A_4",
-    "text": "SAND HUMP",
-    "x": 4918.48,
-    "y": 96.44,
     "tone": "line"
    },
    {
@@ -2931,13 +3081,6 @@
     "tone": "line"
    },
    {
-    "id": "A_14",
-    "text": "SAND HUMP",
-    "x": 1950.16,
-    "y": 98.12,
-    "tone": "line"
-   },
-   {
     "id": "A_15",
     "text": "1.680m",
     "x": 3345.08,
@@ -2991,13 +3134,6 @@
     "text": "FM",
     "x": 1964.76,
     "y": 189.56,
-    "tone": "line"
-   },
-   {
-    "id": "A_23",
-    "text": "SAND HUMP",
-    "x": 2166.91,
-    "y": 370.73,
     "tone": "line"
    },
    {
@@ -3061,13 +3197,6 @@
     "text": "1.680m",
     "x": 3345.08,
     "y": 122.21,
-    "tone": "line"
-   },
-   {
-    "id": "A_33",
-    "text": "SH201(SDG.)",
-    "x": 4247.19,
-    "y": 68.51,
     "tone": "line"
    },
    {
@@ -3251,6 +3380,97 @@
     "connectionId": "C57",
     "x": 1675.74,
     "y": 219.97
+   },
+   {
+    "connectionId": "C52",
+    "x": 4893.2,
+    "y": 157.7
+   }
+  ],
+  "lineArrows": [
+   {
+    "id": "ARW_01",
+    "trackId": "L2",
+    "x": 79.3,
+    "direction": "left"
+   },
+   {
+    "id": "ARW_02",
+    "trackId": "L2",
+    "x": 307.6,
+    "direction": "right"
+   },
+   {
+    "id": "ARW_03",
+    "trackId": "L1",
+    "x": 2795.4,
+    "direction": "left"
+   },
+   {
+    "id": "ARW_04",
+    "trackId": "L2",
+    "x": 2795.4,
+    "direction": "left"
+   },
+   {
+    "id": "ARW_05",
+    "trackId": "L3",
+    "x": 2795.4,
+    "direction": "left"
+   },
+   {
+    "id": "ARW_06",
+    "trackId": "L4",
+    "x": 2795.4,
+    "direction": "left"
+   },
+   {
+    "id": "ARW_07",
+    "trackId": "L1",
+    "x": 2836.4,
+    "direction": "right"
+   },
+   {
+    "id": "ARW_08",
+    "trackId": "L2",
+    "x": 2836.4,
+    "direction": "right"
+   },
+   {
+    "id": "ARW_09",
+    "trackId": "L3",
+    "x": 2836.4,
+    "direction": "right"
+   },
+   {
+    "id": "ARW_10",
+    "trackId": "L4",
+    "x": 2836.4,
+    "direction": "right"
+   },
+   {
+    "id": "ARW_11",
+    "trackId": "L2",
+    "x": 3396.2,
+    "direction": "left"
+   },
+   {
+    "id": "ARW_12",
+    "trackId": "L2",
+    "x": 3497.2,
+    "direction": "right"
+   },
+   {
+    "id": "ARW_13",
+    "trackId": "L2",
+    "x": 6809.3,
+    "direction": "left"
+   },
+   {
+    "id": "ARW_14",
+    "trackId": "L2",
+    "x": 6924.7,
+    "direction": "right"
    }
   ]
  },
@@ -3258,11 +3478,11 @@
   "titleBlock": [
    {
     "label": "Title",
-    "value": "SIGNAL INTERLOCKING PLAN"
+    "value": "CENTRALISED E.I. SIGNAL INTERLOCKING PLAN (ELECTRONIC INTERLOCKING WITH CENTRALIZED OPERATION)"
    },
    {
     "label": "Station",
-    "value": "GONPURA"
+    "value": "GONPURA (km 8.300 from NEORA, CH. 0.00)"
    },
    {
     "label": "Zone",
@@ -3285,16 +3505,28 @@
     "value": "ECR/SIP/DNR/GONPURA/537/2023"
    },
    {
+    "label": "Pink book",
+    "value": "PINK BOOK ITEM NO. 10 OF 2022-23"
+   },
+   {
     "label": "Scale",
     "value": "SCALE (1:1000)"
+   },
+   {
+    "label": "Longitudinal scale",
+    "value": "1cm = 10m"
    },
    {
     "label": "Transverse scale",
     "value": "1cm = 5m"
    },
    {
-    "label": "Longitudinal scale",
-    "value": "1cm = 10m"
+    "label": "Prepared by",
+    "value": "R.K.S (KEC/QUATRO REPRESENTATIVE)"
+   },
+   {
+    "label": "Checked by",
+    "value": "S.K.SINHA, EX.DY.CSTE"
    }
   ],
   "lines": [
@@ -3331,15 +3563,63 @@
   "notes": [
    {
     "no": "",
+    "text": "SIGNAL SPECIFIC NOTES - I"
+   },
+   {
+    "no": "1",
+    "text": "NUMBER GRID: see table."
+   },
+   {
+    "no": "2",
+    "text": "BLOCK WORKING: see table."
+   },
+   {
+    "no": "3",
+    "text": "DETAILS OF TRACK CIRCUITS: see table."
+   },
+   {
+    "no": "4",
+    "text": "DETAILS OF AXLE COUNTERS: see table."
+   },
+   {
+    "no": "",
     "text": "SIGNAL SPECIFIC NOTES - II"
    },
    {
+    "no": "5",
+    "text": "DETAILS OF IRS TYPE MOTOR OPERATED POINTS WITH CRANK HANDLE GROUPING: see table."
+   },
+   {
+    "no": "6",
+    "text": "DETAILS OF SIDING POINTS (IF ANY):- NIL. SIDING POINT DETECTION TABLE (Elec): -"
+   },
+   {
+    "no": "7",
+    "text": "INTERLOCKED LC GATE DETAILS: NIL"
+   },
+   {
+    "no": "8",
+    "text": "COMMUNICATION DETAILS: NIL"
+   },
+   {
+    "no": "9",
+    "text": "DETAILS OF SIGNAL ROUTES HAVING ALTERNATE OVERLAPS: see tables."
+   },
+   {
+    "no": "17",
+    "text": "V.D.U. DETAILS:- MAIN SIGNAL - 01. 02. 03. 04. 05. 06. 07. 08. 09. 10. 11. 12. CALLING - ON SIGNAL - C-01. C-12. SHUNT SIGNAL - 103.104.105.106. 107. 108. 109. 110. 201. 202. 204. POINT - 51, 52, 53, 54,55, 56, 57. CRANK HANDLE CONTROL - CH-1, CH-2, CH-3, CH-4, CH-5, CH-6, CH-7. DEAD SHUNT SIG. - 301."
+   },
+   {
+    "no": "",
+    "text": "SIGNAL SPECIFIC NOTES - III"
+   },
+   {
     "no": "10",
-    "text": "60 SEC. TIME DELAY PROVIDED FOR C-01& C-12 SIGNALS. 1"
+    "text": "60 SEC. TIME DELAY PROVIDED FOR C-01& C-12 SIGNALS."
    },
    {
     "no": "11",
-    "text": "ANGLE OF XINGS ARE 1 IN 12 OR 1 IN 8 AS MENTIONED BELOW 2"
+    "text": "ANGLE OF XINGS ARE 1 IN 12 OR 1 IN 8\u00bd AS MENTIONED BELOW: i) 1 IN 12(CS) = 51A/B, 52B, 53B, 55B, 56B, 57B. ii) 1 IN 8\u00bd (SY)= 52A, 53A, 55A, 56A, 57A."
    },
    {
     "no": "12",
@@ -3363,27 +3643,11 @@
    },
    {
     "no": "17",
-    "text": "STANDARD COLOUR SCHEME NEEDS TO BE ADOPTED FOR DEPICTING:-: INTENDED ALTERATIONS IN THE SSP/SIP."
+    "text": "STANDARD COLOUR SCHEME NEEDS TO BE ADOPTED FOR DEPICTING:-: NIL INTENDED ALTERATIONS IN THE SSP/SIP. I. FOR NEW WORK RED COLOUR. II. FOR DELETION WORK:-GREEN COLOUR. III. FOR FUTURE WORK:- MAGENTA COLOUR."
    },
    {
     "no": "18",
     "text": "FOULING TRACK CIRCUIT :- 01 NO. (3T). FOR OPERATION OF 57A/B IN REVERSE, 3T SHOULD BE CLEAR."
-   },
-   {
-    "no": "6",
-    "text": "DETAILS OF SIDING POINTS (IF ANY):-"
-   },
-   {
-    "no": "7",
-    "text": "INTERLOCKED LC GATE DETAILS: NIL"
-   },
-   {
-    "no": "8",
-    "text": "COMMUNICATION DETAILS: NIL"
-   },
-   {
-    "no": "17",
-    "text": "MAIN SIGNAL CALLING - ON SIGNAL C-01. C-12. SHUNT SIGNAL 103.104.105.106. 107. 108. 109. 110. 201. 202. 204."
    },
    {
     "no": "",
@@ -3399,11 +3663,11 @@
    },
    {
     "no": "3",
-    "text": "THIS PLAN SUPERSEDES SIP/SSP NO:-"
+    "text": "THIS PLAN SUPERSEDES SIP/SSP NO:- NIL."
    },
    {
     "no": "4",
-    "text": "THIS STATION IS LOCATED IN ELECTRIFIED SECTION."
+    "text": "THIS STATION IS LOCATED IN 25 KV AC ELECTRIFIED SECTION."
    },
    {
     "no": "5",
@@ -3415,15 +3679,15 @@
    },
    {
     "no": "7",
-    "text": "THE GROUND MOUNTED LEVER FRAME ARE PROVIDED FOR SIDING POINT OPERATION AND LC GATE BOOM LOCKING:-"
+    "text": "THE GROUND MOUNTED LEVER FRAME ARE PROVIDED FOR SIDING POINT OPERATION AND LC GATE BOOM LOCKING:- NIL."
    },
    {
     "no": "8",
-    "text": "THE HPL IS PROVIDED FOR SIDING POINT AND STANDS NORMALLY IN. :-"
+    "text": "THE HPL IS PROVIDED FOR SIDING POINT AND STANDS NORMALLY IN. :- NIL."
    },
    {
     "no": "9",
-    "text": "ALL THE WORKS ARE CARRIED OUT AS PER THE PROVISIONS IN THE AND OTHER POLICY LETTERS."
+    "text": "ALL THE WORKS ARE CARRIED OUT AS PER THE PROVISIONS IN THE IRSEM, G & SR AND OTHER POLICY LETTERS."
    },
    {
     "no": "10",
@@ -3439,7 +3703,7 @@
    },
    {
     "no": "13",
-    "text": "SIGNAL AND SIGNAGES ARE IN ACCORDANCE WITH"
+    "text": "SIGNAL AND SIGNAGES ARE IN ACCORDANCE WITH G & SR AND IRSEM."
    },
    {
     "no": "14",
@@ -3447,23 +3711,23 @@
    },
    {
     "no": "15",
-    "text": "POINT ZONE TELEPHONES (PTZ) ARE PROVIDED AT TOP POINTS :-"
+    "text": "POINT ZONE TELEPHONES (PTZ) ARE PROVIDED AT TOP POINTS :- NIL."
    },
    {
     "no": "16",
-    "text": "NON-STANDARD SYMBOLS USED ON THIS PLAN ARE -"
+    "text": "NON-STANDARD SYMBOLS USED ON THIS PLAN ARE - NIL."
    },
    {
     "no": "17",
-    "text": "LIST OF ASSUMPTION BEING MADE WHILE SCHEME PLAN WAS IN PRODUCTION ARE"
+    "text": "LIST OF ASSUMPTION BEING MADE WHILE SCHEME PLAN WAS IN PRODUCTION ARE (i) ... (ii) ..."
    },
    {
     "no": "18",
-    "text": "SCHEME PLAN SPECIFIC ISSUES WHICH ARE STILL TO BE RESOLVED"
+    "text": "SCHEME PLAN SPECIFIC ISSUES WHICH ARE STILL TO BE RESOLVED (i) ... (ii) ..."
    },
    {
     "no": "19",
-    "text": "TYPE OF INTERLOCKING :"
+    "text": "TYPE OF INTERLOCKING : CENTRALISED ELECTRONIC INTERLOCKING ."
    },
    {
     "no": "20",
@@ -3484,6 +3748,14 @@
    {
     "no": "24",
     "text": "AUTOMATIC MEDIA CHANGE OVER PROVIDED FOR BLOCK PANEL UFSBI."
+   },
+   {
+    "no": "",
+    "text": "SPECIAL INSTRUCTION / APPROVED SPECIAL INSTRUCTION"
+   },
+   {
+    "no": "1",
+    "text": "UNDER THE PROVISION OF GR PARA 3.47 FOR TAKING `OFF' SIGNALS FOR MORE THAN ONE TRAIN AT A TIME FOR SIMULTANEOUS RECEPTION OF TRAINS, THE INTERLOCKING & THE LAYOUT OF `GONPURA' YARD PERMITS AND SHALL BE DONE AS PER DETAILS OF PROVISION MENTIONED IN SWR. (ISSUED BY PCOM/ECR/HJP; REMARKS: TO BE OBTAINED)"
    }
   ],
   "tables": [
@@ -3563,7 +3835,7 @@
    },
    {
     "id": "table4",
-    "title": "9. DETAILS OF SIGNAL ROUTES HAVING ALTERNATE OVERLAPS",
+    "title": "9. DETAILS OF SIGNAL ROUTES HAVING ALTERNATE OVERLAPS (S1)",
     "columns": [
      "SIGNAL NO.",
      "LEADING TO",
@@ -3571,8 +3843,8 @@
     ],
     "rows": [
      [
-      "",
-      "",
+      "S1",
+      "LINE NO:-1 (S09)",
       "UP TO SAND HUMP WHEN POINT 56 NORMAL."
      ],
      [
@@ -3586,8 +3858,8 @@
       "UP TO LSS S11 WHEN POINT 56 & 57 NORMAL."
      ],
      [
-      "",
-      "",
+      "S1",
+      "LINE NO:-3 (S05)",
       "UP TO SAND HUMP WHEN POINT 55 & 57 NORMAL."
      ],
      [
@@ -3596,25 +3868,25 @@
       "UP TO  LSS S11 WHEN POINT 55 NORMAL & 57 REVERSE."
      ],
      [
-      "",
-      "",
+      "S1",
+      "LINE NO:-4 (S07)",
       "UP TO SAND HUMP WHEN POINT 55 NORMAL."
      ],
      [
       "S1",
-      "LINE NO:-4",
+      "LINE NO:-4 (S07)",
       "UP TO LSS S11 WHEN POINT 55 & 57 REVERSE."
      ],
      [
-      "",
-      "(S07)",
+      "S1",
+      "LINE NO:-4 (S07)",
       "UP TO SAND HUMP WHEN POINT 55 REVERSE & 57 NORMAL."
      ]
     ]
    },
    {
     "id": "table5",
-    "title": "SIGNAL NO.",
+    "title": "9. DETAILS OF SIGNAL ROUTES HAVING ALTERNATE OVERLAPS (S12)",
     "columns": [
      "SIGNAL NO.",
      "LEADING TO",
@@ -3622,13 +3894,13 @@
     ],
     "rows": [
      [
-      "",
-      "LINE NO:-1",
+      "S12",
+      "LINE NO:-1 (S06)",
       "UP TO SAND HUMP WHEN POINT 52 & 54 NORMAL."
      ],
      [
       "S12",
-      "(S06)",
+      "LINE NO:-1 (S06)",
       "UP TO LSS S02 WHEN POINT 51 NORMAL, 52 REVERSE & 54 NORMAL."
      ],
      [
@@ -3637,8 +3909,8 @@
       "UP TO LSS S02 WHEN POINT 51 & 52 NORMAL.."
      ],
      [
-      "",
-      "",
+      "S12",
+      "LINE NO:-3 (S08)",
       "UP TO DEAD WHEN POINT 51 & 53 NORMAL."
      ],
      [
@@ -3647,18 +3919,18 @@
       "UP TO  LSS S02 WHEN POINT 51 REVERSE & 53 NORMAL."
      ],
      [
-      "",
-      "",
+      "S12",
+      "LINE NO:-4 (S10)",
       "UP TO SAND HUMP WHEN POINT 53 NORMAL."
      ],
      [
       "S12",
-      "LINE NO:-4",
+      "LINE NO:-4 (S10)",
       "UP TO LSS S02 WHEN POINT 51 & 53 REVERSE."
      ],
      [
-      "",
-      "(S10)",
+      "S12",
+      "LINE NO:-4 (S10)",
       "UP TO DEAD END WHEN POINT 51 NORMAL & 53 REVERSE."
      ]
     ]
@@ -3755,8 +4027,8 @@
     "title": "3. DETAILS OF TRACK CIRCUITS:",
     "columns": [
      "TRACK CIRCUITS",
-     "TYPE OF TRACK REMARKS, CIRCUITS",
-     "IF ANY"
+     "TYPE OF TRACK CIRCUITS",
+     "REMARKS, IF ANY"
     ],
     "rows": [
      [
@@ -3783,13 +4055,13 @@
       "13 to 29"
      ],
      [
-      "",
+      "SIGNAL",
       "RIGHT TO LEFT",
       "02-30 (EVEN NUMBERS)",
       "14 to 30"
      ],
      [
-      "",
+      "CO-ON SIGNAL",
       "RIGHT TO LEFT",
       "C-01 (ODD NUMBERS)",
       "--"
@@ -3801,37 +4073,37 @@
       "--"
      ],
      [
-      "DEPENDENT",
+      "DEPENDENT SHUNT SIGNAL",
       "LEFT TO RIGHT",
       "104, 106, 108, 110",
       "--"
      ],
      [
-      "SHUNT SIGNAL",
+      "DEPENDENT SHUNT SIGNAL",
       "RIGHT TO LEFT",
       "103, 105, 107, 109",
       "--"
      ],
      [
-      "INDEPENDENT",
+      "INDEPENDENT SHUNT SIGNAL",
       "LEFT TO RIGHT",
       "202, 204",
       "--"
      ],
      [
-      "SHUNT SIGNAL",
+      "INDEPENDENT SHUNT SIGNAL",
       "RIGHT TO LEFT",
       "201",
       "--"
      ],
      [
-      "DUMMY SHUNT",
+      "DUMMY SHUNT SIGNAL",
       "LEFT TO RIGHT",
       "NIL.",
       "--"
      ],
      [
-      "SIGNAL",
+      "DUMMY SHUNT SIGNAL",
       "RIGHT TO LEFT",
       "DSH-301.",
       "--"
@@ -3843,7 +4115,7 @@
       "--"
      ],
      [
-      "",
+      "POINTS",
       "LEFT",
       "55, 56, 57.",
       "--"
@@ -3855,13 +4127,13 @@
       "--"
      ],
      [
-      "",
+      "SIDING POINTS",
       "RIGHT",
       "NIL",
       "--"
      ],
      [
-      "",
+      "LC GATE",
       "LEFT",
       "NIL",
       "--"
