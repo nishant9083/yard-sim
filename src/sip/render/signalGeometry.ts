@@ -1,4 +1,4 @@
-import type { Point, RouteIndicatorRoute, Signal, SignalElement } from '@/sip/model'
+import { signalAnchorX, type Point, type RouteIndicatorRoute, type Signal, type SignalElement } from '@/sip/model'
 import type { StationLayout } from '@/sip/layout'
 import { worldToScreen, type Camera } from './camera'
 import { symbolRadius } from './scales'
@@ -78,7 +78,7 @@ export function signalGeometry(layout: StationLayout, camera: Camera, signal: Si
   const dir = signal.headDir === 'east' ? 1 : -1
   const foot = worldToScreen(camera, { x: signal.footX, y: trackY })
   const rowY = foot.y + sgn * (r * 3.4 + 3)
-  const anchor = { x: worldToScreen(camera, { x: signal.anchorX, y: 0 }).x, y: rowY }
+  const anchor = { x: worldToScreen(camera, { x: signalAnchorX(signal), y: 0 }).x, y: rowY }
 
   const gap = r * 0.35
   let cursor = anchor.x

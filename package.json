@@ -11,7 +11,9 @@
     "sip:extract": "uv run tools/sipx/run.py",
     "sip:jrt": "uv run tools/jrt/gen_jrt.py",
     "test": "vitest run",
-    "rcc:jrt": "python3 tools/rcc/xlsx_to_rcc.py tools/rcc/source/JRT_PH_I_RCC_VER_03.xlsx JRT src/sim/data/jrt.rcc.json tools/rcc/source/jrt.patches.json"
+    "rcc:jrt": "python3 tools/rcc/xlsx_to_rcc.py tools/rcc/source/JRT_PH_I_RCC_VER_03.xlsx JRT src/sim/data/jrt.rcc.json tools/rcc/source/jrt.patches.json",
+    "sip:straighten": "vite-node tools/straighten/run.ts --",
+    "sip:conventions": "vite-node tools/straighten/conventions.ts --"
   },
   "dependencies": {
     "lucide-react": "^1.64.0",

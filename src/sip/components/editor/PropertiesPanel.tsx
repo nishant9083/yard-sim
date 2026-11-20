@@ -12,6 +12,7 @@ import {
   type SignalElement,
   type Station,
   type Structure,
+  signalAnchorX,
 } from '@/sip/model'
 import {
   circuitCode,
@@ -474,7 +475,7 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
             <Section title="Placement">
               <SelectField label="Direction" value={s.direction} options={[{ id: 'UP', label: 'UP' }, { id: 'DN', label: 'DN' }]} onChange={(v) => setNow({ direction: v, headDir: v === 'UP' ? 'east' : 'west' })} />
               <SelectField label="Side of line" value={s.side} options={[{ id: 'above', label: 'Above' }, { id: 'below', label: 'Below' }]} onChange={(v) => setNow({ side: v })} />
-              <SelectField label="Head faces" value={s.headDir} options={[{ id: 'east', label: 'East' }, { id: 'west', label: 'West' }]} onChange={(v) => setNow({ headDir: v, anchorX: s.footX + (v === 'east' ? 2 : -2) })} />
+              <SelectField label="Head faces" value={s.headDir} options={[{ id: 'east', label: 'East' }, { id: 'west', label: 'West' }]} onChange={(v) => setNow({ headDir: v, anchorX: signalAnchorX({ footX: s.footX, headDir: v }) })} />
               <SelectField
                 label="Board"
                 value={s.board ?? ''}

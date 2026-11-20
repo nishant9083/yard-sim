@@ -84,7 +84,7 @@ export interface Signal {
   trackId: string
   /** Where the post stands on the track. */
   footX: number
-  /** Where the wire meets the head. */
+  /** Legacy: where the wire meets the head. Kept in the JSON but no longer read; see `signalAnchorX`. */
   anchorX: number
   side: Side
   headDir: HeadDirection
@@ -94,6 +94,14 @@ export interface Signal {
   board?: 'SL' | 'DL'
   /** Position of the printed label (drawing space). */
   label?: Point
+}
+
+/** Horizontal gap between a signal's post and its head (drawing units). */
+export const SIGNAL_HEAD_OFFSET = 3
+
+/** Where the wire meets the head: 3 units east of the post for an east-facing head, 3 west for a west-facing one. */
+export function signalAnchorX(signal: Pick<Signal, 'footX' | 'headDir'>): number {
+  return signal.footX + (signal.headDir === 'east' ? SIGNAL_HEAD_OFFSET : -SIGNAL_HEAD_OFFSET)
 }
 
 export interface PointMachine {

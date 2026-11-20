@@ -17,6 +17,7 @@ import {
   type Track,
   type TrackCircuit,
   type TrackNode,
+  signalAnchorX,
 } from '@/sip/model'
 import { distanceToSegment } from '@/sip/layout'
 import {
@@ -330,7 +331,7 @@ export function addSignal(s: Station, trackId: string, x: number, clickY: number
     ...orient,
     trackId,
     footX,
-    anchorX: round2(footX + (orient.headDir === 'east' ? 2 : -2)),
+    anchorX: round2(signalAnchorX({ footX, headDir: orient.headDir })),
     elements: preset.elements.map((e) => ({ ...e })),
     control: n,
   }
