@@ -1,4 +1,4 @@
-import { ArrowLeft, Check, CircleAlert, Grid3x3, Maximize2, Redo2, Undo2 } from 'lucide-react'
+import { ArrowLeft, Check, ChevronLeft, ChevronRight, CircleAlert, Grid3x3, Maximize2, Redo2, Undo2 } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   addPlatformOutline,
@@ -10,11 +10,14 @@ import {
   deleteEntity,
   downloadStation,
   editorIssues,
+  mergeTracks,
   TOOL_HELP,
   updateEntity,
   useHistory,
   type Draft,
   type OpResult,
+  type TrackPropertyChoices,
+  type TrackPropertyKey,
   type ToolId,
   type ToolOptions,
 } from '@/sip/edit'
@@ -56,12 +59,22 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
   const [draft, setDraft] = useState<Draft | null>(null)
   const [selected, setSelected] = useState<EntityRef | null>(null)
   const [tab, setTab] = useState<PanelTab>('properties')
+  const [leftOpen, setLeftOpen] = useState(true)
+  const [rightOpen, setRightOpen] = useState(true)
   const [grid, setGrid] = useState(true)
   const [layers, setLayers] = useState<LayerVisibility>(EDIT_LAYERS)
   const [fitToken, setFitToken] = useState(0)
   const [focus, setFocus] = useState<{ ref: EntityRef; token: number } | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
   const [saved, setSaved] = useState<'idle' | 'saved'>('idle')
+  const [mergePending, setMergePending] = useState<{ aId: string; bId: string } | null>(null)
+  const [mergeChoices, setMergeChoices] = useState<TrackPropertyChoices>({
+    name: 'a',
+    kind: 'a',
+    direction: 'a',
+    lineNo: 'a',
+    remarks: 'a',
+  })
 
   const issues = useMemo(() => editorIssues(station), [station])
   const errors = issues.filter((i) => i.level === 'error').length
@@ -142,6 +155,23 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
     setSelected(null)
   }, [history, selected, station])
 
+  const requestMerge = useCallback((aId: string, bId: string) => {
+    setMergeChoices({ name: 'a', kind: 'a', direction: 'a', lineNo: 'a', remarks: 'a' })
+    setMergePending({ aId, bId })
+  }, [])
+
+  const applyMerge = useCallback(() => {
+    if (!mergePending) return
+    const result = mergeTracks(stationRef.current, mergePending.aId, mergePending.bId, mergeChoices)
+    if (result.station === stationRef.current) {
+      setNotice('Lines must meet at an end point before they can be merged.')
+    } else {
+      commitResult(result)
+      setNotice('Lines merged.')
+    }
+    setMergePending(null)
+  }, [commitResult, mergeChoices, mergePending])
+
   // Keyboard shortcuts.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -205,6 +235,8 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
         : 'Click to add bends. Double-click, Enter or right-click to finish. Backspace removes the last point.'
       : draft?.kind === 'connect'
         ? 'Now click the spot on the other line.'
+      : draft?.kind === 'merge'
+        ? 'First line chosen. Click a second line that meets it end-to-end.'
         : TOOL_HELP[tool]
 
   return (
@@ -276,7 +308,20 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
       </header>
 
       <div className="flex min-h-0 flex-1">
-        <ToolPalette tool={tool} onTool={chooseTool} options={options} onOptions={setOptions} />
+        {leftOpen ? (
+          <div className="relative flex h-full shrink-0">
+            <ToolPalette tool={tool} onTool={chooseTool} options={options} onOptions={setOptions} />
+            <button type="button" onClick={() => setLeftOpen(false)} aria-label="Collapse tools panel" title="Collapse tools panel" className="absolute top-1.5 right-1.5 rounded p-0.5 text-on-surface-variant hover:text-on-surface">
+              <ChevronLeft className="size-4" aria-hidden />
+            </button>
+          </div>
+        ) : (
+          <div className="flex h-full w-9 shrink-0 flex-col border-r border-outline-variant bg-surface-container">
+            <button type="button" onClick={() => setLeftOpen(true)} aria-label="Expand tools panel" title="Expand tools panel" className="flex w-full items-center justify-center py-2.5 text-on-surface-variant hover:text-on-surface">
+              <ChevronRight className="size-4" aria-hidden />
+            </button>
+          </div>
+        )}
 
         <main className="relative min-w-0 flex-1">
           <EditorCanvas
@@ -296,6 +341,7 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
             onGestureEnd={history.end}
             onFinishDraft={finishTrack}
             onNotice={setNotice}
+            onMergeRequest={requestMerge}
           />
           <p className="pointer-events-none absolute bottom-3 left-1/2 max-w-[min(38rem,60%)] -translate-x-1/2 rounded-lg border border-outline-variant bg-surface-container/90 px-3 py-1.5 text-center text-xs text-on-surface-variant backdrop-blur">
             {hint}
@@ -310,9 +356,58 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
               Start by clicking where the first line begins.
             </p>
           )}
+          {mergePending && (() => {
+            const a = station.tracks.find((t) => t.id === mergePending.aId)
+            const b = station.tracks.find((t) => t.id === mergePending.bId)
+            if (!a || !b) return null
+            const propertyRows: { key: TrackPropertyKey; label: string; a: string; b: string }[] = [
+              { key: 'name', label: 'Name', a: a.name, b: b.name },
+              { key: 'kind', label: 'Type', a: a.kind, b: b.kind },
+              { key: 'direction', label: 'Direction', a: a.direction, b: b.direction },
+              { key: 'lineNo', label: 'Line number', a: a.lineNo?.toString() ?? 'None', b: b.lineNo?.toString() ?? 'None' },
+              { key: 'remarks', label: 'Remarks', a: a.remarks ?? '', b: b.remarks ?? '' },
+            ]
+            return (
+              <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/25 p-4">
+                <div role="dialog" aria-modal="true" aria-label="Merge line properties" className="w-[32rem] max-w-full rounded-lg border border-outline-variant bg-surface-container p-4 shadow-xl">
+                  <h2 className="text-sm font-medium text-on-surface">Merge lines</h2>
+                  <p className="mt-1 text-xs text-on-surface-variant">Choose the property values to keep on the merged line.</p>
+                  <div className="mt-3 space-y-2">
+                    {propertyRows.map((row) => (
+                      <div key={row.key} className="grid grid-cols-[7rem_1fr_1fr] items-center gap-2 text-xs">
+                        <span className="text-on-surface-variant">{row.label}</span>
+                        {(['a', 'b'] as const).map((source) => (
+                          <button
+                            key={source}
+                            type="button"
+                            aria-pressed={mergeChoices[row.key] === source}
+                            onClick={() => setMergeChoices((c) => ({ ...c, [row.key]: source }))}
+                            className={`min-w-0 truncate rounded-md border px-2 py-1.5 text-left ${mergeChoices[row.key] === source ? 'border-primary bg-primary/10 text-on-surface' : 'border-outline-variant text-on-surface-variant hover:text-on-surface'}`}
+                            title={source === 'a' ? row.a : row.b}
+                          >
+                            {source === 'a' ? row.a || 'None' : row.b || 'None'}
+                          </button>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex justify-end gap-2">
+                    <button type="button" className={buttonClass} onClick={() => setMergePending(null)}>Cancel</button>
+                    <button type="button" className="rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-on-primary" onClick={applyMerge}>Merge lines</button>
+                  </div>
+                </div>
+              </div>
+            )
+          })()}
         </main>
 
-        <aside className="flex h-full w-88 max-w-[40vw] shrink-0 flex-col border-l border-outline-variant bg-surface-container">
+        <aside className={`flex h-full shrink-0 flex-col border-l border-outline-variant bg-surface-container ${rightOpen ? 'w-88 max-w-[40vw]' : 'w-9'}`}>
+          {!rightOpen && (
+            <button type="button" onClick={() => setRightOpen(true)} aria-label="Expand side panel" title="Expand side panel" className="flex w-full items-center justify-center py-2.5 text-on-surface-variant hover:text-on-surface">
+              <ChevronLeft className="size-4" aria-hidden />
+            </button>
+          )}
+          <div className={rightOpen ? 'contents' : 'hidden'}>
           <div role="tablist" aria-label="Editor panels" className="flex border-b border-outline-variant">
             {(
               [
@@ -338,6 +433,9 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
                 )}
               </button>
             ))}
+            <button type="button" onClick={() => setRightOpen(false)} aria-label="Collapse side panel" title="Collapse side panel" className="px-2 text-on-surface-variant hover:text-on-surface">
+              <ChevronRight className="size-4" aria-hidden />
+            </button>
           </div>
           <div role="tabpanel" className="min-h-0 flex-1 overflow-y-auto">
             {tab === 'properties' && (
@@ -400,6 +498,7 @@ export function EditorView({ initial, onAutosave, onExit, onDiscard, discardLabe
               {errors} error{errors === 1 ? '' : 's'} in this drawing
             </button>
           )}
+          </div>
         </aside>
       </div>
     </div>

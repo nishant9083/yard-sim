@@ -8,6 +8,8 @@ import {
   RectangleHorizontal,
   SeparatorVertical,
   Spline,
+  Split,
+  Combine,
   TrafficCone,
   TrainTrack,
   Type,
@@ -39,6 +41,8 @@ export const TOOL_GROUPS: { title: string; tools: ToolDef[] }[] = [
     tools: [
       { id: 'track', label: 'Line', key: 'T', icon: TrainTrack },
       { id: 'vertex', label: 'Add vertex', key: 'N', icon: DiamondPlus },
+      { id: 'merge', label: 'Merge lines', key: 'M', icon: Combine },
+      { id: 'split', label: 'Split line', key: 'K', icon: Split },
       { id: 'connect', label: 'Crossover / turnout', key: 'X', icon: Spline },
     ],
   },

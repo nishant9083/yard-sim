@@ -103,7 +103,7 @@ export function SipCanvas({ layout, layers, hovered, selected, fit, focus, zoomR
   }, [layout, camera, theme, hovered, selected, layers, size, hasSize, overlay])
 
   const pick = (screen: { x: number; y: number }) =>
-    hitTest(layout, camera, screen, { includeNodes: layers.nodes, regions: regionsRef.current, tolerance: HIT_TOLERANCE_PX })
+    hitTest(layout, camera, screen, { includeNodes: layers.nodes, regions: regionsRef.current, tolerance: HIT_TOLERANCE_PX, layers })
 
   const handlers = useCameraControls({
     canvasRef,

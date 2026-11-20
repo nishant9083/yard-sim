@@ -6,6 +6,7 @@ import type { Snap } from './snap'
 export type Draft =
   | { kind: 'track'; anchors: Anchor[] }
   | { kind: 'connect'; a: Anchor }
+  | { kind: 'merge'; firstTrackId: string }
   | { kind: 'rect'; a: Point; b: Point }
   /** Outline of a platform or building, corner by corner. */
   | { kind: 'poly'; points: Point[] }

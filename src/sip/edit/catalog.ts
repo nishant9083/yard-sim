@@ -5,6 +5,8 @@ export type ToolId =
   | 'pan'
   | 'track'
   | 'vertex'
+  | 'merge'
+  | 'split'
   | 'connect'
   | 'signal'
   | 'point'
@@ -101,6 +103,8 @@ export const TOOL_HELP: Record<ToolId, string> = {
   pan: 'Drag to pan. Scroll to zoom.',
   track: 'Click to start a line, click to add bends. Double-click or Enter to finish, Esc to cancel, Shift keeps it level. Start or end on an existing line to join it.',
   vertex: 'Click a line to add a bend, or beyond the end of the selected line to extend it. Click the edge of a platform or building to add a corner.',
+  merge: 'Click the first line, then a second line that joins it at an end. A dialog lets you choose which line supplies each property.',
+  split: 'Click a position on a line to split it into two lines.',
   connect: 'Click a spot on one line, then a spot on another. A crossover or turnout is made, with its points.',
   signal: 'Click beside a line to place a signal. Which side you click decides the side of the head.',
   point: 'Click a junction (or a spot on a line) to add a point machine.',

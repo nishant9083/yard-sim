@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { shapePoints, validateStation, type Station } from '@/sip/model'
 import {
+  addJoint,
   addPlatformOutline,
   addPoint,
   addSignal,
@@ -17,6 +18,8 @@ import {
   moveToTrack,
   placeEntity,
   removeOutlineVertex,
+  splitTrack,
+  mergeTracks,
 } from '@/sip/edit'
 
 /** Two level lines, y = 0 and y = 40, from x = 0 to x = 400. */
@@ -119,6 +122,33 @@ describe('point machines', () => {
     const label = moveEntity(made.station, made.ref!, 15, 0, { part: 'label' })
     expect(label.nodes.find((n) => n.id === pm.nodeId)!.x).toBe(node.x)
     expect(label.assets.points[0]!.label.x).toBe(pm.label.x + 15)
+  })
+})
+
+describe('line splitting and merging', () => {
+  it('splits one line into two and assigns assets by position', () => {
+    const s = twoLines()
+    const track = s.tracks[0]!
+    const s1 = addJoint(s, track.id, 100).station
+    const s2 = addJoint(s1, track.id, 300).station
+    const split = splitTrack(s2, track.id, { x: 200, y: 0 })
+    expect(split.station.tracks.filter((t) => t.nodeIds.length >= 2)).toHaveLength(3)
+    const splitTrackResult = split.station.tracks.find((t) => t.id === track.id)!
+    expect(splitTrackResult.nodeIds).toHaveLength(2)
+    const right = split.station.tracks.find((t) => t.id !== track.id && t.id !== s.tracks[1]!.id)!
+    expect(right.nodeIds.length).toBeGreaterThanOrEqual(2)
+    expect(split.station.assets.joints.find((j) => j.trackId === track.id)?.x).toBe(100)
+    expect(split.station.assets.joints.find((j) => j.trackId === right.id)?.x).toBe(300)
+  })
+
+  it('merges adjacent lines and preserves chosen properties', () => {
+    let s = blankStation({ code: 'TST', name: 'Test' })
+    s = addTrack(s, [{ p: { x: 0, y: 0 } }, { p: { x: 100, y: 0 } }], { kind: 'main', direction: 'UP' }).station
+    s = addTrack(s, [{ p: { x: 100, y: 0 } }, { p: { x: 200, y: 0 } }], { kind: 'siding', direction: 'DN' }).station
+    const [a, b] = s.tracks
+    const result = mergeTracks(s, a!.id, b!.id, { name: 'b', kind: 'b', direction: 'b', lineNo: 'a', remarks: 'b' })
+    expect(result.station.tracks).toHaveLength(1)
+    expect(result.station.tracks[0]).toMatchObject({ id: a!.id, name: b!.name, kind: 'siding', direction: 'DN' })
   })
 })
 

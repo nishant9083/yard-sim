@@ -27,6 +27,7 @@ import {
   removeOutlineVertex,
   snapPoint,
   snapToGrid,
+  splitTrack,
   editHandles,
   type Draft,
   type EditHandle as Handle,
@@ -76,6 +77,7 @@ interface EditorCanvasProps {
   /** Finish the line or outline being drawn. */
   onFinishDraft: () => void
   onNotice: (text: string) => void
+  onMergeRequest: (aId: string, bId: string) => void
 }
 
 type Gesture =
@@ -96,7 +98,7 @@ const DRAG_PX = 4
 const DEFAULT_VIEW = { minX: 0, minY: -120, maxX: 2400, maxY: 480 }
 
 const POINT_ON_LINE_TOOLS: ToolId[] = ['signal', 'joint', 'arrow', 'circuit', 'bridge']
-const DRAW_TOOLS: ToolId[] = ['track', 'vertex', 'connect', 'point', 'text', 'origin', ...POINT_ON_LINE_TOOLS]
+const DRAW_TOOLS: ToolId[] = ['track', 'vertex', 'merge', 'split', 'connect', 'point', 'text', 'origin', ...POINT_ON_LINE_TOOLS]
 
 /** Shift: keep only the larger of the two movements, so the drag runs along one axis. */
 const lockAxis = (dx: number, dy: number): [number, number] => (Math.abs(dx) >= Math.abs(dy) ? [dx, 0] : [0, dy])
@@ -118,6 +120,7 @@ export function EditorCanvas({
   onGestureEnd,
   onFinishDraft,
   onNotice,
+  onMergeRequest,
 }: EditorCanvasProps) {
   const [containerRef, size] = useElementSize<HTMLDivElement>()
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -245,7 +248,7 @@ export function EditorCanvas({
         if (d <= tol && (!best || d < best.d)) best = { id: n.id, d }
       }
       // Symbols and labels win over bare vertices; vertices win over the line itself.
-      const symbol = hitTest(layout, camera, screen, { includeNodes: false, regions: regionsRef.current, tolerance: HIT_PX })
+      const symbol = hitTest(layout, camera, screen, { includeNodes: false, regions: regionsRef.current, tolerance: HIT_PX, layers })
       if (symbol && symbol.type !== 'track' && symbol.type !== 'connection' && symbol.type !== 'platform') return symbol
       if (best) return { type: 'node', id: best.id }
       return symbol
@@ -513,6 +516,26 @@ export function EditorCanvas({
         }
         if (outline) return onNotice('Click on an edge of the selected shape to add a corner.')
         return onNotice('Click a line to add a bend, or select a line first and click beyond its end to extend it.')
+      }
+      case 'merge': {
+        if (s.kind !== 'track') return onNotice('Click on a line.')
+        if (draft?.kind !== 'merge') {
+          onDraft({ kind: 'merge', firstTrackId: s.trackId })
+          onNotice('Now click the connected line to merge.')
+          return
+        }
+        if (draft.firstTrackId === s.trackId) return onNotice('Choose a different line.')
+        onDraft(null)
+        onMergeRequest(draft.firstTrackId, s.trackId)
+        return
+      }
+      case 'split': {
+        if (s.kind !== 'track') return onNotice('Click on a line.')
+        const result = splitTrack(station, s.trackId, s.p)
+        if (result.station === station) return onNotice('Click inside the line, away from its ends.')
+        onCommit(result)
+        onNotice('Line split into two parts.')
+        return
       }
       case 'connect': {
         if (s.kind === 'free') return onNotice('Click on a line.')

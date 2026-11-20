@@ -2,6 +2,7 @@ import type { EntityRef, Point } from '@/sip/model'
 import { distanceToPolyline, pointInPolygon, type StationLayout } from '@/sip/layout'
 import { screenToWorld, type Camera } from './camera'
 import type { HitRegion } from './types'
+import type { LayerVisibility } from './types'
 
 export interface HitOptions {
   includeNodes: boolean
@@ -9,10 +10,11 @@ export interface HitOptions {
   regions: HitRegion[]
   /** Tolerance in screen pixels. */
   tolerance: number
+  layers?: Partial<LayerVisibility>
 }
 
 /** Find the entity under a screen point. Symbols and labels win over platforms, tracks and connections. */
-export function hitTest(layout: StationLayout, camera: Camera, screen: Point, { includeNodes, regions, tolerance }: HitOptions): EntityRef | null {
+export function hitTest(layout: StationLayout, camera: Camera, screen: Point, { includeNodes, regions, tolerance, layers }: HitOptions): EntityRef | null {
   // 1. symbols and labels recorded while drawing (smallest rectangle wins, platforms last)
   let best: { ref: EntityRef; area: number } | null = null
   for (const r of regions) {
@@ -49,7 +51,7 @@ export function hitTest(layout: StationLayout, camera: Camera, screen: Point, { 
   }
   if (hit) {
     // A track circuit sitting on the hit track is more specific than the bare track.
-    const tc = trackCircuitAt(layout, world, tol)
+    const tc = layers?.trackCircuits === false ? null : trackCircuitAt(layout, world, tol)
     return tc ?? hit.ref
   }
 

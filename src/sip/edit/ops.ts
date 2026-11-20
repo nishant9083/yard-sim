@@ -111,6 +111,105 @@ export interface TrackSpec {
   direction: Track['direction']
 }
 
+export type TrackPropertyKey = 'name' | 'kind' | 'direction' | 'lineNo' | 'remarks'
+export type TrackPropertyChoices = Record<TrackPropertyKey, 'a' | 'b'>
+
+/** Split a line at a point on one of its segments. */
+export function splitTrack(s: Station, trackId: string, p: Point): OpResult {
+  const track = s.tracks.find((t) => t.id === trackId)
+  if (!track) return { station: s }
+  const split = splitTrackAt(s, trackId, p, 'plain')
+  if (!split) return { station: s }
+  const updatedTrack = split.station.tracks.find((t) => t.id === trackId)!
+  const index = updatedTrack.nodeIds.indexOf(split.nodeId)
+  if (index <= 0 || index >= updatedTrack.nodeIds.length - 1) return { station: s }
+
+  const leftIds = updatedTrack.nodeIds.slice(0, index + 1)
+  const rightIds = updatedTrack.nodeIds.slice(index)
+  const newId = nextId('T', s.tracks.map((t) => t.id), 2)
+  const right: Track = { ...track, id: newId, name: `${track.name} (2)`, nodeIds: rightIds }
+  const left: Track = { ...track, nodeIds: leftIds }
+  let next: Station = fixNodeKinds({
+    ...split.station,
+    tracks: split.station.tracks.map((t) => (t.id === trackId ? left : t)).concat(right),
+  })
+
+  const splitX = split.station.nodes.find((n) => n.id === split.nodeId)!.x
+  next = withAssets(next, {
+    signals: next.assets.signals.map((x) => (x.trackId === trackId && x.footX > splitX ? { ...x, trackId: newId } : x)),
+    joints: next.assets.joints.map((x) => (x.trackId === trackId && x.x > splitX ? { ...x, trackId: newId } : x)),
+    lineArrows: next.assets.lineArrows.map((x) => (x.trackId === trackId && x.x > splitX ? { ...x, trackId: newId } : x)),
+    trackCircuits: next.assets.trackCircuits.map((tc) => ({
+      ...tc,
+      spans: tc.spans.flatMap((span) => {
+        if (!('trackId' in span) || span.trackId !== trackId) return [span]
+        if (span.x1 <= splitX) return [span]
+        if (span.x0 >= splitX) return [{ ...span, trackId: newId }]
+        return [
+          { trackId, x0: span.x0, x1: splitX },
+          { trackId: newId, x0: splitX, x1: span.x1 },
+        ]
+      }),
+    })),
+  })
+  return { station: next, ref: { type: 'node', id: split.nodeId } }
+}
+
+/** Merge two end-to-end lines. Only adjacent endpoint pairs are accepted. */
+export function mergeTracks(s: Station, aId: string, bId: string, choices: TrackPropertyChoices): OpResult {
+  const a = s.tracks.find((t) => t.id === aId)
+  const b = s.tracks.find((t) => t.id === bId)
+  if (!a || !b || aId === bId) return { station: s }
+  const byId = new Map(s.nodes.map((n) => [n.id, n]))
+  const idsA = [...a.nodeIds]
+  const idsB = [...b.nodeIds]
+  const point = (id: string) => byId.get(id)
+
+  const variants: string[][][] = [
+    [idsA, idsB],
+    [idsA, [...idsB].reverse()],
+    [[...idsA].reverse(), idsB],
+    [[...idsA].reverse(), [...idsB].reverse()],
+  ]
+  let joined: string[] | null = null
+  for (const [left, right] of variants) {
+    const leftEnd = point(left[left.length - 1]!)
+    const rightStart = point(right[0]!)
+    if (leftEnd && rightStart && Math.hypot(leftEnd.x - rightStart.x, leftEnd.y - rightStart.y) <= REUSE_DISTANCE) {
+      joined = [...left, ...right.slice(1)]
+      break
+    }
+  }
+  if (!joined) return { station: s }
+
+  const source = (key: TrackPropertyKey) => choices[key] === 'b' ? b : a
+  const merged: Track = {
+    ...a,
+    name: source('name').name,
+    kind: source('kind').kind,
+    direction: source('direction').direction,
+    lineNo: source('lineNo').lineNo,
+    remarks: source('remarks').remarks,
+    nodeIds: joined,
+  }
+
+  let next: Station = {
+    ...s,
+    tracks: s.tracks.filter((t) => t.id !== aId && t.id !== bId).concat(merged),
+  }
+  // Assets stay in the drawing and follow the kept line id.
+  next = withAssets(next, {
+    signals: next.assets.signals.map((x) => (x.trackId === bId ? { ...x, trackId: aId } : x)),
+    joints: next.assets.joints.map((x) => (x.trackId === bId ? { ...x, trackId: aId } : x)),
+    lineArrows: next.assets.lineArrows.map((x) => (x.trackId === bId ? { ...x, trackId: aId } : x)),
+    trackCircuits: next.assets.trackCircuits.map((tc) => ({
+      ...tc,
+      spans: tc.spans.map((span) => ('trackId' in span && span.trackId === bId ? { ...span, trackId: aId } : span)),
+    })),
+  })
+  return { station: fixNodeKinds(next), ref: { type: 'track', id: aId } }
+}
+
 /** Draw a new line through the anchors. Anchors on existing lines join them. */
 export function addTrack(s: Station, anchors: Anchor[], spec: TrackSpec): OpResult {
   const original = new Set(nodeIds(s))
