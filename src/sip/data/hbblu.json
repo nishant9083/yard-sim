@@ -1,345 +1,498 @@
 {
  "meta": {
   "code": "HBBLU",
-  "name": "HBBLU",
-  "zone": "",
-  "sipRef": "",
-  "coordinateSpace": "drawing-pt: sheet points shifted so the yard starts near the origin; x grows to the right-hand end, y grows downward",
+  "name": "Hebbalu",
+  "zone": "SWR",
+  "sipRef": "DRG.No. IPU: 3495A (SIGG. PLAN No.3495A), ALT-1; CRS/SC observations 20-08-2026. Engineering plan REF: DRG. NO. SWR/CN/BNC/TR/183-2025",
+  "coordinateSpace": "drawing-pt: sheet points minus meta.sheet.offset; x grows to the east (ANAGODU) end, y grows downward",
   "ends": {
-   "west": "BSI",
-   "east": "IBS"
+   "west": "TERMINAL END (BUFFER STOP, NOT FOR STABLING 120M)",
+   "east": "ANAGODU (5.80Km), towards DAVANAGERE JN."
+  },
+  "chainage": {
+   "originX": 944.8,
+   "metresPerUnit": 0.77315,
+   "label": "CH",
+   "origin": "Station centre line, KM:177.750 (CH:177750), drawn through the station building at sheet x 3824.8. Printed chainages are km chainages; distance = |CH - 177750|. Least-squares fit of the seven captions west of the line breaks: (BS)CH:177100, CH:177150, (TP)CH:177220, the centre line, (TP)CH:178300, CH:178355, CH:178505 (residuals under 1 m). The title block says 1:2000 but the sheet measures 0.773 m per point (1:2000 would be 0.706). East of signal 32 the line is broken ('//') and not to scale."
+  },
+  "scale": {
+   "horizontal": "1 : 2000 (printed); measured 0.773 m/pt west of the line breaks",
+   "vertical": "NA"
   },
   "viewHints": {
    "yExaggeration": 4
   },
-  "chainage": {
-   "originX": 117.52,
-   "metresPerUnit": 0.00072,
-   "label": "CH",
-   "origin": "Zero of the printed chainages (station centre line)"
+  "sheet": {
+   "pdf": "Hebbalu SIP.pdf",
+   "page": 0,
+   "offset": [
+    2880.0,
+    300.0
+   ]
   }
  },
  "nodes": [
   {
    "id": "N001",
-   "x": 40.0,
-   "y": 76.18,
-   "kind": "boundary"
+   "x": 107.2,
+   "y": 174.55,
+   "kind": "bufferStop",
+   "label": "BS (NOT FOR STABLING 120M); (BS) CH:177100"
   },
   {
    "id": "N002",
-   "x": 759.04,
-   "y": 76.3,
-   "kind": "bufferStop"
+   "x": 260.0,
+   "y": 174.55,
+   "kind": "junction"
   },
   {
    "id": "N003",
-   "x": 109.24,
-   "y": 112.09,
-   "kind": "bufferStop"
+   "x": 332.3,
+   "y": 174.55,
+   "kind": "junction"
   },
   {
    "id": "N004",
-   "x": 728.62,
-   "y": 112.12,
+   "x": 1583.1,
+   "y": 174.55,
    "kind": "junction"
   },
   {
    "id": "N005",
-   "x": 759.04,
-   "y": 112.12,
+   "x": 1655.5,
+   "y": 174.55,
    "kind": "junction"
   },
   {
    "id": "N006",
-   "x": 919.18,
-   "y": 40.06,
-   "kind": "junction"
+   "x": 2930.3,
+   "y": 174.55,
+   "kind": "boundary",
+   "label": "TO ANAGODU (5.80Km) / DAVANAGERE JN."
   },
   {
    "id": "N007",
-   "x": 1097.5,
-   "y": 40.05,
+   "x": 394.4,
+   "y": 210.45,
    "kind": "junction"
   },
   {
    "id": "N008",
-   "x": 1545.82,
-   "y": 40.03,
-   "kind": "boundary"
+   "x": 1448.5,
+   "y": 210.45,
+   "kind": "junction"
   },
   {
    "id": "N009",
-   "x": 919.12,
-   "y": 112.36,
+   "x": 466.8,
+   "y": 138.2,
    "kind": "junction"
   },
   {
    "id": "N010",
-   "x": 1029.22,
-   "y": 112.45,
+   "x": 1520.9,
+   "y": 138.2,
    "kind": "junction"
   },
   {
    "id": "N011",
-   "x": 1473.52,
-   "y": 112.81,
-   "kind": "bufferStop"
+   "x": 242.9,
+   "y": 210.45,
+   "kind": "bufferStop",
+   "label": "BS"
   },
   {
    "id": "N012",
-   "x": 557.62,
-   "y": 112.12,
-   "kind": "plain"
+   "x": 315.4,
+   "y": 138.2,
+   "kind": "bufferStop",
+   "label": "BS"
   },
   {
    "id": "N013",
-   "x": 772.0,
-   "y": 112.24,
-   "kind": "bufferStop"
+   "x": 1672.1,
+   "y": 138.2,
+   "kind": "bufferStop",
+   "label": "BS"
   },
   {
    "id": "N014",
-   "x": 794.26,
-   "y": 40.0,
-   "kind": "bufferStop"
-  },
-  {
-   "id": "N015",
-   "x": 848.62,
-   "y": 116.65,
-   "kind": "bufferStop"
-  },
-  {
-   "id": "N016",
-   "x": 919.12,
-   "y": 116.67,
-   "kind": "junction"
-  },
-  {
-   "id": "N017",
-   "x": 1029.22,
-   "y": 116.71,
-   "kind": "junction"
+   "x": 1599.4,
+   "y": 210.45,
+   "kind": "bufferStop",
+   "label": "BS"
   }
  ],
  "tracks": [
   {
-   "id": "T01",
-   "name": "Track 1",
-   "kind": "siding",
+   "id": "L1",
+   "name": "ROAD 1 (LOOP LINE)",
+   "lineNo": 1,
+   "kind": "loop",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N007",
+    "N008"
+   ],
+   "remarks": "ROAD 1 CSR 806m. Printed '<- LOOP LINE ->'. Platform (HIGH LEVEL PLATFORM 570m x 7.5m) on the south side. Ends at point 50 (west, with the over run line to a buffer stop) and point 64 (east, with the over run line to a buffer stop)."
+  },
+  {
+   "id": "L2",
+   "name": "ROAD 2 (MAIN LINE)",
+   "lineNo": 2,
+   "kind": "main",
    "direction": "BOTH",
    "nodeIds": [
     "N001",
-    "N002"
-   ]
+    "N002",
+    "N003",
+    "N004",
+    "N005",
+    "N006"
+   ],
+   "remarks": "ROAD 2 CSR 750m. Printed '<- MAIN LINE ->'. West of point 50 it runs to the buffer stop (9T/XT, 'NOT FOR STABLING(120M)'); east of point 65 it is the single line to ANAGODU (5.80Km), towards DAVANAGERE JN. Drawn with three '//' breaks east of signal 32 (not to scale beyond them)."
+  },
+  {
+   "id": "L3",
+   "name": "ROAD 3 (LOOP LINE)",
+   "lineNo": 3,
+   "kind": "loop",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N009",
+    "N010"
+   ],
+   "remarks": "ROAD 3 CSR 806m. Printed '<- LOOP LINE ->'. Platform (HIGH LEVEL PLATFORM 570m x 7.5m) on the north side. Ends at point 51 (west) and point 65 (east), each with an over run line to a buffer stop."
+  },
+  {
+   "id": "T01",
+   "name": "OVER RUN LINE 120m (ROAD 3, WEST)",
+   "kind": "overrun",
+   "direction": "BOTH",
+   "nodeIds": [
+    "N012",
+    "N009"
+   ],
+   "remarks": "Straight continuation of Road 3 through point 51 to a buffer stop; in 51AT/XT. Dimension '<120m' from the buffer stop to shunt signal 29."
   },
   {
    "id": "T02",
-   "name": "OVER RUN LINE 1 20m",
+   "name": "OVER RUN LINE 120m (ROAD 1, WEST)",
    "kind": "overrun",
    "direction": "BOTH",
    "nodeIds": [
-    "N003",
-    "N004",
-    "N005"
-   ]
+    "N011",
+    "N007"
+   ],
+   "remarks": "Straight continuation of Road 1 through point 50 to a buffer stop; in 50AT/XT. Dimension '<120m' from the buffer stop to shunt signal 30."
   },
   {
    "id": "T03",
-   "name": "?? OVER RUN LINE 1 20m",
+   "name": "OVER RUN LINE 120m (ROAD 3, EAST)",
    "kind": "overrun",
    "direction": "BOTH",
    "nodeIds": [
-    "N006",
-    "N007",
-    "N008"
-   ]
+    "N010",
+    "N013"
+   ],
+   "remarks": "Straight continuation of Road 3 through point 65 to a buffer stop; in 65AT/XT."
   },
   {
    "id": "T04",
-   "name": "DP1 1 ? OVER RUN LINE 1",
+   "name": "OVER RUN LINE 120m (ROAD 1, EAST)",
    "kind": "overrun",
    "direction": "BOTH",
    "nodeIds": [
-    "N016",
-    "N009",
-    "N010",
-    "N011"
-   ]
-  },
-  {
-   "id": "T05",
-   "name": "Track 5",
-   "kind": "siding",
-   "direction": "BOTH",
-   "nodeIds": [
-    "N004",
-    "N012",
-    "N005",
-    "N013"
-   ]
-  },
-  {
-   "id": "T06",
-   "name": "Track 6",
-   "kind": "siding",
-   "direction": "BOTH",
-   "nodeIds": [
-    "N014",
-    "N006",
-    "N007"
-   ]
-  },
-  {
-   "id": "T07",
-   "name": "Track 7",
-   "kind": "siding",
-   "direction": "BOTH",
-   "nodeIds": [
-    "N015",
-    "N016",
-    "N017",
-    "N010"
-   ]
+    "N008",
+    "N014"
+   ],
+   "remarks": "Straight continuation of Road 1 through point 64 to a buffer stop; in 64AT/XT."
   }
  ],
- "connections": [],
+ "connections": [
+  {
+   "id": "C50",
+   "kind": "crossover",
+   "from": "N002",
+   "to": "N007",
+   "via": [
+    {
+     "x": 282.9,
+     "y": 181.12
+    },
+    {
+     "x": 301.4,
+     "y": 184.24
+    },
+    {
+     "x": 316.9,
+     "y": 188.5
+    },
+    {
+     "x": 330.6,
+     "y": 193.48
+    },
+    {
+     "x": 344.0,
+     "y": 198.46
+    },
+    {
+     "x": 358.2,
+     "y": 202.96
+    },
+    {
+     "x": 374.6,
+     "y": 206.32
+    }
+   ],
+   "label": "50"
+  },
+  {
+   "id": "C51",
+   "kind": "crossover",
+   "from": "N003",
+   "to": "N009",
+   "via": [
+    {
+     "x": 351.0,
+     "y": 167.14
+    },
+    {
+     "x": 367.7,
+     "y": 163.78
+    },
+    {
+     "x": 383.1,
+     "y": 159.34
+    },
+    {
+     "x": 398.0,
+     "y": 154.24
+    },
+    {
+     "x": 413.0,
+     "y": 149.2
+    },
+    {
+     "x": 429.0,
+     "y": 144.76
+    },
+    {
+     "x": 446.7,
+     "y": 141.46
+    }
+   ],
+   "label": "51"
+  },
+  {
+   "id": "C64",
+   "kind": "crossover",
+   "from": "N008",
+   "to": "N004",
+   "via": [
+    {
+     "x": 1468.5,
+     "y": 203.14
+    },
+    {
+     "x": 1484.5,
+     "y": 199.48
+    },
+    {
+     "x": 1498.1,
+     "y": 195.04
+    },
+    {
+     "x": 1510.9,
+     "y": 190.3
+    },
+    {
+     "x": 1524.3,
+     "y": 185.68
+    },
+    {
+     "x": 1539.8,
+     "y": 181.72
+    },
+    {
+     "x": 1558.9,
+     "y": 178.78
+    }
+   ],
+   "label": "64"
+  },
+  {
+   "id": "C65",
+   "kind": "crossover",
+   "from": "N010",
+   "to": "N005",
+   "via": [
+    {
+     "x": 1539.5,
+     "y": 144.22
+    },
+    {
+     "x": 1555.2,
+     "y": 147.52
+    },
+    {
+     "x": 1569.3,
+     "y": 151.9
+    },
+    {
+     "x": 1583.0,
+     "y": 156.82
+    },
+    {
+     "x": 1597.3,
+     "y": 161.86
+    },
+    {
+     "x": 1613.4,
+     "y": 166.42
+    },
+    {
+     "x": 1632.3,
+     "y": 169.96
+    }
+   ],
+   "label": "65"
+  }
+ ],
  "assets": {
   "points": [
    {
-    "id": "PX",
-    "code": "?",
-    "nodeId": "N005",
-    "ratio": "",
+    "id": "P50_L2",
+    "code": "50",
+    "nodeId": "N002",
+    "connectionId": "C50",
+    "ratio": "1 IN 12",
     "switch": "",
-    "ratioInferred": true,
-    "control": 0,
+    "ratioInferred": false,
+    "control": 50,
+    "crankHandle": "CH1",
     "label": {
-     "x": 759.04,
-     "y": 102.12
+     "x": 265.0,
+     "y": 190.0
     }
    },
    {
-    "id": "PX_2",
-    "code": "?",
-    "nodeId": "N006",
-    "ratio": "",
-    "switch": "",
-    "ratioInferred": true,
-    "control": 0,
-    "label": {
-     "x": 919.18,
-     "y": 30.06
-    }
-   },
-   {
-    "id": "PX_3",
-    "code": "?",
-    "nodeId": "N016",
-    "ratio": "",
-    "switch": "",
-    "ratioInferred": true,
-    "control": 0,
-    "label": {
-     "x": 919.12,
-     "y": 106.67
-    }
-   },
-   {
-    "id": "PX_4",
-    "code": "?",
-    "nodeId": "N004",
-    "ratio": "",
-    "switch": "",
-    "ratioInferred": true,
-    "control": 0,
-    "label": {
-     "x": 728.62,
-     "y": 102.12
-    }
-   },
-   {
-    "id": "PX_5",
-    "code": "?",
+    "id": "P50_L1",
+    "code": "50",
     "nodeId": "N007",
-    "ratio": "",
+    "connectionId": "C50",
+    "ratio": "1 IN 12",
     "switch": "",
-    "ratioInferred": true,
-    "control": 0,
+    "ratioInferred": false,
+    "control": 50,
+    "crankHandle": "CH1",
     "label": {
-     "x": 1097.5,
-     "y": 30.05
+     "x": 388.0,
+     "y": 219.0
     }
    },
    {
-    "id": "PX_6",
-    "code": "?",
-    "nodeId": "N010",
-    "ratio": "",
+    "id": "P51_L2",
+    "code": "51",
+    "nodeId": "N003",
+    "connectionId": "C51",
+    "ratio": "1 IN 12",
     "switch": "",
-    "ratioInferred": true,
-    "control": 0,
+    "ratioInferred": false,
+    "control": 51,
+    "crankHandle": "CH2",
     "label": {
-     "x": 1029.22,
-     "y": 102.45
+     "x": 337.0,
+     "y": 161.0
+    }
+   },
+   {
+    "id": "P51_L3",
+    "code": "51",
+    "nodeId": "N009",
+    "connectionId": "C51",
+    "ratio": "1 IN 12",
+    "switch": "",
+    "ratioInferred": false,
+    "control": 51,
+    "crankHandle": "CH2",
+    "label": {
+     "x": 463.0,
+     "y": 128.0
+    }
+   },
+   {
+    "id": "P64_L1",
+    "code": "64",
+    "nodeId": "N008",
+    "connectionId": "C64",
+    "ratio": "1 IN 12",
+    "switch": "",
+    "ratioInferred": false,
+    "control": 64,
+    "crankHandle": "CH3",
+    "label": {
+     "x": 1455.0,
+     "y": 220.0
+    }
+   },
+   {
+    "id": "P64_L2",
+    "code": "64",
+    "nodeId": "N004",
+    "connectionId": "C64",
+    "ratio": "1 IN 12",
+    "switch": "",
+    "ratioInferred": false,
+    "control": 64,
+    "crankHandle": "CH3",
+    "label": {
+     "x": 1576.0,
+     "y": 188.0
+    }
+   },
+   {
+    "id": "P65_L3",
+    "code": "65",
+    "nodeId": "N010",
+    "connectionId": "C65",
+    "ratio": "1 IN 12",
+    "switch": "",
+    "ratioInferred": false,
+    "control": 65,
+    "crankHandle": "CH4",
+    "label": {
+     "x": 1527.0,
+     "y": 129.0
+    }
+   },
+   {
+    "id": "P65_L2",
+    "code": "65",
+    "nodeId": "N005",
+    "connectionId": "C65",
+    "ratio": "1 IN 12",
+    "switch": "",
+    "ratioInferred": false,
+    "control": 65,
+    "crankHandle": "CH4",
+    "label": {
+     "x": 1652.0,
+     "y": 160.0
     }
    }
   ],
   "signals": [
    {
-    "id": "SIG_30",
-    "code": "30",
-    "name": "Signal 30",
-    "kind": "shunt",
-    "direction": "DN",
-    "trackId": "T02",
-    "footX": 298.48,
-    "anchorX": 295.77,
-    "side": "below",
-    "headDir": "west",
-    "elements": [
-     {
-      "kind": "shunt"
-     }
-    ],
-    "label": {
-     "x": 273.82,
-     "y": 130.15
-    },
-    "control": 30
-   },
-   {
-    "id": "SIG_31",
-    "code": "31",
-    "name": "Signal 31",
-    "kind": "shunt",
-    "direction": "UP",
-    "trackId": "T01",
-    "footX": 370.6,
-    "anchorX": 367.95,
-    "side": "below",
-    "headDir": "west",
-    "elements": [
-     {
-      "kind": "shunt"
-     }
-    ],
-    "label": {
-     "x": 347.05,
-     "y": 93.1
-    },
-    "control": 31
-   },
-   {
-    "id": "SIG_3C",
-    "code": "3C",
-    "name": "Signal 3C",
+    "id": "SIG_2",
+    "code": "2",
+    "fullCode": "2 / 2C",
+    "name": "UP STARTER 2 (ROAD 2, MAIN LINE) with calling-on 2C",
     "kind": "starter",
     "direction": "UP",
-    "trackId": "T04",
-    "footX": 1289.5,
-    "anchorX": 1292.61,
+    "trackId": "L2",
+    "footX": 1420.1,
+    "anchorX": 1420.3,
     "side": "above",
     "headDir": "east",
     "elements": [
@@ -348,12 +501,46 @@
       "text": "C"
      },
      {
+      "kind": "callingOn"
+     },
+     {
       "kind": "lamp",
-      "style": "hbar"
+      "style": "vbar"
      },
      {
       "kind": "lamp",
       "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     }
+    ],
+    "control": 2,
+    "label": {
+     "x": 1477.0,
+     "y": 166.0
+    }
+   },
+   {
+    "id": "SIG_3",
+    "code": "3",
+    "fullCode": "3 / 3C",
+    "name": "UP STARTER 3 (ROAD 1, LOOP LINE) with calling-on 3C",
+    "kind": "starter",
+    "direction": "UP",
+    "trackId": "L1",
+    "footX": 1419.7,
+    "anchorX": 1419.8,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "C"
+     },
+     {
+      "kind": "callingOn"
      },
      {
       "kind": "lamp",
@@ -364,21 +551,22 @@
       "style": "slash"
      }
     ],
+    "control": 3,
     "label": {
-     "x": 1298.26,
-     "y": 97.72
-    },
-    "control": 3
+     "x": 1490.6,
+     "y": 185.0
+    }
    },
    {
     "id": "SIG_4",
     "code": "4",
-    "name": "Signal 4",
+    "fullCode": "4 / 4C",
+    "name": "UP STARTER 4 (ROAD 3, LOOP LINE) with calling-on 4C",
     "kind": "starter",
-    "direction": "DN",
-    "trackId": "T03",
-    "footX": 1361.8,
-    "anchorX": 1364.67,
+    "direction": "UP",
+    "trackId": "L3",
+    "footX": 1492.0,
+    "anchorX": 1492.3,
     "side": "above",
     "headDir": "east",
     "elements": [
@@ -387,12 +575,7 @@
       "text": "C"
      },
      {
-      "kind": "lamp",
-      "style": "hbar"
-     },
-     {
-      "kind": "lamp",
-      "style": "slash"
+      "kind": "callingOn"
      },
      {
       "kind": "lamp",
@@ -403,124 +586,627 @@
       "style": "slash"
      }
     ],
+    "control": 4,
     "label": {
-     "x": 1410.97,
-     "y": 1.45
-    },
-    "control": 4
+     "x": 1541.0,
+     "y": 100.0
+    }
+   },
+   {
+    "id": "SIG_8",
+    "code": "8",
+    "name": "UP ADVANCED STARTER 8",
+    "kind": "advancedStarter",
+    "direction": "UP",
+    "trackId": "L2",
+    "footX": 1811.0,
+    "anchorX": 1812.1,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "B"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "hbar"
+     }
+    ],
+    "control": 8,
+    "label": {
+     "x": 1858.5,
+     "y": 152.0
+    }
+   },
+   {
+    "id": "SIG_9",
+    "code": "9",
+    "name": "SHUNT SIGNAL 9 (into Roads 1, 2, 3)",
+    "kind": "shunt",
+    "direction": "UP",
+    "trackId": "L2",
+    "footX": 228.0,
+    "anchorX": 228.6,
+    "side": "above",
+    "headDir": "east",
+    "elements": [
+     {
+      "kind": "shunt"
+     }
+    ],
+    "control": 9,
+    "label": {
+     "x": 249.5,
+     "y": 144.0
+    }
+   },
+   {
+    "id": "SIG_17",
+    "code": "17",
+    "name": "SHUNT SIGNAL 17",
+    "kind": "shunt",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 1686.4,
+    "anchorX": 1685.7,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt"
+     }
+    ],
+    "control": 17,
+    "label": {
+     "x": 1660.5,
+     "y": 196.0
+    }
+   },
+   {
+    "id": "SIG_29",
+    "code": "29",
+    "name": "SHUNT SIGNAL 29 (ROAD 3, with STOP board)",
+    "kind": "shunt",
+    "direction": "DN",
+    "trackId": "L3",
+    "footX": 500.6,
+    "anchorX": 499.9,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt"
+     }
+    ],
+    "control": 29,
+    "label": {
+     "x": 477.0,
+     "y": 154.0
+    }
+   },
+   {
+    "id": "SIG_30",
+    "code": "30",
+    "name": "SHUNT SIGNAL 30 (ROAD 1, with STOP board)",
+    "kind": "shunt",
+    "direction": "DN",
+    "trackId": "L1",
+    "footX": 428.6,
+    "anchorX": 428.0,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt"
+     }
+    ],
+    "control": 30,
+    "label": {
+     "x": 404.0,
+     "y": 228.0
+    }
+   },
+   {
+    "id": "SIG_31",
+    "code": "31",
+    "name": "SHUNT SIGNAL 31 (ROAD 2, with STOP board)",
+    "kind": "shunt",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 500.8,
+    "anchorX": 500.1,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "shunt"
+     }
+    ],
+    "control": 31,
+    "label": {
+     "x": 477.7,
+     "y": 191.6
+    }
+   },
+   {
+    "id": "SIG_32",
+    "code": "32",
+    "fullCode": "32 / 32C",
+    "name": "DN HOME 32 with calling-on 32C and route indicator (TO ROAD:1 OR 2 OR 3)",
+    "kind": "home",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 2043.5,
+    "anchorX": 2042.9,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "C"
+     },
+     {
+      "kind": "callingOn"
+     },
+     {
+      "kind": "lamp",
+      "style": "vbar"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "solid"
+     },
+     {
+      "kind": "routeIndicator",
+      "routes": [
+       "upperLeft",
+       "upperRight"
+      ]
+     }
+    ],
+    "control": 32,
+    "label": {
+     "x": 1965.0,
+     "y": 218.0
+    }
+   },
+   {
+    "id": "SIG_32ID",
+    "code": "32ID",
+    "name": "DN INNER DISTANT 32ID",
+    "kind": "distant",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 2358.4,
+    "anchorX": 2357.8,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "P"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "solid"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "control": 32,
+    "label": {
+     "x": 2316.0,
+     "y": 231.0
+    }
+   },
+   {
+    "id": "SIG_32D",
+    "code": "32D",
+    "name": "DN DISTANT 32D",
+    "kind": "distant",
+    "direction": "DN",
+    "trackId": "L2",
+    "footX": 2674.3,
+    "anchorX": 2673.2,
+    "side": "below",
+    "headDir": "west",
+    "elements": [
+     {
+      "kind": "marker",
+      "text": "P"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     },
+     {
+      "kind": "lamp",
+      "style": "solid"
+     },
+     {
+      "kind": "lamp",
+      "style": "slash"
+     }
+    ],
+    "control": 32,
+    "label": {
+     "x": 2631.0,
+     "y": 228.5
+    }
    }
   ],
   "joints": [
    {
-    "id": "IJ_T01_103",
-    "trackId": "T01",
-    "x": 103.09
+    "id": "IJ_L1_423",
+    "trackId": "L1",
+    "x": 422.65
    },
    {
-    "id": "IJ_T01_199",
-    "trackId": "T01",
-    "x": 199.01
+    "id": "IJ_L1_945",
+    "trackId": "L1",
+    "x": 944.8
    },
    {
-    "id": "IJ_T01_365",
-    "trackId": "T01",
-    "x": 365.35
+    "id": "IJ_L1_1425",
+    "trackId": "L1",
+    "x": 1424.55
    },
    {
-    "id": "IJ_T02_113",
-    "trackId": "T02",
-    "x": 112.69
+    "id": "IJ_L2_233",
+    "trackId": "L2",
+    "x": 233.3
    },
    {
-    "id": "IJ_T02_292",
-    "trackId": "T02",
-    "x": 292.45
+    "id": "IJ_L2_329",
+    "trackId": "L2",
+    "x": 329.2
    },
    {
-    "id": "IJ_T03_1367",
-    "trackId": "T03",
-    "x": 1366.72
+    "id": "IJ_L2_496",
+    "trackId": "L2",
+    "x": 495.55
    },
    {
-    "id": "IJ_T03_1542",
-    "trackId": "T03",
-    "x": 1541.98
+    "id": "IJ_L2_945",
+    "trackId": "L2",
+    "x": 944.8
    },
    {
-    "id": "IJ_T04_1294",
-    "trackId": "T04",
-    "x": 1294.36
+    "id": "IJ_L2_1425",
+    "trackId": "L2",
+    "x": 1424.95
    },
    {
-    "id": "IJ_T04_1469",
-    "trackId": "T04",
-    "x": 1469.2
+    "id": "IJ_L2_1586",
+    "trackId": "L2",
+    "x": 1585.5
    },
    {
-    "id": "IJ_T06_815",
-    "trackId": "T06",
-    "x": 814.65
+    "id": "IJ_L2_1682",
+    "trackId": "L2",
+    "x": 1682.35
+   },
+   {
+    "id": "IJ_L2_1815",
+    "trackId": "L2",
+    "x": 1815.1
+   },
+   {
+    "id": "IJ_L2_2038",
+    "trackId": "L2",
+    "x": 2038.45
+   },
+   {
+    "id": "IJ_L2_2116",
+    "trackId": "L2",
+    "x": 2115.95
+   },
+   {
+    "id": "IJ_L3_496",
+    "trackId": "L3",
+    "x": 495.75
+   },
+   {
+    "id": "IJ_L3_945",
+    "trackId": "L3",
+    "x": 944.8
+   },
+   {
+    "id": "IJ_L3_1497",
+    "trackId": "L3",
+    "x": 1496.95
+   }
+  ],
+  "lineArrows": [
+   {
+    "id": "ARW_01",
+    "trackId": "L3",
+    "x": 1040.0,
+    "direction": "both"
+   },
+   {
+    "id": "ARW_02",
+    "trackId": "L2",
+    "x": 1045.0,
+    "direction": "both"
+   },
+   {
+    "id": "ARW_03",
+    "trackId": "L1",
+    "x": 1040.0,
+    "direction": "both"
+   },
+   {
+    "id": "ARW_04",
+    "trackId": "L2",
+    "x": 2784.0,
+    "direction": "both"
    }
   ],
   "trackCircuits": [
    {
-    "id": "TC_O1AT",
-    "code": "O1AT",
-    "kind": "trackCircuit",
+    "id": "TC_9T_XT",
+    "code": "9T/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 107.2,
+      "x1": 233.3
+     }
+    ],
+    "label": {
+     "x": 133.0,
+     "y": 164.5
+    },
+    "approx": false,
+    "text": "9XT: DP04 (dead end at the buffer stop). Conditional hard reset (note 13(c)(iii))."
+   },
+   {
+    "id": "TC_50BT_XT",
+    "code": "50BT/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 233.3,
+      "x1": 329.2
+     },
+     {
+      "connectionId": "C50"
+     }
+    ],
+    "label": {
+     "x": 280.0,
+     "y": 167.0
+    },
+    "approx": false,
+    "text": "50BXT: DP04, DP05, DP09 (DP09 is on the 50 leg; the leg is shared with 50AT/XT)."
+   },
+   {
+    "id": "TC_50AT_XT",
+    "code": "50AT/XT",
+    "kind": "axleCounter",
     "spans": [
      {
       "trackId": "T02",
-      "x0": 293.04,
-      "x1": 759.04
+      "x0": 242.9,
+      "x1": 394.4
      },
      {
-      "trackId": "T05",
-      "x0": 728.62,
-      "x1": 772.0
+      "trackId": "L1",
+      "x0": 394.4,
+      "x1": 422.65
+     },
+     {
+      "connectionId": "C50"
      }
     ],
     "label": {
-     "x": 485.47,
-     "y": 103.0
+     "x": 296.0,
+     "y": 204.0
     },
-    "approx": false
+    "approx": false,
+    "text": "50AXT: DP09, DP10, with the over run line to the buffer stop."
    },
    {
-    "id": "TC_01_BT",
-    "code": "01 BT",
-    "kind": "trackCircuit",
-    "spans": [
-     {
-      "trackId": "T04",
-      "x0": 919.12,
-      "x1": 1294.29
-     },
-     {
-      "trackId": "T07",
-      "x0": 848.62,
-      "x1": 1029.22
-     }
-    ],
-    "label": {
-     "x": 1154.95,
-     "y": 104.74
-    },
-    "approx": false
-   },
-   {
-    "id": "TC_O2AT",
-    "code": "O2AT",
-    "kind": "trackCircuit",
+    "id": "TC_51AT_XT",
+    "code": "51AT/XT",
+    "kind": "axleCounter",
     "spans": [
      {
       "trackId": "T01",
-      "x0": 364.32,
-      "x1": 759.04
+      "x0": 315.4,
+      "x1": 466.8
+     },
+     {
+      "trackId": "L3",
+      "x0": 466.8,
+      "x1": 495.75
+     },
+     {
+      "connectionId": "C51"
      }
     ],
     "label": {
-     "x": 485.47,
-     "y": 64.69
+     "x": 365.0,
+     "y": 143.0
+    },
+    "approx": false,
+    "text": "51AXT: DP07, DP08, with the over run line to the buffer stop."
+   },
+   {
+    "id": "TC_51BT_XT",
+    "code": "51BT/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 329.2,
+      "x1": 495.55
+     },
+     {
+      "connectionId": "C51"
+     }
+    ],
+    "label": {
+     "x": 393.5,
+     "y": 182.5
+    },
+    "approx": false,
+    "text": "51BXT: DP05, DP06, DP07. Fouling track for movements with point 50 reverse (note 14(a))."
+   },
+   {
+    "id": "TC_01T_XT",
+    "code": "01T/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 422.65,
+      "x1": 1424.55
+     }
+    ],
+    "label": {
+     "x": 972.0,
+     "y": 201.5
+    },
+    "approx": false,
+    "text": "01XT: DP10, DP11 (MSDAC in parallel to the DC track circuits 01AT/01BT, note 13(a))."
+   },
+   {
+    "id": "TC_02T_XT",
+    "code": "02T/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 495.55,
+      "x1": 1424.95
+     }
+    ],
+    "label": {
+     "x": 972.0,
+     "y": 166.0
+    },
+    "approx": false,
+    "text": "02XT: DP06, DP13 (MSDAC in parallel to the DC track circuits 02AT/02BT, note 13(a))."
+   },
+   {
+    "id": "TC_03T_XT",
+    "code": "03T/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 495.75,
+      "x1": 1496.95
+     }
+    ],
+    "label": {
+     "x": 980.0,
+     "y": 128.0
+    },
+    "approx": false,
+    "text": "03XT: DP08, DP14 (MSDAC in parallel to the DC track circuits 03AT/03BT, note 13(a))."
+   },
+   {
+    "id": "TC_01AT",
+    "code": "01AT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 422.65,
+      "x1": 944.8
+     }
+    ],
+    "label": {
+     "x": 616.0,
+     "y": 201.0
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_01BT",
+    "code": "01BT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 944.8,
+      "x1": 1424.55
+     }
+    ],
+    "label": {
+     "x": 1285.0,
+     "y": 203.0
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_02AT",
+    "code": "02AT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 495.55,
+      "x1": 944.8
+     }
+    ],
+    "label": {
+     "x": 616.0,
+     "y": 163.5
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_02BT",
+    "code": "02BT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 944.8,
+      "x1": 1424.95
+     }
+    ],
+    "label": {
+     "x": 1283.5,
+     "y": 166.0
+    },
+    "approx": false
+   },
+   {
+    "id": "TC_03AT",
+    "code": "03AT",
+    "kind": "trackCircuit",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 495.75,
+      "x1": 944.8
+     }
+    ],
+    "label": {
+     "x": 616.0,
+     "y": 125.0
     },
     "approx": false
    },
@@ -530,755 +1216,1396 @@
     "kind": "trackCircuit",
     "spans": [
      {
-      "trackId": "T03",
-      "x0": 919.18,
-      "x1": 1367.0
-     },
-     {
-      "trackId": "T06",
-      "x0": 812.48,
-      "x1": 1097.5
+      "trackId": "L3",
+      "x0": 944.8,
+      "x1": 1496.95
      }
     ],
     "label": {
-     "x": 1152.58,
-     "y": 24.55
+     "x": 1282.6,
+     "y": 123.0
     },
     "approx": false
+   },
+   {
+    "id": "TC_64AT_XT",
+    "code": "64AT/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L1",
+      "x0": 1424.55,
+      "x1": 1448.5
+     },
+     {
+      "trackId": "T04",
+      "x0": 1448.5,
+      "x1": 1599.4
+     },
+     {
+      "connectionId": "C64"
+     }
+    ],
+    "label": {
+     "x": 1559.0,
+     "y": 206.0
+    },
+    "approx": false,
+    "text": "64AXT: DP11, DP12, with the over run line to the buffer stop."
+   },
+   {
+    "id": "TC_64BT_XT",
+    "code": "64BT/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1424.95,
+      "x1": 1585.5
+     },
+     {
+      "connectionId": "C64"
+     }
+    ],
+    "label": {
+     "x": 1537.0,
+     "y": 167.0
+    },
+    "approx": false,
+    "text": "64BXT: DP12, DP13, DP16. Fouling track for movements with point 65 reverse (note 14(b))."
+   },
+   {
+    "id": "TC_65AT_XT",
+    "code": "65AT/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L3",
+      "x0": 1496.95,
+      "x1": 1520.9
+     },
+     {
+      "trackId": "T03",
+      "x0": 1520.9,
+      "x1": 1672.1
+     },
+     {
+      "connectionId": "C65"
+     }
+    ],
+    "label": {
+     "x": 1631.0,
+     "y": 144.0
+    },
+    "approx": false,
+    "text": "65AXT: DP14, DP15, with the over run line to the buffer stop."
+   },
+   {
+    "id": "TC_65BT_XT",
+    "code": "65BT/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1585.5,
+      "x1": 1682.35
+     },
+     {
+      "connectionId": "C65"
+     }
+    ],
+    "label": {
+     "x": 1632.5,
+     "y": 181.0
+    },
+    "approx": false,
+    "text": "65BXT: DP15, DP16, DP17."
+   },
+   {
+    "id": "TC_17T_XT",
+    "code": "17T/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1682.35,
+      "x1": 1815.1
+     }
+    ],
+    "label": {
+     "x": 1719.0,
+     "y": 166.7
+    },
+    "approx": false,
+    "text": "17XT: DP17, DP18."
+   },
+   {
+    "id": "TC_8T_XT",
+    "code": "8T/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1815.1,
+      "x1": 2038.45
+     }
+    ],
+    "label": {
+     "x": 1889.5,
+     "y": 166.0
+    },
+    "approx": false,
+    "text": "8XT: DP18, DP19."
+   },
+   {
+    "id": "TC_32CT_XT",
+    "code": "32CT/XT",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 2038.45,
+      "x1": 2115.95
+     }
+    ],
+    "label": {
+     "x": 2060.0,
+     "y": 163.3
+    },
+    "approx": false,
+    "text": "5RL"
+   },
+   {
+    "id": "TC_MSDAC_BPAC",
+    "code": "MSDAC BPAC",
+    "kind": "axleCounter",
+    "spans": [
+     {
+      "trackId": "L2",
+      "x0": 1857.0,
+      "x1": 2930.3
+     }
+    ],
+    "label": {
+     "x": 1865.0,
+     "y": 188.0
+    },
+    "approx": true,
+    "text": "DP details row 16: BPAC2, BPAC2A WITH ANAGODU MSDAC BPAC. Block section HEBBALU-ANAGODU; it runs on past the sheet edge to ANAGODU, so the east limit is not on the sheet."
    }
   ],
   "platforms": [
    {
     "id": "PF1",
-    "name": "Platform",
+    "name": "High Level Platform (Road 3, north)",
     "kind": "high",
-    "text": "PLATFORM(570mJL",
-    "lengthM": 0,
-    "widthM": 0,
+    "text": "HIGH LEVEL PLATFORM(570m x 7.5m)",
+    "lengthM": 570.0,
+    "widthM": 7.5,
+    "startChainage": 284.7,
+    "endChainage": 284.7,
     "polygon": [
      {
-      "x": 526.78,
-      "y": 190.99
+      "x": 576.6,
+      "y": 111.0
      },
      {
-      "x": 526.78,
-      "y": 116.71
+      "x": 1313.0,
+      "y": 111.0
      },
      {
-      "x": 684.34,
-      "y": 116.71
+      "x": 1313.0,
+      "y": 133.5
      },
      {
-      "x": 684.34,
-      "y": 190.99
+      "x": 576.6,
+      "y": 133.5
      }
     ],
     "label": {
-     "x": 595.51,
-     "y": 142.74
-    },
-    "startChainage": 0.29,
-    "endChainage": 0.41
+     "x": 820.0,
+     "y": 102.0
+    }
+   },
+   {
+    "id": "PF2",
+    "name": "High Level Platform (Road 1, south)",
+    "kind": "high",
+    "text": "HIGH LEVEL PLATFORM(570m x 7.5m)",
+    "lengthM": 570.0,
+    "widthM": 7.5,
+    "startChainage": 284.7,
+    "endChainage": 284.7,
+    "polygon": [
+     {
+      "x": 576.6,
+      "y": 214.9
+     },
+     {
+      "x": 1313.0,
+      "y": 214.9
+     },
+     {
+      "x": 1313.0,
+      "y": 237.5
+     },
+     {
+      "x": 576.6,
+      "y": 237.5
+     }
+    ],
+    "label": {
+     "x": 810.0,
+     "y": 232.0
+    }
    }
   ],
   "structures": [
    {
-    "id": "ST_50BT_XT_DP04_BSI",
-    "kind": "locoPilotBoard",
-    "name": "50BT/XT DP04 BSI",
-    "foot": {
-     "trackId": "T01",
-     "x": 97.78
-    },
+    "id": "ST_STATION_BUILDING",
+    "kind": "building",
+    "name": "STATION BUILDING (DUAL VDU)",
     "shape": {
      "type": "rect",
-     "x0": 97.78,
-     "y0": 46.81,
-     "x1": 99.1,
-     "y1": 52.93
-    }
+     "x0": 916.8,
+     "y0": 284.3,
+     "x1": 973.8,
+     "y1": 315.5
+    },
+    "label": {
+     "x": 1035.0,
+     "y": 293.0
+    },
+    "chainage": 0.0
    },
    {
     "id": "ST_FOB",
     "kind": "fob",
-    "name": "FOB >",
+    "name": "FOB",
     "shape": {
      "type": "rect",
-     "x0": 719.98,
-     "y0": 35.23,
-     "x1": 757.36,
-     "y1": 123.19
+     "x0": 850.0,
+     "y0": 125.0,
+     "x1": 891.3,
+     "y1": 226.3
     },
     "label": {
-     "x": 741.94,
-     "y": 62.83
+     "x": 865.0,
+     "y": 161.0
     },
-    "chainage": 0.4
+    "chainage": 57.4
    },
    {
-    "id": "ST_DUAL_VDU",
-    "kind": "building",
-    "name": "DUAL VDU",
-    "shape": {
-     "type": "rect",
-     "x0": 864.64,
-     "y0": 195.01,
-     "x1": 911.74,
-     "y1": 207.55
-    },
-    "label": {
-     "x": 888.07,
-     "y": 201.52
-    },
-    "chainage": 0.6
-   },
-   {
-    "id": "ST_O",
+    "id": "BD_32_LOCO_PILOTS",
     "kind": "locoPilotBoard",
-    "name": "O",
+    "name": "BOARD TO READ 'LOCO PILOTS PULL UPTO SIGNAL No.32 IF THE SAME IS AT ON'",
+    "foot": {
+     "trackId": "L2",
+     "x": 2088.2
+    },
     "shape": {
      "type": "rect",
-     "x0": 789.04,
-     "y0": 188.77,
-     "x1": 840.7,
-     "y1": 214.57
+     "x0": 2057.4,
+     "y0": 199.0,
+     "x1": 2076.0,
+     "y1": 208.4
     },
     "label": {
-     "x": 814.87,
-     "y": 201.67
+     "x": 2154.5,
+     "y": 245.0
     }
    },
    {
-    "id": "ST_1_7_32_32C",
-    "kind": "building",
-    "name": "1 7.32.32C.",
+    "id": "BD_STOP_29",
+    "kind": "locoPilotBoard",
+    "name": "STOP board on the post of shunt signal 29",
+    "foot": {
+     "trackId": "L3",
+     "x": 500.6
+    },
     "shape": {
      "type": "rect",
-     "x0": 1023.04,
-     "y0": 56.05,
-     "x1": 1076.26,
-     "y1": 68.47
-    },
-    "label": {
-     "x": 1049.65,
-     "y": 62.26
+     "x0": 473.0,
+     "y0": 161.0,
+     "x1": 489.0,
+     "y1": 167.0
     }
    },
    {
-    "id": "ST_1_7_32_32C_2",
-    "kind": "building",
-    "name": "1 7.32.32C.",
+    "id": "BD_STOP_31",
+    "kind": "locoPilotBoard",
+    "name": "STOP board on the post of shunt signal 31",
+    "foot": {
+     "trackId": "L2",
+     "x": 500.8
+    },
     "shape": {
      "type": "rect",
-     "x0": 1023.04,
-     "y0": 93.79,
-     "x1": 1076.26,
-     "y1": 106.21
+     "x0": 473.0,
+     "y0": 199.0,
+     "x1": 489.0,
+     "y1": 205.0
+    }
+   },
+   {
+    "id": "BD_STOP_30",
+    "kind": "locoPilotBoard",
+    "name": "STOP board on the post of shunt signal 30",
+    "foot": {
+     "trackId": "L1",
+     "x": 428.6
+    },
+    "shape": {
+     "type": "rect",
+     "x0": 401.0,
+     "y0": 237.0,
+     "x1": 417.0,
+     "y1": 243.0
+    }
+   },
+   {
+    "id": "LVV_BPAC2",
+    "kind": "lvv",
+    "name": "BPAC2 / BPAC2A (ALT.1): dual MSDAC block-section detection points with ANAGODU MSDAC BPAC (complete arrival of train, note 8)",
+    "at": {
+     "trackId": "L2",
+     "x": 1857.0
     },
     "label": {
-     "x": 1049.65,
-     "y": 100.0
+     "x": 1895.0,
+     "y": 168.0
+    }
+   },
+   {
+    "id": "DP_DP04",
+    "kind": "detector",
+    "name": "DP04 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 233.3
+    }
+   },
+   {
+    "id": "DP_DP05",
+    "kind": "detector",
+    "name": "DP05 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 329.2
+    }
+   },
+   {
+    "id": "DP_DP06",
+    "kind": "detector",
+    "name": "DP06 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 495.55
+    }
+   },
+   {
+    "id": "DP_DP08",
+    "kind": "detector",
+    "name": "DP08 (MSDAC detection point)",
+    "at": {
+     "trackId": "L3",
+     "x": 495.75
+    }
+   },
+   {
+    "id": "DP_DP10",
+    "kind": "detector",
+    "name": "DP10 (MSDAC detection point)",
+    "at": {
+     "trackId": "L1",
+     "x": 422.65
+    }
+   },
+   {
+    "id": "DP_DP11",
+    "kind": "detector",
+    "name": "DP11 (MSDAC detection point)",
+    "at": {
+     "trackId": "L1",
+     "x": 1424.55
+    }
+   },
+   {
+    "id": "DP_DP13",
+    "kind": "detector",
+    "name": "DP13 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 1424.95
+    }
+   },
+   {
+    "id": "DP_DP14",
+    "kind": "detector",
+    "name": "DP14 (MSDAC detection point)",
+    "at": {
+     "trackId": "L3",
+     "x": 1496.95
+    }
+   },
+   {
+    "id": "DP_DP16",
+    "kind": "detector",
+    "name": "DP16 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 1585.5
+    }
+   },
+   {
+    "id": "DP_DP17",
+    "kind": "detector",
+    "name": "DP17 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 1682.35
+    }
+   },
+   {
+    "id": "DP_DP18",
+    "kind": "detector",
+    "name": "DP18 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 1815.1
+    }
+   },
+   {
+    "id": "DP_DP19",
+    "kind": "detector",
+    "name": "DP19 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 2038.45
+    }
+   },
+   {
+    "id": "DP_DP20",
+    "kind": "detector",
+    "name": "DP20 (MSDAC detection point)",
+    "at": {
+     "trackId": "L2",
+     "x": 2115.95
     }
    }
   ],
-  "bridges": [],
+  "bridges": [
+   {
+    "id": "BR_01",
+    "number": "RCC BOX",
+    "chainage": 184.0,
+    "x": 707.1,
+    "spec": "RCC BOX CH:177566 (printed km chainage; 184 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_02",
+    "number": "RCC BOX(RUB)",
+    "chainage": 670.0,
+    "x": 1783.1,
+    "spec": "RCC BOX(RUB) CH:178420 (printed km chainage; 670 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_03",
+    "number": "PSC SLAB",
+    "chainage": 695.0,
+    "x": 1909.8,
+    "spec": "PSC SLAB CH:178445 (printed km chainage; 695 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_04",
+    "number": "RCC BOX(RUB)",
+    "chainage": 904.0,
+    "x": 2058.2,
+    "spec": "RCC BOX(RUB) CH:178654 (printed km chainage; 904 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_05",
+    "number": "RCC BOX",
+    "chainage": 1111.0,
+    "x": 2125.5,
+    "spec": "RCC BOX CH:178861 (printed km chainage; 1111 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_06",
+    "number": "RCC BOX",
+    "chainage": 1318.0,
+    "x": 2185.8,
+    "spec": "RCC BOX CH:179068 (printed km chainage; 1318 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_07",
+    "number": "COMPOSITE GIRDER (ROB)",
+    "chainage": 1640.0,
+    "x": 2293.9,
+    "spec": "COMPOSITE GIRDER CH:179390 (ROB) (printed km chainage; 1640 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_08",
+    "number": "RCC BOX",
+    "chainage": 1894.0,
+    "x": 2368.7,
+    "spec": "RCC BOX CH:179644 (printed km chainage; 1894 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_09",
+    "number": "RCC BOX(RUB)",
+    "chainage": 2229.0,
+    "x": 2437.7,
+    "spec": "RCC BOX(RUB) CH:179979 (printed km chainage; 2229 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_10",
+    "number": "PSC SLAB",
+    "chainage": 2374.0,
+    "x": 2462.5,
+    "spec": "PSC SLAB CH:180124 (printed km chainage; 2374 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_11",
+    "number": "RCC BOX",
+    "chainage": 2698.0,
+    "x": 2630.4,
+    "spec": "RCC BOX CH:180448 (printed km chainage; 2698 m east of the station centre line KM 177.750)"
+   },
+   {
+    "id": "BR_12",
+    "number": "RCC BOX (RUB)",
+    "chainage": 2710.0,
+    "x": 2656.8,
+    "spec": "RCC BOX (RUB) CH:180460 (printed km chainage; 2710 m east of the station centre line KM 177.750)"
+   }
+  ],
   "chainageMarks": [
    {
-    "id": "CM_3",
-    "kind": "CH",
-    "chainage": 1.0,
-    "x": -1278.48,
-    "lane": "top"
-   },
-   {
-    "id": "CM_5",
-    "kind": "(BS)",
-    "chainage": 1.0,
-    "x": -1278.48,
-    "lane": "top"
-   },
-   {
-    "id": "CM",
-    "kind": "(TP)",
-    "chainage": 1.0,
-    "x": 1513.51,
+    "id": "CM_1",
+    "kind": "BS",
+    "chainage": 650.0,
+    "x": 103.7,
     "lane": "top"
    },
    {
     "id": "CM_2",
-    "kind": "(TP)",
-    "chainage": 1.0,
-    "x": 1513.51,
+    "kind": "TP",
+    "chainage": 530.0,
+    "x": 260.2,
+    "lane": "top"
+   },
+   {
+    "id": "CM_3",
+    "kind": "STATION CL (KM:177.750)",
+    "chainage": 0.0,
+    "x": 944.8,
     "lane": "top"
    },
    {
     "id": "CM_4",
-    "kind": "CH",
-    "chainage": 1.0,
-    "x": 1513.51,
+    "kind": "TP",
+    "chainage": 550.0,
+    "x": 1655.4,
     "lane": "top"
    }
   ],
-  "gradients": [],
+  "gradients": [
+   {
+    "id": "G_1",
+    "direction": "BOTH",
+    "x": 36.5,
+    "chainage": 650.0,
+    "from": null,
+    "to": "1 IN 100",
+    "text": "CH:177100; '100' to the east. Drawn 67 pt west of the (BS)CH:177100 post (off scale)."
+   },
+   {
+    "id": "G_2",
+    "direction": "BOTH",
+    "x": 168.2,
+    "chainage": 600.0,
+    "from": "1 IN 100",
+    "to": "1 IN 1200",
+    "text": "CH:177150; '100' / '1200'"
+   },
+   {
+    "id": "G_3",
+    "direction": "BOTH",
+    "x": 1726.6,
+    "chainage": 605.0,
+    "from": "1 IN 1200",
+    "to": "1 IN 102",
+    "text": "CH:178355; '1200' / '102'"
+   },
+   {
+    "id": "G_4",
+    "direction": "BOTH",
+    "x": 1922.3,
+    "chainage": 755.0,
+    "from": "1 IN 102",
+    "to": "1 IN 100",
+    "text": "CH:178505; '102' / '100'"
+   },
+   {
+    "id": "G_5",
+    "direction": "BOTH",
+    "x": 2736.6,
+    "chainage": 3407.525,
+    "from": "1 IN 100",
+    "to": "LEVEL",
+    "text": "CH:181157.525; '100' / 'LEVEL' (beyond the line breaks, not to scale)"
+   }
+  ],
   "dimensions": [
    {
-    "id": "DH",
+    "id": "DH_1",
     "kind": "horizontal",
-    "y": -81.32,
-    "x0": 1525.18,
-    "x1": 1596.46,
-    "text": "55m",
+    "y": 36.3,
+    "x0": 168.8,
+    "x1": 260.2,
+    "text": "70m",
     "label": {
-     "x": 1558.99,
-     "y": -81.59
+     "x": 214.0,
+     "y": 36.3
     }
    },
    {
     "id": "DH_2",
     "kind": "horizontal",
-    "y": -61.97,
-    "x0": 38.74,
-    "x1": 130.12,
-    "text": "70m",
+    "y": 36.3,
+    "x0": 260.2,
+    "x1": 944.8,
+    "text": "530m",
     "label": {
-     "x": 85.93,
-     "y": -62.57
+     "x": 297.0,
+     "y": 36.3
     }
    },
    {
     "id": "DH_3",
     "kind": "horizontal",
-    "y": 143.14,
-    "x0": 1525.18,
-    "x1": 1680.64,
-    "text": "{1 20m",
+    "y": 16.0,
+    "x0": 944.8,
+    "x1": 1655.4,
+    "text": "550m",
     "label": {
-     "x": 1601.17,
-     "y": 143.11
+     "x": 1630.0,
+     "y": 16.0
     }
    },
    {
     "id": "DH_4",
     "kind": "horizontal",
-    "y": -21.65,
-    "x0": 181.54,
-    "x1": 370.18,
-    "text": "{1 20m",
+    "y": 16.0,
+    "x0": 1655.4,
+    "x1": 1726.6,
+    "text": "55m",
     "label": {
-     "x": 282.31,
-     "y": -21.68
+     "x": 1687.0,
+     "y": 16.0
     }
    },
    {
     "id": "DH_5",
     "kind": "horizontal",
-    "y": 184.12,
-    "x0": 109.12,
-    "x1": 298.24,
-    "text": "{1 20m",
+    "y": 76.6,
+    "x0": 311.7,
+    "x1": 500.6,
+    "text": "<120m",
     "label": {
-     "x": 210.34,
-     "y": 184.12
+     "x": 416.0,
+     "y": 76.6
+    }
+   },
+   {
+    "id": "DH_6",
+    "kind": "horizontal",
+    "y": 282.3,
+    "x0": 239.3,
+    "x1": 428.6,
+    "text": "<120m",
+    "label": {
+     "x": 340.0,
+     "y": 282.3
+    }
+   },
+   {
+    "id": "DH_7",
+    "kind": "horizontal",
+    "y": 241.4,
+    "x0": 1655.4,
+    "x1": 1811.0,
+    "text": "<120m",
+    "label": {
+     "x": 1733.0,
+     "y": 241.4
+    }
+   },
+   {
+    "id": "DH_8",
+    "kind": "horizontal",
+    "y": 241.6,
+    "x0": 1856.9,
+    "x1": 2043.5,
+    "text": "<180m (ALT.1)",
+    "label": {
+     "x": 1955.0,
+     "y": 241.6
+    }
+   },
+   {
+    "id": "DH_9",
+    "kind": "horizontal",
+    "y": 278.1,
+    "x0": 2043.5,
+    "x1": 2358.3,
+    "text": "<1000",
+    "label": {
+     "x": 2198.0,
+     "y": 278.1
+    }
+   },
+   {
+    "id": "DH_10",
+    "kind": "horizontal",
+    "y": 302.0,
+    "x0": 2043.5,
+    "x1": 2674.4,
+    "text": "<2000m",
+    "label": {
+     "x": 2357.0,
+     "y": 302.0
     }
    }
   ],
   "routeLabels": [
    {
-    "id": "R",
-    "text": "29.30.31",
-    "x": 43.48,
-    "y": 98.92,
+    "id": "RL_1",
+    "text": "29.30.31.",
+    "x": 180.0,
+    "y": 197.5,
     "arrow": "west"
+   },
+   {
+    "id": "RL_2",
+    "text": "9",
+    "x": 653.0,
+    "y": 125.0,
+    "arrow": "east"
+   },
+   {
+    "id": "RL_3",
+    "text": "9",
+    "x": 653.0,
+    "y": 164.0,
+    "arrow": "east"
+   },
+   {
+    "id": "RL_4",
+    "text": "9",
+    "x": 653.0,
+    "y": 199.0,
+    "arrow": "east"
+   },
+   {
+    "id": "RL_5",
+    "text": "17.32.32C.",
+    "x": 1180.0,
+    "y": 124.0,
+    "arrow": "west"
+   },
+   {
+    "id": "RL_6",
+    "text": "17.32.32C.",
+    "x": 1180.0,
+    "y": 160.0,
+    "arrow": "west"
+   },
+   {
+    "id": "RL_7",
+    "text": "17.32.32C.",
+    "x": 1180.0,
+    "y": 198.0,
+    "arrow": "west"
+   },
+   {
+    "id": "RL_8",
+    "text": "2-4.2C-4C.",
+    "x": 1727.0,
+    "y": 148.0,
+    "arrow": "east"
+   },
+   {
+    "id": "RL_9",
+    "text": "8",
+    "x": 1977.0,
+    "y": 164.0,
+    "arrow": "east"
    }
   ],
   "annotations": [
    {
-    "id": "A",
-    "text": "FM",
-    "x": 1532.97,
-    "y": 54.42,
-    "tone": "line"
+    "id": "A_1",
+    "text": "S.W.R / HEBBALU / (TERMINAL STATION)",
+    "x": 950.0,
+    "y": -147.0,
+    "tone": "csb"
    },
    {
     "id": "A_2",
-    "text": "OVER RUN LINE 1 20m",
-    "x": 253.36,
-    "y": 31.93,
-    "tone": "line"
+    "text": "(KM:177.750) (CH:177750)",
+    "x": 947.0,
+    "y": -65.0,
+    "tone": "csb"
    },
    {
     "id": "A_3",
-    "text": "NOT FOR S?BLING(1 20M) ?",
-    "x": 31.54,
-    "y": 51.91,
-    "tone": "end"
+    "text": "DOWN <- -> UP",
+    "x": 1040.0,
+    "y": -100.0
    },
    {
     "id": "A_4",
-    "text": "L E V E L",
-    "x": 516.85,
-    "y": 134.05,
+    "text": "NOT FOR STABLING(120M)",
+    "x": 153.5,
+    "y": 150.0,
     "tone": "line"
    },
    {
     "id": "A_5",
-    "text": "0 DP1 0",
-    "x": 269.95,
-    "y": 118.75,
-    "tone": "line"
+    "text": "DOWN <-> UP (ANAGODU 5.80Km)",
+    "x": 2835.0,
+    "y": 164.0,
+    "tone": "end"
    },
    {
     "id": "A_6",
-    "text": "51AT/XT",
-    "x": 235.18,
-    "y": 45.31,
+    "text": "DAVANAGERE JN.",
+    "x": 2888.0,
+    "y": 185.0,
     "tone": "end"
    },
    {
     "id": "A_7",
-    "text": "51BT/XT",
-    "x": 263.53,
-    "y": 84.85,
-    "tone": "end"
+    "text": "TROLLEY PATH",
+    "x": 518.0,
+    "y": 105.0
    },
    {
     "id": "A_8",
-    "text": "DP1 7",
-    "x": 1537.96,
-    "y": 69.49,
-    "tone": "line"
+    "text": "TROLLEY PATH",
+    "x": 1360.0,
+    "y": 91.0
    },
    {
     "id": "A_9",
-    "text": "DP1 6",
-    "x": 1469.2,
-    "y": 87.97,
+    "text": "TO ROAD:1 OR 2 OR 3",
+    "x": 1904.0,
+    "y": 203.0,
     "tone": "line"
    },
    {
     "id": "A_10",
-    "text": "5 m )",
-    "x": 722.62,
-    "y": 134.5,
-    "tone": "end"
+    "text": "10KMPH (leader to the triangle on the post of signal 32)",
+    "x": 1999.0,
+    "y": 233.5,
+    "tone": "line"
    },
    {
     "id": "A_11",
-    "text": "ROAD 2",
-    "x": 614.11,
-    "y": 66.22,
+    "text": "H",
+    "x": 159.1,
+    "y": 174.55,
     "tone": "line"
    },
    {
     "id": "A_12",
-    "text": "ROAD 3",
-    "x": 612.46,
-    "y": 26.65,
+    "text": "K",
+    "x": 1753.4,
+    "y": 174.55,
     "tone": "line"
    },
    {
     "id": "A_13",
-    "text": "CSR 806m",
-    "x": 667.87,
-    "y": 27.34,
+    "text": "L",
+    "x": 1940.1,
+    "y": 174.55,
     "tone": "line"
    },
    {
     "id": "A_14",
-    "text": "CSR 750m",
-    "x": 670.15,
-    "y": 66.55,
+    "text": "C",
+    "x": 913.3,
+    "y": 138.0,
     "tone": "line"
    },
    {
     "id": "A_15",
-    "text": "1 2",
-    "x": 248.47,
-    "y": 70.84,
+    "text": "B",
+    "x": 913.3,
+    "y": 174.55,
     "tone": "line"
    },
    {
     "id": "A_16",
-    "text": "1 2",
-    "x": 289.03,
-    "y": 43.75,
+    "text": "A",
+    "x": 913.3,
+    "y": 210.7,
     "tone": "line"
    },
    {
     "id": "A_17",
-    "text": "1 2",
-    "x": 1438.45,
-    "y": 44.23,
+    "text": "C1 <- POINTS 51N",
+    "x": 917.6,
+    "y": 112.0,
     "tone": "line"
    },
    {
     "id": "A_18",
-    "text": "1 2",
-    "x": 1478.95,
-    "y": 71.38,
+    "text": "A1 <- POINTS 50N",
+    "x": 923.8,
+    "y": 235.3,
     "tone": "line"
    },
    {
     "id": "A_19",
-    "text": "ROAD 1",
-    "x": 613.24,
-    "y": 101.26,
-    "tone": "line"
+    "text": "ALT.1 (BPAC2 / BPAC2A)",
+    "x": 1796.0,
+    "y": 204.0
    },
    {
     "id": "A_20",
-    "text": "CSR 806m",
-    "x": 668.11,
-    "y": 101.95,
+    "text": "5RL",
+    "x": 2061.0,
+    "y": 182.0,
     "tone": "line"
    },
    {
     "id": "A_21",
-    "text": "TROLLEY PATH",
-    "x": 392.26,
-    "y": 7.6,
-    "tone": "end"
+    "text": "UP SHUNT KEY (ALT.1) - key transmitter symbol below the station building (note 4)",
+    "x": 1017.0,
+    "y": 355.0
    },
    {
-    "id": "A_22",
-    "text": "MAIN LINE",
-    "x": 939.64,
-    "y": 66.97,
-    "tone": "line"
-   },
-   {
-    "id": "A_23",
-    "text": "LOOP LINE",
-    "x": 935.2,
-    "y": 26.95,
-    "tone": "line"
-   },
-   {
-    "id": "A_24",
-    "text": "LOOP LINE",
-    "x": 931.84,
-    "y": 103.87,
-    "tone": "line"
-   },
-   {
-    "id": "A_25",
-    "text": "1 N",
-    "x": 752.08,
-    "y": 14.44,
-    "tone": "line"
-   },
-   {
-    "id": "A_26",
-    "text": "? 7.32.32C.",
-    "x": 1045.87,
-    "y": 25.21,
-    "tone": "end"
-   },
-   {
-    "id": "A_27",
-    "text": "TROLLEY PATH",
-    "x": 1231.9,
-    "y": -7.07,
-    "tone": "end"
-   },
-   {
-    "id": "A_28",
-    "text": "1 2",
-    "x": 220.33,
-    "y": 107.71,
-    "tone": "line"
-   },
-   {
-    "id": "A_29",
-    "text": "1 2",
-    "x": 180.16,
-    "y": 80.95,
-    "tone": "line"
-   },
-   {
-    "id": "A_30",
-    "text": "1 2",
-    "x": 1356.85,
-    "y": 108.52,
-    "tone": "line"
-   },
-   {
-    "id": "A_31",
-    "text": "DP1 3",
-    "x": 1309.0,
-    "y": 65.11,
-    "tone": "line"
-   },
-   {
-    "id": "A_32",
-    "text": "1 7",
-    "x": 1530.25,
-    "y": 97.45,
-    "tone": "line"
-   },
-   {
-    "id": "A_33",
-    "text": "1 2",
-    "x": 1396.75,
-    "y": 81.22,
-    "tone": "line"
-   },
-   {
-    "id": "A_34",
-    "text": "POINTS 50N",
-    "x": 746.92,
-    "y": 147.61,
-    "tone": "line"
-   },
-   {
-    "id": "A_35",
-    "text": "G H",
-    "x": 471.34,
-    "y": 134.05,
-    "tone": "line"
-   },
-   {
-    "id": "A_36",
-    "text": "x 7",
-    "x": 691.48,
-    "y": 134.05,
-    "tone": "line"
-   },
-   {
-    "id": "A_37",
-    "text": "4C",
-    "x": 1377.79,
-    "y": 1.15,
-    "tone": "line"
-   },
-   {
-    "id": "A_38",
-    "text": "BSI",
-    "x": 175.15,
-    "y": 40.15,
-    "tone": "end"
-   },
-   {
-    "id": "A_39",
+    "id": "A_FM1",
     "text": "FM",
-    "x": 1400.05,
-    "y": 51.31,
+    "x": 252.0,
+    "y": 199.0,
     "tone": "line"
    },
    {
-    "id": "A_40",
-    "text": "FM 29",
-    "x": 345.46,
-    "y": 51.97,
-    "tone": "line"
-   },
-   {
-    "id": "A_41",
-    "text": "POINTS",
-    "x": 716.05,
-    "y": 14.44,
-    "tone": "line"
-   },
-   {
-    "id": "A_42",
-    "text": "O3T/XT",
-    "x": 850.12,
-    "y": 30.07,
-    "tone": "end"
-   },
-   {
-    "id": "A_43",
-    "text": "2\u20144.2C\u20144C.",
-    "x": 1596.43,
-    "y": 49.72,
-    "tone": "line"
-   },
-   {
-    "id": "A_44",
-    "text": "50",
-    "x": 135.94,
-    "y": 89.08,
-    "tone": "line"
-   },
-   {
-    "id": "A_45",
-    "text": "50AT/XT",
-    "x": 165.82,
-    "y": 105.73,
-    "tone": "end"
-   },
-   {
-    "id": "A_46",
-    "text": "DP08",
-    "x": 350.92,
-    "y": 27.31,
-    "tone": "line"
-   },
-   {
-    "id": "A_47",
-    "text": "DP06",
-    "x": 350.98,
-    "y": 81.31,
-    "tone": "line"
-   },
-   {
-    "id": "A_48",
-    "text": "OP0g",
-    "x": 198.58,
-    "y": 86.59,
-    "tone": "line"
-   },
-   {
-    "id": "A_49",
+    "id": "A_FM2",
     "text": "FM",
-    "x": 255.46,
-    "y": 97.99,
+    "x": 325.0,
+    "y": 151.0,
     "tone": "line"
    },
    {
-    "id": "A_50",
-    "text": "64BT/XT",
-    "x": 1406.83,
-    "y": 68.65,
-    "tone": "end"
-   },
-   {
-    "id": "A_51",
-    "text": "IBS",
-    "x": 1479.7,
-    "y": 112.81,
-    "tone": "end"
-   },
-   {
-    "id": "A_52",
-    "text": "64AT/XT 20m",
-    "x": 1429.03,
-    "y": 112.18,
-    "tone": "end"
-   },
-   {
-    "id": "A_53",
-    "text": "84",
-    "x": 1452.97,
-    "y": 92.74,
-    "tone": "line"
-   },
-   {
-    "id": "A_54",
-    "text": "65BT/XT",
-    "x": 1502.68,
-    "y": 83.53,
-    "tone": "end"
-   },
-   {
-    "id": "A_55",
+    "id": "A_FM3",
     "text": "FM",
-    "x": 1327.81,
-    "y": 100.03,
+    "x": 474.0,
+    "y": 147.0,
     "tone": "line"
    },
    {
-    "id": "A_56",
-    "text": "2C",
-    "x": 1297.99,
-    "y": 47.11,
-    "tone": "line"
-   },
-   {
-    "id": "A_57",
+    "id": "A_FM4",
     "text": "FM",
-    "x": 120.91,
-    "y": 101.14,
+    "x": 387.0,
+    "y": 196.0,
     "tone": "line"
    },
    {
-    "id": "A_58",
+    "id": "A_FM5",
     "text": "FM",
-    "x": 195.1,
-    "y": 52.93,
+    "x": 1456.0,
+    "y": 199.0,
     "tone": "line"
    },
    {
-    "id": "A_59",
-    "text": "OSAT",
-    "x": 486.13,
-    "y": 26.71,
+    "id": "A_FM6",
+    "text": "FM",
+    "x": 1525.0,
+    "y": 150.0,
     "tone": "line"
    },
    {
-    "id": "A_60",
-    "text": "02BT",
-    "x": 1153.54,
-    "y": 67.45,
+    "id": "A_FM7",
+    "text": "FM",
+    "x": 1588.0,
+    "y": 197.0,
     "tone": "line"
    },
    {
-    "id": "A_61",
-    "text": "STOP",
-    "x": 351.01,
-    "y": 65.65,
+    "id": "A_FM8",
+    "text": "FM",
+    "x": 1661.0,
+    "y": 152.0,
     "tone": "line"
    },
    {
-    "id": "A_62",
-    "text": "STOP",
-    "x": 351.1,
-    "y": 103.51,
+    "id": "A_DP07",
+    "text": "DP07 (MSDAC detection point on the 51 leg)",
+    "x": 403.0,
+    "y": 170.0,
     "tone": "line"
    },
    {
-    "id": "A_63",
-    "text": "STOP",
-    "x": 279.1,
-    "y": 141.37,
+    "id": "A_DP09",
+    "text": "DP09 (MSDAC detection point on the 50 leg)",
+    "x": 380.0,
+    "y": 183.0,
+    "tone": "line"
+   },
+   {
+    "id": "A_DP12",
+    "text": "DP12 (MSDAC detection point on the 64 leg)",
+    "x": 1525.0,
+    "y": 197.0,
+    "tone": "line"
+   },
+   {
+    "id": "A_DP15",
+    "text": "DP15 (MSDAC detection point on the 65 leg)",
+    "x": 1605.0,
+    "y": 151.0,
     "tone": "line"
    }
   ],
-  "breaks": [],
-  "connectionJoints": []
+  "breaks": [
+   {
+    "trackId": "L2",
+    "x": 2080.2
+   },
+   {
+    "trackId": "L2",
+    "x": 2159.7
+   },
+   {
+    "trackId": "L2",
+    "x": 2403.9
+   }
+  ],
+  "connectionJoints": [
+   {
+    "connectionId": "C51",
+    "x": 411.75,
+    "y": 149.62
+   },
+   {
+    "connectionId": "C50",
+    "x": 337.7,
+    "y": 196.12
+   },
+   {
+    "connectionId": "C64",
+    "x": 1506.0,
+    "y": 192.11
+   },
+   {
+    "connectionId": "C65",
+    "x": 1581.4,
+    "y": 156.25
+   }
+  ]
  },
  "info": {
-  "titleBlock": [],
-  "lines": [],
+  "titleBlock": [
+   {
+    "label": "Railway",
+    "value": "SOUTH WESTERN RAILWAY"
+   },
+   {
+    "label": "Division",
+    "value": "MYSURU DIVISION"
+   },
+   {
+    "label": "Department",
+    "value": "SIGNAL & TELECOMMUNICATION"
+   },
+   {
+    "label": "Station",
+    "value": "HEBBALU PHASE I (TERMINAL STATION)"
+   },
+   {
+    "label": "Station code",
+    "value": "HBBLU (not printed on the sheet; kept from the existing file)"
+   },
+   {
+    "label": "Title",
+    "value": "SIGNALLING PLAN"
+   },
+   {
+    "label": "Class",
+    "value": "'B'"
+   },
+   {
+    "label": "Standard",
+    "value": "I"
+   },
+   {
+    "label": "Traction",
+    "value": "TO SUIT 25KV AC RE"
+   },
+   {
+    "label": "Scale",
+    "value": "1 : 2000"
+   },
+   {
+    "label": "Drawing No.",
+    "value": "IPU: 3495A"
+   },
+   {
+    "label": "Sigg. Plan No.",
+    "value": "3495A (printed in the left margin: SIGG. PLAN No.3495A)"
+   },
+   {
+    "label": "Supersedes",
+    "value": "SIGG. PLAN NO. NIL."
+   },
+   {
+    "label": "Location",
+    "value": "KM:177.750 (CH:177750), station centre line"
+   },
+   {
+    "label": "Work",
+    "value": "NEW BG. LINE BETWEEN TUMAKURU-DAVANAGERE, YARD ARRANGEMENTS AT HEBBALU PHASE-I"
+   },
+   {
+    "label": "Engineering drawing",
+    "value": "SWR/CN/BNC/TR/183-2025"
+   },
+   {
+    "label": "Block working",
+    "value": "HEBBALU-ANAGODU: INTEGRATED EI BLOCK (ALT.1); dual MSDAC interlocked with the integrated EI block panel"
+   },
+   {
+    "label": "Interlocking",
+    "value": "EI, DUAL VDU (station building); signals 1 TO 32, points 50 TO 65"
+   },
+   {
+    "label": "Spare functions",
+    "value": "SIGNALS 1.5-7.10-16.18-28. POINTS 52 TO 63."
+   },
+   {
+    "label": "Drawn by",
+    "value": "G. SRINIVAS (original plan); JYOTSNA CHOUDHURI (ALT-1); CRS/SC observations block: not filled in"
+   },
+   {
+    "label": "Signatures (original)",
+    "value": "SSE-DRG-1-SNT-DND-CN-BNC, ASTE-DND-CN-BNC, DY.CSTE DND CN BNC (2025.09.26), CSTE-CN-BNC, CTPM/SWR (2025.10.15)"
+   },
+   {
+    "label": "Signatures (ALT-1)",
+    "value": "SSE-DRG-1-SNT-DND-CN-BNC, DSTE-DND-CN-BNC, ASTE-DND-CN-BNC, DY.CSTE DND CN BNC, CSTE-CN-BNC (2026.06.29), CTPM/SWR (2026.07.03)"
+   },
+   {
+    "label": "Signatures (CRS/SC observations dated 20-08-2026)",
+    "value": "SSE-DRG-1-SNT-DND-CN-BNC, ASTE-DND-CN-BNC, DSTE-DND-CN-BNC, DY.CSTE DND CN BNC, CSTE-CN-BNC (2026.08.20); CTPM/SWR left blank"
+   }
+  ],
+  "lines": [
+   {
+    "track": "L1",
+    "lineNo": 1,
+    "name": "ROAD 1 (LOOP LINE)",
+    "csl": "CSR 806m",
+    "cslM": 806.0
+   },
+   {
+    "track": "L2",
+    "lineNo": 2,
+    "name": "ROAD 2 (MAIN LINE)",
+    "csl": "CSR 750m",
+    "cslM": 750.0
+   },
+   {
+    "track": "L3",
+    "lineNo": 3,
+    "name": "ROAD 3 (LOOP LINE)",
+    "csl": "CSR 806m",
+    "cslM": 806.0
+   }
+  ],
   "legend": [],
   "notes": [
    {
-    "no": "",
-    "text": "NEW FEATURES NOTE"
+    "no": "1",
+    "text": "BLOCK WORKING: HEBBALU-ANAGODU: INTEGRATED EI BLOCK (ALT.1). (table)"
    },
    {
     "no": "2",
-    "text": "COMMUNIC?ION CIRCUIT 1 SM & EITHER SIDE OF TOP POINTS"
-   },
-   {
-    "no": "4",
-    "text": "UP SHUNT KEY FOR UP BLOCK SECTION IS PROVIDED IN ELECTRICAL KEY TRANSMI?ER WHEN REMOVED PREVENTS THE CLEARING OF UP AD?NCED S?RTER SIGNAL NO. 8."
-   },
-   {
-    "no": "7",
-    "text": "CALLING ON SIGNALS 2C. 3C. 4C. CAN BE CLEARED ON? A?ER TRAIN HAS OCCUPIED THE CONCERNED BERTHING TRACK AND STOPPED. THE SM SHALL ENSURE TH? THE TRAIN HAS STOPPED BEFORE CLEARING THE CALLING ON SIGNAL."
-   },
-   {
-    "no": "8",
-    "text": "DUAL MSDAC INTERLOCKED WITH INTEGR?ED EI BLOCK PANEL TO ENSURE COMPLETE ARRI?L OF TRAIN IS PROVIDED FOR HEBBALU\u2014ANAGODU SECTION."
-   },
-   {
-    "no": "",
-    "text": "NEW FEATURES NOTE"
-   },
-   {
-    "no": "2",
-    "text": "POINT CAN BE OPER?ED MANUAL? EVEN IF CH KEY IS OUT TILL THE TIME KEY IS INSERTED INTO THE POINT MACHINE F?P. ROUTE CAN BE INITI?ED BUT SIGNAL CAN BE CLEARED WHEN CH KEY IS INSIDE THE KLCR RE?"
+    "text": "COMMUNICATION: CIRCUIT-1: SM & EITHER SIDE OF TOP POINTS. (table)"
    },
    {
     "no": "3",
-    "text": "A?ER ARRI?L OF TRAIN, IF ROUTE IS LOCKED AND ALL TRACK ARE IN UP CONDITION, THEN EMERGENCY ROUTE RELEASE IS USED TO UNLOCK THE ROUTE. NORMAL CANCEL?ION IS APPLICABLE ON? WHEN TRAIN HAS NOT PASSED THE SIGNAL."
+    "text": "CRANK HANDLES: (table)"
+   },
+   {
+    "no": "4",
+    "text": "UP SHUNT KEY FOR UP BLOCK SECTION IS PROVIDED IN ELECTRICAL KEY TRANSMITTER WHEN REMOVED PREVENTS THE CLEARING OF UP ADVANCED STARTER SIGNAL NO. 8."
+   },
+   {
+    "no": "5",
+    "text": "FUNCTIONS: (table)"
+   },
+   {
+    "no": "6",
+    "text": "CALLING ON SIGNALS (TIME LAPSE FOR CLEARANCE:60SEC). (table)"
+   },
+   {
+    "no": "7",
+    "text": "CALLING ON SIGNALS 2C. 3C. 4C. CAN BE CLEARED ONLY AFTER TRAIN HAS OCCUPIED THE CONCERNED BERTHING TRACK AND STOPPED. THE SM SHALL ENSURE THAT THE TRAIN HAS STOPPED BEFORE CLEARING THE CALLING ON SIGNAL."
+   },
+   {
+    "no": "8",
+    "text": "DUAL MSDAC INTERLOCKED WITH INTEGRATED EI BLOCK PANEL TO ENSURE COMPLETE ARRIVAL OF TRAIN IS PROVIDED FOR HEBBALU-ANAGODU SECTION. (ALT.1)"
+   },
+   {
+    "no": "9",
+    "text": "RESETTING OF BLOCK SECTION DUAL MSDAC INTERLOCKED WITH INTEGRATED EI BLOCK PANEL IN CASE OF FAILURE (ALT.1). (table)"
+   },
+   {
+    "no": "10",
+    "text": "EMERGENCY ROUTE RELEASE PROVIDED FOR ALL SIGNALS. UNDER FAILURE CONDITION BY CLICKING SIGNAL NORMAL AND BY INSERTING PHYSICAL EMERGENCY EM KEY 'IN' FOLLOWED BY ENTERING USER NAME AND PASSWORD. THEN CLICK ON CONCERNED SIGNAL, SELECT THE EMERGENCY ROUTE RELEASE FOLLOWED BY CONFIRMATION 'OK'. THE ROUTE GETS RELEASED AFTER 120 SEC. EACH SUCH CANCELLATION SHALL BE REGISTERED ON A COUNTER."
+   },
+   {
+    "no": "11",
+    "text": "EMERGENCY POINT OPERATION IS PROVIDED FOR ALL POINTS. UNDER TRACK CIRCUIT DOWN AND FAILURE CONDITION OF TRACK SECTION WHEN POINT IS NOT LOCKED BY SIGNAL ROUTE BY INSERTING PHYSICAL EMERGENCY EM KEY IN, THEN CLICK ON CONCERNED POINT BUTTON AND SELECT THE EMERGENCY POINT OPERATION (N/R) AS CASE MAY BE, FOLLOWED BY ENTERING USER ID AND PASSWORD WITH CONFIRMATION 'OK'. THE POINT CAN BE OPERATED IMMEDIATELY. EACH SUCH OPERATION SHALL BE REGISTERED ON A COUNTER."
+   },
+   {
+    "no": "12",
+    "text": "EXTREME EMERGENCY CH KEY IS PROVIDED. UNDER FAILURE OF EI, VDU COMMUNICATION OR VDU MONITOR FAILURE BY INSERTING PHYSICAL EXTREME EMERGENCY CH KEY IN AND PRESSING PUSH BUTTON, CH EXTRACTION TIMER WILL START AND CH CAN BE EXTRACTED AFTER LAPSE OF 120 SECONDS. EACH SUCH EXTRACTION SHALL BE REGISTERED ON A COUNTER."
+   },
+   {
+    "no": "13(a)",
+    "text": "MSDAC IS PROVIDED IN PARALLEL TO DC TRACK CIRCUIT IN ENTIRE YARD"
+   },
+   {
+    "no": "13(b)",
+    "text": "RESETTING OF MSDAC IN CASE OF FAILURE OF TRACK SECTION: EACH TRACK SECTION CAN BE RESET INDEPENDENTLY FROM THE RESET BOX/ RESET MODULE OF RESET PANEL/VISUAL DISPLAY UNIT (VDU). NON RESETTABLE COUNTER SHALL BE PROVIDED FOR RECORDING EVERY OPERATION OF RESETTING."
+   },
+   {
+    "no": "13(c)",
+    "text": "RESET TYPE:"
+   },
+   {
+    "no": "13(c)(i)",
+    "text": "FOR TRACK SECTION ON A STRAIGHT LINE CONFINED BY TWO DETECTION POINTS, WHEN RESET IS APPLIED THE AXLE COUNTER SECTION SHALL GO TO \"PREPARATORY RESET MODE\"."
+   },
+   {
+    "no": "13(c)(ii)",
+    "text": "FOR TRACK SECTION ON A TERMINATING LINE/SIDING LINE, POINT ZONE AND LADDER , THE RESET COMMAND FROM RESET BOX/RESET MODULE OF RESET PANEL/VISUAL DISPLAY UNIT (VDU) WILL BE TRANSMITTED ONLY AFTER VERIFYING THAT VERIFICATION SWITCH HAVE BEEN PRESSED AND TURNED IN THE LINE VERIFICATION BOX AT SITE AS A PROOF OF THE AXLE COUNTER SECTION BEING CLEAR PHYSICALLY."
+   },
+   {
+    "no": "13(c)(iii)",
+    "text": "CONDITIONAL HARD RESET IS PROVIDED FOR 9XT TRACK SECTION."
+   },
+   {
+    "no": "14",
+    "text": "(a) 51BT/XT IS FOULING TRACK FOR MOVEMENTS WITH POINT 50 REVERSE. (b)64BT/XT IS FOULING TRACK FOR MOVEMENTS WITH POINT 65 REVERSE."
+   },
+   {
+    "no": "",
+    "text": "NEW FEATURES NOTE"
+   },
+   {
+    "no": "NF1",
+    "text": "EMERGENCY OVERLAP ROUTE RELEASE (OYN) PROVIDED UNDER ROUTE LOCKED CONDITION. AFTER COMPLETE ARRIVAL OF TRAIN ON BERTHING TRACK, BY CLICKING CONCERNED ROUTE BUTTON AND SELECT CONCERNED OVERLAP RELEASE F OLLOWED BY ENTERING USER NAME AND PASSWORD WITH CONFIRMATION 'OK'. THE OVERLAP GETS RELEASED AFTER 120 SECONDS. EACH SUCH CANCELLATION SHALL BE REGISTERED ON A COUNTER."
+   },
+   {
+    "no": "NF2",
+    "text": "POINT CAN BE OPERATED MANUALLY EVEN IF CH KEY IS OUT TILL THE TIME KEY IS INSERTED INTO THE POINT MACHINE FLAP. ROUTE CAN BE INITIATED BUT SIGNAL CAN BE CLEARED WHEN CH KEY IS INSIDE THE KLCR RELAY."
+   },
+   {
+    "no": "NF3",
+    "text": "AFTER ARRIVAL OF TRAIN, IF ROUTE IS LOCKED AND ALL TRACK ARE IN UP CONDITION, THEN EMERGENCY ROUTE RELEASE IS USED TO UNLOCK THE ROUTE. NORMAL CANCELLATION IS APPLICABLE ONLY WHEN TRAIN HAS NOT PASSED THE SIGNAL."
    }
   ],
   "tables": [
    {
     "id": "table1",
-    "title": "6. CALLING ON SIGNALS (TIME ?PSE FOR CL?RANCE:60SEC)",
+    "title": "1. BLOCK WORKING (ALT.1)",
+    "columns": [
+     "SECTION",
+     "BLOCK WORKING"
+    ],
+    "rows": [
+     [
+      "HEBBALU-ANAGODU",
+      "INTEGRATED EI BLOCK"
+     ]
+    ]
+   },
+   {
+    "id": "table2",
+    "title": "2. COMMUNICATION",
+    "columns": [
+     "CIRCUIT",
+     "BETWEEN"
+    ],
+    "rows": [
+     [
+      "CIRCUIT-1",
+      "SM & EITHER SIDE OF TOP POINTS"
+     ]
+    ]
+   },
+   {
+    "id": "table3",
+    "title": "3. CRANK HANDLES",
+    "columns": [
+     "GROUP",
+     "POINTS",
+     "KEPT AT"
+    ],
+    "rows": [
+     [
+      "1",
+      "50",
+      "STATION HOUSE"
+     ],
+     [
+      "2",
+      "51",
+      "STATION HOUSE"
+     ],
+     [
+      "3",
+      "64",
+      "STATION HOUSE"
+     ],
+     [
+      "4",
+      "65",
+      "STATION HOUSE"
+     ]
+    ]
+   },
+   {
+    "id": "table4",
+    "title": "5. FUNCTIONS",
+    "columns": [
+     "FUNCTIONS",
+     "NUMBERS",
+     "SPARES"
+    ],
+    "rows": [
+     [
+      "SIGNALS",
+      "1 TO 32",
+      "1.5-7.10-16.18-28."
+     ],
+     [
+      "POINTS",
+      "50 TO 65",
+      "52 TO 63."
+     ]
+    ]
+   },
+   {
+    "id": "table5",
+    "title": "6. CALLING ON SIGNALS (TIME LAPSE FOR CLEARANCE:60SEC)",
     "columns": [
      "CALLING ON SIGNAL",
      "READS TO THE ROUTES OF HOME SIGNAL",
@@ -1293,87 +2620,24 @@
     ]
    },
    {
-    "id": "table2",
-    "title": "9. RESE?ING OF BLOCK SECTION DUAL MSDAC INTERLOCKED WITH INTEGR?ED EI BLOCK PANEL IN CASE OF ?ILURE",
+    "id": "table6",
+    "title": "9. RESETTING OF BLOCK SECTION DUAL MSDAC INTERLOCKED WITH INTEGRATED EI BLOCK PANEL IN CASE OF FAILURE (ALT.1)",
     "columns": [
      "SECTION",
-     "RESET BU?ON WITH COUNTER KEPT ? S?ION HOUSE",
+     "RESET BUTTON WITH COUNTER KEPT AT STATION HOUSE",
      ""
     ],
     "rows": [
      [
-      "HEBBALU\u2014ANAGODU",
+      "HEBBALU-ANAGODU",
       "HEBBALU",
       "ANAGODU"
      ]
     ]
    },
    {
-    "id": "table3",
-    "title": "5. FUNCTIONS:",
-    "columns": [
-     "FUNCTIONS",
-     "NUMBERS",
-     "SPARES"
-    ],
-    "rows": [
-     [
-      "SIGNALS",
-      "1 TO 32",
-      "1 .5\u20147.1 0\u20141 6.1 8\u201428."
-     ],
-     [
-      "POINTS",
-      "50 TO 65",
-      "52 TO 63."
-     ]
-    ]
-   },
-   {
-    "id": "table4",
-    "title": "3. CRANK HANDLES:",
-    "columns": [
-     "GROUP",
-     "POINTS",
-     "KEPT AT"
-    ],
-    "rows": [
-     [
-      "1",
-      "50",
-      "S?ION HOUSE"
-     ],
-     [
-      "2",
-      "51",
-      "S?ION HOUSE"
-     ]
-    ]
-   },
-   {
-    "id": "table5",
-    "title": "GROUP",
-    "columns": [
-     "GROUP",
-     "POINTS",
-     "KEPT AT"
-    ],
-    "rows": [
-     [
-      "3",
-      "64",
-      "S?ION HOUSE"
-     ],
-     [
-      "4",
-      "65",
-      "S?ION HOUSE"
-     ]
-    ]
-   },
-   {
-    "id": "table6",
-    "title": "SL.No",
+    "id": "table7",
+    "title": "DP DETAILS",
     "columns": [
      "SL.No",
      "TRACK SECTION",
@@ -1388,7 +2652,7 @@
      [
       "2",
       "50AXT",
-      "DP09, DP1 0"
+      "DP09, DP10"
      ],
      [
       "3",
@@ -1402,84 +2666,123 @@
      ],
      [
       "5",
-      "51 BXT",
+      "51BXT",
       "DP05, DP06, DP07"
      ],
      [
       "6",
-      "O1 XT",
-      "DP1 0, DP1 1"
+      "01XT",
+      "DP10, DP11"
      ],
      [
       "7",
-      "O2XT",
-      "DP06, DP1 3"
+      "02XT",
+      "DP06, DP13"
      ],
      [
       "8",
-      "O3XT",
-      "DP08, DP1 4"
+      "03XT",
+      "DP08, DP14"
      ],
      [
       "9",
       "64AXT",
-      "DP1 1 DP1 2."
+      "DP11, DP12."
      ],
      [
-      "1 0",
+      "10",
       "64BXT",
-      "DP1 2, DP1 3, DP1 6"
-     ]
-    ]
-   },
-   {
-    "id": "table7",
-    "title": "DP DE?ILS",
-    "columns": [
-     "SL.No",
-     "TRACK SECTION",
-     "DP REQUIRED"
-    ],
-    "rows": [
+      "DP12, DP13, DP16"
+     ],
      [
-      "1 1",
+      "11",
       "65AXT",
-      "DP1 4, DP1 5"
+      "DP14, DP15"
      ],
      [
-      "1 2",
+      "12",
       "65BXT",
-      "DP1 5, DP1 6, DP1 7"
+      "DP15, DP16, DP17"
      ],
      [
-      "1 3",
-      "1 7XT",
-      "DP1 7, DP1 8"
+      "13",
+      "17XT",
+      "DP17, DP18"
      ],
      [
-      "1 4",
+      "14",
       "8XT",
-      "DP1 8, DP1 9"
+      "DP18, DP19"
      ],
      [
-      "1 5",
+      "15",
       "32CXT",
-      "DP1 9, DP20"
+      "DP19, DP20"
      ],
      [
-      "1 6",
+      "16",
       "MSDAC BPAC",
-      "BPAC2,BPAC2A WITH ANAGODU MSDAC BPAC"
+      "BPAC2,BPAC2A WITH ANAGODU MSDAC BPAC (ALT.1)"
      ]
     ]
    },
    {
     "id": "table8",
-    "title": "DOWN DIRECTION",
+    "title": "APPROVAL OF P.C.O.M",
     "columns": [
-     "32",
-     "32ID",
-     "32D"
+     "SL.NO.",
+     "DESCRIPTION",
+     "NATURE OF APPROVAL",
+     "REF. TO APPLICATION",
+     "REF. TO SANCTION"
+    ],
+    "rows": [
+     [
+      "1.",
+      "FOR PROVIDING CALLING-ON SIGNAL BELOW STARTER SIGNAL UNDER THE PROVISION OF G.R.3.13(2).",
+      "CALLING ON SIGNALS No. 2C, 3C, 4C ARE PROVIDED BELOW STARTER SIGNALS No. 2, 3, 4.",
+      "",
+      ""
+     ],
+     [
+      "2.",
+      "FOR PROVISION OF FIXED SIGNAL AS VISIBILITY TEST OBJECT UNDER THE PROVISION OF G.R.3.61.2(b)(iii).",
+      "-",
+      "",
+      ""
+     ],
+     [
+      "3.",
+      "PROVISION OF G.R.3.47 FOR TAKING 'OFF' SIGNALS FOR MORE THAN ONE TRAIN AT A TIME.",
+      "FOR TAKING OFF SIGNALS FOR MORE THAN ONE TRAIN AT A TIME.",
+      "",
+      ""
+     ]
+    ]
+   }
+  ],
+  "procedures": [],
+  "aspectCharts": [
+   {
+    "direction": "DN",
+    "title": "ASPECT SEQUENCE CONTROL CHART - DOWN DIRECTION (32 to 32D not less than 2000m)",
+    "signals": [
+     {
+      "name": "32",
+      "code": "32"
+     },
+     {
+      "name": "32ID",
+      "code": "32ID"
+     },
+     {
+      "name": "32D",
+      "code": "32D"
+     }
+    ],
+    "gaps": [
+     "<1000m",
+     "(32 to 32D: <2000m; 32ID to 32D not printed)"
     ],
     "rows": [
      [
@@ -1488,54 +2791,37 @@
       "YY"
      ],
      [
-      "wit RI",
+      "Y WITH RI",
       "YY",
       "YY"
      ],
      [
-      "MAIN",
+      "Y MAIN",
       "YY",
       "YY"
-     ]
-    ]
-   },
-   {
-    "id": "table9",
-    "title": "A P P R O V A L O F P C 0 M",
-    "columns": [
-     "SL.NO.",
-     "DESCRIPTION",
-     "NATURE OF APPRO?L",
-     "REF. TO APPLIC?ION",
-     "REF. TO SANCTION"
-    ],
-    "rows": [
-     [
-      "1",
-      "FOR PROVIDING CALLING\u2014ON SIGNAL BELOW S?RTER SIGNAL UNDER THE PROVISION OF G.R.3.1 3(2).",
-      "CALLING ON SIGNALS No 2C, 3C, 4C ARE PROVIDED BELOW S?RTER SIGNALS No 2, 3, 4.",
-      "",
-      ""
-     ],
-     [
-      "2.",
-      "FOR PROVISION OF FIXED SIGNAL AS VISIBILI? TEST OBJECT UNDER THE PROVISION OF G.R.3.61 .2(b) (ii).",
-      "",
-      "",
-      ""
-     ],
-     [
-      "3.",
-      "PROVISION OF G.R.3.47 FOR TKING ,OFF, SIGNALS FOR MORE THAN ONE TRAIN ? A TIME.",
-      "FOR ?KING OFF SIGNALS FOR MORE THAN ONE TRAIN ? A TIME.",
-      "",
-      ""
      ]
     ]
    }
   ],
-  "procedures": [],
-  "aspectCharts": [],
-  "revisions": []
+  "revisions": [
+   {
+    "ver": "-",
+    "text": "MYSURU DIVISION. NEW BG. LINE BETWEEN TUMAKURU-DAVANAGERE. YARD ARRANGEMENTS AT HEBBALU PHASE-I.",
+    "supersedes": "SIGG. PLAN NO. NIL.",
+    "reference": "REF: DRG. NO. SWR/CN/BNC/TR/183-2025. CRS sanction no. and date of completion: blank."
+   },
+   {
+    "ver": "ALT-1",
+    "text": "PLAN ALTERED TO SUIT PROVISION OF DUAL MSDAC INTERLOCKED WITH INTEGRATED EI BLOCK BETWEEN HEBBALU - ANAGODU STATION.",
+    "supersedes": "",
+    "reference": "Signed 2026.06.29 to 2026.07.03. CRS sanction no. and date of completion: blank."
+   },
+   {
+    "ver": "-",
+    "text": "TO COMPLY CRS/SC OBSERVATIONS VIDE LETTER No:Q.22011/30/2026-27 SWR/384. DATED:20-08-2026. (NO INTERLOCKING CHANGE)",
+    "supersedes": "",
+    "reference": "Signed 2026.08.20. CRS sanction no. and date of completion: blank."
+   }
+  ]
  }
 }

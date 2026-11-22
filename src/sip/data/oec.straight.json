@@ -1,0 +1,8603 @@
+{
+  "meta": {
+    "code": "OEC-S",
+    "name": "OEC Yard (Terminal Yard), Waltair Marshalling Yard (straight)",
+    "zone": "ECoR",
+    "sipRef": "SIP.ECoR.WAT.OEC.01 (Division WAT); engineering plan C.E's DRG. No. 5231/22 SHEET No.2/4; PINK BOOK ITEM No. 459 OF 2022-2023",
+    "coordinateSpace": "drawing-pt: sheet points minus meta.sheet.offset; x grows to the east (E CABIN / VPT) end, y grows downward; straightened schematic: x as on the sheet, every line on its own horizontal lane (29 pt apart)",
+    "ends": {
+      "west": "'F' CABIN YARD (ECoR LINE, K K LINE, ELS ENGINE LINE)",
+      "east": "'E' CABIN (BULB LINE, OEC SHUNTING NECK) and VPT R&D YARD (0.786KM); WESTERN SECTOR CONNECTING PORT to the south"
+    },
+    "chainage": {
+      "originX": -14095.5,
+      "metresPerUnit": 0.35485,
+      "label": "CH",
+      "origin": "Note 3: all chainages are from the centre line of SCMN station building (CSB) = 0.00M, off the sheet to the west (SM / OEC YARD is CH: 6130M F/SCMN). Least-squares fit of the 102 printed PT/FM/DS/DE captions against their x (rms 13.7 m); the printed horizontal scale 1:1000 gives 0.3528 m/pt. Read individual chainages from chainageMarks."
+    },
+    "scale": {
+      "horizontal": "HORIZONTAL 1:1000",
+      "vertical": "VERTICAL 1:500"
+    },
+    "viewHints": {
+      "yExaggeration": 1
+    }
+  },
+  "nodes": [
+    {
+      "id": "N0001",
+      "x": 2255.14,
+      "y": 565.67,
+      "kind": "plain"
+    },
+    {
+      "id": "N0003",
+      "x": 3865.76,
+      "y": 391.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0004",
+      "x": 3784.48,
+      "y": 391.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0005",
+      "x": 1391.81,
+      "y": 507.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0006",
+      "x": 3704.79,
+      "y": 391.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0007",
+      "x": 1282.63,
+      "y": 507.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0008",
+      "x": 3625.96,
+      "y": 391.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0009",
+      "x": 1154.2,
+      "y": 507.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0010",
+      "x": 3993.6,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0011",
+      "x": 1672.58,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0012",
+      "x": 3928.3,
+      "y": 217.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0013",
+      "x": 1501.51,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0014",
+      "x": 3738.04,
+      "y": 217.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0015",
+      "x": 1274.32,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0016",
+      "x": 3624.98,
+      "y": 217.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0017",
+      "x": 1146.49,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0018",
+      "x": 3392.13,
+      "y": 217.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0019",
+      "x": 1405.2,
+      "y": 72.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0020",
+      "x": 1039.04,
+      "y": 507.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0021",
+      "x": 3946.33,
+      "y": 536.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0022",
+      "x": 2275.21,
+      "y": 565.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0023",
+      "x": 2130.16,
+      "y": 536.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0024",
+      "x": 1639.39,
+      "y": 507.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0025",
+      "x": 1918.27,
+      "y": 536.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0027",
+      "x": 624.04,
+      "y": 507.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0028",
+      "x": 418.36,
+      "y": 536.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0029",
+      "x": 838.4,
+      "y": 507.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0030",
+      "x": 1082.09,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0031",
+      "x": 4453.52,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0032",
+      "x": 4922.3,
+      "y": 536.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0033",
+      "x": 4302.98,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0034",
+      "x": 3979.78,
+      "y": 536.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0035",
+      "x": 4764.02,
+      "y": 130.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0036",
+      "x": 3385.02,
+      "y": 217.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0037",
+      "x": 4108.57,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0038",
+      "x": 4286.72,
+      "y": 188.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0039",
+      "x": 4576.49,
+      "y": 130.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0041",
+      "x": 4520.53,
+      "y": 188.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0042",
+      "x": 4336.43,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0043",
+      "x": 4674.4,
+      "y": 130.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0044",
+      "x": 4409.23,
+      "y": 72.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0045",
+      "x": 4553.87,
+      "y": 362.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0048",
+      "x": 5531.81,
+      "y": 565.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0049",
+      "x": 5712.46,
+      "y": 333.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0050",
+      "x": 5936.36,
+      "y": 565.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0051",
+      "x": 5769.16,
+      "y": 333.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0052",
+      "x": 3109.11,
+      "y": 72.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0053",
+      "x": 1412.64,
+      "y": 72.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0054",
+      "x": 1250.53,
+      "y": 246.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0067",
+      "x": 4030.48,
+      "y": 565.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0068",
+      "x": 5398.73,
+      "y": 536.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0085",
+      "x": 727.39,
+      "y": 536.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0106",
+      "x": 45.56,
+      "y": 507.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0151",
+      "x": 41.01,
+      "y": 362.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0178",
+      "x": 5403.44,
+      "y": 362.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0255",
+      "x": 2485.93,
+      "y": 217.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0256",
+      "x": 3498.94,
+      "y": 72.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0332",
+      "x": 3535.48,
+      "y": 188.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0356",
+      "x": 3558.1,
+      "y": 159.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0364",
+      "x": 3675.56,
+      "y": 130.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0377",
+      "x": 6741.1,
+      "y": 130.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0378",
+      "x": 3688.9,
+      "y": 101.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0388",
+      "x": 3690.87,
+      "y": 72.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0396",
+      "x": 5035.7,
+      "y": 72.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0397",
+      "x": 3701.62,
+      "y": 43.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0419",
+      "x": 4765.35,
+      "y": 333.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0426",
+      "x": 6868.95,
+      "y": 333.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0427",
+      "x": 4745.88,
+      "y": 565.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0436",
+      "x": 7022.1,
+      "y": 565.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0446",
+      "x": 2497.5,
+      "y": 43.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0447",
+      "x": 2630.75,
+      "y": 43.67,
+      "kind": "junction"
+    },
+    {
+      "id": "N0457",
+      "x": 709.1,
+      "y": 536.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0459",
+      "x": 4750.9,
+      "y": 333.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0460",
+      "x": 2646.1,
+      "y": 43.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "N0462",
+      "x": 44.36,
+      "y": 536.67,
+      "kind": "boundary"
+    },
+    {
+      "id": "S0001",
+      "kind": "plain",
+      "x": 3508.98,
+      "y": 246.67
+    },
+    {
+      "id": "S0002",
+      "kind": "plain",
+      "x": 1622.32,
+      "y": 275.67
+    },
+    {
+      "id": "S0003",
+      "kind": "plain",
+      "x": 3506.04,
+      "y": 275.67
+    },
+    {
+      "id": "S0004",
+      "kind": "plain",
+      "x": 1733.51,
+      "y": 304.67
+    },
+    {
+      "id": "S0005",
+      "kind": "plain",
+      "x": 3580.3,
+      "y": 304.67
+    },
+    {
+      "id": "S0006",
+      "kind": "plain",
+      "x": 1788.58,
+      "y": 333.67
+    },
+    {
+      "id": "S0007",
+      "kind": "plain",
+      "x": 3877.6,
+      "y": 333.67
+    },
+    {
+      "id": "S0008",
+      "kind": "plain",
+      "x": 1503.04,
+      "y": 391.67
+    },
+    {
+      "id": "S0009",
+      "kind": "plain",
+      "x": 1502.2,
+      "y": 420.67
+    },
+    {
+      "id": "S0010",
+      "kind": "plain",
+      "x": 3509.96,
+      "y": 420.67
+    },
+    {
+      "id": "S0011",
+      "kind": "plain",
+      "x": 1514.63,
+      "y": 449.67
+    },
+    {
+      "id": "S0012",
+      "kind": "plain",
+      "x": 3472.79,
+      "y": 449.67
+    },
+    {
+      "id": "S0013",
+      "kind": "plain",
+      "x": 1507.81,
+      "y": 478.67
+    },
+    {
+      "id": "S0014",
+      "kind": "plain",
+      "x": 3436.48,
+      "y": 478.67
+    },
+    {
+      "id": "S0015",
+      "kind": "plain",
+      "x": 3401.76,
+      "y": 507.67
+    },
+    {
+      "id": "S0016",
+      "kind": "plain",
+      "x": 2993.11,
+      "y": 43.67
+    },
+    {
+      "id": "S0017",
+      "kind": "plain",
+      "x": 4532.02,
+      "y": 188.67
+    },
+    {
+      "id": "S0018",
+      "kind": "plain",
+      "x": 4170.72,
+      "y": 159.67
+    },
+    {
+      "id": "S0019",
+      "kind": "plain",
+      "x": 4460.49,
+      "y": 101.67
+    },
+    {
+      "id": "S0020",
+      "kind": "plain",
+      "x": 4293.23,
+      "y": 43.67
+    }
+  ],
+  "tracks": [
+    {
+      "id": "T01",
+      "name": "ECoR LINE",
+      "kind": "main",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0151",
+        "N0030",
+        "N0017",
+        "N0015",
+        "N0013",
+        "N0011"
+      ],
+      "remarks": "From 'F' CABIN YARD (west); dashed beyond the LHS VM-1 limit is not drawn for this line. Runs through the west throat and becomes LINE No.- 05 at point 123."
+    },
+    {
+      "id": "T02",
+      "name": "K K LINE",
+      "kind": "main",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0106",
+        "N0027",
+        "N0029",
+        "N0020",
+        "N0009",
+        "N0007",
+        "N0005",
+        "N0024"
+      ],
+      "remarks": "From 'F' CABIN YARD (west); drawn dashed west of the 'F' CABIN / OEC YARD control limit. Becomes LINE No.- 10 at point 135A."
+    },
+    {
+      "id": "T03",
+      "name": "ELS ENGINE LINE",
+      "kind": "main",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0462",
+        "N0028",
+        "N0085"
+      ],
+      "remarks": "From 'F' CABIN YARD (west); drawn dashed west of the control limit. Joins LINE No.- 11 at point 105."
+    },
+    {
+      "id": "L1",
+      "name": "LINE No.- 01",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0017",
+        "N0054",
+        "S0001",
+        "N0016"
+      ],
+      "lineNo": 1,
+      "remarks": "CSL - 734M (STR. TO SS.)"
+    },
+    {
+      "id": "L2",
+      "name": "LINE No.- 02",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0015",
+        "S0002",
+        "S0003",
+        "N0014"
+      ],
+      "lineNo": 2,
+      "remarks": "CSL - 766M (STR. TO SS.)"
+    },
+    {
+      "id": "L3",
+      "name": "LINE No.- 03",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0013",
+        "S0004",
+        "S0005",
+        "N0012"
+      ],
+      "lineNo": 3,
+      "remarks": "CSL - 745M (STR. TO SS,)"
+    },
+    {
+      "id": "L4",
+      "name": "LINE No.- 04",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0011",
+        "S0006",
+        "S0007",
+        "N0010"
+      ],
+      "lineNo": 4,
+      "remarks": "CSL - 737M (STR. TO SS.)"
+    },
+    {
+      "id": "L5",
+      "name": "LINE No.- 05",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0011",
+        "N0010",
+        "N0037",
+        "N0033",
+        "N0042",
+        "N0031",
+        "N0045"
+      ],
+      "lineNo": 5,
+      "remarks": "CSL - 737M (STR. TO SS.)"
+    },
+    {
+      "id": "L6",
+      "name": "LINE No.- 06",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0020",
+        "S0008",
+        "N0008",
+        "N0006",
+        "N0004",
+        "N0003",
+        "N0021"
+      ],
+      "lineNo": 6,
+      "remarks": "CSL - 808M (STR. TO SS.)"
+    },
+    {
+      "id": "L7",
+      "name": "LINE No.- 07",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0009",
+        "S0009",
+        "S0010",
+        "N0008"
+      ],
+      "lineNo": 7,
+      "remarks": "CSL - 770M (STR. TO SS.)"
+    },
+    {
+      "id": "L8",
+      "name": "LINE No.- 08",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0007",
+        "S0011",
+        "S0012",
+        "N0006"
+      ],
+      "lineNo": 8,
+      "remarks": "CSL - 740.9M (STR. TO SS.)"
+    },
+    {
+      "id": "L9",
+      "name": "LINE No.- 09",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0005",
+        "S0013",
+        "S0014",
+        "N0004"
+      ],
+      "lineNo": 9,
+      "remarks": "CSL - 735.7M (STR. TO SS.)"
+    },
+    {
+      "id": "L10",
+      "name": "LINE No.- 10",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0024",
+        "S0015",
+        "N0003"
+      ],
+      "lineNo": 10,
+      "remarks": "CSL -642.5M (STR. TO SS.)"
+    },
+    {
+      "id": "L11",
+      "name": "LINE No.- 11",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0085",
+        "N0025",
+        "N0023",
+        "N0021",
+        "N0034"
+      ],
+      "lineNo": 11,
+      "remarks": "CSL - 531.9M (STR. TO SS.)"
+    },
+    {
+      "id": "T08",
+      "name": "WESTERN SECTOR LINE",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0001",
+        "N0022",
+        "N0067"
+      ],
+      "remarks": "CSL - 720M (MIN) (STR. TO SS.). Caption VNCW/NAD SIDING LINE printed under it; no LINE No.- 12 caption on the sheet. Curves away south-east to WESTERN SECTOR CONNECTING PORT (0.984KM F/ OEC)."
+    },
+    {
+      "id": "T04",
+      "name": "DLS INCOMING LINE",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0053",
+        "N0052"
+      ],
+      "remarks": "CSL - 541M (STR TO SB). West end: point 115B with trap leg. Continues as SHUNTING NECK - 140M (PT TO DE) beyond hand point HP."
+    },
+    {
+      "id": "T05",
+      "name": "SHUNTING NECK - 140M (PT TO DE)",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0052",
+        "N0256"
+      ],
+      "remarks": "SHUNTING NECK - 140M (PT TO DE); DE CH: 6230.24M at the buffer stop."
+    },
+    {
+      "id": "T06",
+      "name": "STABLING LINE",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0255",
+        "N0036",
+        "N0018"
+      ],
+      "remarks": "CSL - 311M (SIG. TO DE). S.B. board at the west end."
+    },
+    {
+      "id": "T07",
+      "name": "DLS YARD",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0446",
+        "N0447",
+        "S0016",
+        "N0052"
+      ],
+      "remarks": "DLS YARD line from DE (CH 5873.48M) through hand point HP to hand point HP on the shunting neck."
+    },
+    {
+      "id": "T09",
+      "name": "CONNECTING LINE (EAST LADDER: STABLING LINE, LINES 01-02 TO EMPTY GRID)",
+      "kind": "loop",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0036",
+        "N0018",
+        "N0016",
+        "N0014",
+        "N0012",
+        "N0037"
+      ],
+      "remarks": "No caption on the sheet; sections 22XT, 152XT, 130XT."
+    },
+    {
+      "id": "L13",
+      "name": "LINE No.- 13",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0332",
+        "N0038",
+        "N0041",
+        "S0017",
+        "N0035"
+      ],
+      "lineNo": 13,
+      "remarks": "CSL - 223.6M (SH TO DE); DE CH: 6248.0M; OEC COVER SHED"
+    },
+    {
+      "id": "L14",
+      "name": "LINE No.- 14",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0356",
+        "S0018",
+        "N0038"
+      ],
+      "lineNo": 14,
+      "remarks": "CSL - 216.6M (SH TO DE); DE CH: 6255.0M; OEC COVER SHED"
+    },
+    {
+      "id": "L15",
+      "name": "LINE No.- 15",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0364",
+        "N0039",
+        "N0043",
+        "N0035"
+      ],
+      "lineNo": 15,
+      "remarks": "CSL - 271.86M (SH TO DE); DE CH: 6298.0M; OEC COVER SHED"
+    },
+    {
+      "id": "L16",
+      "name": "LINE No.- 16",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0378",
+        "S0019",
+        "N0039"
+      ],
+      "lineNo": 16,
+      "remarks": "CSL - 271.86M (SH TO DE); DE CH: 6298.0M; OEC COVER SHED"
+    },
+    {
+      "id": "L17",
+      "name": "LINE No.- 17",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0388",
+        "N0044"
+      ],
+      "lineNo": 17,
+      "remarks": "CSL - 218.64M (SH TO DE); DE CH: 6293.0M; OEC COVER SHED"
+    },
+    {
+      "id": "L18",
+      "name": "LINE No.- 18",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0397",
+        "S0020",
+        "N0044"
+      ],
+      "lineNo": 18,
+      "remarks": "CSL - 217.64M (SH TO DE); DE CH: 6292.0M; OEC COVER SHED"
+    },
+    {
+      "id": "T11",
+      "name": "SHUNTING NECK CSL - 177M (SH TO DE)",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0044",
+        "N0396"
+      ],
+      "remarks": "CSL - 177M (SH TO DE); DE CH: 6792.89M at the buffer stop."
+    },
+    {
+      "id": "T10",
+      "name": "OEC SHUNTING NECK",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0035",
+        "N0377"
+      ],
+      "remarks": "CSL- 772M (SH TO SS). Continues north-east to 'E' CABIN (DE CH: 7478.24M printed near the end)."
+    },
+    {
+      "id": "T15",
+      "name": "EMPTY GRID",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0045",
+        "N0178"
+      ],
+      "remarks": "Drawn dashed east of the DIAMOND JN. NEAR PORT OHC GATE."
+    },
+    {
+      "id": "T16",
+      "name": "LOAD GRID",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0034",
+        "N0032",
+        "N0068"
+      ],
+      "remarks": "Drawn dashed east of the DIAMOND JN. NEAR PORT OHC GATE."
+    },
+    {
+      "id": "T12",
+      "name": "BULB LINE",
+      "kind": "main",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0419",
+        "N0049",
+        "N0051",
+        "N0426"
+      ],
+      "remarks": "From point 106A to 'E' CABIN (block section OEC - E CABIN, note 9). BULB-XT."
+    },
+    {
+      "id": "T13",
+      "name": "WESTERN SECTOR CONNECTING PORT LINE",
+      "kind": "main",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0427",
+        "N0048",
+        "N0050"
+      ],
+      "remarks": "From WESTERN SECTOR CONNECTING PORT (1.034KM F/ R&D) north-east past the DIAMOND JN. NEAR PORT OHC GATE (crosses EMPTY GRID / LOAD GRID without a junction) to the dumper cabin points 104B and 102B."
+    },
+    {
+      "id": "T14",
+      "name": "VPT R&D YARD LINE",
+      "kind": "main",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0050",
+        "N0436"
+      ],
+      "remarks": "To VPT R&D YARD, 0.786KM (OEC YARD TO VPT R&D YARD); INTERLOCKED L.C GATE controlled by -299."
+    },
+    {
+      "id": "T17",
+      "name": "TRAP LEG OF POINT 105",
+      "kind": "overrun",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0457",
+        "N0085"
+      ]
+    },
+    {
+      "id": "T18",
+      "name": "TRAP LEG OF POINT 106A",
+      "kind": "overrun",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0459",
+        "N0419"
+      ]
+    },
+    {
+      "id": "T19",
+      "name": "TRAP LEG OF POINT 115B",
+      "kind": "overrun",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0019",
+        "N0053"
+      ]
+    },
+    {
+      "id": "T20",
+      "name": "DLS YARD (LEG OF HAND POINT HP)",
+      "kind": "siding",
+      "direction": "BOTH",
+      "nodeIds": [
+        "N0447",
+        "N0460"
+      ],
+      "remarks": "Short leg of the hand point HP towards DLS YARD; not drawn further."
+    }
+  ],
+  "connections": [
+    {
+      "id": "C141",
+      "kind": "crossover",
+      "from": "N0023",
+      "to": "N0022",
+      "label": "141A/141B"
+    },
+    {
+      "id": "C135",
+      "kind": "crossover",
+      "from": "N0024",
+      "to": "N0025",
+      "label": "135A/135B"
+    },
+    {
+      "id": "C103",
+      "kind": "crossover",
+      "from": "N0028",
+      "to": "N0027",
+      "label": "103A/103B"
+    },
+    {
+      "id": "C111",
+      "kind": "crossover",
+      "from": "N0029",
+      "to": "N0030",
+      "label": "111A/111B"
+    },
+    {
+      "id": "C108",
+      "kind": "crossover",
+      "from": "N0031",
+      "to": "N0032",
+      "label": "108A/108B"
+    },
+    {
+      "id": "C126",
+      "kind": "crossover",
+      "from": "N0034",
+      "to": "N0033",
+      "label": "126A/126B"
+    },
+    {
+      "id": "C120",
+      "kind": "crossover",
+      "from": "N0042",
+      "to": "N0041",
+      "label": "120A/120B"
+    },
+    {
+      "id": "C114",
+      "kind": "crossover",
+      "from": "N0044",
+      "to": "N0043",
+      "label": "114A/114B"
+    },
+    {
+      "id": "C106",
+      "kind": "turnout",
+      "from": "N0045",
+      "to": "N0419",
+      "label": "106A/106B"
+    },
+    {
+      "id": "C104",
+      "kind": "crossover",
+      "from": "N0048",
+      "to": "N0049",
+      "label": "104A/104B"
+    },
+    {
+      "id": "C102",
+      "kind": "crossover",
+      "from": "N0051",
+      "to": "N0050",
+      "label": "102A/102B"
+    },
+    {
+      "id": "C115",
+      "kind": "turnout",
+      "from": "N0054",
+      "to": "N0053",
+      "label": "115A/115B"
+    }
+  ],
+  "assets": {
+    "points": [
+      {
+        "id": "P103A",
+        "code": "103A",
+        "nodeId": "N0028",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 103,
+        "label": {
+          "x": 426.2,
+          "y": 541.15
+        },
+        "connectionId": "C103",
+        "crankHandle": "CH1"
+      },
+      {
+        "id": "P103B",
+        "code": "103B",
+        "nodeId": "N0027",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 103,
+        "label": {
+          "x": 616.1,
+          "y": 515.29
+        },
+        "connectionId": "C103",
+        "crankHandle": "CH1"
+      },
+      {
+        "id": "P105",
+        "code": "105",
+        "nodeId": "N0085",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 105,
+        "label": {
+          "x": 719.5,
+          "y": 545.9
+        },
+        "crankHandle": "CH2"
+      },
+      {
+        "id": "P111A",
+        "code": "111A",
+        "nodeId": "N0029",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 111,
+        "label": {
+          "x": 850,
+          "y": 495.71
+        },
+        "connectionId": "C111",
+        "crankHandle": "CH3"
+      },
+      {
+        "id": "P127",
+        "code": "127",
+        "nodeId": "N0020",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 127,
+        "label": {
+          "x": 1049.5,
+          "y": 500.95
+        },
+        "crankHandle": "CH5"
+      },
+      {
+        "id": "P111B",
+        "code": "111B",
+        "nodeId": "N0030",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 111,
+        "label": {
+          "x": 1078.2,
+          "y": 368.25
+        },
+        "connectionId": "C111",
+        "crankHandle": "CH3"
+      },
+      {
+        "id": "P113",
+        "code": "113",
+        "nodeId": "N0017",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 113,
+        "label": {
+          "x": 1155.7,
+          "y": 352.22
+        },
+        "crankHandle": "CH4"
+      },
+      {
+        "id": "P129",
+        "code": "129",
+        "nodeId": "N0009",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 129,
+        "label": {
+          "x": 1164,
+          "y": 503.96
+        },
+        "crankHandle": "CH5"
+      },
+      {
+        "id": "P115A",
+        "code": "115A",
+        "nodeId": "N0054",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 115,
+        "label": {
+          "x": 1259.1,
+          "y": 238.12
+        },
+        "connectionId": "C115",
+        "crankHandle": "CH4"
+      },
+      {
+        "id": "P119",
+        "code": "119",
+        "nodeId": "N0015",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 119,
+        "label": {
+          "x": 1282.9,
+          "y": 354.09
+        },
+        "crankHandle": "CH4"
+      },
+      {
+        "id": "P131",
+        "code": "131",
+        "nodeId": "N0007",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 131,
+        "label": {
+          "x": 1289.8,
+          "y": 505.1
+        },
+        "crankHandle": "CH5"
+      },
+      {
+        "id": "P133",
+        "code": "133",
+        "nodeId": "N0005",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 133,
+        "label": {
+          "x": 1398.9,
+          "y": 506.52
+        },
+        "crankHandle": "CH5"
+      },
+      {
+        "id": "P115B",
+        "code": "115B",
+        "nodeId": "N0053",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 115,
+        "label": {
+          "x": 1407.2,
+          "y": 83.3
+        },
+        "connectionId": "C115",
+        "crankHandle": "CH4"
+      },
+      {
+        "id": "P121",
+        "code": "121",
+        "nodeId": "N0013",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 121,
+        "label": {
+          "x": 1513.8,
+          "y": 353.08
+        },
+        "crankHandle": "CH15"
+      },
+      {
+        "id": "P135A",
+        "code": "135A",
+        "nodeId": "N0024",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 135,
+        "label": {
+          "x": 1646.2,
+          "y": 521.41
+        },
+        "connectionId": "C135",
+        "crankHandle": "CH6"
+      },
+      {
+        "id": "P123",
+        "code": "123",
+        "nodeId": "N0011",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 123,
+        "label": {
+          "x": 1674.7,
+          "y": 370.83
+        },
+        "crankHandle": "CH15"
+      },
+      {
+        "id": "P135B",
+        "code": "135B",
+        "nodeId": "N0025",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 135,
+        "label": {
+          "x": 1912.7,
+          "y": 541.98
+        },
+        "connectionId": "C135",
+        "crankHandle": "CH6"
+      },
+      {
+        "id": "P141A",
+        "code": "141A",
+        "nodeId": "N0023",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 141,
+        "label": {
+          "x": 2142.1,
+          "y": 550.05
+        },
+        "connectionId": "C141",
+        "crankHandle": "CH6"
+      },
+      {
+        "id": "P141B",
+        "code": "141B",
+        "nodeId": "N0022",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 141,
+        "label": {
+          "x": 2265.5,
+          "y": 556.72
+        },
+        "connectionId": "C141",
+        "crankHandle": "CH6"
+      },
+      {
+        "id": "PHP_2631",
+        "code": "HP",
+        "nodeId": "N0447",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 0,
+        "label": {
+          "x": 2645.4,
+          "y": 31.68
+        }
+      },
+      {
+        "id": "PHP_3109",
+        "code": "HP",
+        "nodeId": "N0052",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 0,
+        "label": {
+          "x": 3107.8,
+          "y": 60.87
+        }
+      },
+      {
+        "id": "P156",
+        "code": "156",
+        "nodeId": "N0018",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 156,
+        "label": {
+          "x": 3387.6,
+          "y": 224.53
+        },
+        "crankHandle": "CH7"
+      },
+      {
+        "id": "P154",
+        "code": "154",
+        "nodeId": "N0016",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 154,
+        "label": {
+          "x": 3609.5,
+          "y": 223.6
+        },
+        "crankHandle": "CH7"
+      },
+      {
+        "id": "P148",
+        "code": "148",
+        "nodeId": "N0008",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 148,
+        "label": {
+          "x": 3619.1,
+          "y": 399.37
+        },
+        "crankHandle": "CH9"
+      },
+      {
+        "id": "P146",
+        "code": "146",
+        "nodeId": "N0006",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 146,
+        "label": {
+          "x": 3695.6,
+          "y": 399.19
+        },
+        "crankHandle": "CH9"
+      },
+      {
+        "id": "P152",
+        "code": "152",
+        "nodeId": "N0014",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 152,
+        "label": {
+          "x": 3724.1,
+          "y": 221.78
+        },
+        "crankHandle": "CH7"
+      },
+      {
+        "id": "P144",
+        "code": "144",
+        "nodeId": "N0004",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 144,
+        "label": {
+          "x": 3780.7,
+          "y": 400.72
+        },
+        "crankHandle": "CH9"
+      },
+      {
+        "id": "P142",
+        "code": "142",
+        "nodeId": "N0003",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 142,
+        "label": {
+          "x": 3857.8,
+          "y": 402.51
+        },
+        "crankHandle": "CH9"
+      },
+      {
+        "id": "P132",
+        "code": "132",
+        "nodeId": "N0012",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 132,
+        "label": {
+          "x": 3913.7,
+          "y": 225.69
+        },
+        "crankHandle": "CH8"
+      },
+      {
+        "id": "P140",
+        "code": "140",
+        "nodeId": "N0021",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 140,
+        "label": {
+          "x": 3942.8,
+          "y": 528.31
+        },
+        "crankHandle": "CH9"
+      },
+      {
+        "id": "P126B",
+        "code": "126B",
+        "nodeId": "N0034",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 126,
+        "label": {
+          "x": 3988.7,
+          "y": 529.17
+        },
+        "connectionId": "C126",
+        "crankHandle": "CH12"
+      },
+      {
+        "id": "P136",
+        "code": "136",
+        "nodeId": "N0010",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 136,
+        "label": {
+          "x": 3989.5,
+          "y": 353.94
+        },
+        "crankHandle": "CH8"
+      },
+      {
+        "id": "P130",
+        "code": "130",
+        "nodeId": "N0037",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 130,
+        "label": {
+          "x": 4102.7,
+          "y": 354.22
+        },
+        "crankHandle": "CH8"
+      },
+      {
+        "id": "P122",
+        "code": "122",
+        "nodeId": "N0038",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 122,
+        "label": {
+          "x": 4276.4,
+          "y": 177.8
+        },
+        "crankHandle": "CH10"
+      },
+      {
+        "id": "P126A",
+        "code": "126A",
+        "nodeId": "N0033",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 126,
+        "label": {
+          "x": 4294.1,
+          "y": 371.77
+        },
+        "connectionId": "C126",
+        "crankHandle": "CH12"
+      },
+      {
+        "id": "P120B",
+        "code": "120B",
+        "nodeId": "N0042",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 120,
+        "label": {
+          "x": 4347.4,
+          "y": 354.53
+        },
+        "connectionId": "C120",
+        "crankHandle": "CH10"
+      },
+      {
+        "id": "P116",
+        "code": "116",
+        "nodeId": "N0044",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 116,
+        "label": {
+          "x": 4402.1,
+          "y": 66.62
+        },
+        "crankHandle": "CH13"
+      },
+      {
+        "id": "P114A",
+        "code": "114A",
+        "nodeId": "N0044",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 114,
+        "label": {
+          "x": 4417.4,
+          "y": 87.02
+        },
+        "connectionId": "C114",
+        "crankHandle": "CH13"
+      },
+      {
+        "id": "P108B",
+        "code": "108B",
+        "nodeId": "N0031",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 108,
+        "label": {
+          "x": 4462,
+          "y": 379.54
+        },
+        "connectionId": "C108",
+        "crankHandle": "CH12"
+      },
+      {
+        "id": "P120A",
+        "code": "120A",
+        "nodeId": "N0041",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 120,
+        "label": {
+          "x": 4513.5,
+          "y": 197.93
+        },
+        "connectionId": "C120",
+        "crankHandle": "CH10"
+      },
+      {
+        "id": "P106B",
+        "code": "106B",
+        "nodeId": "N0045",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 106,
+        "label": {
+          "x": 4566.4,
+          "y": 353.22
+        },
+        "connectionId": "C106",
+        "crankHandle": "CH11"
+      },
+      {
+        "id": "P118",
+        "code": "118",
+        "nodeId": "N0039",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 118,
+        "label": {
+          "x": 4571.3,
+          "y": 124.71
+        },
+        "crankHandle": "CH13"
+      },
+      {
+        "id": "P114B",
+        "code": "114B",
+        "nodeId": "N0043",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 114,
+        "label": {
+          "x": 4665.2,
+          "y": 124.32
+        },
+        "connectionId": "C114",
+        "crankHandle": "CH13"
+      },
+      {
+        "id": "P112",
+        "code": "112",
+        "nodeId": "N0035",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 112,
+        "label": {
+          "x": 4756.2,
+          "y": 141.14
+        },
+        "crankHandle": "CH13"
+      },
+      {
+        "id": "P106A",
+        "code": "106A",
+        "nodeId": "N0419",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 106,
+        "label": {
+          "x": 4750.8,
+          "y": 340.93
+        },
+        "connectionId": "C106",
+        "crankHandle": "CH11"
+      },
+      {
+        "id": "P108A",
+        "code": "108A",
+        "nodeId": "N0032",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 108,
+        "label": {
+          "x": 4909.8,
+          "y": 525.46
+        },
+        "connectionId": "C108",
+        "crankHandle": "CH12"
+      },
+      {
+        "id": "P104B",
+        "code": "104B",
+        "nodeId": "N0048",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 104,
+        "label": {
+          "x": 5538.9,
+          "y": 551.33
+        },
+        "connectionId": "C104",
+        "crankHandle": "CH14"
+      },
+      {
+        "id": "P104A",
+        "code": "104A",
+        "nodeId": "N0049",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 104,
+        "label": {
+          "x": 5716.6,
+          "y": 352.26
+        },
+        "connectionId": "C104",
+        "crankHandle": "CH14"
+      },
+      {
+        "id": "P102B",
+        "code": "102B",
+        "nodeId": "N0051",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 102,
+        "label": {
+          "x": 5780.6,
+          "y": 346.33
+        },
+        "connectionId": "C102",
+        "crankHandle": "CH14"
+      },
+      {
+        "id": "P102A",
+        "code": "102A",
+        "nodeId": "N0050",
+        "ratio": "1 IN 8 1/2",
+        "switch": "CS",
+        "ratioInferred": true,
+        "control": 102,
+        "label": {
+          "x": 5930.3,
+          "y": 559.49
+        },
+        "connectionId": "C102",
+        "crankHandle": "CH14"
+      }
+    ],
+    "signals": [
+      {
+        "id": "SIG_31_FCABIN",
+        "code": "31",
+        "name": "31 (F CABIN shunt signal, ELS ENGINE LINE)",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "T03",
+        "footX": 101.3,
+        "anchorX": 104.3,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "31"
+          }
+        ],
+        "label": {
+          "x": 117.6,
+          "y": 566.73
+        }
+      },
+      {
+        "id": "SIG_6_FCABIN",
+        "code": "6 7/7A",
+        "fullCode": "6 / 7/7A",
+        "name": "6 with shunt 7/7A (F CABIN, K K LINE)",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "T02",
+        "footX": 257.5,
+        "anchorX": 254.5,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "7/7A"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "label": {
+          "x": 248.7,
+          "y": 528.27
+        }
+      },
+      {
+        "id": "SIG_2_FCABIN",
+        "code": "2 16",
+        "fullCode": "2 / 16",
+        "name": "2 with shunt 16 (F CABIN, ECoR LINE)",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "T01",
+        "footX": 420.9,
+        "anchorX": 417.9,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "16"
+          },
+          {
+            "kind": "marker",
+            "text": "10"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "label": {
+          "x": 361.1,
+          "y": 383.72
+        }
+      },
+      {
+        "id": "SIG_SH5_A_B",
+        "code": "SH5(A/B)",
+        "name": "SH5(A/B)",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "T03",
+        "footX": 392.3,
+        "anchorX": 395.3,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH5(A/B)"
+          }
+        ],
+        "control": 5,
+        "label": {
+          "x": 433.4,
+          "y": 518.39
+        }
+      },
+      {
+        "id": "SIG_3_A_M",
+        "code": "C3(A-M) 3(A-M)",
+        "fullCode": "3(A-M) / C-3(A-M)",
+        "name": "UP HOME 3(A-M) with calling-on C-3(A-M) (K K LINE)",
+        "kind": "home",
+        "direction": "UP",
+        "trackId": "T02",
+        "footX": 450.9,
+        "anchorX": 453.9,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "marker",
+            "text": "15"
+          },
+          {
+            "kind": "marker",
+            "text": "C"
+          },
+          {
+            "kind": "callingOn"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          },
+          {
+            "kind": "routeIndicator",
+            "routes": [
+              "upperLeft",
+              "upperRight"
+            ]
+          }
+        ],
+        "control": 3,
+        "label": {
+          "x": 570.8,
+          "y": 480.22
+        }
+      },
+      {
+        "id": "SIG_SH62A_B",
+        "code": "SH62A/B",
+        "name": "SH62A/B",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T02",
+        "footX": 650.4,
+        "anchorX": 647.4,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH62A/B"
+          }
+        ],
+        "control": 62,
+        "label": {
+          "x": 615.6,
+          "y": 527.25
+        }
+      },
+      {
+        "id": "SIG_SH60",
+        "code": "SH60",
+        "name": "SH60",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "L11",
+        "footX": 764.2,
+        "anchorX": 761.2,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH60"
+          }
+        ],
+        "control": 60,
+        "label": {
+          "x": 750,
+          "y": 570.37
+        }
+      },
+      {
+        "id": "SIG_SH9_A_M",
+        "code": "SH9(A-M)",
+        "name": "SH9(A-M)",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "T02",
+        "footX": 819.7,
+        "anchorX": 822.7,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH9(A-M)"
+          }
+        ],
+        "control": 9,
+        "label": {
+          "x": 810.5,
+          "y": 477.62
+        }
+      },
+      {
+        "id": "SIG_1_A_F",
+        "code": "C1(A-F) 1(A-F)",
+        "fullCode": "1(A-F) / C-1(A-F)",
+        "name": "UP HOME 1(A-F) with calling-on C-1(A-F) (ECoR LINE)",
+        "kind": "home",
+        "direction": "UP",
+        "trackId": "T01",
+        "footX": 839.6,
+        "anchorX": 842.6,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "marker",
+            "text": "15"
+          },
+          {
+            "kind": "marker",
+            "text": "C"
+          },
+          {
+            "kind": "callingOn"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          },
+          {
+            "kind": "routeIndicator",
+            "routes": [
+              "upperLeft",
+              "upperRight"
+            ]
+          }
+        ],
+        "control": 1,
+        "label": {
+          "x": 948.7,
+          "y": 334.23
+        }
+      },
+      {
+        "id": "SIG_40",
+        "code": "40 SH40",
+        "fullCode": "40 / SH40",
+        "name": "40",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L6",
+        "footX": 1224.8,
+        "anchorX": 1221.8,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH40"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 40,
+        "label": {
+          "x": 1218.3,
+          "y": 476.95
+        }
+      },
+      {
+        "id": "SIG_38",
+        "code": "38 SH38",
+        "fullCode": "38 / SH38",
+        "name": "38",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L7",
+        "footX": 1330.7,
+        "anchorX": 1327.7,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH38"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 38,
+        "label": {
+          "x": 1313.1,
+          "y": 472.72
+        }
+      },
+      {
+        "id": "SIG_50A_B",
+        "code": "50A/B SH50A/B",
+        "fullCode": "50A/B / SH50A/B",
+        "name": "50A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L1",
+        "footX": 1434.2,
+        "anchorX": 1431.2,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH50A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 50,
+        "label": {
+          "x": 1409.7,
+          "y": 260.83
+        }
+      },
+      {
+        "id": "SIG_52A_B",
+        "code": "52A/B SH52A/B",
+        "fullCode": "52A/B / SH52A/B",
+        "name": "52A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "T04",
+        "footX": 1430.2,
+        "anchorX": 1427.2,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH52A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 52,
+        "label": {
+          "x": 1454.3,
+          "y": 75.62
+        }
+      },
+      {
+        "id": "SIG_48A_B",
+        "code": "48A/B SH48A/B",
+        "fullCode": "48A/B / SH48A/B",
+        "name": "48A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L2",
+        "footX": 1446,
+        "anchorX": 1443,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH48A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 48,
+        "label": {
+          "x": 1449.5,
+          "y": 334.41
+        }
+      },
+      {
+        "id": "SIG_36",
+        "code": "36 SH36",
+        "fullCode": "36 / SH36",
+        "name": "36",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L8",
+        "footX": 1485.2,
+        "anchorX": 1482.2,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH36"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 36,
+        "label": {
+          "x": 1467.6,
+          "y": 468.8
+        }
+      },
+      {
+        "id": "SIG_34",
+        "code": "34 SH34",
+        "fullCode": "34 / SH34",
+        "name": "34",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L9",
+        "footX": 1610.3,
+        "anchorX": 1607.3,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH34"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 34,
+        "label": {
+          "x": 1588.1,
+          "y": 486.68
+        }
+      },
+      {
+        "id": "SIG_46A_B",
+        "code": "46A/B SH46A/B",
+        "fullCode": "46A/B / SH46A/B",
+        "name": "46A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L3",
+        "footX": 1700.9,
+        "anchorX": 1697.9,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH46A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 46,
+        "label": {
+          "x": 1704.1,
+          "y": 328.58
+        }
+      },
+      {
+        "id": "SIG_SH11A_B",
+        "code": "SH11A/B",
+        "name": "SH11A/B",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L11",
+        "footX": 1725.5,
+        "anchorX": 1728.5,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH11A/B"
+          }
+        ],
+        "control": 11,
+        "label": {
+          "x": 1718.6,
+          "y": 519.76
+        }
+      },
+      {
+        "id": "SIG_42A_B",
+        "code": "42A/B SH42A/B",
+        "fullCode": "42A/B / SH42A/B",
+        "name": "42A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L5",
+        "footX": 1790.2,
+        "anchorX": 1787.2,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH42A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 42,
+        "label": {
+          "x": 1797,
+          "y": 382.27
+        }
+      },
+      {
+        "id": "SIG_44A_B",
+        "code": "44A/B SH44A/B",
+        "fullCode": "44A/B / SH44A/B",
+        "name": "44A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L4",
+        "footX": 1794,
+        "anchorX": 1791,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH44A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 44,
+        "label": {
+          "x": 1834.7,
+          "y": 338.8
+        }
+      },
+      {
+        "id": "SIG_32",
+        "code": "32 SH32",
+        "fullCode": "32 / SH32",
+        "name": "32",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L10",
+        "footX": 1918.5,
+        "anchorX": 1915.5,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH32"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 32,
+        "label": {
+          "x": 1865.4,
+          "y": 514.57
+        }
+      },
+      {
+        "id": "SIG_28",
+        "code": "28 SH28A/B",
+        "fullCode": "28 / SH28A/B",
+        "name": "28",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "T08",
+        "footX": 2290.9,
+        "anchorX": 2287.9,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH28A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 28,
+        "label": {
+          "x": 2235.5,
+          "y": 583.78
+        }
+      },
+      {
+        "id": "SIG_30",
+        "code": "30 SH30A/B",
+        "fullCode": "30 / SH30A/B",
+        "name": "30",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "L11",
+        "footX": 2293.1,
+        "anchorX": 2290.1,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH30A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          }
+        ],
+        "control": 30,
+        "label": {
+          "x": 2275.9,
+          "y": 552.15
+        }
+      },
+      {
+        "id": "SIG_19",
+        "code": "19",
+        "name": "19 (DLS INCOMING LINE) with STOP UNTILL PILOTED board",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "T04",
+        "footX": 2945,
+        "anchorX": 2948,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 19,
+        "label": {
+          "x": 3005.8,
+          "y": 48.17
+        }
+      },
+      {
+        "id": "SIG_21",
+        "code": "SH21 21",
+        "fullCode": "21 / SH21",
+        "name": "21",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "T06",
+        "footX": 3354.6,
+        "anchorX": 3357.6,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH21"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 21,
+        "label": {
+          "x": 3350.3,
+          "y": 199.45
+        }
+      },
+      {
+        "id": "SIG_33",
+        "code": "SH33 33",
+        "fullCode": "33 / SH33",
+        "name": "33",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L6",
+        "footX": 3460.3,
+        "anchorX": 3463.3,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH33"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 33,
+        "label": {
+          "x": 3448.2,
+          "y": 369.84
+        }
+      },
+      {
+        "id": "SIG_35",
+        "code": "SH35 35",
+        "fullCode": "35 / SH35",
+        "name": "35",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L7",
+        "footX": 3458.2,
+        "anchorX": 3461.2,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH35"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 35,
+        "label": {
+          "x": 3441.9,
+          "y": 406.23
+        }
+      },
+      {
+        "id": "SIG_23",
+        "code": "SH23 23",
+        "fullCode": "23 / SH23",
+        "name": "23",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L1",
+        "footX": 3455.5,
+        "anchorX": 3458.5,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH23"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 23,
+        "label": {
+          "x": 3468.9,
+          "y": 230.34
+        }
+      },
+      {
+        "id": "SIG_37",
+        "code": "SH37 37",
+        "fullCode": "37 / SH37",
+        "name": "37",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L8",
+        "footX": 3529.3,
+        "anchorX": 3532.3,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH37"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 37,
+        "label": {
+          "x": 3525.4,
+          "y": 423
+        }
+      },
+      {
+        "id": "SIG_25",
+        "code": "SH25 25",
+        "fullCode": "25 / SH25",
+        "name": "25",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L2",
+        "footX": 3533.1,
+        "anchorX": 3536.1,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH25"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 25,
+        "label": {
+          "x": 3568,
+          "y": 261.84
+        }
+      },
+      {
+        "id": "SIG_39",
+        "code": "SH39 39",
+        "fullCode": "39 / SH39",
+        "name": "39",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L9",
+        "footX": 3605.2,
+        "anchorX": 3608.2,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH39"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 39,
+        "label": {
+          "x": 3601.4,
+          "y": 423.24
+        }
+      },
+      {
+        "id": "SIG_41",
+        "code": "SH41 41",
+        "fullCode": "41 / SH41",
+        "name": "41",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L10",
+        "footX": 3712.9,
+        "anchorX": 3715.9,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH41"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 41,
+        "label": {
+          "x": 3711.8,
+          "y": 416.7
+        }
+      },
+      {
+        "id": "SIG_43",
+        "code": "SH43 43",
+        "fullCode": "43 / SH43",
+        "name": "43",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L11",
+        "footX": 3758,
+        "anchorX": 3761,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH43"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 43,
+        "label": {
+          "x": 3756.6,
+          "y": 523.41
+        }
+      },
+      {
+        "id": "SIG_SH22_A_C",
+        "code": "SH22(A-C)",
+        "name": "SH22(A-C)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T09",
+        "footX": 3745.9,
+        "anchorX": 3742.9,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH22(A-C)"
+          }
+        ],
+        "control": 22,
+        "label": {
+          "x": 3683.6,
+          "y": 223.28
+        }
+      },
+      {
+        "id": "SIG_27",
+        "code": "SH27 27",
+        "fullCode": "27 / SH27",
+        "name": "27",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L3",
+        "footX": 3762.8,
+        "anchorX": 3765.8,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH27"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 27,
+        "label": {
+          "x": 3766.8,
+          "y": 242.98
+        }
+      },
+      {
+        "id": "SIG_SH15",
+        "code": "SH15",
+        "name": "SH15",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "T09",
+        "footX": 3775.7,
+        "anchorX": 3778.7,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH15"
+          }
+        ],
+        "control": 15,
+        "label": {
+          "x": 3784.7,
+          "y": 197.32
+        }
+      },
+      {
+        "id": "SIG_31",
+        "code": "SH31 31",
+        "fullCode": "31 / SH31",
+        "name": "31",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L5",
+        "footX": 3831.3,
+        "anchorX": 3834.3,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH31"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 31,
+        "label": {
+          "x": 3825.7,
+          "y": 349.64
+        }
+      },
+      {
+        "id": "SIG_29",
+        "code": "SH29 29",
+        "fullCode": "29 / SH29",
+        "name": "29",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "L4",
+        "footX": 3838.8,
+        "anchorX": 3841.8,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH29"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 29,
+        "label": {
+          "x": 3837.9,
+          "y": 317.37
+        }
+      },
+      {
+        "id": "SIG_49",
+        "code": "49",
+        "name": "49 (WESTERN SECTOR LINE) with STOP UNTILL PILOTED board",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "T08",
+        "footX": 3806.6,
+        "anchorX": 3809.6,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 49,
+        "label": {
+          "x": 3870.1,
+          "y": 575.41
+        }
+      },
+      {
+        "id": "SIG_SH18_A_F",
+        "code": "SH18(A-F)",
+        "name": "SH18(A-F)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "L11",
+        "footX": 3976,
+        "anchorX": 3973,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH18(A-F)"
+          }
+        ],
+        "control": 18,
+        "label": {
+          "x": 3936.4,
+          "y": 555.62
+        }
+      },
+      {
+        "id": "SIG_SH45_A_D",
+        "code": "SH45(A-D)",
+        "name": "SH45(A-D)",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L11",
+        "footX": 3956.7,
+        "anchorX": 3959.7,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH45(A-D)"
+          }
+        ],
+        "control": 45,
+        "label": {
+          "x": 3994.4,
+          "y": 511.95
+        }
+      },
+      {
+        "id": "SIG_SH61",
+        "code": "SH61",
+        "name": "SH61",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L13",
+        "footX": 4122.8,
+        "anchorX": 4125.8,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH61"
+          }
+        ],
+        "control": 61,
+        "label": {
+          "x": 4089.1,
+          "y": 162.58
+        }
+      },
+      {
+        "id": "SIG_SH20_A_D",
+        "code": "SH20(A-D)",
+        "name": "SH20(A-D)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "L5",
+        "footX": 4143.2,
+        "anchorX": 4140.2,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH20(A-D)"
+          }
+        ],
+        "control": 20,
+        "label": {
+          "x": 4104.5,
+          "y": 374.37
+        }
+      },
+      {
+        "id": "SIG_SH59",
+        "code": "SH59",
+        "name": "SH59",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L14",
+        "footX": 4130,
+        "anchorX": 4133,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH59"
+          }
+        ],
+        "control": 59,
+        "label": {
+          "x": 4162.4,
+          "y": 154.57
+        }
+      },
+      {
+        "id": "SIG_SH47_A_D",
+        "code": "SH47(A-D)",
+        "name": "SH47(A-D)",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L5",
+        "footX": 4157.2,
+        "anchorX": 4160.2,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH47(A-D)"
+          }
+        ],
+        "control": 47,
+        "label": {
+          "x": 4205,
+          "y": 344.35
+        }
+      },
+      {
+        "id": "SIG_SH53A_B",
+        "code": "SH53A/B",
+        "name": "SH53A/B",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L17",
+        "footX": 4247.4,
+        "anchorX": 4250.4,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH53A/B"
+          }
+        ],
+        "control": 53,
+        "label": {
+          "x": 4222,
+          "y": 50.09
+        }
+      },
+      {
+        "id": "SIG_SH51A_B",
+        "code": "SH51A/B",
+        "name": "SH51A/B",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L18",
+        "footX": 4260.9,
+        "anchorX": 4263.9,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH51A/B"
+          }
+        ],
+        "control": 51,
+        "label": {
+          "x": 4254.6,
+          "y": 24.42
+        }
+      },
+      {
+        "id": "SIG_SH16_A_B",
+        "code": "SH16(A-B)",
+        "name": "SH16(A-B)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "L13",
+        "footX": 4299.1,
+        "anchorX": 4296.1,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH16(A-B)"
+          }
+        ],
+        "control": 16,
+        "label": {
+          "x": 4257.9,
+          "y": 197.81
+        }
+      },
+      {
+        "id": "SIG_SH77",
+        "code": "SH77",
+        "name": "SH77",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L13",
+        "footX": 4344.6,
+        "anchorX": 4347.6,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH77"
+          }
+        ],
+        "control": 77,
+        "label": {
+          "x": 4356.1,
+          "y": 164.57
+        }
+      },
+      {
+        "id": "SIG_SH57",
+        "code": "SH57",
+        "name": "SH57",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L15",
+        "footX": 4397.6,
+        "anchorX": 4400.6,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH57"
+          }
+        ],
+        "control": 57,
+        "label": {
+          "x": 4367.4,
+          "y": 118.93
+        }
+      },
+      {
+        "id": "SIG_SH55",
+        "code": "SH55",
+        "name": "SH55",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "L16",
+        "footX": 4402.8,
+        "anchorX": 4405.8,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH55"
+          }
+        ],
+        "control": 55,
+        "label": {
+          "x": 4370.2,
+          "y": 76.6
+        }
+      },
+      {
+        "id": "SIG_SH14_A_B",
+        "code": "SH14(A-B)",
+        "name": "SH14(A-B)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T11",
+        "footX": 4545.3,
+        "anchorX": 4542.3,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH14(A-B)"
+          }
+        ],
+        "control": 14,
+        "label": {
+          "x": 4627.2,
+          "y": 98.34
+        }
+      },
+      {
+        "id": "SIG_SH8A_B",
+        "code": "SH8A/B",
+        "name": "SH8A/B",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T15",
+        "footX": 4720.9,
+        "anchorX": 4717.9,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH8A/B"
+          }
+        ],
+        "control": 8,
+        "label": {
+          "x": 4740.7,
+          "y": 379.54
+        }
+      },
+      {
+        "id": "SIG_SH10_A_B",
+        "code": "SH10(A/B)",
+        "name": "SH10(A/B)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T12",
+        "footX": 4779,
+        "anchorX": 4776,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH10(A/B)"
+          }
+        ],
+        "control": 10,
+        "label": {
+          "x": 4824.9,
+          "y": 346.82
+        }
+      },
+      {
+        "id": "SIG_SH12_A_H",
+        "code": "SH12(A-H)",
+        "name": "SH12(A-H)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T10",
+        "footX": 4782.1,
+        "anchorX": 4779.1,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH12(A-H)"
+          }
+        ],
+        "control": 12,
+        "label": {
+          "x": 4826.7,
+          "y": 141.93
+        }
+      },
+      {
+        "id": "SIG_SH6A_B",
+        "code": "SH6A/B",
+        "name": "SH6A/B",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T16",
+        "footX": 4938.9,
+        "anchorX": 4935.9,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH6A/B"
+          }
+        ],
+        "control": 6,
+        "label": {
+          "x": 4927.9,
+          "y": 568.62
+        }
+      },
+      {
+        "id": "SIG_69",
+        "code": "69",
+        "name": "69 (LOAD GRID) with STOP UNTILL PILOTED board",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "T16",
+        "footX": 5027.4,
+        "anchorX": 5030.4,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 69,
+        "label": {
+          "x": 5087,
+          "y": 520.33
+        }
+      },
+      {
+        "id": "SIG_63",
+        "code": "63",
+        "name": "63 (EMPTY GRID) with STOP UNTILL PILOTED board",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "T15",
+        "footX": 5079.9,
+        "anchorX": 5082.9,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 63,
+        "label": {
+          "x": 5138.7,
+          "y": 348.44
+        }
+      },
+      {
+        "id": "SIG_4_DUMPER",
+        "code": "4",
+        "fullCode": "4 (OF DUMPER CABIN)",
+        "name": "4 of DUMPER CABIN with STOP UNTILL PILOTED board",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "T13",
+        "footX": 5273.3,
+        "anchorX": 5270.3,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "label": {
+          "x": 5234.7,
+          "y": 615.38
+        }
+      },
+      {
+        "id": "SIG_1_DUMPER",
+        "code": "SH1 A/B 1",
+        "fullCode": "1 OF DUMPER CABIN / SH1 A/B",
+        "name": "1 of DUMPER CABIN with shunt SH1 A/B",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "T13",
+        "footX": 5506,
+        "anchorX": 5509,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH1 A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "label": {
+          "x": 5530.5,
+          "y": 516.44
+        }
+      },
+      {
+        "id": "SIG_SH65A_B",
+        "code": "SH65A/B",
+        "name": "SH65A/B",
+        "kind": "shunt",
+        "direction": "UP",
+        "trackId": "T12",
+        "footX": 5546.3,
+        "anchorX": 5549.3,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH65A/B"
+          }
+        ],
+        "control": 65,
+        "label": {
+          "x": 5531.2,
+          "y": 327
+        }
+      },
+      {
+        "id": "SIG_4",
+        "code": "4 SH4A/B",
+        "fullCode": "4 / SH4A/B",
+        "name": "4 with shunt SH4A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "T12",
+        "footX": 5910.6,
+        "anchorX": 5907.6,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH4A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 4,
+        "label": {
+          "x": 5915.6,
+          "y": 352.96
+        }
+      },
+      {
+        "id": "SIG_2_DUMPER",
+        "code": "2 SH2A/B",
+        "fullCode": "2 (OF DUMPER CABIN) / SH2A/B",
+        "name": "2 of DUMPER CABIN with shunt SH2A/B",
+        "kind": "starter",
+        "direction": "DN",
+        "trackId": "T14",
+        "footX": 5966.9,
+        "anchorX": 5963.9,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH2A/B"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "label": {
+          "x": 5957.6,
+          "y": 606.14
+        }
+      },
+      {
+        "id": "SIG_67",
+        "code": "67",
+        "name": "67",
+        "kind": "starter",
+        "direction": "UP",
+        "trackId": "T10",
+        "footX": 6738.1,
+        "anchorX": 6741.1,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "hbar"
+          }
+        ],
+        "control": 67,
+        "label": {
+          "x": 6746.9,
+          "y": 105.42
+        }
+      },
+      {
+        "id": "SIG_15_A_D_VPT",
+        "code": "C15(A-D) 15(A-D)",
+        "fullCode": "15(A-D) / C15(A-D)",
+        "name": "15(A-D) with calling-on C15(A-D) (VPT R&D YARD)",
+        "kind": "home",
+        "direction": "UP",
+        "trackId": "T14",
+        "footX": 6737.9,
+        "anchorX": 6740.9,
+        "side": "above",
+        "headDir": "east",
+        "elements": [
+          {
+            "kind": "marker",
+            "text": "C"
+          },
+          {
+            "kind": "callingOn"
+          },
+          {
+            "kind": "lamp",
+            "style": "vbar"
+          },
+          {
+            "kind": "lamp",
+            "style": "slash"
+          },
+          {
+            "kind": "routeIndicator",
+            "routes": [
+              "upperRight"
+            ]
+          }
+        ],
+        "label": {
+          "x": 6778.3,
+          "y": 537.77
+        }
+      },
+      {
+        "id": "SIG_SH18",
+        "code": "SH18",
+        "name": "SH18 (near 'E' CABIN)",
+        "kind": "shunt",
+        "direction": "DN",
+        "trackId": "T12",
+        "footX": 6838.1,
+        "anchorX": 6835.1,
+        "side": "below",
+        "headDir": "west",
+        "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH18"
+          }
+        ],
+        "control": 18,
+        "label": {
+          "x": 6826.5,
+          "y": 309.16
+        }
+      }
+    ],
+    "joints": [
+      {
+        "id": "IJ_L1_1415",
+        "trackId": "L1",
+        "x": 1415.3
+      },
+      {
+        "id": "IJ_L1_3466",
+        "trackId": "L1",
+        "x": 3465.5
+      },
+      {
+        "id": "IJ_L10_1909",
+        "trackId": "L10",
+        "x": 1908.9
+      },
+      {
+        "id": "IJ_L10_3721",
+        "trackId": "L10",
+        "x": 3721.4
+      },
+      {
+        "id": "IJ_L11_731",
+        "trackId": "L11",
+        "x": 730.9
+      },
+      {
+        "id": "IJ_L11_1747",
+        "trackId": "L11",
+        "x": 1747.2
+      },
+      {
+        "id": "IJ_L11_2285",
+        "trackId": "L11",
+        "x": 2285
+      },
+      {
+        "id": "IJ_L11_3767",
+        "trackId": "L11",
+        "x": 3766.8
+      },
+      {
+        "id": "IJ_L11_3966",
+        "trackId": "L11",
+        "x": 3965.6
+      },
+      {
+        "id": "IJ_L13_4132",
+        "trackId": "L13",
+        "x": 4131.5
+      },
+      {
+        "id": "IJ_L13_4294",
+        "trackId": "L13",
+        "x": 4293.5
+      },
+      {
+        "id": "IJ_L13_4366",
+        "trackId": "L13",
+        "x": 4366.1
+      },
+      {
+        "id": "IJ_L14_4140",
+        "trackId": "L14",
+        "x": 4139.8
+      },
+      {
+        "id": "IJ_L15_4408",
+        "trackId": "L15",
+        "x": 4407.5
+      },
+      {
+        "id": "IJ_L16_4412",
+        "trackId": "L16",
+        "x": 4412.4
+      },
+      {
+        "id": "IJ_L17_4256",
+        "trackId": "L17",
+        "x": 4256.4
+      },
+      {
+        "id": "IJ_L18_4270",
+        "trackId": "L18",
+        "x": 4269.5
+      },
+      {
+        "id": "IJ_L2_1438",
+        "trackId": "L2",
+        "x": 1437.7
+      },
+      {
+        "id": "IJ_L2_3542",
+        "trackId": "L2",
+        "x": 3541.7
+      },
+      {
+        "id": "IJ_L3_1693",
+        "trackId": "L3",
+        "x": 1693
+      },
+      {
+        "id": "IJ_L3_3772",
+        "trackId": "L3",
+        "x": 3771.8
+      },
+      {
+        "id": "IJ_L4_1785",
+        "trackId": "L4",
+        "x": 1784.9
+      },
+      {
+        "id": "IJ_L4_3847",
+        "trackId": "L4",
+        "x": 3847.3
+      },
+      {
+        "id": "IJ_L5_1782",
+        "trackId": "L5",
+        "x": 1781.5
+      },
+      {
+        "id": "IJ_L5_3842",
+        "trackId": "L5",
+        "x": 3841.6
+      },
+      {
+        "id": "IJ_L5_4134",
+        "trackId": "L5",
+        "x": 4134.4
+      },
+      {
+        "id": "IJ_L5_4329",
+        "trackId": "L5",
+        "x": 4328.6
+      },
+      {
+        "id": "IJ_L5_4447",
+        "trackId": "L5",
+        "x": 4447
+      },
+      {
+        "id": "IJ_L6_1215",
+        "trackId": "L6",
+        "x": 1215.4
+      },
+      {
+        "id": "IJ_L6_3472",
+        "trackId": "L6",
+        "x": 3471.7
+      },
+      {
+        "id": "IJ_L7_1320",
+        "trackId": "L7",
+        "x": 1320.2
+      },
+      {
+        "id": "IJ_L7_3467",
+        "trackId": "L7",
+        "x": 3466.7
+      },
+      {
+        "id": "IJ_L8_1476",
+        "trackId": "L8",
+        "x": 1475.8
+      },
+      {
+        "id": "IJ_L8_3538",
+        "trackId": "L8",
+        "x": 3538
+      },
+      {
+        "id": "IJ_L9_1600",
+        "trackId": "L9",
+        "x": 1599.5
+      },
+      {
+        "id": "IJ_L9_3614",
+        "trackId": "L9",
+        "x": 3613.8
+      },
+      {
+        "id": "IJ_T08_2282",
+        "trackId": "T08",
+        "x": 2282.1
+      },
+      {
+        "id": "IJ_T08_3816",
+        "trackId": "T08",
+        "x": 3816.4
+      },
+      {
+        "id": "IJ_T16_4381",
+        "trackId": "T16",
+        "x": 4381
+      },
+      {
+        "id": "IJ_T16_4931",
+        "trackId": "T16",
+        "x": 4930.8
+      },
+      {
+        "id": "IJ_T16_5040",
+        "trackId": "T16",
+        "x": 5039.7
+      },
+      {
+        "id": "IJ_T02_244",
+        "trackId": "T02",
+        "x": 244.5
+      },
+      {
+        "id": "IJ_T02_477",
+        "trackId": "T02",
+        "x": 476.9
+      },
+      {
+        "id": "IJ_T02_638",
+        "trackId": "T02",
+        "x": 638.3
+      },
+      {
+        "id": "IJ_T02_830",
+        "trackId": "T02",
+        "x": 830.3
+      },
+      {
+        "id": "IJ_T02_1033",
+        "trackId": "T02",
+        "x": 1032.6
+      },
+      {
+        "id": "IJ_T01_413",
+        "trackId": "T01",
+        "x": 413
+      },
+      {
+        "id": "IJ_T01_849",
+        "trackId": "T01",
+        "x": 849.2
+      },
+      {
+        "id": "IJ_T01_1134",
+        "trackId": "T01",
+        "x": 1134.1
+      },
+      {
+        "id": "IJ_T01_1492",
+        "trackId": "T01",
+        "x": 1491.5
+      },
+      {
+        "id": "IJ_T15_4713",
+        "trackId": "T15",
+        "x": 4712.9
+      },
+      {
+        "id": "IJ_T15_5092",
+        "trackId": "T15",
+        "x": 5091.9
+      },
+      {
+        "id": "IJ_T06_3365",
+        "trackId": "T06",
+        "x": 3365.2
+      },
+      {
+        "id": "IJ_T04_1421",
+        "trackId": "T04",
+        "x": 1421.2
+      },
+      {
+        "id": "IJ_T04_2955",
+        "trackId": "T04",
+        "x": 2955.4
+      },
+      {
+        "id": "IJ_T03_88",
+        "trackId": "T03",
+        "x": 87.7
+      },
+      {
+        "id": "IJ_T03_409",
+        "trackId": "T03",
+        "x": 409.2
+      },
+      {
+        "id": "IJ_T09_3744",
+        "trackId": "T09",
+        "x": 3743.6
+      },
+      {
+        "id": "IJ_T09_3786",
+        "trackId": "T09",
+        "x": 3786.1
+      },
+      {
+        "id": "IJ_T10_4771",
+        "trackId": "T10",
+        "x": 4771.1
+      },
+      {
+        "id": "IJ_T11_4536",
+        "trackId": "T11",
+        "x": 4535.9
+      },
+      {
+        "id": "IJ_T12_4768",
+        "trackId": "T12",
+        "x": 4768
+      },
+      {
+        "id": "IJ_T12_5554",
+        "trackId": "T12",
+        "x": 5554.1
+      },
+      {
+        "id": "IJ_T12_5901",
+        "trackId": "T12",
+        "x": 5901.1
+      },
+      {
+        "id": "IJ_T12_6849",
+        "trackId": "T12",
+        "x": 6848.7
+      },
+      {
+        "id": "IJ_T13_5526",
+        "trackId": "T13",
+        "x": 5525.9
+      },
+      {
+        "id": "IJ_T14_5945",
+        "trackId": "T14",
+        "x": 5945.2
+      },
+      {
+        "id": "IJ_T14_5957",
+        "trackId": "T14",
+        "x": 5956.6
+      },
+      {
+        "id": "IJ_T14_6755",
+        "trackId": "T14",
+        "x": 6755.2
+      },
+      {
+        "id": "IJ_T14_6882",
+        "trackId": "T14",
+        "x": 6881.8
+      }
+    ],
+    "lineArrows": [
+      {
+        "id": "ARW_01",
+        "trackId": "T01",
+        "x": 161.01,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_02",
+        "trackId": "T02",
+        "x": 165.56,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_03",
+        "trackId": "T03",
+        "x": 164.36,
+        "direction": "right"
+      },
+      {
+        "id": "ARW_04",
+        "trackId": "T08",
+        "x": 3910.48,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_05",
+        "trackId": "T10",
+        "x": 6621.1,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_06",
+        "trackId": "T12",
+        "x": 6748.95,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_07",
+        "trackId": "T13",
+        "x": 4865.88,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_08",
+        "trackId": "T14",
+        "x": 6902.1,
+        "direction": "both"
+      },
+      {
+        "id": "ARW_09",
+        "trackId": "T20",
+        "x": 2642.26,
+        "direction": "both"
+      }
+    ],
+    "trackCircuits": [
+      {
+        "id": "TC_15XT",
+        "code": "15XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T14",
+            "x0": 6755.2,
+            "x1": 6881.8
+          }
+        ],
+        "label": {
+          "x": 6819.1,
+          "y": 558.88
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_15AXT_OF_VPT",
+        "code": "15AXT OF VPT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T14",
+            "x0": 5956.6,
+            "x1": 6755.2
+          }
+        ],
+        "label": {
+          "x": 6666.4,
+          "y": 577.07
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_BULB_XT",
+        "code": "BULB-XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T12",
+            "x0": 5901.1,
+            "x1": 6848.7
+          }
+        ],
+        "label": {
+          "x": 6636.2,
+          "y": 324.53
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_60AXT",
+        "code": "60AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L11",
+            "x0": 730.9,
+            "x1": 1747.2
+          }
+        ],
+        "label": {
+          "x": 992.7,
+          "y": 532.46
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_9AXT",
+        "code": "9AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T02",
+            "x0": 638.3,
+            "x1": 830.3
+          }
+        ],
+        "label": {
+          "x": 723,
+          "y": 511.52
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_3AXT",
+        "code": "3AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T02",
+            "x0": 244.5,
+            "x1": 476.9
+          }
+        ],
+        "label": {
+          "x": 421.2,
+          "y": 511.02
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_111AXT",
+        "code": "111AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T02",
+            "x0": 830.3,
+            "x1": 1032.6
+          }
+        ],
+        "label": {
+          "x": 935.3,
+          "y": 513.1
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_111BXT",
+        "code": "111BXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T01",
+            "x0": 849.2,
+            "x1": 1134.1
+          }
+        ],
+        "label": {
+          "x": 934.7,
+          "y": 357.18
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_127XT",
+        "code": "127XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L10",
+            "x0": 1639.4,
+            "x1": 1908.9
+          },        
+          {
+            "trackId": "T02",
+            "x0": 1032.6,
+            "x1": 1639.4
+          }
+        ],
+        "label": {
+          "x": 1188.4,
+          "y": 505.89
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_135_141XT",
+        "code": "135/141XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L11",
+            "x0": 1747.2,
+            "x1": 2285
+          }
+        ],
+        "label": {
+          "x": 2076.1,
+          "y": 529.46
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L1XT",
+        "code": "L1XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L1",
+            "x0": 1415.3,
+            "x1": 3465.5
+          }
+        ],
+        "label": {
+          "x": 3047.1,
+          "y": 240.66
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L2XT",
+        "code": "L2XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L2",
+            "x0": 1437.7,
+            "x1": 3541.7
+          }
+        ],
+        "label": {
+          "x": 3041.9,
+          "y": 269.67
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L3XT",
+        "code": "L3XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L3",
+            "x0": 1693,
+            "x1": 3771.8
+          }
+        ],
+        "label": {
+          "x": 3037.4,
+          "y": 298.7
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L4XT",
+        "code": "L4XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L4",
+            "x0": 1784.9,
+            "x1": 3847.3
+          }
+        ],
+        "label": {
+          "x": 3034.8,
+          "y": 327.72
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L5XT",
+        "code": "L5XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L5",
+            "x0": 1781.5,
+            "x1": 3841.6
+          }
+        ],
+        "label": {
+          "x": 3032.1,
+          "y": 356.69
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L6XT",
+        "code": "L6XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L6",
+            "x0": 1215.4,
+            "x1": 3471.7
+          }
+        ],
+        "label": {
+          "x": 3029.5,
+          "y": 385.63
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L7XT",
+        "code": "L7XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L7",
+            "x0": 1320.2,
+            "x1": 3466.7
+          }
+        ],
+        "label": {
+          "x": 3027,
+          "y": 414.73
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L8XT",
+        "code": "L8XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L8",
+            "x0": 1475.8,
+            "x1": 3538
+          }
+        ],
+        "label": {
+          "x": 3024.5,
+          "y": 443.55
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L9XT",
+        "code": "L9XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L9",
+            "x0": 1599.5,
+            "x1": 3613.8
+          }
+        ],
+        "label": {
+          "x": 3022.1,
+          "y": 472.59
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L10XT",
+        "code": "L10XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L10",
+            "x0": 1908.9,
+            "x1": 3721.4
+          }
+        ],
+        "label": {
+          "x": 3022.4,
+          "y": 502.01
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_L11XT",
+        "code": "L11XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L11",
+            "x0": 2285,
+            "x1": 3766.8
+          }
+        ],
+        "label": {
+          "x": 3019.8,
+          "y": 531.03
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_28AXT",
+        "code": "28AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T08",
+            "x0": 2282.1,
+            "x1": 3816.4
+          }
+        ],
+        "label": {
+          "x": 3017.3,
+          "y": 559.94
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_114XT",
+        "code": "114XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L17",
+            "x0": 4256.4,
+            "x1": 4409.2
+          },
+          {
+            "trackId": "T11",
+            "x0": 4409.2,
+            "x1": 4535.9
+          }
+        ],
+        "label": {
+          "x": 4467.2,
+          "y": 67.4
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_112XT",
+        "code": "112XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L15",
+            "x0": 4407.5,
+            "x1": 4764
+          }
+        ],
+        "label": {
+          "x": 4712.9,
+          "y": 130.19
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_12AXT",
+        "code": "12AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T10",
+            "x0": 4771.1,
+            "x1": 6741.1
+          }
+        ],
+        "label": {
+          "x": 5097.3,
+          "y": 129.01
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_102_104AXT",
+        "code": "102/104AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T12",
+            "x0": 5554.1,
+            "x1": 5901.1
+          }
+        ],
+        "label": {
+          "x": 5744.8,
+          "y": 324.72
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_102_104BXT_OF_OEC",
+        "code": "102/104BXT OF OEC",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T13",
+            "x0": 5525.9,
+            "x1": 5936.4
+          },
+          {
+            "trackId": "T14",
+            "x0": 5936.4,
+            "x1": 5945.2
+          }
+        ],
+        "label": {
+          "x": 5783.8,
+          "y": 553.39
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_10AXT",
+        "code": "10AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T12",
+            "x0": 4768,
+            "x1": 5554.1
+          }
+        ],
+        "label": {
+          "x": 5106.6,
+          "y": 330.92
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_108BXT",
+        "code": "108BXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L5",
+            "x0": 4447,
+            "x1": 4553.9
+          },
+          {
+            "trackId": "T15",
+            "x0": 4553.9,
+            "x1": 4712.9
+          }
+        ],
+        "label": {
+          "x": 4518,
+          "y": 356.69
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_108AXT",
+        "code": "108AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T16",
+            "x0": 4381,
+            "x1": 4930.8
+          }
+        ],
+        "label": {
+          "x": 4577.1,
+          "y": 543.32
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_120BXT",
+        "code": "120BXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L5",
+            "x0": 4328.6,
+            "x1": 4447
+          }
+        ],
+        "label": {
+          "x": 4378.3,
+          "y": 368.5
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_126BXT",
+        "code": "126BXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L11",
+            "x0": 3965.6,
+            "x1": 3979.8
+          },
+          {
+            "trackId": "T16",
+            "x0": 3979.8,
+            "x1": 4381
+          }
+        ],
+        "label": {
+          "x": 4283.2,
+          "y": 529.42
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_126AXT",
+        "code": "126AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L5",
+            "x0": 4134.4,
+            "x1": 4328.6
+          }
+        ],
+        "label": {
+          "x": 4181,
+          "y": 356.82
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_140XT",
+        "code": "140XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L6",
+            "x0": 3471.7,
+            "x1": 3946.3
+          }
+        ],
+        "label": {
+          "x": 3747.9,
+          "y": 388.87
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_16XT",
+        "code": "16XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L13",
+            "x0": 4293.5,
+            "x1": 4366.1
+          }
+        ],
+        "label": {
+          "x": 4320.8,
+          "y": 183.9
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_1AXT_OF_OEC",
+        "code": "1AXT OF OEC",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T01",
+            "x0": 413,
+            "x1": 849.2
+          }
+        ],
+        "label": {
+          "x": 616.9,
+          "y": 354.19
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_14AXT",
+        "code": "14AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T11",
+            "x0": 4535.9,
+            "x1": 5035.7
+          }
+        ],
+        "label": {
+          "x": 4640,
+          "y": 67.24
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_51AXT",
+        "code": "51AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L18",
+            "x0": 3701.6,
+            "x1": 4269.5
+          }
+        ],
+        "label": {
+          "x": 4174.5,
+          "y": 46.44
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_53AXT",
+        "code": "53AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L17",
+            "x0": 3690.9,
+            "x1": 4256.4
+          }
+        ],
+        "label": {
+          "x": 4164.5,
+          "y": 75.26
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_55AXT",
+        "code": "55AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L16",
+            "x0": 3688.9,
+            "x1": 4412.4
+          }
+        ],
+        "label": {
+          "x": 4153.9,
+          "y": 100.95
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_57AXT",
+        "code": "57AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L15",
+            "x0": 3675.6,
+            "x1": 4407.5
+          }
+        ],
+        "label": {
+          "x": 4145.4,
+          "y": 130.83
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_59AXT",
+        "code": "59AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L14",
+            "x0": 3558.1,
+            "x1": 4139.8
+          }
+        ],
+        "label": {
+          "x": 4001.9,
+          "y": 163.37
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_61AXT",
+        "code": "61AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L13",
+            "x0": 3535.5,
+            "x1": 4131.5
+          }
+        ],
+        "label": {
+          "x": 3979.2,
+          "y": 192.17
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_21AXT",
+        "code": "21AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T06",
+            "x0": 2485.9,
+            "x1": 3365.2
+          }
+        ],
+        "label": {
+          "x": 3055.6,
+          "y": 211.16
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_113XT",
+        "code": "113XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T01",
+            "x0": 1134.1,
+            "x1": 1491.5
+          }
+        ],
+        "label": {
+          "x": 1355.1,
+          "y": 296.21
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_103_105XT",
+        "code": "103/105XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L11",
+            "x0": 727.4,
+            "x1": 730.9
+          },
+          {
+            "trackId": "T03",
+            "x0": 409.2,
+            "x1": 727.4
+          },
+          {
+            "trackId": "T17",
+            "x0": 709.1,
+            "x1": 727.4
+          }
+        ],
+        "label": {
+          "x": 594.1,
+          "y": 542.32
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_103BXT",
+        "code": "103BXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T02",
+            "x0": 476.9,
+            "x1": 638.3
+          }
+        ],
+        "label": {
+          "x": 572.2,
+          "y": 500.24
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_63AXT",
+        "code": "63AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T15",
+            "x0": 4712.9,
+            "x1": 5091.9
+          }
+        ],
+        "label": {
+          "x": 4859.1,
+          "y": 355.17
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_69AXT",
+        "code": "69AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T16",
+            "x0": 4930.8,
+            "x1": 5039.7
+          }
+        ],
+        "label": {
+          "x": 4960.9,
+          "y": 530.09
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_152XT",
+        "code": "152XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T06",
+            "x0": 3365.2,
+            "x1": 3392.1
+          },
+          {
+            "trackId": "T09",
+            "x0": 3385,
+            "x1": 3743.6
+          }
+        ],
+        "label": {
+          "x": 3674.2,
+          "y": 209.91
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_5AXT",
+        "code": "5AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T03",
+            "x0": 87.7,
+            "x1": 409.2
+          }
+        ],
+        "label": {
+          "x": 346.5,
+          "y": 530.37
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_19AXT",
+        "code": "19AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T04",
+            "x0": 1421.2,
+            "x1": 2955.4
+          }
+        ],
+        "label": {
+          "x": 2072.3,
+          "y": 64.33
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_121XT",
+        "code": "121XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T01",
+            "x0": 1491.5,
+            "x1": 1672.6
+          }
+        ],
+        "label": {
+          "x": 1599.6,
+          "y": 365.86
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_130XT",
+        "code": "130XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T09",
+            "x0": 3786.1,
+            "x1": 4108.6
+          }
+        ],
+        "label": {
+          "x": 3824.9,
+          "y": 225.98
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_22XT",
+        "code": "22XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T09",
+            "x0": 3743.6,
+            "x1": 3786.1
+          }
+        ],
+        "label": {
+          "x": 3754.1,
+          "y": 217.5
+        },
+        "approx": false
+      },
+      {
+        "id": "TC_122XT",
+        "code": "122XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L13",
+            "x0": 4131.5,
+            "x1": 4293.5
+          }
+        ],
+        "label": {
+          "x": 4218.4,
+          "y": 196.22
+        },
+        "approx": false
+      }
+    ],
+    "platforms": [],
+    "structures": [
+      {
+        "id": "SUP_19",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board on the post of signal 19",
+        "shape": {
+          "type": "rect",
+          "x0": 2951.5,
+          "y0": 50.8,
+          "x1": 2967.5,
+          "y1": 60.8
+        },
+        "foot": {
+          "trackId": "T04",
+          "x": 2945
+        }
+      },
+      {
+        "id": "SUP_49",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board on the post of signal 49",
+        "shape": {
+          "type": "rect",
+          "x0": 3822.7,
+          "y0": 540.06,
+          "x1": 3838.7,
+          "y1": 550.06
+        },
+        "foot": {
+          "trackId": "T08",
+          "x": 3806.6
+        }
+      },
+      {
+        "id": "SUP_69",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board on the post of signal 69",
+        "shape": {
+          "type": "rect",
+          "x0": 5034.9,
+          "y0": 510.6,
+          "x1": 5050.9,
+          "y1": 520.6
+        },
+        "foot": {
+          "trackId": "T16",
+          "x": 5027.4
+        }
+      },
+      {
+        "id": "SUP_63",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board on the post of signal 63",
+        "shape": {
+          "type": "rect",
+          "x0": 5086.5,
+          "y0": 338.67,
+          "x1": 5102.5,
+          "y1": 348.67
+        },
+        "foot": {
+          "trackId": "T15",
+          "x": 5079.9
+        }
+      },
+      {
+        "id": "SUP_4_DUMPER",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board on the post of signal 4 (OF DUMPER CABIN)",
+        "shape": {
+          "type": "rect",
+          "x0": 5264.1,
+          "y0": 582.73,
+          "x1": 5280.1,
+          "y1": 592.73
+        },
+        "foot": {
+          "trackId": "T13",
+          "x": 5273.3
+        }
+      },
+      {
+        "id": "SUP_1",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board",
+        "shape": {
+          "type": "rect",
+          "x0": 4976.9,
+          "y0": 537.28,
+          "x1": 4992.9,
+          "y1": 547.28
+        },
+        "foot": {
+          "trackId": "T13",
+          "x": 4984.7
+        }
+      },
+      {
+        "id": "SUP_2",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board",
+        "shape": {
+          "type": "rect",
+          "x0": 5140.6,
+          "y0": 553.11,
+          "x1": 5156.6,
+          "y1": 563.11
+        },
+        "foot": {
+          "trackId": "T16",
+          "x": 5164.5
+        }
+      },
+      {
+        "id": "SUP_3",
+        "kind": "locoPilotBoard",
+        "name": "STOP UNTILL PILOTED board",
+        "shape": {
+          "type": "rect",
+          "x0": 5202.9,
+          "y0": 378.24,
+          "x1": 5218.9,
+          "y1": 388.24
+        },
+        "foot": {
+          "trackId": "T15",
+          "x": 5226.8
+        }
+      },
+      {
+        "id": "SB_STABLING",
+        "kind": "locoPilotBoard",
+        "name": "S.B. (board at the west end of the STABLING LINE; meaning of 'S.B.' not given on the sheet)",
+        "shape": {
+          "type": "rect",
+          "x0": 2468.5,
+          "y0": 213.49,
+          "x1": 2488.5,
+          "y1": 223.49
+        },
+        "foot": {
+          "trackId": "T06",
+          "x": 2493.7
+        },
+        "label": {
+          "x": 2478.5,
+          "y": 218.49
+        }
+      },
+      {
+        "id": "SM_OEC",
+        "kind": "smRoom",
+        "name": "SM / OEC YARD (CH: 6130M)",
+        "shape": {
+          "type": "rect",
+          "x0": 3185.3,
+          "y0": 141.82,
+          "x1": 3241.8,
+          "y1": 176.92
+        },
+        "label": {
+          "x": 3227.7,
+          "y": 134.62
+        },
+        "chainage": 6130
+      },
+      {
+        "id": "GOOMTY",
+        "kind": "goomty",
+        "name": "GOOMTY (CH: 5454 F/SCMN)",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            {
+              "x": 1277.3,
+              "y": 522.17
+            },
+            {
+              "x": 1299.3,
+              "y": 530.27
+            },
+            {
+              "x": 1293.1,
+              "y": 547.17
+            },
+            {
+              "x": 1271.1,
+              "y": 539.07
+            }
+          ]
+        },
+        "label": {
+          "x": 1265.5,
+          "y": 560.97
+        },
+        "chainage": 5454
+      },
+      {
+        "id": "CABIN_6553",
+        "kind": "building",
+        "name": "CABIN (CH: 6553M F/SCMN)",
+        "label": {
+          "x": 4391.3,
+          "y": -32.34
+        },
+        "chainage": 6553,
+        "shape": {
+          "type": "rect",
+          "x0": 4370,
+          "y0": -60.04,
+          "x1": 4400,
+          "y1": -40.04
+        }
+      }
+    ],
+    "bridges": [
+      {
+        "id": "BR_MEGHADRIPETA",
+        "number": "MEGHADRIPETA FLY OVER",
+        "chainage": 5285.84,
+        "x": 815.6,
+        "spec": "Road fly over across the yard (CH: 5285.84 F/SCMN)"
+      }
+    ],
+    "chainageMarks": [
+      {
+        "id": "CM_1",
+        "kind": "PT",
+        "chainage": 5587.45,
+        "x": 1689.6,
+        "lane": "top"
+      },
+      {
+        "id": "CM_2",
+        "kind": "PT",
+        "chainage": 5525.5,
+        "x": 1516.7,
+        "lane": "top"
+      },
+      {
+        "id": "CM_3",
+        "kind": "PT",
+        "chainage": 5398.84,
+        "x": 1152.2,
+        "lane": "top"
+      },
+      {
+        "id": "CM_4",
+        "kind": "DS",
+        "chainage": 5490.24,
+        "x": 1417.2,
+        "lane": "top"
+      },
+      {
+        "id": "CM_5",
+        "kind": "PT",
+        "chainage": 5433.84,
+        "x": 1252.4,
+        "lane": "top"
+      },
+      {
+        "id": "CM_6",
+        "kind": "PT",
+        "chainage": 5441.34,
+        "x": 1276.7,
+        "lane": "top"
+      },
+      {
+        "id": "CM_7",
+        "kind": "DS",
+        "chainage": 5810.36,
+        "x": 2261.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_8",
+        "kind": "PT",
+        "chainage": 5757.36,
+        "x": 2116.4,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_9",
+        "kind": "PT",
+        "chainage": 5681.56,
+        "x": 1908.1,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_10",
+        "kind": "PT",
+        "chainage": 5579.46,
+        "x": 1623.4,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_11",
+        "kind": "DS",
+        "chainage": 5267.64,
+        "x": 716.6,
+        "lane": "top"
+      },
+      {
+        "id": "CM_12",
+        "kind": "PT",
+        "chainage": 5357.34,
+        "x": 1005.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_13",
+        "kind": "PT",
+        "chainage": 5399.74,
+        "x": 1098.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_14",
+        "kind": "PT",
+        "chainage": 5448.93,
+        "x": 1217.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_15",
+        "kind": "PT",
+        "chainage": 5487.36,
+        "x": 1342.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_16",
+        "kind": "DE",
+        "chainage": 5873.48,
+        "x": 2488.8,
+        "lane": "top"
+      },
+      {
+        "id": "CM_17",
+        "kind": "PT",
+        "chainage": 5162.59,
+        "x": 424.3,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_18",
+        "kind": "PT",
+        "chainage": 5233.89,
+        "x": 623.7,
+        "lane": "top"
+      },
+      {
+        "id": "CM_19",
+        "kind": "PT",
+        "chainage": 5308.84,
+        "x": 839.8,
+        "lane": "top"
+      },
+      {
+        "id": "CM_20",
+        "kind": "PT",
+        "chainage": 5374.84,
+        "x": 1085.2,
+        "lane": "top"
+      },
+      {
+        "id": "CM_21",
+        "kind": "PT",
+        "chainage": 6290.26,
+        "x": 3597.8,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_22",
+        "kind": "PT",
+        "chainage": 6319.76,
+        "x": 3678.6,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_23",
+        "kind": "PT",
+        "chainage": 6349.26,
+        "x": 3766.1,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_24",
+        "kind": "PT",
+        "chainage": 6378.76,
+        "x": 3849.8,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_25",
+        "kind": "PT",
+        "chainage": 6408.26,
+        "x": 3933.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_26",
+        "kind": "PT",
+        "chainage": 6420.76,
+        "x": 3968.1,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_27",
+        "kind": "PT",
+        "chainage": 6534.36,
+        "x": 4287.4,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_28",
+        "kind": "PT",
+        "chainage": 6588.65,
+        "x": 4439,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_29",
+        "kind": "PT",
+        "chainage": 6758.16,
+        "x": 4909.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_30",
+        "kind": "PT",
+        "chainage": 6466.42,
+        "x": 4090.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_31",
+        "kind": "DS",
+        "chainage": 6195,
+        "x": 3397.5,
+        "lane": "top"
+      },
+      {
+        "id": "CM_32",
+        "kind": "DE",
+        "chainage": 6248,
+        "x": 3464.8,
+        "lane": "top"
+      },
+      {
+        "id": "CM_33",
+        "kind": "DE",
+        "chainage": 6255,
+        "x": 3486.9,
+        "lane": "top"
+      },
+      {
+        "id": "CM_34",
+        "kind": "DE",
+        "chainage": 6298,
+        "x": 3605.1,
+        "lane": "top"
+      },
+      {
+        "id": "CM_35",
+        "kind": "DE",
+        "chainage": 6298,
+        "x": 3618.4,
+        "lane": "top"
+      },
+      {
+        "id": "CM_36",
+        "kind": "DE",
+        "chainage": 6293,
+        "x": 3620.4,
+        "lane": "top"
+      },
+      {
+        "id": "CM_37",
+        "kind": "DE",
+        "chainage": 6292,
+        "x": 3631.2,
+        "lane": "top"
+      },
+      {
+        "id": "CM_38",
+        "kind": "PT",
+        "chainage": 6546.43,
+        "x": 4320,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_39",
+        "kind": "PT",
+        "chainage": 6611.93,
+        "x": 4498,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_40",
+        "kind": "PT",
+        "chainage": 6527.6,
+        "x": 4325.7,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_41",
+        "kind": "PT",
+        "chainage": 6698.24,
+        "x": 4772.3,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_42",
+        "kind": "PT",
+        "chainage": 6630.89,
+        "x": 4584.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_43",
+        "kind": "PT",
+        "chainage": 6665.09,
+        "x": 4681.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_44",
+        "kind": "PT",
+        "chainage": 6568.89,
+        "x": 4418.3,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_45",
+        "kind": "DS",
+        "chainage": 6696.19,
+        "x": 4736.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_46",
+        "kind": "DE",
+        "chainage": 6792.89,
+        "x": 5033.3,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_47",
+        "kind": "PT",
+        "chainage": 6965.99,
+        "x": 5580.3,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_48",
+        "kind": "PT",
+        "chainage": 7030.39,
+        "x": 5784.7,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_49",
+        "kind": "PT",
+        "chainage": 7043.39,
+        "x": 5833.3,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_50",
+        "kind": "PT",
+        "chainage": 7107.49,
+        "x": 5988.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_51",
+        "kind": "DE",
+        "chainage": 7478.24,
+        "x": 6831.7,
+        "lane": "top"
+      },
+      {
+        "id": "CM_52",
+        "kind": "DE",
+        "chainage": 6230.24,
+        "x": 3498.3,
+        "lane": "top"
+      },
+      {
+        "id": "CM_53",
+        "kind": "PT",
+        "chainage": 6090.24,
+        "x": 3113.1,
+        "lane": "top"
+      },
+      {
+        "id": "CM_54",
+        "kind": "FM",
+        "chainage": 7095.79,
+        "x": 5958.6,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_55",
+        "kind": "FM",
+        "chainage": 7055.59,
+        "x": 5863.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_56",
+        "kind": "FM",
+        "chainage": 7019.39,
+        "x": 5758.1,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_57",
+        "kind": "FM",
+        "chainage": 6976.59,
+        "x": 5632.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_58",
+        "kind": "PT",
+        "chainage": 6624.19,
+        "x": 4531.8,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_59",
+        "kind": "FM",
+        "chainage": 6236.96,
+        "x": 3447.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_60",
+        "kind": "FM",
+        "chainage": 6290.76,
+        "x": 3622.7,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_61",
+        "kind": "FM",
+        "chainage": 6262.76,
+        "x": 3519.6,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_62",
+        "kind": "FM",
+        "chainage": 6330,
+        "x": 3717.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_63",
+        "kind": "FM",
+        "chainage": 6348.26,
+        "x": 3747.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_64",
+        "kind": "FM",
+        "chainage": 6229.21,
+        "x": 3520.7,
+        "lane": "top"
+      },
+      {
+        "id": "CM_65",
+        "kind": "FM",
+        "chainage": 6275.96,
+        "x": 3619.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_66",
+        "kind": "FM",
+        "chainage": 6469.96,
+        "x": 4104.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_67",
+        "kind": "FM",
+        "chainage": 6484.46,
+        "x": 4146.1,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_68",
+        "kind": "FM",
+        "chainage": 6559.63,
+        "x": 4356.1,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_69",
+        "kind": "FM",
+        "chainage": 6599.43,
+        "x": 4467.6,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_70",
+        "kind": "FM",
+        "chainage": 6678.09,
+        "x": 4687,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_71",
+        "kind": "FM",
+        "chainage": 6641.65,
+        "x": 4584.7,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_72",
+        "kind": "FM",
+        "chainage": 6705.26,
+        "x": 4761.6,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_73",
+        "kind": "FM",
+        "chainage": 6515.64,
+        "x": 4284.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_74",
+        "kind": "FM",
+        "chainage": 6477.6,
+        "x": 4178.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_75",
+        "kind": "FM",
+        "chainage": 6575.86,
+        "x": 4437,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_76",
+        "kind": "FM",
+        "chainage": 6621.29,
+        "x": 4559.1,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_77",
+        "kind": "FM",
+        "chainage": 6613.89,
+        "x": 4536.7,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_78",
+        "kind": "FM",
+        "chainage": 6609.29,
+        "x": 4525.7,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_79",
+        "kind": "FM",
+        "chainage": 6042.24,
+        "x": 2963,
+        "lane": "top"
+      },
+      {
+        "id": "CM_80",
+        "kind": "FM",
+        "chainage": 5482.34,
+        "x": 1396.1,
+        "lane": "top"
+      },
+      {
+        "id": "CM_81",
+        "kind": "FM",
+        "chainage": 5185.89,
+        "x": 488.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_82",
+        "kind": "FM",
+        "chainage": 5210.59,
+        "x": 559.9,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_83",
+        "kind": "FM",
+        "chainage": 5313.14,
+        "x": 859.1,
+        "lane": "top"
+      },
+      {
+        "id": "CM_84",
+        "kind": "FM",
+        "chainage": 5356.34,
+        "x": 1032,
+        "lane": "top"
+      },
+      {
+        "id": "CM_85",
+        "kind": "FM",
+        "chainage": 5805.36,
+        "x": 2250,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_86",
+        "kind": "FM",
+        "chainage": 5623.98,
+        "x": 1790.1,
+        "lane": "top"
+      },
+      {
+        "id": "CM_87",
+        "kind": "FM",
+        "chainage": 5590.6,
+        "x": 1711,
+        "lane": "top"
+      },
+      {
+        "id": "CM_88",
+        "kind": "FM",
+        "chainage": 5497.34,
+        "x": 1437.4,
+        "lane": "top"
+      },
+      {
+        "id": "CM_89",
+        "kind": "FM",
+        "chainage": 5447.34,
+        "x": 1288.3,
+        "lane": "top"
+      },
+      {
+        "id": "CM_90",
+        "kind": "FM",
+        "chainage": 5416.34,
+        "x": 1143.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_91",
+        "kind": "FM",
+        "chainage": 5635.56,
+        "x": 1780.7,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_92",
+        "kind": "FM",
+        "chainage": 5629.46,
+        "x": 1764,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_93",
+        "kind": "FM",
+        "chainage": 5454.74,
+        "x": 1271.5,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_94",
+        "kind": "FM",
+        "chainage": 5509.83,
+        "x": 1410,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_95",
+        "kind": "FM",
+        "chainage": 5543.06,
+        "x": 1546.4,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_96",
+        "kind": "PT",
+        "chainage": 6284.96,
+        "x": 3670.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_97",
+        "kind": "PT",
+        "chainage": 6327.16,
+        "x": 3786.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_98",
+        "kind": "FM",
+        "chainage": 6347.9,
+        "x": 3839.8,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_99",
+        "kind": "FM",
+        "chainage": 6372.96,
+        "x": 3919.3,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_100",
+        "kind": "PT",
+        "chainage": 6398.16,
+        "x": 3975.8,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_101",
+        "kind": "FM",
+        "chainage": 6415.42,
+        "x": 4022.2,
+        "lane": "bottom"
+      },
+      {
+        "id": "CM_102",
+        "kind": "PT",
+        "chainage": 6423.76,
+        "x": 3998,
+        "lane": "bottom"
+      }
+    ],
+    "gradients": [],
+    "dimensions": [
+      {
+        "id": "DIM_1",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 219.67,
+        "y1": 248.67,
+        "text": "6.47M",
+        "label": {
+          "x": 2963.5,
+          "y": 229.75
+        }
+      },
+      {
+        "id": "DIM_2",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 248.67,
+        "y1": 277.67,
+        "text": "10.2M",
+        "label": {
+          "x": 2957.2,
+          "y": 271.1
+        }
+      },
+      {
+        "id": "DIM_3",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 277.67,
+        "y1": 302.67,
+        "text": "8.64M",
+        "label": {
+          "x": 2956.1,
+          "y": 298.52
+        }
+      },
+      {
+        "id": "DIM_4",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 302.67,
+        "y1": 335.67,
+        "text": "5.00M",
+        "label": {
+          "x": 2949.3,
+          "y": 319.64
+        }
+      },
+      {
+        "id": "DIM_5",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 335.67,
+        "y1": 364.67,
+        "text": "5.19M",
+        "label": {
+          "x": 2948,
+          "y": 347.27
+        }
+      },
+      {
+        "id": "DIM_6",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 364.67,
+        "y1": 389.67,
+        "text": "5.19M",
+        "label": {
+          "x": 2944.5,
+          "y": 375.7
+        }
+      },
+      {
+        "id": "DIM_7",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 389.67,
+        "y1": 422.67,
+        "text": "4.79M",
+        "label": {
+          "x": 2940.7,
+          "y": 404.96
+        }
+      },
+      {
+        "id": "DIM_8",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 422.67,
+        "y1": 451.67,
+        "text": "4.745M",
+        "label": {
+          "x": 2940.9,
+          "y": 433.11
+        }
+      },
+      {
+        "id": "DIM_9",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 451.67,
+        "y1": 480.67,
+        "text": "4.745M",
+        "label": {
+          "x": 2935.4,
+          "y": 465.93
+        }
+      },
+      {
+        "id": "DIM_10",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 480.67,
+        "y1": 505.67,
+        "text": "4.53M",
+        "label": {
+          "x": 2933.5,
+          "y": 491.21
+        }
+      },
+      {
+        "id": "DIM_11",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 505.67,
+        "y1": 534.67,
+        "text": "5.16M",
+        "label": {
+          "x": 2931.2,
+          "y": 523.14
+        }
+      },
+      {
+        "id": "DIM_12",
+        "kind": "vertical",
+        "x": 2940,
+        "y0": 534.67,
+        "y1": 565.7,
+        "text": "5.90M",
+        "label": {
+          "x": 2927.6,
+          "y": 549.85
+        }
+      }
+    ],
+    "routeLabels": [
+      {
+        "id": "RL_1",
+        "text": "SH5A",
+        "x": 772.9,
+        "y": 510.33,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_2",
+        "text": "SH(42.44.46.48.50.52)A",
+        "x": 761.5,
+        "y": 498.38,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_3",
+        "text": "SH50A/B",
+        "x": 1489.7,
+        "y": 300.06,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_4",
+        "text": "S/C(1.3)A. SH9A",
+        "x": 2371.1,
+        "y": 61.93,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_5",
+        "text": "S/C(1.3)B. SH9B",
+        "x": 2475.9,
+        "y": 242.03,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_6",
+        "text": "S/C(1.3)C. SH9C",
+        "x": 2474.7,
+        "y": 271.72,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_7",
+        "text": "S/C(1.3)D. SH9D",
+        "x": 2472.5,
+        "y": 300.64,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_8",
+        "text": "S/C(1.3)F. SH9F",
+        "x": 2469.2,
+        "y": 358.84,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_9",
+        "text": "S/C3G. SH9G",
+        "x": 2484.1,
+        "y": 386.36,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_10",
+        "text": "S/C3H. SH9H",
+        "x": 2481.6,
+        "y": 414.36,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_11",
+        "text": "S/C3I. SH9I",
+        "x": 2475.9,
+        "y": 443.63,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_12",
+        "text": "S/C3J. SH9J",
+        "x": 2477.7,
+        "y": 472.48,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_13",
+        "text": "S/C3K. SH9K",
+        "x": 2477.5,
+        "y": 501.99,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_14",
+        "text": "S/C3L. SH9L. SH11A",
+        "x": 2461.7,
+        "y": 532.13,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_15",
+        "text": "S/C3M. SH9M. SH11B",
+        "x": 2461.1,
+        "y": 560.76,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_16",
+        "text": "SH22C",
+        "x": 3146.8,
+        "y": 211.81,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_17",
+        "text": "SH22B",
+        "x": 3144.5,
+        "y": 240.83,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_18",
+        "text": "SH22A",
+        "x": 3141.5,
+        "y": 269.65,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_19",
+        "text": "SH20C",
+        "x": 3139,
+        "y": 298.69,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_20",
+        "text": "SH20B",
+        "x": 3137.3,
+        "y": 327.73,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_21",
+        "text": "SH20A",
+        "x": 3135,
+        "y": 356.15,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_22",
+        "text": "SH18F",
+        "x": 3133.4,
+        "y": 385.51,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_23",
+        "text": "SH18E",
+        "x": 3132.6,
+        "y": 414.15,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_24",
+        "text": "SH18D",
+        "x": 3131.3,
+        "y": 443.94,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_25",
+        "text": "SH18C",
+        "x": 3129.2,
+        "y": 472.05,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_26",
+        "text": "SH18B",
+        "x": 3128.1,
+        "y": 501.71,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_27",
+        "text": "SH18A",
+        "x": 3125.8,
+        "y": 531.01,
+        "arrow": "west"
+      },
+      {
+        "id": "RL_28",
+        "text": "SHUNTING NECK CSL - 177M (SH TO DE)",
+        "x": 4850.4,
+        "y": 68.54,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_29",
+        "text": "SH(45.47)C",
+        "x": 4948.2,
+        "y": 370.1,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_30",
+        "text": "SH(45.47)D",
+        "x": 4980.2,
+        "y": 546.7,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_31",
+        "text": "SH45(A-D)",
+        "x": 3994.4,
+        "y": 509.63,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_32",
+        "text": "SH(33.35.37.39.41)",
+        "x": 3869.9,
+        "y": 401.12,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_33",
+        "text": "SH43",
+        "x": 3888.5,
+        "y": 531.52,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_34",
+        "text": "SH(29.31)",
+        "x": 4020.1,
+        "y": 358.02,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_35",
+        "text": "SH45D",
+        "x": 4206.7,
+        "y": 543.1,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_36",
+        "text": "SH(51.53)A",
+        "x": 4702.4,
+        "y": 68.51,
+        "arrow": "east"
+      },
+      {
+        "id": "RL_37",
+        "text": "SH(59.61)",
+        "x": 4329.4,
+        "y": 200.59,
+        "arrow": "west"
+      }
+    ],
+    "annotations": [
+      {
+        "id": "A_1",
+        "text": "TO SM/E CABIN",
+        "x": 2762.7,
+        "y": -241.36
+      },
+      {
+        "id": "A_2",
+        "text": "TO SM/DUMPER CABIN",
+        "x": 2781.4,
+        "y": -227.87
+      },
+      {
+        "id": "A_3",
+        "text": "DN / UP",
+        "x": 2978.8,
+        "y": -246.27
+      },
+      {
+        "id": "A_4",
+        "text": "TO SM / F CABIN",
+        "x": 2498.5,
+        "y": -220.82
+      },
+      {
+        "id": "A_5",
+        "text": "TO SM / VPT YARD",
+        "x": 2768.7,
+        "y": -257.33,
+        "tone": "line"
+      },
+      {
+        "id": "A_6",
+        "text": "IN S.M. OFFICE",
+        "x": 2622.1,
+        "y": -111.12
+      },
+      {
+        "id": "A_7",
+        "text": "TO UP CH: LOC-1,2,3,4,5,6",
+        "x": 2488.1,
+        "y": -350.44
+      },
+      {
+        "id": "A_8",
+        "text": "TO DN CH: LOC-1,2,3,4,5",
+        "x": 2782.7,
+        "y": -273.68
+      },
+      {
+        "id": "A_9",
+        "text": "TO DLS YARD",
+        "x": 2508.4,
+        "y": -174.6,
+        "tone": "line"
+      },
+      {
+        "id": "A_10",
+        "text": "VPT R&D YARD",
+        "x": 6977.5,
+        "y": 516.03,
+        "tone": "line"
+      },
+      {
+        "id": "A_11",
+        "text": "0.786KM (OEC YARD TO",
+        "x": 6975,
+        "y": 536.81
+      },
+      {
+        "id": "A_12",
+        "text": "VPT R&D YARD)",
+        "x": 6974,
+        "y": 548.14
+      },
+      {
+        "id": "A_13",
+        "text": "DN/UP",
+        "x": 6967.8,
+        "y": 572.32
+      },
+      {
+        "id": "A_14",
+        "text": "CONTROLS",
+        "x": 6591.4,
+        "y": 634.95
+      },
+      {
+        "id": "A_15",
+        "text": "OEC YARD /",
+        "x": 6499.3,
+        "y": 629.67
+      },
+      {
+        "id": "A_16",
+        "text": "'E' CABIN",
+        "x": 6802.9,
+        "y": 369.73,
+        "tone": "end"
+      },
+      {
+        "id": "A_17",
+        "text": "CONTROLS",
+        "x": 6809.7,
+        "y": 374.75
+      },
+      {
+        "id": "A_18",
+        "text": "OEC YARD",
+        "x": 6720,
+        "y": 371.31,
+        "tone": "line"
+      },
+      {
+        "id": "A_19",
+        "text": "CONTROLS",
+        "x": 6727.1,
+        "y": 383.41
+      },
+      {
+        "id": "A_20",
+        "text": "SH65A OF OEC",
+        "x": 6406.7,
+        "y": 321.28
+      },
+      {
+        "id": "A_21",
+        "text": "BY SLOT-3 OF E CABIN",
+        "x": 6428,
+        "y": 306.19
+      },
+      {
+        "id": "A_22",
+        "text": "SLOT-74 OF OEC TO E CABIN",
+        "x": 6540.8,
+        "y": 336.76
+      },
+      {
+        "id": "A_23",
+        "text": "BULB-XT",
+        "x": 6636.2,
+        "y": 324.53
+      },
+      {
+        "id": "A_24",
+        "text": "SLOT-41 OF DUMPER CABIN TO VPT YARD",
+        "x": 6430.2,
+        "y": 598.58,
+        "tone": "line"
+      },
+      {
+        "id": "A_25",
+        "text": "SH65B OF OEC.",
+        "x": 6211.5,
+        "y": 539.53
+      },
+      {
+        "id": "A_26",
+        "text": "BY SLOT-13 OF VPT YARD",
+        "x": 6245.8,
+        "y": 377.38,
+        "tone": "line"
+      },
+      {
+        "id": "A_27",
+        "text": "PORT OHC GATE",
+        "x": 5078.9,
+        "y": 585.24
+      },
+      {
+        "id": "A_28",
+        "text": "DIAMOND JN. NEAR",
+        "x": 5083,
+        "y": 569.41
+      },
+      {
+        "id": "A_29",
+        "text": "CONNECTING PORT",
+        "x": 4833.5,
+        "y": 538.67,
+        "tone": "end"
+      },
+      {
+        "id": "A_30",
+        "text": "1.034KM F/ R&D",
+        "x": 4821.5,
+        "y": 550.88
+      },
+      {
+        "id": "A_31",
+        "text": "WESTERN SECTOR",
+        "x": 4817.7,
+        "y": 538.67,
+        "tone": "end"
+      },
+      {
+        "id": "A_32",
+        "text": "EMPTY GRID",
+        "x": 4966.7,
+        "y": 355.47,
+        "tone": "line"
+      },
+      {
+        "id": "A_33",
+        "text": "LOAD GRID",
+        "x": 4824.3,
+        "y": 546.43,
+        "tone": "line"
+      },
+      {
+        "id": "A_34",
+        "text": "GOOMTY",
+        "x": 1265.5,
+        "y": 512.6
+      },
+      {
+        "id": "A_35",
+        "text": "CH: 5454 F/SCMN",
+        "x": 1250.7,
+        "y": 545.65
+      },
+      {
+        "id": "A_36",
+        "text": "K K LINE",
+        "x": 91.5,
+        "y": 504.3,
+        "tone": "line"
+      },
+      {
+        "id": "A_37",
+        "text": "ELS ENGINE LINE",
+        "x": 105.8,
+        "y": 532.82,
+        "tone": "line"
+      },
+      {
+        "id": "A_38",
+        "text": "0.984KM F/ OEC",
+        "x": 3990.6,
+        "y": 575.02
+      },
+      {
+        "id": "A_39",
+        "text": "CONNECTING PORT",
+        "x": 3977.1,
+        "y": 587.32,
+        "tone": "end"
+      },
+      {
+        "id": "A_40",
+        "text": "WESTERN SECTOR",
+        "x": 3991.6,
+        "y": 560.22,
+        "tone": "end"
+      },
+      {
+        "id": "A_41",
+        "text": "BY SLOT 5 OF 'F' CABIN",
+        "x": 498.5,
+        "y": 575.44
+      },
+      {
+        "id": "A_42",
+        "text": "LINE No.- 01",
+        "x": 2604.1,
+        "y": 241.75,
+        "tone": "line"
+      },
+      {
+        "id": "A_43",
+        "text": "LINE No.- 02",
+        "x": 2606.3,
+        "y": 271.33,
+        "tone": "line"
+      },
+      {
+        "id": "A_44",
+        "text": "LINE No.- 03",
+        "x": 2599.9,
+        "y": 300.54,
+        "tone": "line"
+      },
+      {
+        "id": "A_45",
+        "text": "LINE No.- 04",
+        "x": 2599.3,
+        "y": 329.37,
+        "tone": "line"
+      },
+      {
+        "id": "A_46",
+        "text": "LINE No.- 05",
+        "x": 2595.2,
+        "y": 358.66,
+        "tone": "line"
+      },
+      {
+        "id": "A_47",
+        "text": "LINE No.- 06",
+        "x": 2593.9,
+        "y": 387.39,
+        "tone": "line"
+      },
+      {
+        "id": "A_48",
+        "text": "LINE No.- 07",
+        "x": 2591.5,
+        "y": 416.37,
+        "tone": "line"
+      },
+      {
+        "id": "A_49",
+        "text": "LINE No.- 08",
+        "x": 2590.2,
+        "y": 445.93,
+        "tone": "line"
+      },
+      {
+        "id": "A_50",
+        "text": "LINE No.- 09",
+        "x": 2589.4,
+        "y": 474.02,
+        "tone": "line"
+      },
+      {
+        "id": "A_51",
+        "text": "LINE No.- 10",
+        "x": 2587.7,
+        "y": 504.28,
+        "tone": "line"
+      },
+      {
+        "id": "A_52",
+        "text": "LINE No.- 11",
+        "x": 2586.6,
+        "y": 532.16,
+        "tone": "line"
+      },
+      {
+        "id": "A_53",
+        "text": "VNCW/NAD SIDING LINE",
+        "x": 2982.9,
+        "y": 578.02,
+        "tone": "line"
+      },
+      {
+        "id": "A_54",
+        "text": "DLS YARD",
+        "x": 2562.5,
+        "y": 57.78,
+        "tone": "line"
+      },
+      {
+        "id": "A_55",
+        "text": "DLS INCOMING LINE",
+        "x": 2615.5,
+        "y": 64.14,
+        "tone": "line"
+      },
+      {
+        "id": "A_56",
+        "text": "STABLING LINE",
+        "x": 2606.2,
+        "y": 212.98,
+        "tone": "line"
+      },
+      {
+        "id": "A_57",
+        "text": "SHUNTING NECK - 140M (PT TO DE)",
+        "x": 3283.4,
+        "y": 74.67,
+        "tone": "line"
+      },
+      {
+        "id": "A_58",
+        "text": "SM / OEC YARD",
+        "x": 3227.7,
+        "y": 120.22,
+        "tone": "line"
+      },
+      {
+        "id": "A_59",
+        "text": "CH: 6130M",
+        "x": 3214.7,
+        "y": 183.71
+      },
+      {
+        "id": "A_60",
+        "text": "CSL - 541M (STR TO SB)",
+        "x": 2810.2,
+        "y": 66.28
+      },
+      {
+        "id": "A_61",
+        "text": "SHUNTING NECK CSL - 177M (SH TO DE)",
+        "x": 4850.4,
+        "y": 68.54,
+        "tone": "line"
+      },
+      {
+        "id": "A_62",
+        "text": "OEC SHUNTING NECK",
+        "x": 5274.5,
+        "y": 86.1,
+        "tone": "line"
+      },
+      {
+        "id": "A_63",
+        "text": "CSL- 772M (SH TO SS)",
+        "x": 5549.5,
+        "y": 117.05
+      },
+      {
+        "id": "A_64",
+        "text": "OEC COVER SHED",
+        "x": 3873,
+        "y": 64.84
+      },
+      {
+        "id": "A_65",
+        "text": "DN CH.",
+        "x": 5681.2,
+        "y": 597.94
+      },
+      {
+        "id": "A_66",
+        "text": "LOC.- 5",
+        "x": 5691,
+        "y": 613.08
+      },
+      {
+        "id": "A_67",
+        "text": "SH4A OF OEC.",
+        "x": 5465.6,
+        "y": 573.4
+      },
+      {
+        "id": "A_68",
+        "text": "SH2B OF DUMPER CABIN.",
+        "x": 5402.5,
+        "y": 305.99
+      },
+      {
+        "id": "A_69",
+        "text": "BULB LINE",
+        "x": 5238.3,
+        "y": 331.67,
+        "tone": "line"
+      },
+      {
+        "id": "A_70",
+        "text": "WESTERN SECTOR LINE",
+        "x": 2647.9,
+        "y": 560.36,
+        "tone": "line"
+      },
+      {
+        "id": "A_71",
+        "text": "CSL -642.5M (STR. TO SS.)",
+        "x": 2838.2,
+        "y": 505.57
+      },
+      {
+        "id": "A_72",
+        "text": "CSL - 531.9M (STR. TO SS.)",
+        "x": 2836.6,
+        "y": 534.67
+      },
+      {
+        "id": "A_73",
+        "text": "CSL - 735.7M (STR. TO SS.)",
+        "x": 2840,
+        "y": 475.88
+      },
+      {
+        "id": "A_74",
+        "text": "CSL - 740.9M (STR. TO SS.)",
+        "x": 2841,
+        "y": 446.77
+      },
+      {
+        "id": "A_75",
+        "text": "CSL - 770M (STR. TO SS.)",
+        "x": 2838.9,
+        "y": 417.46
+      },
+      {
+        "id": "A_76",
+        "text": "CSL - 808M (STR. TO SS.)",
+        "x": 2841.4,
+        "y": 388.26
+      },
+      {
+        "id": "A_77",
+        "text": "CSL - 737M (STR. TO SS.)",
+        "x": 2841,
+        "y": 360.19
+      },
+      {
+        "id": "A_78",
+        "text": "CSL - 737M (STR. TO SS.)",
+        "x": 2842.8,
+        "y": 331.51
+      },
+      {
+        "id": "A_79",
+        "text": "CSL - 745M (STR. TO SS,)",
+        "x": 2844.6,
+        "y": 302.67
+      },
+      {
+        "id": "A_80",
+        "text": "CSL - 766M (STR. TO SS.)",
+        "x": 2845.9,
+        "y": 273.23
+      },
+      {
+        "id": "A_81",
+        "text": "CSL - 734M (STR. TO SS.)",
+        "x": 2849.4,
+        "y": 242.78
+      },
+      {
+        "id": "A_82",
+        "text": "CSL - 311M (SIG. TO DE)",
+        "x": 2848.4,
+        "y": 213.23
+      },
+      {
+        "id": "A_83",
+        "text": "UP CH. LOC.-4",
+        "x": 1979.3,
+        "y": 822.23
+      },
+      {
+        "id": "A_84",
+        "text": "UP CH. LOC.-5",
+        "x": 1979.3,
+        "y": 805.43
+      },
+      {
+        "id": "A_85",
+        "text": "UP CH. LOC.-5",
+        "x": 1979.3,
+        "y": 788.63
+      },
+      {
+        "id": "A_86",
+        "text": "UP CH. LOC.-2",
+        "x": 1979.3,
+        "y": 839.03
+      },
+      {
+        "id": "A_87",
+        "text": "UP CH. LOC.-3",
+        "x": 1979.3,
+        "y": 855.83
+      },
+      {
+        "id": "A_88",
+        "text": "UP CH. LOC.-1",
+        "x": 1979.3,
+        "y": 872.63
+      },
+      {
+        "id": "A_89",
+        "text": "DN CH. LOC.-2",
+        "x": 1979.6,
+        "y": 923.6
+      },
+      {
+        "id": "A_90",
+        "text": "DN CH. LOC.-4",
+        "x": 1978.9,
+        "y": 940.96
+      },
+      {
+        "id": "A_91",
+        "text": "DN CH. LOC.-4",
+        "x": 1978.9,
+        "y": 973.56
+      },
+      {
+        "id": "A_92",
+        "text": "DN CH. LOC.-3",
+        "x": 1978.9,
+        "y": 989.46
+      },
+      {
+        "id": "A_93",
+        "text": "DN CH. LOC.-1",
+        "x": 1979.6,
+        "y": 889.4
+      },
+      {
+        "id": "A_94",
+        "text": "DN CH. LOC.-4",
+        "x": 1978.9,
+        "y": 957.76
+      },
+      {
+        "id": "A_95",
+        "text": "DN CH. LOC.-5",
+        "x": 1978.9,
+        "y": 1006.26
+      },
+      {
+        "id": "A_96",
+        "text": "LINE No.- 13",
+        "x": 3771,
+        "y": 205.79,
+        "tone": "line"
+      },
+      {
+        "id": "A_97",
+        "text": "LINE No.- 14",
+        "x": 3785.2,
+        "y": 172.95,
+        "tone": "line"
+      },
+      {
+        "id": "A_98",
+        "text": "LINE No.- 15",
+        "x": 3799.3,
+        "y": 144.03,
+        "tone": "line"
+      },
+      {
+        "id": "A_99",
+        "text": "LINE No.- 16",
+        "x": 3813.4,
+        "y": 115,
+        "tone": "line"
+      },
+      {
+        "id": "A_100",
+        "text": "LINE No.- 17",
+        "x": 3827.6,
+        "y": 85.96,
+        "tone": "line"
+      },
+      {
+        "id": "A_101",
+        "text": "LINE No.- 18",
+        "x": 3837.2,
+        "y": 68.66,
+        "tone": "line"
+      },
+      {
+        "id": "A_102",
+        "text": "CSL - 217.64M (SH TO DE)",
+        "x": 3929.7,
+        "y": 97.33
+      },
+      {
+        "id": "A_103",
+        "text": "CSL - 271.86M (SH TO DE)",
+        "x": 3909.2,
+        "y": 142.38
+      },
+      {
+        "id": "A_104",
+        "text": "CSL - 216.6M (SH TO DE)",
+        "x": 3880.7,
+        "y": 199.51
+      },
+      {
+        "id": "A_105",
+        "text": "CSL - 223.6M (SH TO DE)",
+        "x": 3865.9,
+        "y": 215.67
+      },
+      {
+        "id": "A_106",
+        "text": "CSL - 218.64M (SH TO DE)",
+        "x": 3921.4,
+        "y": 115.49
+      },
+      {
+        "id": "A_107",
+        "text": "CSL - 271.86M (SH TO DE)",
+        "x": 3894.5,
+        "y": 171.56
+      },
+      {
+        "id": "A_108",
+        "text": "UP CH.",
+        "x": 650.8,
+        "y": 554.04
+      },
+      {
+        "id": "A_109",
+        "text": "LOC.- 5",
+        "x": 651.8,
+        "y": 565.18
+      },
+      {
+        "id": "A_110",
+        "text": "UP CH.",
+        "x": 1007,
+        "y": 327.63
+      },
+      {
+        "id": "A_111",
+        "text": "LOC.- 4",
+        "x": 1006.8,
+        "y": 338.95
+      },
+      {
+        "id": "A_112",
+        "text": "UP CH.",
+        "x": 1210.4,
+        "y": 534.67
+      },
+      {
+        "id": "A_113",
+        "text": "LOC.- 3",
+        "x": 1205.4,
+        "y": 509.67
+      },
+      {
+        "id": "A_114",
+        "text": "UP CH.",
+        "x": 2019.2,
+        "y": 570.53
+      },
+      {
+        "id": "A_115",
+        "text": "LOC.-1",
+        "x": 2017.4,
+        "y": 581.8
+      },
+      {
+        "id": "A_116",
+        "text": "UP CH.",
+        "x": 1348.9,
+        "y": 189.3
+      },
+      {
+        "id": "A_117",
+        "text": "LOC.- 2",
+        "x": 1348.8,
+        "y": 200.59
+      },
+      {
+        "id": "A_118",
+        "text": "DN CH.",
+        "x": 3738.1,
+        "y": 215.67
+      },
+      {
+        "id": "A_119",
+        "text": "LOC.- 1",
+        "x": 3732.2,
+        "y": 190.67
+      },
+      {
+        "id": "A_120",
+        "text": "DN CH.",
+        "x": 4481.4,
+        "y": 26.02
+      },
+      {
+        "id": "A_121",
+        "text": "LOC.- 3",
+        "x": 4479.9,
+        "y": 37.92
+      },
+      {
+        "id": "A_122",
+        "text": "DN CH.",
+        "x": 3818.5,
+        "y": 563.67
+      },
+      {
+        "id": "A_123",
+        "text": "LOC.-2",
+        "x": 3816.7,
+        "y": 563.67
+      },
+      {
+        "id": "A_124",
+        "text": "DN CH.",
+        "x": 4640.3,
+        "y": 568.77
+      },
+      {
+        "id": "A_125",
+        "text": "LOC.- 4",
+        "x": 4640,
+        "y": 580.19
+      },
+      {
+        "id": "A_126",
+        "text": "BY SLOT 1 OF 'F' CABIN",
+        "x": 758.9,
+        "y": 336.46
+      },
+      {
+        "id": "A_127",
+        "text": "'F' CABIN YARD",
+        "x": 91.8,
+        "y": 340.81,
+        "tone": "line"
+      },
+      {
+        "id": "A_128",
+        "text": "SLOTTED BY 'X' OF 'F' CABIN",
+        "x": 377.5,
+        "y": 598.63
+      },
+      {
+        "id": "A_129",
+        "text": "LHS VM-1",
+        "x": 305.4,
+        "y": 319.8
+      },
+      {
+        "id": "A_130",
+        "text": "NORMALLY OPEN TO ROAD TRAFFIC)",
+        "x": 6867.8,
+        "y": 490.94
+      },
+      {
+        "id": "A_131",
+        "text": "BULB LINE",
+        "x": 6244.3,
+        "y": 323.95,
+        "tone": "line"
+      },
+      {
+        "id": "A_132",
+        "text": "OEC YARD",
+        "x": 469.8,
+        "y": 206.74,
+        "tone": "line"
+      },
+      {
+        "id": "A_133",
+        "text": "CONTROLS",
+        "x": 472.4,
+        "y": 218.47
+      },
+      {
+        "id": "A_134",
+        "text": "'F' CABIN",
+        "x": 395.6,
+        "y": 208.22
+      },
+      {
+        "id": "A_135",
+        "text": "CONTROLS",
+        "x": 407.4,
+        "y": 220.45
+      },
+      {
+        "id": "A_136",
+        "text": "'E' CABIN",
+        "x": 6809.3,
+        "y": 291.7,
+        "tone": "end"
+      },
+      {
+        "id": "A_137",
+        "text": "HP",
+        "x": 3107.8,
+        "y": 60.87
+      },
+      {
+        "id": "A_138",
+        "text": "BY SLOT 72 OF OEC",
+        "x": 6075,
+        "y": 625.71
+      },
+      {
+        "id": "A_139",
+        "text": "WHEN 102R",
+        "x": 6058.5,
+        "y": 643.99
+      },
+      {
+        "id": "A_140",
+        "text": "WHEN 104R",
+        "x": 5962.7,
+        "y": 300.38
+      },
+      {
+        "id": "A_141",
+        "text": "BY SLOT-13 OF VPT YARD",
+        "x": 5599.6,
+        "y": 146.18,
+        "tone": "line"
+      },
+      {
+        "id": "A_142",
+        "text": "WHEN 102R",
+        "x": 5559.9,
+        "y": 156.18
+      },
+      {
+        "id": "A_143",
+        "text": "BY SLOT-3 OF",
+        "x": 5489.4,
+        "y": 143.55
+      },
+      {
+        "id": "A_144",
+        "text": "'E' CABIN",
+        "x": 5443.3,
+        "y": 156.81,
+        "tone": "end"
+      },
+      {
+        "id": "A_145",
+        "text": "DUMPER",
+        "x": 5473,
+        "y": 700.74
+      },
+      {
+        "id": "A_146",
+        "text": "CABIN",
+        "x": 5497.3,
+        "y": 706.48
+      },
+      {
+        "id": "A_147",
+        "text": "SIGNAL LEVERS - 1, 2, 4",
+        "x": 5558.9,
+        "y": 758.92
+      },
+      {
+        "id": "A_148",
+        "text": "ECoR LINE",
+        "x": 81.1,
+        "y": 359.56,
+        "tone": "line"
+      },
+      {
+        "id": "A_149",
+        "text": "CABIN CH: 6553M",
+        "x": 4391.3,
+        "y": -34.11
+      },
+      {
+        "id": "A_150",
+        "text": "HP",
+        "x": 2645.4,
+        "y": 34.9
+      },
+      {
+        "id": "A_151",
+        "text": "12M",
+        "x": 1302.2,
+        "y": 525.97
+      },
+      {
+        "id": "A_152",
+        "text": "BY SLOT 'X' OF 'F' CABIN",
+        "x": 814.6,
+        "y": 598.92
+      },
+      {
+        "id": "A_153",
+        "text": "SLOT 75 TO F CABIN",
+        "x": 513.7,
+        "y": 356.09
+      },
+      {
+        "id": "A_154",
+        "text": "SLOT 73  TO F CABIN",
+        "x": 396.3,
+        "y": 505.27
+      },
+      {
+        "id": "A_155",
+        "text": "SLOT 5 TO OEC YD",
+        "x": 205.8,
+        "y": 521.21
+      },
+      {
+        "id": "A_156",
+        "text": "SLOT 1 TO OEC YD",
+        "x": 195.9,
+        "y": 492.21
+      },
+      {
+        "id": "A_157",
+        "text": "LEVERS AT DUMPER CABIN",
+        "x": 5535.7,
+        "y": 717.87
+      },
+      {
+        "id": "A_158",
+        "text": "CSL - 720M (MIN) (STR. TO SS.)",
+        "x": 2843.1,
+        "y": 562.97
+      },
+      {
+        "id": "A_159",
+        "text": "BY SLOT 3 OF E CABIN WHEN 104R",
+        "x": 5432.8,
+        "y": 326.33
+      },
+      {
+        "id": "A_160",
+        "text": "BY SLOT 13 OF VPT",
+        "x": 5457.2,
+        "y": 554.13
+      },
+      {
+        "id": "A_161",
+        "text": "SH1B OF DUMPER",
+        "x": 6366.3,
+        "y": 566.55
+      },
+      {
+        "id": "A_162",
+        "text": "BY SLOT- 13 OF VPT YARD",
+        "x": 6384.4,
+        "y": 561.47,
+        "tone": "line"
+      },
+      {
+        "id": "A_163",
+        "text": "SH1A OF DUMPER",
+        "x": 6512,
+        "y": 319.79
+      },
+      {
+        "id": "A_164",
+        "text": "BY SLOT-3 OF E CABIN",
+        "x": 6526.4,
+        "y": 307.53
+      },
+      {
+        "id": "A_165",
+        "text": "BY SLOT 43",
+        "x": 5469.5,
+        "y": 606.75
+      },
+      {
+        "id": "A_166",
+        "text": "BY SLOT 72 OF OEC",
+        "x": 5432.4,
+        "y": 156.09
+      },
+      {
+        "id": "A_167",
+        "text": "SLOT LEVERS - 41,43,45",
+        "x": 5560.8,
+        "y": 771.41
+      },
+      {
+        "id": "A_168",
+        "text": "OF DUMPER CABIN",
+        "x": 5493.4,
+        "y": 613.64
+      },
+      {
+        "id": "A_169",
+        "text": "SH2A OF DUMPER CABIN",
+        "x": 5375.7,
+        "y": 563.67
+      },
+      {
+        "id": "A_170",
+        "text": "TO SM/WESTERN SECTOR",
+        "x": 2788.9,
+        "y": -211.27
+      },
+      {
+        "id": "A_171",
+        "text": "TOTAL No. OF LEVERS - 45",
+        "x": 5553.4,
+        "y": 739.97
+      },
+      {
+        "id": "A_172",
+        "text": "POINT 102A/B & 104A/B ARE",
+        "x": 5719.9,
+        "y": 38.24
+      },
+      {
+        "id": "A_173",
+        "text": "CONTROLLED BY SLOT 45 OF DUMPER CABIN",
+        "x": 5759.1,
+        "y": 39.63
+      },
+      {
+        "id": "A_174",
+        "text": "BY SLOT 43 OF DUMPER CABIN",
+        "x": 6016.3,
+        "y": 146.66
+      },
+      {
+        "id": "A_175",
+        "text": "INTERLOCKED L.C GATE",
+        "x": 6849.3,
+        "y": 452.81
+      },
+      {
+        "id": "A_176",
+        "text": "CONTROLLED BY -299",
+        "x": 6847.9,
+        "y": 463.64
+      },
+      {
+        "id": "A_177",
+        "text": "(ELECTRICALLY OPERATED)",
+        "x": 6857.5,
+        "y": 476.13
+      },
+      {
+        "id": "A_178",
+        "text": "TO SM/OEC",
+        "x": 5561.5,
+        "y": 854.75
+      },
+      {
+        "id": "A_179",
+        "text": "TO SM/VPT",
+        "x": 5709.9,
+        "y": 982.04
+      },
+      {
+        "id": "A_180",
+        "text": "TO SM/WESTERN SECTOR",
+        "x": 5540.3,
+        "y": 857.06
+      },
+      {
+        "id": "A_181",
+        "text": "IN S.M. OFFICE",
+        "x": 5632.7,
+        "y": 1019.51
+      },
+      {
+        "id": "A_182",
+        "text": "TO SM/OEC",
+        "x": 5514.3,
+        "y": 859.95
+      },
+      {
+        "id": "A_183",
+        "text": "(CONT BY 45)",
+        "x": 5553.9,
+        "y": 969.79
+      },
+      {
+        "id": "A_184",
+        "text": "KEY A",
+        "x": 5547.4,
+        "y": 952.71
+      },
+      {
+        "id": "A_185",
+        "text": "OF DUMPER CABIN",
+        "x": 5635.7,
+        "y": 1033.4
+      },
+      {
+        "id": "A_186",
+        "text": "MEGHADRIPETA Fly over",
+        "x": 804.6,
+        "y": 251.47
+      },
+      {
+        "id": "A_187",
+        "text": "CH: 5285.84 F/SCMN",
+        "x": 817.5,
+        "y": 261.25
+      },
+      {
+        "id": "A_188",
+        "text": "UP CH. LOC.-2",
+        "x": 1979.3,
+        "y": 1023.13
+      },
+      {
+        "id": "A_189",
+        "text": "SLOT 79  TO F CABIN",
+        "x": 199.5,
+        "y": 539.8
+      },
+      {
+        "id": "A_190",
+        "text": "DUMPER",
+        "x": 5544.9,
+        "y": 350.93
+      },
+      {
+        "id": "A_191",
+        "text": "CABIN",
+        "x": 5560.3,
+        "y": 551.8
+      },
+      {
+        "id": "A_192",
+        "text": "SPARE LEVERS: 3.5.40.42.44.",
+        "x": 5586,
+        "y": 786.42
+      },
+      {
+        "id": "A_193",
+        "text": "S.B.",
+        "x": 2474.6,
+        "y": 224
+      },
+      {
+        "id": "A_194",
+        "text": "BY SLOT-5",
+        "x": 2169.6,
+        "y": 566.7
+      },
+      {
+        "id": "A_195",
+        "text": "BY SLOT-5",
+        "x": 1827.3,
+        "y": 486.07
+      },
+      {
+        "id": "A_196",
+        "text": "BY SLOT-5 OF F-CABIN",
+        "x": 1954.6,
+        "y": 318.72
+      },
+      {
+        "id": "A_197",
+        "text": "BY SLOT-1 OF F-CABIN",
+        "x": 1983.9,
+        "y": 342.18
+      },
+      {
+        "id": "A_198",
+        "text": "BY SLOT-1 OF F-CABIN",
+        "x": 1869.3,
+        "y": 400.92
+      },
+      {
+        "id": "A_199",
+        "text": "BY SLOT-5 OF F-CABIN",
+        "x": 1869.7,
+        "y": 413.34
+      },
+      {
+        "id": "A_200",
+        "text": "BY SLOT-5 OF F-CABIN",
+        "x": 1636.6,
+        "y": 360.67
+      },
+      {
+        "id": "A_201",
+        "text": "BY SLOT-1 OF F-CABIN",
+        "x": 1732.3,
+        "y": 393.67
+      },
+      {
+        "id": "A_202",
+        "text": "BY SLOT-5 OF F-CABIN",
+        "x": 1481.6,
+        "y": 509.67
+      },
+      {
+        "id": "A_203",
+        "text": "BY SLOT-5 OF F-CABIN",
+        "x": 1207.6,
+        "y": 509.67
+      },
+      {
+        "id": "A_204",
+        "text": "BY SLOT-5 OF F-CABIN",
+        "x": 1527.9,
+        "y": 55.95
+      },
+      {
+        "id": "A_205",
+        "text": "BY SLOT-1 OF F-CABIN",
+        "x": 1648.9,
+        "y": 84.24
+      }
+    ],
+    "breaks": [],
+    "connectionJoints": [
+      {
+        "connectionId": "C103",
+        "x": 513,
+        "y": 523.33
+      },
+      {
+        "connectionId": "C111",
+        "x": 946.4,
+        "y": 443.41
+      },
+      {
+        "connectionId": "C135",
+        "x": 1780.9,
+        "y": 522.39
+      },
+      {
+        "connectionId": "C114",
+        "x": 4527.8,
+        "y": 98.6
+      },
+      {
+        "connectionId": "C104",
+        "x": 5628.6,
+        "y": 441.37
+      },
+      {
+        "connectionId": "C102",
+        "x": 5870,
+        "y": 473.59
+      },
+      {
+        "connectionId": "C108",
+        "x": 4688.2,
+        "y": 449.78
+      },
+      {
+        "connectionId": "C120",
+        "x": 4429,
+        "y": 275.18
+      },
+      {
+        "connectionId": "C126",
+        "x": 4136.1,
+        "y": 452.51
+      }
+    ]
+  },
+  "info": {
+    "titleBlock": [
+      {
+        "label": "Title",
+        "value": "SIGNAL INTERLOCKING PLAN (ELECTRONIC INTERLOCKING)"
+      },
+      {
+        "label": "Station",
+        "value": "OEC YARD (TERMINAL YARD)"
+      },
+      {
+        "label": "Yard",
+        "value": "OEC YARD OF WALTAIR MARSHALLING YARD"
+      },
+      {
+        "label": "SIP No.",
+        "value": "No:SIP.ECoR.WAT.OEC.01"
+      },
+      {
+        "label": "Zone",
+        "value": "ECoR"
+      },
+      {
+        "label": "Division",
+        "value": "WAT"
+      },
+      {
+        "label": "Station code",
+        "value": "-- (the STATION CODE box is not filled in; OEC is taken from the SIP number and the yard name)"
+      },
+      {
+        "label": "Class",
+        "value": "'SPL' CLASS (note 11: SPECIAL CLASS STATION)"
+      },
+      {
+        "label": "Standard",
+        "value": "I"
+      },
+      {
+        "label": "KM",
+        "value": "6130M F/SCMN"
+      },
+      {
+        "label": "Scale",
+        "value": "HORIZONTAL 1:1000, VERTICAL 1:500"
+      },
+      {
+        "label": "PCSTE's reference No.",
+        "value": "/24 (number not filled in)"
+      },
+      {
+        "label": "Checked (executing agency)",
+        "value": "ASTE/P-II/VSKP (G.V.V.S.D.E.E.P.K.YADAV); DY CSTE/P/VSKP (S SRINIVASA RAO)"
+      },
+      {
+        "label": "Checked",
+        "value": "SSE/DRG/BBS (B.PRADHAN); ASTE/D&D/BBS (S SETHI); SSTE/P&D-II/BBS (S.N. PRASAD); DY CSTE/D&D/BBS (R.K. JHA)"
+      },
+      {
+        "label": "Counter signed",
+        "value": "CTPM/ECoR/BBS (SHAMMAS HAMEED)"
+      },
+      {
+        "label": "Approved",
+        "value": "CSTE(P-II)/ECoR/BBS (T LAHIRI)"
+      },
+      {
+        "label": "Name of the work",
+        "value": "PROVISION OF SIGNALLING ARRANGEMENT FOR REMODELLING OF OEC YARD PART OF WALTAIR MARSHALLING YARD"
+      },
+      {
+        "label": "Reference",
+        "value": "NEW SIP"
+      },
+      {
+        "label": "Executing agency",
+        "value": "GSU/WAT"
+      },
+      {
+        "label": "Engineering plan No.",
+        "value": "C.E's DRG. No. 5231/22 SHEET No.2/4"
+      },
+      {
+        "label": "Pink book item",
+        "value": "No. 459 OF 2022-2023"
+      },
+      {
+        "label": "Signed by field officials",
+        "value": "SSE/SIG/P/VSKP, SSE/P-WAY/MYD, CDTI/SWR/VSKP, ASTE/P-II/VSKP, AEN/MYD, DOM/WAT"
+      }
+    ],
+    "lines": [
+      {
+        "track": "L1",
+        "lineNo": 1,
+        "name": "LINE No.- 01",
+        "csl": "CSL - 734M (STR. TO SS.)",
+        "cslM": 734
+      },
+      {
+        "track": "L2",
+        "lineNo": 2,
+        "name": "LINE No.- 02",
+        "csl": "CSL - 766M (STR. TO SS.)",
+        "cslM": 766
+      },
+      {
+        "track": "L3",
+        "lineNo": 3,
+        "name": "LINE No.- 03",
+        "csl": "CSL - 745M (STR. TO SS,)",
+        "cslM": 745
+      },
+      {
+        "track": "L4",
+        "lineNo": 4,
+        "name": "LINE No.- 04",
+        "csl": "CSL - 737M (STR. TO SS.)",
+        "cslM": 737
+      },
+      {
+        "track": "L5",
+        "lineNo": 5,
+        "name": "LINE No.- 05",
+        "csl": "CSL - 737M (STR. TO SS.)",
+        "cslM": 737
+      },
+      {
+        "track": "L6",
+        "lineNo": 6,
+        "name": "LINE No.- 06",
+        "csl": "CSL - 808M (STR. TO SS.)",
+        "cslM": 808
+      },
+      {
+        "track": "L7",
+        "lineNo": 7,
+        "name": "LINE No.- 07",
+        "csl": "CSL - 770M (STR. TO SS.)",
+        "cslM": 770
+      },
+      {
+        "track": "L8",
+        "lineNo": 8,
+        "name": "LINE No.- 08",
+        "csl": "CSL - 740.9M (STR. TO SS.)",
+        "cslM": 740.9
+      },
+      {
+        "track": "L9",
+        "lineNo": 9,
+        "name": "LINE No.- 09",
+        "csl": "CSL - 735.7M (STR. TO SS.)",
+        "cslM": 735.7
+      },
+      {
+        "track": "L10",
+        "lineNo": 10,
+        "name": "LINE No.- 10",
+        "csl": "CSL -642.5M (STR. TO SS.)",
+        "cslM": 642.5
+      },
+      {
+        "track": "L11",
+        "lineNo": 11,
+        "name": "LINE No.- 11",
+        "csl": "CSL - 531.9M (STR. TO SS.)",
+        "cslM": 531.9
+      },
+      {
+        "track": "T08",
+        "lineNo": 0,
+        "name": "WESTERN SECTOR LINE",
+        "csl": "CSL - 720M (MIN) (STR. TO SS.)",
+        "cslM": 720
+      },
+      {
+        "track": "T04",
+        "lineNo": 0,
+        "name": "DLS INCOMING LINE",
+        "csl": "CSL - 541M (STR TO SB)",
+        "cslM": 541
+      },
+      {
+        "track": "T06",
+        "lineNo": 0,
+        "name": "STABLING LINE",
+        "csl": "CSL - 311M (SIG. TO DE)",
+        "cslM": 311
+      },
+      {
+        "track": "L13",
+        "lineNo": 13,
+        "name": "LINE No.- 13",
+        "csl": "CSL - 223.6M (SH TO DE)",
+        "cslM": 223.6
+      },
+      {
+        "track": "L14",
+        "lineNo": 14,
+        "name": "LINE No.- 14",
+        "csl": "CSL - 216.6M (SH TO DE)",
+        "cslM": 216.6
+      },
+      {
+        "track": "L15",
+        "lineNo": 15,
+        "name": "LINE No.- 15",
+        "csl": "CSL - 271.86M (SH TO DE)",
+        "cslM": 271.86
+      },
+      {
+        "track": "L16",
+        "lineNo": 16,
+        "name": "LINE No.- 16",
+        "csl": "CSL - 271.86M (SH TO DE)",
+        "cslM": 271.86
+      },
+      {
+        "track": "L17",
+        "lineNo": 17,
+        "name": "LINE No.- 17",
+        "csl": "CSL - 218.64M (SH TO DE)",
+        "cslM": 218.64
+      },
+      {
+        "track": "L18",
+        "lineNo": 18,
+        "name": "LINE No.- 18",
+        "csl": "CSL - 217.64M (SH TO DE)",
+        "cslM": 217.64
+      },
+      {
+        "track": "T10",
+        "lineNo": 0,
+        "name": "OEC SHUNTING NECK",
+        "csl": "CSL- 772M (SH TO SS)",
+        "cslM": 772
+      },
+      {
+        "track": "T11",
+        "lineNo": 0,
+        "name": "SHUNTING NECK CSL - 177M (SH TO DE)",
+        "csl": "CSL - 177M (SH TO DE)",
+        "cslM": 177
+      },
+      {
+        "track": "T05",
+        "lineNo": 0,
+        "name": "SHUNTING NECK - 140M (PT TO DE)",
+        "csl": "SHUNTING NECK - 140M (PT TO DE)",
+        "cslM": 140
+      }
+    ],
+    "legend": [
+      {
+        "id": "MSDAC",
+        "title": "MSDAC",
+        "text": "MULTISECTION DIGITAL AXLE COUNTER (SINGLE DETECTION). Symbol: two double circles on a stem across the rail; labelled OEn / NDn.",
+        "printed": true
+      },
+      {
+        "id": "STOP",
+        "title": "STOP UNTILL PILOTED",
+        "text": "Board: box with a cross and four small circles on a post.",
+        "printed": true
+      }
+    ],
+    "notes": [
+      {
+        "no": "1",
+        "text": "THE SIGNALLING ARRANGEMENT IS SUITABLE FOR 25KV AC TRACTION."
+      },
+      {
+        "no": "2",
+        "text": "ALL SIGNAL LAMPS ARE OF LED TYPE."
+      },
+      {
+        "no": "3",
+        "text": "ALL CHAINAGES ARE SHOWN WITH RESPECT TO CENTRE LINE OF SCMN STATION BUILDING (CSB) AS 0.00M."
+      },
+      {
+        "no": "4",
+        "text": "ALL POINTS ARE 1 IN 8 1/2 CS."
+      },
+      {
+        "no": "5",
+        "text": "ALL POINTS ARE MOTOR OPERATED, EXCEPT OTHERWISE INDICATED."
+      },
+      {
+        "no": "6",
+        "text": "OPERATION OF E.I. IS THROUGH DUAL VDU."
+      },
+      {
+        "no": "7",
+        "text": "`ON' ASPECT OF UP HOME & DN STR. SIGNALS ARE TO BE PROVED IN RESPECTIVE SLOT CIRCUITS."
+      },
+      {
+        "no": "8",
+        "text": "AS PER IRSEM/2021, PARA 17.7.5, FOR MSDAC, ZONE VERIFICATION BUTTON'S PROVIDED AT SITE IN LINE VERFICATION BOX / CRANK HANDLE BOX, INSTALLED NEAR THE AXLE COUNTER ZONE. DURING FAILURE OF MSDAC IN STATION YARD, THE RESETTING SHALL BE COOPERATIVE AND DONE JOINTLY BY THE ON DUTY ASM ALONG WITH ANOTHER OPERATING STAFF, WHO SHALL VERIFY PHYSICAL CLEARANCE OF LINE AND PRESS THE ZONE VERIFICATION BUTTON FOR THE FAILED TRACK SECTION OF AXLE COUNTER."
+      },
+      {
+        "no": "9",
+        "text": "DURING FAILURE OF MSDAC BETWEEN OEC- E CABIN BLOCK SECTION, SM/OEC WILL RESET THE 'MSDAC' AFTER RECEIVING THE RESET-PERMISSION FROM SM/'E' CABIN, AFTER ENSURING THAT NO TRAIN IS AVAILABLE IN THE BLOCK SECTION."
+      },
+      {
+        "no": "10",
+        "text": "ALL STARTER/SHUNT SIGNALS ARE PLACED AT 3M FROM CONCERNED AXLE COUNTER DETECTION DEVICE & 3 SEC TIME DELAY TO BE PROVIDED IN HR CIRCUIT AS PER RAILWAY BOARD LETTER No. 2012/SIG/SEM-II/MISC, DT 10.10.2012."
+      },
+      {
+        "no": "11",
+        "text": "VIDE S.R -1.03.01(a) OEC YARD IS A 'SPECIAL CLASS STATION'."
+      },
+      {
+        "no": "12",
+        "text": "SLOT GRANTED OR RECEIVED SHALL PROVE DESTINATION SIGNAL NO LIGHT PROTECTION."
+      },
+      {
+        "no": "13",
+        "text": "FOR EVERY SLOT GRANTED OR RECEIVED IT SHOULD BE SUPPORTED WITH PN NUMBER EXCHANGE BETWEEN THE CONCERNED SM'S."
+      },
+      {
+        "no": "14",
+        "text": "ONCE SLOT IS GRANTED BY SM/OEC, DURING ITS WITHDRAWL IT SHOULD BE SUPPORTED WITH DEAD APPROACH LOCKING OF 120 SECONDS."
+      },
+      {
+        "no": "15",
+        "text": "PCOM/ECOR/BBS's SPECIAL INSTRUCTION IS OBTAINED VIDE NO. ECOR/OPTG/SC/55/XV/Spl.Inst/WMY, DATED-23.12.2021, THAT ''FOR SHUNTING MOVEMENTS ON NON-ISOLATED LINES, 120 METERS GAP BETWEEN THE PATH OF TRAINS IS NOT REQUIRED IN TERMS WITH RLY BOARD'S LETTER NO.2008/SAFETY(A&R)/19/5. DTD.14.05.2010 AND AS PER SUBSIDIARY RULES SR.5.16.01 OF EAST COAST RAILWAY''."
+      },
+      {
+        "no": "16",
+        "text": "PCOM/ECOR/BBS'S/SPECIAL INSTRUCTIONS OBTAINED VIDE ECOR/OPTG/SC/55/XV/Spl.Inst/WMY, DATED-23.12.2021, IN TERMS OF GR 3.47, FOR ALLOWING SIMULTANEOUS RECEPTION OR DISPATCH OF TRAINS WHEN TWO OR MORE TRAINS ARE APPROACHING SIMULTANEOUSLY FROM ANY DIRECTION, KEEPING 120MTRS OF PHYSICAL SEPERATION BEING A GOODS YARD."
+      },
+      {
+        "no": "17",
+        "text": "AS PER PCOM/ECOR/BBS's SPECIAL INSTRUCTION IS OBTAINED VIDE ECOR/OPTG/SC/55/XV/Spl.Inst/WMY, DATED-23.12.2021, THIS YARD IS TERMED AS TERMINAL YARD WITH 15KMPH RESTICTION, HENCE ADEQUATE SIGNAL OVERLAP FOR RECEPTION OF TRAINS ARE DISPENSED WITH IN TERMS OF G.R. 3.40(I)."
+      },
+      {
+        "no": "18",
+        "text": "THE MOVEMENTS TO/FROM OEC AND WESTERN SECTOR CONNECTING LINE WILL BE THROUGH PN EXCHANGE AFTER ENSURING NO TRAIN IN THE SECTION BY SM/OEC AND SM/WESTERN SECTOR."
+      },
+      {
+        "no": "19",
+        "text": "FOR DISPATCHING TRAINS FROM LOAD GRID & EMPTY GRID TO DUMPER CABIN, WILL BE DONE THROUGH PN EXCHANGE AFTER ENSURING NO TRAIN IN THE SECTION AND NO CROSS MOVEMENT IN WESTERN SECTOR TO VPT/ECABIN."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - S(28.30.32.34.36.38.40).(42.44.46.48.50.52)A. SH62B. ARE RELEASED BY SLOT-5 OF 'F' CABIN TO DISPATCH TRAINS TO KK LINE."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - S/SH(42.44.46.48.50.52)B ARE RELEASED BY SLOT-1 OF 'F' CABIN TO DISPATCH TRAINS TO E.Co.Rly LINE."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - SH(60, 62A) ARE RELEASED BY SLOT-'X' OF 'F' CABIN TO DISPATCH TRAINS TO ELS ENGINE LINE."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - SH65A IS RELEASED BY SLOT-3 OF E CABIN TO DISPATCH TRAINS TO BULB LINE."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - SH65B ARE RELEASED BY SLOT-13 OF VPT R&D YARD."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - SH1A OF DUMPER CABIN IS RELEASED BY SLOT-3 OF E CABIN TO DISPATCH TRAINS TO BULB LINE."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - SH1B OF DUMPER CABIN IS RELEASED BY SLOT-13 OF VPT R&D YARD."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - SH2B OF DUMPER CABIN IS RELEASED BY SLOT-72 OF OEC YARD WHEN 102 REVERSE."
+      },
+      {
+        "no": "20",
+        "text": "SIGNALS - SH4A OF OEC IS RELEASED BY SLOT-43 OF DUMPER CABIN."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-71 OF OEC IS TRANSMITTED TO 'F' CABIN FOR RECEIVING TRAIN FROM ELS ENGINE LINE."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-72 OF OEC GRANTED TO DUMPER CABIN FOR RECEIVING TRAIN FROM VPT LINE."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-73 OF OEC IS TRANSMITTED TO 'F' CABIN FOR RECEIVING TRAIN FROM KK LINE."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-75 OF OEC IS TRANSMITTED TO 'F' CABIN FOR RECEIVING TRAIN FROM E.Co.Rly LINE."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-74 OF OEC IS TRANSMITTED TO E CABIN (BULB LINE) FOR RECEIVING TRAIN FROM BULB LINE."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-41 OF DUMPER CABIN IS TRANSMITTED TO VPT R&D YARD FOR RECEIVING TRAINS FROM VPT R&D YARD."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-43 OF DUMPER CABIN IS TRANSMITTED TO OEC YARD FOR RECEIVING TRAINS FROM BULB LINE."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-45 OF DUMPER CABIN IS TRANSMITTED TO OEC YARD FOR UNLOCKING POINTS 102A/B &104A/B."
+      },
+      {
+        "no": "20",
+        "text": "SLOT-13 OF VPT R&D YARD IS TRANSMITTED TO OEC YARD /DUMPER CABIN FOR DISPATCHING TRAINS FROM OEC/DUMPER CABIN TO VPT R&D YARD."
+      },
+      {
+        "no": "21",
+        "text": "FOR A TRAIN MOVEMENT BETWEEN DUMPER CABIN AND WESTERN SECTOR CONNECTING PORT IT SHOULD BE THROUGH PN EXCHANGE AFTER ENSURING THAT NO TRAIN IS AVAILABLE BETWEEN DUMPER CABIN AND WESTERN SECTOR CONNECTING PORT."
+      },
+      {
+        "no": "22",
+        "text": "LEGEND: MSDAC- MULTISECTION DIGITAL AXLE COUNTER (SINGLE DETECTION); STOP UNTILL PILOTED."
+      },
+      {
+        "no": "23",
+        "text": "ENTIRE YARD IS PROVIDED WITH SINGLE DETECTION MSDAC."
+      },
+      {
+        "no": "24",
+        "text": "SOD CLEARANCE TO BE ENSURED BY FIELD STAFF FOR PLACING/SHIFTING OF SIGNALS AT A DISTANCE OF )M-#M FROM THE BOUNDARY OF REPLACEMENT TRACK DETECTION POINT."
+      }
+    ],
+    "tables": [
+      {
+        "id": "crankHandles",
+        "title": "CRANK HANDLE CONTROL FOR EMERGENCY OPERATION OF POINTS",
+        "columns": [
+          "SL. No.",
+          "CRANK HANDLE",
+          "CONTROL POINTS",
+          "IN LOCATION BOX"
+        ],
+        "rows": [
+          [
+            "1",
+            "CH1",
+            "103A/B.",
+            "UP CH. LOC.-5"
+          ],
+          [
+            "2",
+            "CH2",
+            "105.",
+            "UP CH. LOC.-5"
+          ],
+          [
+            "3",
+            "CH3",
+            "111A/B.",
+            "UP CH. LOC.-4"
+          ],
+          [
+            "4",
+            "CH4",
+            "113. 115A/B. 119.",
+            "UP CH. LOC.-2"
+          ],
+          [
+            "5",
+            "CH5",
+            "127. 129. 131. 133.",
+            "UP CH. LOC.-3"
+          ],
+          [
+            "6",
+            "CH6",
+            "135A/B. 141A/B.",
+            "UP CH. LOC.-1"
+          ],
+          [
+            "7",
+            "CH7",
+            "152. 154. 156.",
+            "DN CH. LOC.-1"
+          ],
+          [
+            "8",
+            "CH8",
+            "130. 132. 136",
+            "DN CH. LOC.-1"
+          ],
+          [
+            "9",
+            "CH9",
+            "140. 142. 144. 146. 148.",
+            "DN CH. LOC.-2"
+          ],
+          [
+            "10",
+            "CH10",
+            "120A/B. 122",
+            "DN CH. LOC.-4"
+          ],
+          [
+            "11",
+            "CH11",
+            "106A/B.",
+            "DN CH. LOC.-4"
+          ],
+          [
+            "12",
+            "CH12",
+            "108A/B. 126A/B.",
+            "DN CH. LOC.-4"
+          ],
+          [
+            "13",
+            "CH13",
+            "112. 114A/B. 116. 118.",
+            "DN CH. LOC.-3"
+          ],
+          [
+            "14",
+            "CH14",
+            "102A/B. 104A/B.",
+            "DN CH. LOC.-5"
+          ],
+          [
+            "15",
+            "CH15",
+            "121. 123.",
+            "UP CH. LOC.-2"
+          ]
+        ]
+      },
+      {
+        "id": "systemOfWorking",
+        "title": "SYSTEM OF WORKING",
+        "columns": [
+          "NO.",
+          "SYSTEM",
+          "SECTION",
+          "INSTRUMENT",
+          "LOCATION"
+        ],
+        "rows": [
+          [
+            "1.",
+            "INTER SLOT",
+            "OEC YARD(MYD) - 'F' CABIN (ECoR LINE)",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ],
+          [
+            "2.",
+            "INTER SLOT",
+            "OEC YARD(MYD) - 'F' CABIN (KK LINE)",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ],
+          [
+            "3.",
+            "INTER SLOT",
+            "OEC YARD(MYD) - 'F' CABIN ELS ENGINE LINE",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ],
+          [
+            "4.",
+            "INTER SLOT",
+            "OEC YARD(MYD) - VPT R&D YARD",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ],
+          [
+            "5.",
+            "INTER SLOT",
+            "OEC YARD TO DUMPER CABIN",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ],
+          [
+            "6.",
+            "INTER SLOT",
+            "OEC TO E CABIN",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ],
+          [
+            "7.",
+            "INTER SLOT",
+            "DUMPER CABIN - VPT R&D YARD",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ],
+          [
+            "8.",
+            "INTER SLOT",
+            "DUMPER CABIN - E CABIN",
+            "INTERSLOTTING WITH MSDAC",
+            "SM"
+          ]
+        ]
+      },
+      {
+        "id": "controls",
+        "title": "CONTROL'S AT S.M./OEC YARD",
+        "columns": [
+          "Item",
+          "Value"
+        ],
+        "rows": [
+          [
+            "TOTAL No. OF CONTROLS",
+            "1 TO 200."
+          ],
+          [
+            "SIGNAL/SLOT CONTROLS",
+            "1 TO 100."
+          ],
+          [
+            "SPARE (signal/slot)",
+            "2. 7. 16. 17. 13. 24. 26. 54. 56. 58. 64. 66. 68. 70. 76. 78 TO 100."
+          ],
+          [
+            "POINT CONTROLS",
+            "101- 200."
+          ],
+          [
+            "SPARE (point)",
+            "101. 107. 109. 110. 117. 124. 125. 128. 134. 137. 138. 139. 143. 145. 147. 149. 150. 151. 153. 155. 157 TO 200."
+          ]
+        ]
+      },
+      {
+        "id": "dumperCabinLevers",
+        "title": "LEVERS AT DUMPER CABIN",
+        "columns": [
+          "Item",
+          "Value"
+        ],
+        "rows": [
+          [
+            "TOTAL No. OF LEVERS",
+            "45"
+          ],
+          [
+            "SIGNAL LEVERS",
+            "1, 2, 4"
+          ],
+          [
+            "SLOT LEVERS",
+            "41,43,45"
+          ],
+          [
+            "SPARE LEVERS",
+            "3.5.40.42.44."
+          ]
+        ]
+      },
+      {
+        "id": "smOffice",
+        "title": "IN S.M. OFFICE (OEC YARD): telephone / instrument connections",
+        "columns": [
+          "Connection"
+        ],
+        "rows": [
+          [
+            "TO UP CH: LOC-1,2,3,4,5,6"
+          ],
+          [
+            "TO SM / F CABIN"
+          ],
+          [
+            "TO DLS YARD"
+          ],
+          [
+            "TO DN CH: LOC-1,2,3,4,5"
+          ],
+          [
+            "TO SM / VPT YARD"
+          ],
+          [
+            "TO SM/E CABIN"
+          ],
+          [
+            "TO SM/DUMPER CABIN"
+          ],
+          [
+            "TO SM/WESTERN SECTOR"
+          ]
+        ]
+      },
+      {
+        "id": "smOfficeDumper",
+        "title": "IN S.M. OFFICE OF DUMPER CABIN",
+        "columns": [
+          "Connection"
+        ],
+        "rows": [
+          [
+            "TO SM/OEC"
+          ],
+          [
+            "TO SM/WESTERN SECTOR"
+          ],
+          [
+            "TO SM/OEC"
+          ],
+          [
+            "TO SM/VPT"
+          ],
+          [
+            "KEY A (CONT BY 45)"
+          ]
+        ]
+      },
+      {
+        "id": "specialInstructions",
+        "title": "SIGNAL SPECIFIC INFORMATIONS-I: APPROVED SPECIAL INSTRUCTIONS/ SPECIAL INSTRUCTIONS",
+        "columns": [
+          "SL NO",
+          "NATURE OF APPROVAL",
+          "APPROVING AUTHORITY.",
+          "REFERENCE APPROVAL No."
+        ],
+        "rows": []
+      }
+    ],
+    "procedures": [
+      {
+        "id": "points102_104",
+        "title": "WORKING OF POINT NO's:102A/B & 104A/B:",
+        "location": "SM/OEC YARD and DUMPER CABIN",
+        "steps": [
+          "1.NORMALLY POINTS 102A/B & 104A/B REMAIN IN LOCKED CONDITION. THESE TWO POINTS 102A/B & 104A/B ARE OPERATED BY SM/OEC YARD.",
+          "2.FOR OPERATION OF POINTS 102A/B & 104A/B FROM NORMAL TO REVERSE OR REVERSE TO NORMAL, POINTS GETS UNLOCKED AFTER GETTING SLOT CONTROL-'45' (KEY-A) FROM DUMPER CABIN TRANSMITTED ELECTRICALLY THROUGH RKT.",
+          "3.AFTER OPERATION OF THESE POINTS TO REQUIRED POSITION, SLOT CONTROL '45' (KEY-'A') OF DUMBER CABIN IS WITHDRAWN AND AT DUMPER CABIN KEY 'A' IS RETURNED IN RESPECTIVE RKT.",
+          "4.KEY IN CONTACT OF RKT ARE PROVIDED IN CONCERNED HR/SLOT CIRCUITS."
+        ]
+      }
+    ],
+    "aspectCharts": [],
+    "revisions": [
+      {
+        "ver": "1",
+        "text": "PROVISION OF SIGNALLING ARRANGEMENT FOR REMODELLING OF OEC YARD PART OF WALTAIR MARSHALLING YARD",
+        "supersedes": "NEW SIP",
+        "reference": "Executing agency GSU/WAT; engineering plan C.E's DRG. No. 5231/22 SHEET No.2/4; PINK BOOK ITEM No. 459 OF 2022-2023. Alteration, completion and commissioning columns are blank (-----)."
+      }
+    ]
+  }
+}
