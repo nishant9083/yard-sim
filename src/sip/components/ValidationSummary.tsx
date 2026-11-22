@@ -17,7 +17,7 @@ export function ValidationSummary({ issues }: { issues: ValidationIssue[] }) {
         <TriangleAlert className="size-4" aria-hidden />
         {errors} errors, {issues.length - errors} warnings
       </summary>
-      <ul className="absolute right-0 z-10 mt-2 w-80 space-y-1 rounded-lg border border-outline-variant bg-surface-container p-3 text-on-surface-variant">
+      <ul className="absolute right-0 z-50 mt-2 w-80 space-y-1 rounded-lg border border-outline-variant bg-surface-container p-3 text-on-surface-variant">
         {issues.map((issue, i) => (
           <li key={i}>
             <span className={issue.level === 'error' ? 'text-error' : 'text-primary'}>{issue.level}</span> {issue.message}

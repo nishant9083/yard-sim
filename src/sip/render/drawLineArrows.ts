@@ -24,7 +24,7 @@ export function drawLineArrows({ ctx, layout, camera, theme, state, regions }: D
     const c = worldToScreen(camera, { x: arrow.x, y })
     const emphasis = emphasisOf(state, 'lineArrow', arrow.id)
     ctx.lineWidth = emphasis ? 2.6 : 1.8
-    ctx.strokeStyle = emphasis === 'selected' ? theme.selected : emphasis === 'hovered' ? theme.hover : theme.label
+    ctx.strokeStyle = emphasis === 'selected' ? theme.selected : emphasis === 'hovered' ? theme.hover : theme.arrows
     const left = { x: c.x - ux * half, y: c.y - uy * half }
     const right = { x: c.x + ux * half, y: c.y + uy * half }
     line(ctx, left.x, left.y, right.x, right.y)

@@ -8,6 +8,7 @@ export interface CanvasTheme {
   nodeJunction: string
   nodeEnd: string
   label: string
+  arrows: string
   labelMuted: string
   hover: string
   selected: string
@@ -35,6 +36,7 @@ const FALLBACK: CanvasTheme = {
   nodeJunction: '#5aa9ff',
   nodeEnd: '#ff6b81',
   label: '#d68cff',
+  arrows: '#f2a65a',
   labelMuted: '#8f99a8',
   hover: '#4cc9f0',
   selected: '#f2c94c',
@@ -67,6 +69,7 @@ export function readCanvasTheme(): CanvasTheme {
     nodeJunction: read('--color-sip-node-junction', FALLBACK.nodeJunction),
     nodeEnd: read('--color-sip-node-end', FALLBACK.nodeEnd),
     label: read('--color-sip-label', FALLBACK.label),
+    arrows: read('--color-sip-arrows', FALLBACK.arrows),
     labelMuted: read('--color-sip-label-muted', FALLBACK.labelMuted),
     hover: read('--color-secondary', FALLBACK.hover),
     selected: read('--color-primary', FALLBACK.selected),

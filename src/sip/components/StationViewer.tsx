@@ -20,7 +20,7 @@ export function StationViewer({ station }: StationViewerProps) {
   const [focus, setFocus] = useState<FocusRequest | null>(null)
   const [zoom, setZoom] = useState(1)
   const [zoomRequest, setZoomRequest] = useState<ZoomRequest | null>(null)
-  const [panelOpen, setPanelOpen] = useState(true)
+  const [panelOpen, setPanelOpen] = useState(false)
   const [cursorX, setCursorX] = useState<number | null>(null)
 
   const layout = useMemo(() => layoutStation(station, { yExaggeration }), [station, yExaggeration])

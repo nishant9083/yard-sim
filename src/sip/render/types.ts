@@ -38,10 +38,10 @@ export const DEFAULT_LAYERS: LayerVisibility = {
   lineArrows: true,
   platforms: true,
   structures: true,
-  dimensions: true,
-  chainage: true,
+  dimensions: false,
+  chainage: false,
   bridges: true,
-  gradients: true,
+  gradients: false,
   routes: false,
   annotations: true,
 }

@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import {
-  chainageAt,
   circuitRangeMetres,
   circuitsAt,
   circuitsOfPoint,
@@ -8,7 +7,7 @@ import {
   contentsOfCircuit,
   describeElement,
   formatChainage,
-  sideAt,
+  formatChainageSide,
   SIGNAL_KIND_NAME,
   type EntityRef,
   type Station,
@@ -59,7 +58,7 @@ const MARK_MEANING: Record<string, string> = {
 
 export function InspectorPanel({ station, index, entity, onSelect }: InspectorPanelProps) {
   const scale = station.meta.chainage
-  const ch = (x: number) => (scale ? `${chainageAt(scale, x).toFixed(2)} M ${sideAt(scale, x)}` : '')
+  const ch = (x: number) => (scale ? formatChainageSide(station.meta, scale, x) : '')
   const { assets } = station
 
   if (!entity) {
