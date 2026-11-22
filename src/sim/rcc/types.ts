@@ -11,7 +11,7 @@ export interface PointReq {
   pos: PointPos
 }
 
-export type RouteKind = 'main' | 'callingOn' | 'shunt' | 'starter' | 'block'
+export type RouteKind = 'main' | 'callingOn' | 'shunt' | 'starter' | 'block' | 'slot'
 
 export interface Protection {
   /** Signal post number as written in the remark ("11", "2", "15"). */

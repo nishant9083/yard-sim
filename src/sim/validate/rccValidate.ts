@@ -114,7 +114,8 @@ export function walkRoute(net: Network, route: RccRoute): WalkReport | null {
     routeId: route.id,
     legs: [...first.legs, ...overlapLegs],
     routeLegCount: first.legs.length,
-    reachedDestination: first.reached,
+    // An external stop point (dead end, siding, boundary) has no signal to walk to: running out of track is arriving.
+    reachedDestination: first.reached || (!dest && first.stop?.kind === 'end'),
     routeTcs,
     overlapTcs,
     unspecifiedUnits: [...unspecified],
@@ -143,7 +144,7 @@ export function validateRcc(rcc: RccTable, net: Network): { issues: Issue[]; wal
     const tcRefs = [...r.tcs.route, ...r.tcs.overlap, ...r.backLock, ...r.overlapRelease.occupiedAnyOf, ...(r.overlapRelease.cleared ? [r.overlapRelease.cleared] : []), ...(r.flyBack.tc ? [r.flyBack.tc] : []), ...(r.clearAfter ? [r.clearAfter.tc] : [])]
     for (const tc of new Set(tcRefs)) if (!tcCodes.has(tc)) add('error', 'tc-unknown', `Track circuit ${tc} is not in the station data`, where)
     for (const req of [...r.points.route, ...r.points.overlap, ...r.points.isolation]) if (!net.units.has(req.unit)) add('error', 'point-unknown', `Point ${req.unit} is not in the station data`, where)
-    if (!net.config.posts[r.post]) add('error', 'post-unmapped', `Signal post ${r.post} (${r.signal}) has no entry in the station config`, where)
+    if (r.kind !== 'slot' && !net.config.posts[r.post]) add('error', 'post-unmapped', `Signal post ${r.post} (${r.signal}) has no entry in the station config`, where)
     if (r.destinationPost && !net.config.posts[r.destinationPost]) add('warn', 'dest-unmapped', `Destination signal ${r.destination} has no entry in the station config`, where)
     for (const p of r.protections) if (!net.config.posts[p.post]) add('warn', 'protection-unmapped', `Lamp protection names signal ${p.post}, which has no entry in the station config`, where)
     for (const c of r.controls) if (!handles.has(c)) add('warn', 'control-unknown', `Control ${c} is not a crank handle in the station or the handle chart`, where)
@@ -238,7 +239,7 @@ export function validateRcc(rcc: RccTable, net: Network): { issues: Issue[]; wal
 
   // Layout walk: does the path the row describes exist, and does it cross the circuits the row lists?
   for (const r of rcc.routes) {
-    if (r.kind === 'block') continue
+    if (r.kind === 'block' || r.kind === 'slot') continue
     const where = `row ${r.sl} (${r.id})`
     const w = walkRoute(net, r)
     if (!w) {

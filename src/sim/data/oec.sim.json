@@ -1,0 +1,138 @@
+{
+  "station": "OEC-S",
+  "posts": {
+    "1": "SIG_1_A_F",
+    "3": "SIG_3_A_M",
+    "4": "SIG_4",
+    "5": "SIG_SH5_A_B",
+    "6": "SIG_SH6A_B",
+    "8": "SIG_SH8A_B",
+    "9": "SIG_SH9_A_M",
+    "10": "SIG_SH10_A_B",
+    "11": "SIG_SH11A_B",
+    "12": "SIG_SH12_A_H",
+    "14": "SIG_SH14_A_B",
+    "15": "SIG_SH15",
+    "16": "SIG_SH16_A_B",
+    "18": "SIG_SH18_A_F",
+    "19": "SIG_19",
+    "20": "SIG_SH20_A_D",
+    "21": "SIG_21",
+    "22": "SIG_SH22_A_C",
+    "23": "SIG_23",
+    "25": "SIG_25",
+    "27": "SIG_27",
+    "28": "SIG_28",
+    "29": "SIG_29",
+    "30": "SIG_30",
+    "31": "SIG_31",
+    "32": "SIG_32",
+    "33": "SIG_33",
+    "34": "SIG_34",
+    "35": "SIG_35",
+    "36": "SIG_36",
+    "37": "SIG_37",
+    "38": "SIG_38",
+    "39": "SIG_39",
+    "40": "SIG_40",
+    "41": "SIG_41",
+    "42": "SIG_42A_B",
+    "43": "SIG_43",
+    "44": "SIG_44A_B",
+    "45": "SIG_SH45_A_D",
+    "46": "SIG_46A_B",
+    "47": "SIG_SH47_A_D",
+    "48": "SIG_48A_B",
+    "49": "SIG_49",
+    "50": "SIG_50A_B",
+    "51": "SIG_SH51A_B",
+    "52": "SIG_52A_B",
+    "53": "SIG_SH53A_B",
+    "55": "SIG_SH55",
+    "57": "SIG_SH57",
+    "59": "SIG_SH59",
+    "60": "SIG_SH60",
+    "61": "SIG_SH61",
+    "62": "SIG_SH62A_B",
+    "63": "SIG_63",
+    "65": "SIG_SH65A_B",
+    "67": "SIG_67",
+    "69": "SIG_69",
+    "77": "SIG_SH77",
+    "2@F": "SIG_2_FCABIN",
+    "6@F": "SIG_6_FCABIN",
+    "31@F": "SIG_31_FCABIN",
+    "18@E": "SIG_SH18",
+    "15@VPT": "SIG_15_A_D_VPT",
+    "1@DUMPER": "SIG_1_DUMPER",
+    "2@DUMPER": "SIG_2_DUMPER",
+    "4@DUMPER": "SIG_4_DUMPER"
+  },
+  "switchOverrides": {
+    "N0085": {
+      "normal": "T17",
+      "reverse": "T03"
+    },
+    "N0036": {
+      "normal": "T06:next",
+      "reverse": "T09"
+    },
+    "N0044": {
+      "normal": "L17",
+      "reverse": "L18"
+    }
+  },
+  "connectionTcs": {
+    "C103": [
+      "103/105XT",
+      "103BXT"
+    ],
+    "C111": [
+      "111AXT",
+      "111BXT"
+    ],
+    "C135": [
+      "135AXT",
+      "135BXT"
+    ],
+    "C141": [
+      "135BXT"
+    ],
+    "C126": [
+      "126AXT",
+      "126BXT"
+    ],
+    "C120": [
+      "120BXT"
+    ],
+    "C114": [
+      "114XT"
+    ],
+    "C108": [
+      "108AXT",
+      "108BXT"
+    ],
+    "C106": [
+      "108BXT"
+    ],
+    "C104": [
+      "102/104AXT",
+      "102/104BXT"
+    ],
+    "C102": [
+      "102/104AXT",
+      "102/104BXT"
+    ],
+    "C115": [
+      "19AXT"
+    ]
+  },
+  "notes": [
+    "Posts: a number is the signal of that number in the OEC yard. Calling-on (C1, C3) and shunt aspects (SH1A-F, SH3, SH28A/B, SH30A/B, SH42..SH52) share the post of the main or starter signal. Signals that belong to the neighbouring cabins are written with an @ suffix: @F = 'F' CABIN (2, 6, 31), @E = 'E' CABIN (18), @VPT = VPT R&D YARD (15), @DUMPER = dumper cabin (1, 2, 4). The chart text 'S6 OF F CABIN' maps to post 6@F.",
+    "Point 105 (N0085): the straight leg towards 'F' CABIN is the trap (T17), so 105 normal is the trap and 105 reverse opens the ELS ENGINE LINE (T03) into LINE No.- 11. SH5B needs 105R, SH5A needs 105N.",
+    "Point 156 (N0036) is the derailing switch at the end of the STABLING LINE: normal is the stub (T06), reverse joins the connecting line (T09). Point 116 (N0044): normal LINE No.- 17, reverse LINE No.- 18.",
+    "Crossover circuits come from the chart: 111A/B in 111AXT+111BXT, 103A/B in 103/105XT+103BXT, 126A/B in 126AXT+126BXT, 108A/B in 108AXT+108BXT, 135A/B in 135AXT+135BXT. The chart has no circuit of its own for 106A/B (routes over 106R list only 108BXT) or for 115A/B (1A over 115R ends in 19AXT).",
+    "No block section is configured: the OEC chart has no TGT/LC remarks. The BULB LINE to 'E' CABIN is a block section (SIP note 9) and may need one once the instrument names are known.",
+    "Hand points HP (DLS yard and shunting neck, control 0) are not in the chart; they stay normal."
+  ]
+}

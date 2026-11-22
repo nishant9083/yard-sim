@@ -593,6 +593,18 @@
       "kind": "plain",
       "x": 4293.23,
       "y": 43.67
+    },
+    {
+      "id": "N0463",
+      "x": 3398.0,
+      "y": 217.67,
+      "kind": "bufferStop"
+    },
+    {
+      "id": "N0464",
+      "x": 4417.4,
+      "y": 72.67,
+      "kind": "junction"
     }
   ],
   "tracks": [
@@ -666,7 +678,7 @@
         "N0014"
       ],
       "lineNo": 2,
-      "remarks": "CSL - 766M (STR. TO SS.)"
+      "remarks": "CSL - 721M (STR. TO SS.)"
     },
     {
       "id": "L3",
@@ -680,7 +692,7 @@
         "N0012"
       ],
       "lineNo": 3,
-      "remarks": "CSL - 745M (STR. TO SS,)"
+      "remarks": "CSL - 720M (STR. TO SS,)"
     },
     {
       "id": "L4",
@@ -728,7 +740,7 @@
         "N0021"
       ],
       "lineNo": 6,
-      "remarks": "CSL - 808M (STR. TO SS.)"
+      "remarks": "CSL - 748M (STR. TO SS.)"
     },
     {
       "id": "L7",
@@ -742,7 +754,7 @@
         "N0008"
       ],
       "lineNo": 7,
-      "remarks": "CSL - 770M (STR. TO SS.)"
+      "remarks": "CSL - 750M (STR. TO SS.)"
     },
     {
       "id": "L8",
@@ -783,7 +795,7 @@
         "N0003"
       ],
       "lineNo": 10,
-      "remarks": "CSL -642.5M (STR. TO SS.)"
+      "remarks": "CSL -685M (STR. TO SS.)"
     },
     {
       "id": "L11",
@@ -842,7 +854,7 @@
       "nodeIds": [
         "N0255",
         "N0036",
-        "N0018"
+        "N0463"
       ],
       "remarks": "CSL - 311M (SIG. TO DE). S.B. board at the west end."
     },
@@ -961,6 +973,7 @@
       "direction": "BOTH",
       "nodeIds": [
         "N0044",
+        "N0464",
         "N0396"
       ],
       "remarks": "CSL - 177M (SH TO DE); DE CH: 6792.89M at the buffer stop."
@@ -989,7 +1002,7 @@
     },
     {
       "id": "T16",
-      "name": "LOAD GRID",
+      "name": "LOCO GRID",
       "kind": "siding",
       "direction": "BOTH",
       "nodeIds": [
@@ -1130,7 +1143,7 @@
     {
       "id": "C114",
       "kind": "crossover",
-      "from": "N0044",
+      "from": "N0464",
       "to": "N0043",
       "label": "114A/114B"
     },
@@ -1470,7 +1483,7 @@
       {
         "id": "P156",
         "code": "156",
-        "nodeId": "N0018",
+        "nodeId": "N0036",
         "ratio": "1 IN 8 1/2",
         "switch": "CS",
         "ratioInferred": true,
@@ -1697,7 +1710,7 @@
       {
         "id": "P114A",
         "code": "114A",
-        "nodeId": "N0044",
+        "nodeId": "N0464",
         "ratio": "1 IN 8 1/2",
         "switch": "CS",
         "ratioInferred": true,
@@ -2003,8 +2016,8 @@
       {
         "id": "SIG_3_A_M",
         "code": "C3(A-M) 3(A-M)",
-        "fullCode": "3(A-M) / C-3(A-M)",
-        "name": "UP HOME 3(A-M) with calling-on C-3(A-M) (K K LINE)",
+        "fullCode": "3(A-M) / C-3(A-M) / SH3",
+        "name": "UP HOME 3(A-M) with shunt SH3 and calling-on C-3(A-M) (K K LINE)",
         "kind": "home",
         "direction": "UP",
         "trackId": "T02",
@@ -2013,6 +2026,10 @@
         "side": "above",
         "headDir": "east",
         "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH3"
+          },
           {
             "kind": "marker",
             "text": "15"
@@ -2118,8 +2135,8 @@
       {
         "id": "SIG_1_A_F",
         "code": "C1(A-F) 1(A-F)",
-        "fullCode": "1(A-F) / C-1(A-F)",
-        "name": "UP HOME 1(A-F) with calling-on C-1(A-F) (ECoR LINE)",
+        "fullCode": "1(A-F) / C-1(A-F) / SH1(A-F)",
+        "name": "UP HOME 1(A-F) with shunt SH1(A-F) and calling-on C-1(A-F) (ECoR LINE)",
         "kind": "home",
         "direction": "UP",
         "trackId": "T01",
@@ -2128,6 +2145,10 @@
         "side": "above",
         "headDir": "east",
         "elements": [
+          {
+            "kind": "shunt",
+            "text": "SH1(A-F)"
+          },
           {
             "kind": "marker",
             "text": "15"
@@ -3090,9 +3111,9 @@
         "name": "SH18(A-F)",
         "kind": "shunt",
         "direction": "DN",
-        "trackId": "L11",
-        "footX": 3976,
-        "anchorX": 3973,
+        "trackId": "T16",
+        "footX": 4135.4,
+        "anchorX": 4132.4,
         "side": "below",
         "headDir": "west",
         "elements": [
@@ -3103,14 +3124,14 @@
         ],
         "control": 18,
         "label": {
-          "x": 3936.4,
+          "x": 4095.8,
           "y": 555.62
         }
       },
       {
         "id": "SIG_SH45_A_D",
-        "code": "SH45(A-D)",
-        "name": "SH45(A-D)",
+        "code": "SH45A/B",
+        "name": "SH45A/B",
         "kind": "shunt",
         "direction": "UP",
         "trackId": "L11",
@@ -3121,7 +3142,7 @@
         "elements": [
           {
             "kind": "shunt",
-            "text": "SH45(A-D)"
+            "text": "SH45A/B"
           }
         ],
         "control": 45,
@@ -3206,8 +3227,8 @@
         "kind": "shunt",
         "direction": "UP",
         "trackId": "L5",
-        "footX": 4157.2,
-        "anchorX": 4160.2,
+        "footX": 4328.6,
+        "anchorX": 4331.6,
         "side": "above",
         "headDir": "east",
         "elements": [
@@ -3218,7 +3239,7 @@
         ],
         "control": 47,
         "label": {
-          "x": 4205,
+          "x": 4376.4,
           "y": 344.35
         }
       },
@@ -3385,8 +3406,8 @@
       },
       {
         "id": "SIG_SH8A_B",
-        "code": "SH8A/B",
-        "name": "SH8A/B",
+        "code": "SH8(A-G)",
+        "name": "SH8(A-G)",
         "kind": "shunt",
         "direction": "DN",
         "trackId": "T15",
@@ -3397,7 +3418,7 @@
         "elements": [
           {
             "kind": "shunt",
-            "text": "SH8A/B"
+            "text": "SH8(A-G)"
           }
         ],
         "control": 8,
@@ -3408,8 +3429,8 @@
       },
       {
         "id": "SIG_SH10_A_B",
-        "code": "SH10(A/B)",
-        "name": "SH10(A/B)",
+        "code": "SH10(A-G)",
+        "name": "SH10(A-G)",
         "kind": "shunt",
         "direction": "DN",
         "trackId": "T12",
@@ -3420,7 +3441,7 @@
         "elements": [
           {
             "kind": "shunt",
-            "text": "SH10(A/B)"
+            "text": "SH10(A-G)"
           }
         ],
         "control": 10,
@@ -3431,8 +3452,8 @@
       },
       {
         "id": "SIG_SH12_A_H",
-        "code": "SH12(A-H)",
-        "name": "SH12(A-H)",
+        "code": "SH12(A-L)",
+        "name": "SH12(A-L)",
         "kind": "shunt",
         "direction": "DN",
         "trackId": "T10",
@@ -3443,7 +3464,7 @@
         "elements": [
           {
             "kind": "shunt",
-            "text": "SH12(A-H)"
+            "text": "SH12(A-L)"
           }
         ],
         "control": 12,
@@ -3749,8 +3770,8 @@
         "trackId": "T12",
         "footX": 6838.1,
         "anchorX": 6835.1,
-        "side": "below",
-        "headDir": "west",
+        "side": "above",
+        "headDir": "east",
         "elements": [
           {
             "kind": "shunt",
@@ -4114,6 +4135,21 @@
         "id": "IJ_T14_6882",
         "trackId": "T14",
         "x": 6881.8
+      },
+      {
+        "id": "IJ_T16_4135",
+        "trackId": "T16",
+        "x": 4135.4
+      },
+      {
+        "id": "IJ_L6_3842",
+        "trackId": "L6",
+        "x": 3841.6
+      },
+      {
+        "id": "IJ_T02_1392",
+        "trackId": "T02",
+        "x": 1391.8
       }
     ],
     "lineArrows": [
@@ -4315,14 +4351,9 @@
         "kind": "trackCircuit",
         "spans": [
           {
-            "trackId": "L10",
-            "x0": 1639.4,
-            "x1": 1908.9
-          },        
-          {
             "trackId": "T02",
             "x0": 1032.6,
-            "x1": 1639.4
+            "x1": 1391.8
           }
         ],
         "label": {
@@ -4332,8 +4363,8 @@
         "approx": false
       },
       {
-        "id": "TC_135_141XT",
-        "code": "135/141XT",
+        "id": "TC_135BXT",
+        "code": "135BXT",
         "kind": "trackCircuit",
         "spans": [
           {
@@ -4583,6 +4614,11 @@
             "trackId": "L15",
             "x0": 4407.5,
             "x1": 4764
+          },
+          {
+            "trackId": "L13",
+            "x0": 4532.0,
+            "x1": 4764.0
           }
         ],
         "label": {
@@ -4626,8 +4662,8 @@
         "approx": false
       },
       {
-        "id": "TC_102_104BXT_OF_OEC",
-        "code": "102/104BXT OF OEC",
+        "id": "TC_102_104BXT",
+        "code": "102/104BXT",
         "kind": "trackCircuit",
         "spans": [
           {
@@ -4733,11 +4769,11 @@
           {
             "trackId": "T16",
             "x0": 3979.8,
-            "x1": 4381
+            "x1": 4135.4
           }
         ],
         "label": {
-          "x": 4283.2,
+          "x": 4040.0,
           "y": 529.42
         },
         "approx": false
@@ -4766,12 +4802,17 @@
         "spans": [
           {
             "trackId": "L6",
-            "x0": 3471.7,
+            "x0": 3841.6,
             "x1": 3946.3
+          },
+          {
+            "trackId": "L11",
+            "x0": 3766.8,
+            "x1": 3965.6
           }
         ],
         "label": {
-          "x": 3747.9,
+          "x": 3895.0,
           "y": 388.87
         },
         "approx": false
@@ -4794,8 +4835,8 @@
         "approx": false
       },
       {
-        "id": "TC_1AXT_OF_OEC",
-        "code": "1AXT OF OEC",
+        "id": "TC_1AXT",
+        "code": "1AXT",
         "kind": "trackCircuit",
         "spans": [
           {
@@ -5123,6 +5164,11 @@
             "trackId": "T09",
             "x0": 3786.1,
             "x1": 4108.6
+          },
+          {
+            "trackId": "L5",
+            "x0": 3841.6,
+            "x1": 4134.4
           }
         ],
         "label": {
@@ -5164,6 +5210,70 @@
           "y": 196.22
         },
         "approx": false
+      },
+      {
+        "id": "TC_135AXT",
+        "code": "135AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T02",
+            "x0": 1391.8,
+            "x1": 1639.4
+          },
+          {
+            "trackId": "L9",
+            "x0": 1391.8,
+            "x1": 1599.5
+          },
+          {
+            "trackId": "L10",
+            "x0": 1639.4,
+            "x1": 1908.9
+          },
+          {
+            "connectionId": "C135"
+          }
+        ],
+        "label": {
+          "x": 1550.0,
+          "y": 475.7
+        },
+        "approx": true
+      },
+      {
+        "id": "TC_144XT",
+        "code": "144XT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "L6",
+            "x0": 3471.7,
+            "x1": 3841.6
+          }
+        ],
+        "label": {
+          "x": 3680.0,
+          "y": 388.87
+        },
+        "approx": true
+      },
+      {
+        "id": "TC_18AXT",
+        "code": "18AXT",
+        "kind": "trackCircuit",
+        "spans": [
+          {
+            "trackId": "T16",
+            "x0": 4135.4,
+            "x1": 4381.0
+          }
+        ],
+        "label": {
+          "x": 4258.0,
+          "y": 529.42
+        },
+        "approx": true
       }
     ],
     "platforms": [],
@@ -6278,35 +6388,35 @@
       },
       {
         "id": "RL_4",
-        "text": "S/C(1.3)A. SH9A",
+        "text": "SH1A. S/C(1.3)A. SH(1.9)A",
         "x": 2371.1,
         "y": 61.93,
         "arrow": "east"
       },
       {
         "id": "RL_5",
-        "text": "S/C(1.3)B. SH9B",
+        "text": "SH1B. S/C(1.3)B. SH(1.9)B",
         "x": 2475.9,
         "y": 242.03,
         "arrow": "east"
       },
       {
         "id": "RL_6",
-        "text": "S/C(1.3)C. SH9C",
+        "text": "SH1C. S/C(1.3)C. SH(1.9)C",
         "x": 2474.7,
         "y": 271.72,
         "arrow": "east"
       },
       {
         "id": "RL_7",
-        "text": "S/C(1.3)D. SH9D",
+        "text": "SH1D. S/C(1.3)D. SH(1.9)D",
         "x": 2472.5,
         "y": 300.64,
         "arrow": "east"
       },
       {
         "id": "RL_8",
-        "text": "S/C(1.3)F. SH9F",
+        "text": "SH1F. S/C(1.3)F. SH(1.9)F",
         "x": 2469.2,
         "y": 358.84,
         "arrow": "east"
@@ -6404,42 +6514,42 @@
       },
       {
         "id": "RL_22",
-        "text": "SH18F",
+        "text": "SH18F. SH8F. SH10F. SH12F",
         "x": 3133.4,
         "y": 385.51,
         "arrow": "west"
       },
       {
         "id": "RL_23",
-        "text": "SH18E",
+        "text": "SH18E. SH8E. SH10E. SH12E",
         "x": 3132.6,
         "y": 414.15,
         "arrow": "west"
       },
       {
         "id": "RL_24",
-        "text": "SH18D",
+        "text": "SH18D. SH8D. SH10D. SH12D",
         "x": 3131.3,
         "y": 443.94,
         "arrow": "west"
       },
       {
         "id": "RL_25",
-        "text": "SH18C",
+        "text": "SH18C. SH8C. SH10C. SH12C",
         "x": 3129.2,
         "y": 472.05,
         "arrow": "west"
       },
       {
         "id": "RL_26",
-        "text": "SH18B",
+        "text": "SH18B. SH8B. SH10B. SH12B",
         "x": 3128.1,
         "y": 501.71,
         "arrow": "west"
       },
       {
         "id": "RL_27",
-        "text": "SH18A",
+        "text": "SH18A. SH8A. SH10A. SH12A",
         "x": 3125.8,
         "y": 531.01,
         "arrow": "west"
@@ -6453,14 +6563,14 @@
       },
       {
         "id": "RL_29",
-        "text": "SH(45.47)C",
+        "text": "SH47C",
         "x": 4948.2,
         "y": 370.1,
         "arrow": "east"
       },
       {
         "id": "RL_30",
-        "text": "SH(45.47)D",
+        "text": "SH47D",
         "x": 4980.2,
         "y": 546.7,
         "arrow": "east"
@@ -6495,7 +6605,7 @@
       },
       {
         "id": "RL_35",
-        "text": "SH45D",
+        "text": "SH45B",
         "x": 4206.7,
         "y": 543.1,
         "arrow": "east"
@@ -6513,6 +6623,13 @@
         "x": 4329.4,
         "y": 200.59,
         "arrow": "west"
+      },
+      {
+        "id": "RL_38",
+        "text": "SH1E. S/C(1.3)E. SH(1.9)E",
+        "x": 2472.5,
+        "y": 329.74,
+        "arrow": "east"
       }
     ],
     "annotations": [
@@ -6974,7 +7091,7 @@
       },
       {
         "id": "A_71",
-        "text": "CSL -642.5M (STR. TO SS.)",
+        "text": "CSL -605M (STR. TO SS.)",
         "x": 2838.2,
         "y": 505.57
       },
@@ -6998,13 +7115,13 @@
       },
       {
         "id": "A_75",
-        "text": "CSL - 770M (STR. TO SS.)",
+        "text": "CSL - 750M (STR. TO SS.)",
         "x": 2838.9,
         "y": 417.46
       },
       {
         "id": "A_76",
-        "text": "CSL - 808M (STR. TO SS.)",
+        "text": "CSL - 748M (STR. TO SS.)",
         "x": 2841.4,
         "y": 388.26
       },
@@ -7022,13 +7139,13 @@
       },
       {
         "id": "A_79",
-        "text": "CSL - 745M (STR. TO SS,)",
+        "text": "CSL - 720M (STR. TO SS,)",
         "x": 2844.6,
         "y": 302.67
       },
       {
         "id": "A_80",
-        "text": "CSL - 766M (STR. TO SS.)",
+        "text": "CSL - 721M (STR. TO SS.)",
         "x": 2845.9,
         "y": 273.23
       },
@@ -7594,13 +7711,13 @@
       },
       {
         "id": "A_172",
-        "text": "POINT 102A/B & 104A/B ARE",
+        "text": "POINT 104A/B IS CONTROLLED BY",
         "x": 5719.9,
         "y": 38.24
       },
       {
         "id": "A_173",
-        "text": "CONTROLLED BY SLOT 45 OF DUMPER CABIN",
+        "text": "SLOT-42 OF DUMPER CABIN",
         "x": 5759.1,
         "y": 39.63
       },
@@ -7696,7 +7813,7 @@
       },
       {
         "id": "A_189",
-        "text": "SLOT 79  TO F CABIN",
+        "text": "SLOT 71 TO F CABIN",
         "x": 199.5,
         "y": 539.8
       },
@@ -7795,6 +7912,12 @@
         "text": "BY SLOT-1 OF F-CABIN",
         "x": 1648.9,
         "y": 84.24
+      },
+      {
+        "id": "A_206",
+        "text": "POINT 102A/B IS CONTROLLED BY SLOT-40 OF DUMPER CABIN",
+        "x": 5739.5,
+        "y": 52.0
       }
     ],
     "breaks": [],
@@ -8597,6 +8720,12 @@
         "text": "PROVISION OF SIGNALLING ARRANGEMENT FOR REMODELLING OF OEC YARD PART OF WALTAIR MARSHALLING YARD",
         "supersedes": "NEW SIP",
         "reference": "Executing agency GSU/WAT; engineering plan C.E's DRG. No. 5231/22 SHEET No.2/4; PINK BOOK ITEM No. 459 OF 2022-2023. Alteration, completion and commissioning columns are blank (-----)."
+      },
+      {
+        "ver": "2",
+        "text": "Pen alterations on SIP 01 of 04-08-2026 (scanned copy) applied to this file",
+        "supersedes": "ver 1",
+        "reference": "MYD2 OEC YARD SIP 01 04-08-2026.pdf; see tools/stations/oec.fixlog.md"
       }
     ]
   }
