@@ -1,4 +1,4 @@
-import { isDeadEnd, type Point, type Station } from '@/sip/model'
+import { isDeadEnd, showsAspect, type Point, type Station } from '@/sip/model'
 import type { StationSimConfig } from '../config/types'
 import type { PointPos, RccTable } from '../rcc/types'
 
@@ -303,6 +303,8 @@ export class Network {
 
   private buildPosts(): void {
     for (const sig of this.station.assets.signals) {
+      // Boards (speed restriction) show no aspect: they are not stop posts.
+      if (!showsAspect(sig)) continue
       const loc = this.locateOnTrack(sig.trackId, sig.footX)
       if (!loc) {
         this.issues.push({ level: 'warn', code: 'signal-off-track', message: `Signal ${sig.code} (${sig.id}) cannot be placed on track ${sig.trackId} at x=${sig.footX}` })

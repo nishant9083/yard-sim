@@ -68,8 +68,11 @@ export type SignalElement =
   /** Junction route indicator with the arms it can show (any combination, at least one). */
   | { kind: 'routeIndicator'; routes: RouteIndicatorRoute[] }
   | { kind: 'shunt'; text?: string }
+  /** Speed restriction board: a triangle with the limit (km/h) printed inside. */
+  | { kind: 'speedBoard'; limit: string }
 
-export type SignalKind = 'signal' | 'distant' | 'home' | 'starter' | 'advancedStarter' | 'shunt'
+/** `speedBoard` is a post carrying only boards: it shows no aspect and never stops a train. */
+export type SignalKind = 'signal' | 'distant' | 'home' | 'starter' | 'advancedStarter' | 'shunt' | 'speedBoard'
 
 /** A signal post. `code` is exactly what the SIP prints beside it. */
 export interface Signal {
@@ -91,9 +94,17 @@ export interface Signal {
   elements: SignalElement[]
   /** Control number on the VDU (see the controls table). */
   control?: number
+  /** Territory board on the post: SL entering single line, DL entering double line. */
   board?: 'SL' | 'DL'
+  /** Loco pilot board (box with ※, "draw ahead right up to the foot of the signal") on the post. */
+  locoPilotBoard?: boolean
   /** Position of the printed label (drawing space). */
   label?: Point
+}
+
+/** True when the post can show an aspect (has a lamp or shunt disc), i.e. it is a signal and not just a board. */
+export function showsAspect(signal: Pick<Signal, 'elements'>): boolean {
+  return signal.elements.some((e) => e.kind === 'lamp' || e.kind === 'shunt' || e.kind === 'callingOn')
 }
 
 /** Horizontal gap between a signal's post and its head (drawing units). */
@@ -205,13 +216,30 @@ export interface Structure {
   chainage?: number
 }
 
+/** `bridge` (also culverts) or `levelCrossing` (LC gate: the road crossing the lines, with a boom at each end). */
+export type BridgeKind = 'bridge' | 'levelCrossing'
+
 export interface Bridge {
   id: string
+  /** Missing on older files: a bridge. */
+  kind?: BridgeKind
+  /**
+   * The lines it crosses. Missing = every line at its chainage. When set, it is drawn from the topmost to the
+   * bottommost of these lines only.
+   */
+  trackIds?: string[]
   number: string
   chainage: number
   x: number
   spec: string
   isNew?: boolean
+}
+
+export const isLevelCrossing = (b: Pick<Bridge, 'kind'>): boolean => b.kind === 'levelCrossing'
+
+/** "BR 12" / "LC 15" (with "(NEW)" for new works), as printed in the strip above the yard. */
+export function bridgeTitle(b: Pick<Bridge, 'kind' | 'number' | 'isNew'>): string {
+  return `${isLevelCrossing(b) ? 'LC' : 'BR'} ${b.number}${b.isNew ? ' (NEW)' : ''}`
 }
 
 export type ChainageMarkKind = 'PT' | 'FM' | 'DS' | 'DE' | 'PF END' | (string & {})

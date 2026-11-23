@@ -10,6 +10,7 @@ import {
   Spline,
   Split,
   Combine,
+  Construction,
   TrafficCone,
   TrainTrack,
   Type,
@@ -62,6 +63,7 @@ export const TOOL_GROUPS: { title: string; tools: ToolDef[] }[] = [
       { id: 'platform', label: 'Platform', key: 'L', icon: RectangleHorizontal },
       { id: 'structure', label: 'Building / box', key: 'B', icon: Building2 },
       { id: 'bridge', label: 'Bridge', key: 'G', icon: Waypoints },
+      { id: 'levelCrossing', label: 'Level crossing gate', key: 'Q', icon: Construction },
       { id: 'text', label: 'Text', key: 'A', icon: Type },
     ],
   },
@@ -158,6 +160,32 @@ export function ToolPalette({ tool, onTool, options, onOptions }: ToolPalettePro
             <span className="block">Click the line as many times as you like.</span>
           </div>
         )}
+        {(tool === 'bridge' || tool === 'levelCrossing') && (
+          <div className="space-y-1 text-[11px] text-on-surface-variant">
+            Across
+            <div className="flex gap-1" role="group" aria-label="Lines crossed">
+              {(
+                [
+                  { id: 'line', label: 'Clicked line' },
+                  { id: 'all', label: 'All lines' },
+                ] as const
+              ).map(({ id, label }) => (
+                <button
+                  key={id}
+                  type="button"
+                  aria-pressed={options.crossingSpan === id}
+                  onClick={() => onOptions({ ...options, crossingSpan: id })}
+                  className={`flex-1 rounded-md border px-2 py-1 text-xs focus-visible:outline-2 focus-visible:outline-secondary ${
+                    options.crossingSpan === id ? 'border-primary bg-primary text-on-primary' : 'border-outline-variant text-on-surface hover:bg-surface-container-high'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <span className="block">Add more lines afterwards in its properties.</span>
+          </div>
+        )}
         {tool === 'structure' && (
           <label className="block space-y-1 text-[11px] text-on-surface-variant">
             What to place
@@ -170,7 +198,7 @@ export function ToolPalette({ tool, onTool, options, onOptions }: ToolPalettePro
             </select>
           </label>
         )}
-        {tool !== 'track' && tool !== 'connect' && tool !== 'signal' && tool !== 'structure' && tool !== 'arrow' && (
+        {tool !== 'track' && tool !== 'connect' && tool !== 'signal' && tool !== 'structure' && tool !== 'arrow' && tool !== 'bridge' && tool !== 'levelCrossing' && (
           <p className="text-[11px] text-on-surface-variant">Space + drag pans from any tool. Scroll to zoom. Ctrl+Z undoes.</p>
         )}
       </div>

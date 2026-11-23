@@ -5,8 +5,8 @@ import { signalAnchorX, type LineArrow, type LineArrowDirection, type Signal, ty
  *  - odd number  = UP signal: head faces east (right of the post), drawn above the line;
  *  - even number = DN signal: head faces west (left of the post), drawn below the line;
  *  - codes read along the head: east "SH25(A-C) 25" / "C7 7", west "108A/B SH108" / "86 C86";
- *  - elements outward from the post: shunt, marker, calling-on, lamps, route indicator.
- * Signals without their own number (distants such as "DIST (KK LINE)") are left alone.
+ *  - elements outward from the post: shunt, marker, calling-on, lamps, route indicator, speed board.
+ * Signals without their own number (distants such as "DIST (KK LINE)") and standalone speed boards are left alone.
  */
 export function applySignalConventions(station: Station): { station: Station; changed: string[] } {
   const changed: string[] = []
@@ -18,7 +18,7 @@ export function applySignalConventions(station: Station): { station: Station; ch
   return { station: { ...station, assets: { ...station.assets, signals } }, changed }
 }
 
-const ELEMENT_ORDER: SignalElement['kind'][] = ['shunt', 'marker', 'callingOn', 'lamp', 'routeIndicator']
+const ELEMENT_ORDER: SignalElement['kind'][] = ['shunt', 'marker', 'callingOn', 'lamp', 'routeIndicator', 'speedBoard']
 
 export function signalNumber(code: string): number | null {
   if (/^DIST/i.test(code.trim())) return null
@@ -27,6 +27,7 @@ export function signalNumber(code: string): number | null {
 }
 
 function conventionalSignal(s: Signal): Signal {
+  if (s.kind === 'speedBoard') return s
   const n = signalNumber(s.code)
   if (n === null) return s
   const east = n % 2 === 1

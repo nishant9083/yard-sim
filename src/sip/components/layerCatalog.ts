@@ -26,7 +26,7 @@ export const ASSET_LAYERS: LayerEntry[] = [
   { key: 'structures', label: 'Structures', icon: Building2, hint: 'Buildings, FOB, goomty, boards, LVV' },
   { key: 'dimensions', label: 'Dimensions', icon: Ruler, hint: 'Printed lengths' },
   { key: 'chainage', label: 'Chainage', icon: Ruler, hint: 'Ruler and PT / FM / DS / DE marks' },
-  { key: 'bridges', label: 'Bridges', icon: Milestone, hint: 'Culverts and bridges' },
+  { key: 'bridges', label: 'Bridges', icon: Milestone, hint: 'Culverts, bridges and level crossing gates' },
   { key: 'gradients', label: 'Gradients', icon: Gauge, hint: 'Gradient posts' },
   { key: 'routes', label: 'Route labels', icon: Route, hint: 'Printed route / overlap text' },
   { key: 'annotations', label: 'Notes on drawing', icon: Tag, hint: 'Axle sections, over-run notes, CSL' },

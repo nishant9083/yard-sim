@@ -97,7 +97,7 @@ const CLOSE_PX = 10
 const DRAG_PX = 4
 const DEFAULT_VIEW = { minX: 0, minY: -120, maxX: 2400, maxY: 480 }
 
-const POINT_ON_LINE_TOOLS: ToolId[] = ['signal', 'joint', 'arrow', 'circuit', 'bridge']
+const POINT_ON_LINE_TOOLS: ToolId[] = ['signal', 'joint', 'arrow', 'circuit', 'bridge', 'levelCrossing']
 const DRAW_TOOLS: ToolId[] = ['track', 'vertex', 'merge', 'split', 'connect', 'point', 'text', 'origin', ...POINT_ON_LINE_TOOLS]
 
 /** Shift: keep only the larger of the two movements, so the drag runs along one axis. */
@@ -560,8 +560,9 @@ export function EditorCanvas({
         if (s.kind !== 'track') return onNotice('Click on a line.')
         return create(addCircuitAt(station, s.trackId, s.p.x), 'Could not work out the section here.')
       case 'bridge':
+      case 'levelCrossing':
         if (s.kind !== 'track') return onNotice('Click on a line.')
-        return create(addBridge(station, s.p.x))
+        return create(addBridge(station, s.p.x, tool === 'levelCrossing' ? 'levelCrossing' : 'bridge', options.crossingSpan === 'line' ? [s.trackId] : undefined))
       case 'text':
         return create(addAnnotation(station, snapToGrid(world, gridPitchNow)))
       case 'origin': {

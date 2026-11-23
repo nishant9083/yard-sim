@@ -16,6 +16,7 @@ export type ToolId =
   | 'platform'
   | 'structure'
   | 'bridge'
+  | 'levelCrossing'
   | 'text'
   | 'origin'
 
@@ -30,6 +31,8 @@ export interface ToolOptions {
   arrowDirection: LineArrowDirection
   /** Crossover / turnout tool also drops the point machines. */
   connectWithPoints: boolean
+  /** Bridge / level crossing tool: across every line at that chainage, or only the line clicked. */
+  crossingSpan: 'all' | 'line'
 }
 
 export const DEFAULT_TOOL_OPTIONS: ToolOptions = {
@@ -38,6 +41,7 @@ export const DEFAULT_TOOL_OPTIONS: ToolOptions = {
   structureKind: 'building',
   arrowDirection: 'right',
   connectWithPoints: true,
+  crossingSpan: 'line',
 }
 
 export interface SignalPreset {
@@ -64,6 +68,7 @@ export const SIGNAL_PRESETS: SignalPreset[] = [
   },
   { id: 'shunt', label: 'Shunt', kind: 'shunt', elements: [{ kind: 'lamp', style: 'solid' }, { kind: 'shunt' }] },
   { id: 'advanced', label: 'Advanced starter', kind: 'advancedStarter', elements: [{ kind: 'lamp', style: 'vbar' }, { kind: 'lamp', style: 'slash' }] },
+  { id: 'speedBoard', label: 'Speed restriction board', kind: 'speedBoard', elements: [{ kind: 'speedBoard', limit: '30' }] },
 ]
 
 export const presetById = (id: string): SignalPreset => SIGNAL_PRESETS.find((p) => p.id === id) ?? SIGNAL_PRESETS[0]!
@@ -106,14 +111,15 @@ export const TOOL_HELP: Record<ToolId, string> = {
   merge: 'Click the first line, then a second line that joins it at an end. A dialog lets you choose which line supplies each property.',
   split: 'Click a position on a line to split it into two lines.',
   connect: 'Click a spot on one line, then a spot on another. A crossover or turnout is made, with its points.',
-  signal: 'Click beside a line to place a signal. Which side you click decides the side of the head.',
+  signal: 'Click beside a line to place a signal or a speed board (choose below). Which side you click decides the side of the head.',
   point: 'Click a junction (or a spot on a line) to add a point machine.',
   joint: 'Click a line to put an insulated joint there.',
   arrow: 'Choose < , > or <> below, then click anywhere on a line to place an arrow. Click again for as many as you need. Drag one to move it.',
   circuit: 'Click a line section between joints to create its track circuit.',
   platform: 'Drag a rectangle, or click corner by corner for any shape (double-click, Enter or click the first corner to close).',
   structure: 'Buildings: drag a rectangle or click corner by corner for any shape. Boxes and LVV: click to place.',
-  bridge: 'Click a line to mark a bridge.',
+  bridge: 'Click a line to mark a bridge, across that line only or every line (choose below). Add or remove lines in its properties.',
+  levelCrossing: 'Click a line to mark a level crossing gate, across that line only or every line (choose below). Add or remove lines in its properties.',
   text: 'Click to drop a text label.',
   origin: 'Click where the station centre line (chainage 0) is.',
 }

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import {
+  bridgeTitle,
   circuitRangeMetres,
   circuitsAt,
   circuitsOfPoint,
@@ -8,6 +9,7 @@ import {
   describeElement,
   formatChainage,
   formatChainageSide,
+  isLevelCrossing,
   SIGNAL_KIND_NAME,
   type EntityRef,
   type Station,
@@ -139,6 +141,7 @@ export function InspectorPanel({ station, index, entity, onSelect }: InspectorPa
             <Row label="Chainage">{ch(s.footX)}</Row>
             <Row label="Head (from post)">{s.elements.map(describeElement).join(', ')}</Row>
             {s.board && <Row label="Board">{s.board === 'SL' ? 'SL: entering single line' : 'DL: entering double line'}</Row>}
+            {s.locoPilotBoard && <Row label="Loco pilot board">※ draw ahead right up to the foot of the signal</Row>}
             <Row label="Circuit">
               <RefButtons items={circuitsOfSignal(station, s).map((t) => ({ ref: { type: 'trackCircuit', id: t.id }, label: t.code }))} onSelect={onSelect} />
             </Row>
@@ -242,7 +245,7 @@ export function InspectorPanel({ station, index, entity, onSelect }: InspectorPa
       const b = assets.bridges.find((b) => b.id === entity.id)
       if (!b) return null
       return (
-        <Panel title={`BR No. ${b.number}${b.isNew ? ' (NEW)' : ''}`} subtitle={`CH:${b.chainage.toFixed(2)}M F/CSB`}>
+        <Panel title={bridgeTitle(b)} subtitle={`${isLevelCrossing(b) ? 'Level crossing gate · ' : ''}CH:${b.chainage.toFixed(2)}M F/CSB`}>
           <p className="text-on-surface">{b.spec}</p>
         </Panel>
       )

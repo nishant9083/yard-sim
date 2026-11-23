@@ -166,6 +166,29 @@ export const GLYPHS: Record<string, ReactNode> = {
       <path d="M30 3 V25 M42 3 V25" stroke="#c9a46b" strokeDasharray="4 3" />
     </Svg>
   ),
+  levelCrossing: (
+    <Svg>
+      <path d="M4 14 H68" strokeWidth="2.4" />
+      <path d="M33 1 V27 M39 1 V27" stroke="#c9a46b" strokeDasharray="3 2" />
+      {[4, 24].map((y) => (
+        <g key={y} stroke="#c9a46b">
+          <path d={`M18 ${y} L25 ${y - 2.5} L52 ${y} L25 ${y + 2.5} Z`} fill="#c9a46b" />
+          <rect x={22.5} y={y - 2.5} width={5} height={5} fill="var(--color-surface, #0a0c10)" strokeWidth="0.8" />
+          <path d={`M22.5 ${y - 2.5} l5 5 M27.5 ${y - 2.5} l-5 5`} strokeWidth="0.8" />
+        </g>
+      ))}
+    </Svg>
+  ),
+  speedBoard: (
+    <Svg>
+      <path d="M4 26 H68" strokeWidth="2.4" />
+      <path d="M22 24 V12 H30" />
+      <path d="M30 4 V20 L54 12 Z" />
+      <text x={37.5} y={15} fontSize="7.5" fontWeight="600" textAnchor="middle" fill="currentColor" stroke="none">
+        30
+      </text>
+    </Svg>
+  ),
   dimension: (
     <Svg>
       <path d="M8 14 H64 M8 8 V20 M64 8 V20" stroke="#6f8aa8" />

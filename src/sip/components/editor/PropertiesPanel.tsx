@@ -2,6 +2,7 @@ import { ArrowDown, ArrowUp, Plus, Trash2 } from 'lucide-react'
 import {
   chainageAt,
   DEFAULT_ROUTE_INDICATOR_ROUTES,
+  isLevelCrossing,
   ROUTE_INDICATOR_ROUTES,
   shapeCentre,
   sortRoutes,
@@ -131,6 +132,7 @@ const SIGNAL_KINDS = [
   { id: 'advancedStarter', label: 'Advanced starter' },
   { id: 'distant', label: 'Distant' },
   { id: 'shunt', label: 'Shunt' },
+  { id: 'speedBoard', label: 'Speed board (no aspect)' },
 ] as const
 
 const ELEMENT_KINDS: { id: SignalElement['kind']; label: string }[] = [
@@ -139,6 +141,7 @@ const ELEMENT_KINDS: { id: SignalElement['kind']; label: string }[] = [
   { id: 'callingOn', label: 'Calling-on lamp' },
   { id: 'routeIndicator', label: 'Route indicator' },
   { id: 'shunt', label: 'Shunt disc' },
+  { id: 'speedBoard', label: 'Speed restriction board' },
 ]
 
 const LAMP_STYLES = [
@@ -158,8 +161,10 @@ function defaultElement(kind: SignalElement['kind']): SignalElement {
       return { kind: 'shunt' }
     case 'routeIndicator':
       return { kind: 'routeIndicator', routes: [...DEFAULT_ROUTE_INDICATOR_ROUTES] }
-    default:
-      return { kind }
+    case 'speedBoard':
+      return { kind: 'speedBoard', limit: '30' }
+    case 'callingOn':
+      return { kind: 'callingOn' }
   }
 }
 
@@ -274,6 +279,18 @@ function ElementsEditor({ signal, set, commit }: { signal: Signal; set: (patch: 
                 <option key={t}>{t}</option>
               ))}
             </select>
+          )}
+          {el.kind === 'speedBoard' && (
+            <input
+              value={el.limit}
+              placeholder="30"
+              inputMode="numeric"
+              aria-label="Speed limit, km/h"
+              title="Speed limit, km/h"
+              onChange={(e) => set({ elements: signal.elements.map((x, j) => (j === i ? { kind: 'speedBoard', limit: e.target.value.trim().slice(0, 3) } : x)) })}
+              onBlur={commit}
+              className="w-24 rounded-md border border-outline-variant bg-surface px-1.5 py-1 text-xs text-on-surface"
+            />
           )}
           {el.kind === 'shunt' && (
             <input
@@ -451,16 +468,17 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
         const s = assets.signals.find((s) => s.id === selected.id)
         if (!s) return null
         const num = numberOf(s.code)
+        const autoName = `${s.kind === 'speedBoard' ? 'Speed board' : 'Signal'} ${s.code}`
         return (
           <>
-            <Section title="Signal">
+            <Section title={s.kind === 'speedBoard' ? 'Speed board' : 'Signal'}>
               <TextField label="Code" value={s.code} onChange={(v) => set({ code: v })} onCommit={onCommit} required hint="Exactly as printed beside the signal." />
               <TextField
                 label="Name"
                 value={s.name}
                 onChange={(v) => set({ name: v })}
                 onCommit={onCommit}
-                auto={{ value: `Signal ${s.code}`, current: s.name, onReset: () => setNow({ name: `Signal ${s.code}` }) }}
+                auto={{ value: autoName, current: s.name, onReset: () => setNow({ name: autoName }) }}
               />
               <TextField label="Code used in the notes" value={s.fullCode ?? ''} placeholder="e.g. S/SH15" onChange={(v) => set({ fullCode: v || undefined })} onCommit={onCommit} />
               <SelectField label="Type" value={s.kind} options={[...SIGNAL_KINDS]} onChange={(v) => setNow({ kind: v })} />
@@ -485,6 +503,12 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
                   { id: 'DL', label: 'DL: entering double line' },
                 ]}
                 onChange={(v) => setNow({ board: v || undefined })}
+              />
+              <CheckField
+                label="Loco pilot board (※)"
+                checked={!!s.locoPilotBoard}
+                onChange={(v) => setNow({ locoPilotBoard: v || undefined })}
+                hint="LOCO PILOT - DRAW AHEAD RIGHT UPTO THE FOOT OF THE SIGNAL IF FOUND AT ON. Hangs below an SL / DL board when both are set."
               />
               <SelectField label="On line" value={s.trackId} options={trackOptions} onChange={toTrack} hint="Moves the signal to that line at the same place along the yard." />
               <ReadOnly label="Chainage">{ch(s.footX)}</ReadOnly>
@@ -630,10 +654,65 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
         const b = assets.bridges.find((b) => b.id === selected.id)
         if (!b) return null
         const auto = chainageOfX(station, b.x)
+        const lc = isLevelCrossing(b)
+        // Lines present at the crossing's chainage, plus any chosen line that no longer reaches it.
+        const atX = station.tracks.filter((t) => {
+          const [lo, hi] = trackXRange(station, t)
+          return b.x >= lo - 0.01 && b.x <= hi + 0.01
+        })
+        const choices = [...atX, ...station.tracks.filter((t) => b.trackIds?.includes(t.id) && !atX.includes(t))]
+        const lineName = (t: (typeof choices)[number]) => (t.lineNo ? `LINE ${t.lineNo}  ${t.name}` : t.name)
         return (
-          <Section title="Bridge">
-            <TextField label="Bridge number" value={b.number} onChange={(v) => set({ number: v })} onCommit={onCommit} required autoFocus />
-            <TextField label="Span / description" value={b.spec} placeholder="1X1.22M HP" onChange={(v) => set({ spec: v })} onCommit={onCommit} multiline />
+          <Section title={lc ? 'Level crossing gate' : 'Bridge'}>
+            <SelectField
+              label="Kind"
+              value={b.kind ?? 'bridge'}
+              options={[
+                { id: 'bridge', label: 'Bridge / culvert' },
+                { id: 'levelCrossing', label: 'Level crossing gate' },
+              ]}
+              onChange={(v) => setNow({ kind: v === 'levelCrossing' ? v : undefined })}
+            />
+            <SelectField
+              label="Across"
+              value={b.trackIds ? 'chosen' : 'all'}
+              options={[
+                { id: 'all', label: 'Every line at this chainage' },
+                { id: 'chosen', label: 'Chosen lines only' },
+              ]}
+              onChange={(v) => setNow({ trackIds: v === 'all' ? undefined : atX.map((t) => t.id) })}
+              hint="Chosen lines: drawn from the topmost to the bottommost line ticked."
+            />
+            {b.trackIds && (
+              <div className="space-y-1 pl-1">
+                {choices.map((t) => {
+                  const ids = b.trackIds ?? []
+                  const on = ids.includes(t.id)
+                  return (
+                    <CheckField
+                      key={t.id}
+                      label={lineName(t)}
+                      checked={on}
+                      // At least one line stays ticked; untick the last one by choosing "Every line" instead.
+                      onChange={(v) => {
+                        const next = v ? [...ids, t.id] : ids.filter((id) => id !== t.id)
+                        if (next.length) setNow({ trackIds: next })
+                      }}
+                      hint={atX.includes(t) ? undefined : 'Does not reach this chainage'}
+                    />
+                  )
+                })}
+              </div>
+            )}
+            <TextField label={lc ? 'LC number' : 'Bridge number'} value={b.number} onChange={(v) => set({ number: v })} onCommit={onCommit} required autoFocus />
+            <TextField
+              label={lc ? 'Class / description' : 'Span / description'}
+              value={b.spec}
+              placeholder={lc ? "'C' CLASS, MANNED, INTERLOCKED" : '1X1.22M HP'}
+              onChange={(v) => set({ spec: v })}
+              onCommit={onCommit}
+              multiline
+            />
             <NumberField
               label="Chainage"
               unit="M"
@@ -641,9 +720,9 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
               onChange={(v) => set({ chainage: v })}
               onCommit={onCommit}
               auto={auto === undefined ? undefined : { value: auto, current: b.chainage, onReset: () => setNow({ chainage: auto }) }}
-              hint="Chainage of the bridge itself, as printed."
+              hint={`Chainage of the ${lc ? 'level crossing' : 'bridge'} itself, as printed.`}
             />
-            <CheckField label="New bridge" checked={!!b.isNew} onChange={(v) => setNow({ isNew: v || undefined })} />
+            <CheckField label={lc ? 'New level crossing' : 'New bridge'} checked={!!b.isNew} onChange={(v) => setNow({ isNew: v || undefined })} />
           </Section>
         )
       }

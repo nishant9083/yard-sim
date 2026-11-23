@@ -133,6 +133,8 @@ function validateAssets(station: Station, nodes: Map<string, { id: string }>, ad
   for (const s of assets.signals) {
     needTrack('signal', s.id, s.trackId)
     if (s.elements.length === 0) add('warning', 'signal.empty', `Signal ${s.code} has no head elements`, s.id)
+    if (s.elements.some((e) => e.kind === 'speedBoard' && !e.limit.trim()))
+      add('warning', 'signal.speed-limit', `Speed board on ${s.code} has no speed limit`, s.id)
   }
   for (const j of assets.joints) needTrack('joint', j.id, j.trackId)
   for (const a of assets.lineArrows) needTrack('lineArrow', a.id, a.trackId)
@@ -150,6 +152,7 @@ function validateAssets(station: Station, nodes: Map<string, { id: string }>, ad
     if (s.foot) needTrack('structure', s.id, s.foot.trackId)
     if (s.at) needTrack('structure', s.id, s.at.trackId)
   }
+  for (const b of assets.bridges) for (const t of b.trackIds ?? []) needTrack('bridge', b.id, t)
   for (const b of assets.breaks) needTrack('break', b.trackId, b.trackId)
   if (!station.meta.chainage && (assets.chainageMarks.length > 0 || assets.bridges.length > 0))
     add('warning', 'meta.chainage-missing', 'Chainage marks exist but meta.chainage is not set')

@@ -1,3 +1,4 @@
+import { showsAspect } from '@/sip/model'
 import { useState } from 'react'
 import type { Simulation } from '../engine/simulation'
 import type { PointFault, TcFault } from '../engine/types'
@@ -72,7 +73,7 @@ export function FieldPanel({ sim }: { sim: Simulation }) {
       </Section>
       <Section title="Signal lamps">
         <div className="flex flex-wrap gap-1.5">
-          {sim.station.assets.signals.map((s) => {
+          {sim.station.assets.signals.filter(showsAspect).map((s) => {
             const failed = sim.lamps.get(s.id) ?? false
             return (
               <button key={s.id} className={`${btn} ${failed ? 'border-error text-error' : ''}`} onClick={() => sim.dispatch({ type: 'lampFault', signal: s.id, failed: !failed })} title="Fail or restore the lamp">

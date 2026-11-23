@@ -42,9 +42,17 @@ function usedNumbers(codes: string[]): Set<number> {
 
 /** Signals are numbered odd for UP and even for DN; pick the smallest free number of the right parity. */
 export function nextSignalNumber(station: Station, direction: 'UP' | 'DN'): number {
-  const used = usedNumbers(station.assets.signals.map((s) => s.code))
+  const used = usedNumbers(station.assets.signals.filter((s) => s.kind !== 'speedBoard').map((s) => s.code))
   let n = direction === 'UP' ? 1 : 2
   while (used.has(n)) n += 2
+  return n
+}
+
+/** Speed boards are numbered SB1, SB2 ... on their own, apart from the signals. */
+export function nextBoardNumber(station: Station): number {
+  const used = usedNumbers(station.assets.signals.filter((s) => s.kind === 'speedBoard').map((s) => s.code))
+  let n = 1
+  while (used.has(n)) n++
   return n
 }
 

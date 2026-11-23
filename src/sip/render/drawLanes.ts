@@ -1,4 +1,4 @@
-import { chainageAt } from '@/sip/model'
+import { bridgeTitle, chainageAt } from '@/sip/model'
 import { worldToScreen } from './camera'
 import { line } from './draw'
 import { emphasisOf, type DrawArgs } from './types'
@@ -92,7 +92,7 @@ export function drawLanes(args: DrawArgs): void {
     const showSpec = camera.zoom >= 0.9
     const items: LaneItem[] = assets.bridges.map((b) => {
       const e = emphasisOf(state, 'bridge', b.id)
-      const text = `BR ${b.number}${b.isNew ? ' (NEW)' : ''}  CH:${b.chainage.toFixed(2)}M${showSpec ? '  ' + b.spec : ''}`
+      const text = `${bridgeTitle(b)}  CH:${b.chainage.toFixed(2)}M${showSpec && b.spec ? '  ' + b.spec : ''}`
       return { x: sx(b.x), text, colour: e ? theme.selected : theme.bridge, ref: { type: 'bridge', id: b.id }, emphasised: e !== null }
     })
     draw(items, 2, cursor, -1, top, theme.bridge)

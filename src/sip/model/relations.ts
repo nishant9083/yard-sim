@@ -55,6 +55,7 @@ const ELEMENT_NAME: Record<SignalElement['kind'], string> = {
   callingOn: 'calling-on lamp',
   routeIndicator: 'route indicator',
   shunt: 'shunt disc',
+  speedBoard: 'speed board',
 }
 
 export function describeElement(e: SignalElement): string {
@@ -65,6 +66,8 @@ export function describeElement(e: SignalElement): string {
       return `${e.text} marker`
     case 'shunt':
       return e.text ? `shunt disc ${e.text}` : ELEMENT_NAME.shunt
+    case 'speedBoard':
+      return `speed board ${e.limit || '?'} km/h`
     case 'routeIndicator':
       return `route indicator (${ROUTE_INDICATOR_ROUTES.filter((r) => e.routes.includes(r.id))
         .map((r) => r.label.toLowerCase())
@@ -81,4 +84,5 @@ export const SIGNAL_KIND_NAME: Record<Signal['kind'], string> = {
   starter: 'Starter',
   advancedStarter: 'Advanced starter',
   shunt: 'Shunt',
+  speedBoard: 'Speed board',
 }

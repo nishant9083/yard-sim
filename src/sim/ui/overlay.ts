@@ -1,10 +1,11 @@
-import type { Point, TrackCircuit } from '@/sip/model'
-import { routeIndicatorArms, signalGeometry, worldToScreen, type DrawArgs } from '@/sip/render'
+import { showsAspect, type Point, type TrackCircuit } from '@/sip/model'
+import { routeIndicatorArms, signalGeometry, withSignalFrame, worldToScreen, type DrawArgs } from '@/sip/render'
 import type { Simulation } from '../engine/simulation'
 
 const RED = '#ff5d6c'
 const GREEN = '#3ddc84'
 const WHITE = '#f4f6fa'
+const RESERVED = '#ffdf00'
 const AMBER = '#ffb454'
 const CYAN = '#4cc9f0'
 const YELLOW = '#ffd23f'
@@ -47,7 +48,7 @@ export function drawSimOverlay(args: DrawArgs, sim: Simulation): void {
   for (const tc of layout.station.assets.trackCircuits) {
     const st = sim.tcs.get(tc.code)
     if (!st) continue
-    const colour = st.occupied ? RED : reserved.has(tc.code) ? WHITE : null
+    const colour = st.occupied ? RED : reserved.has(tc.code) ? RESERVED : null
     if (!colour) continue
     ctx.strokeStyle = colour
     ctx.globalAlpha = st.occupied ? 0.78 : 0.5
@@ -102,6 +103,7 @@ export function drawSimOverlay(args: DrawArgs, sim: Simulation): void {
 
   // Signals: every lamp of the head is drawn dark, then the ones the aspect lights.
   if (args.state.layers.signals) for (const sig of layout.station.assets.signals) {
+    if (!showsAspect(sig)) continue
     const g = signalGeometry(layout, camera, sig)
     if (!g) continue
     const v = sim.signal(sig.id)
@@ -130,60 +132,63 @@ export function drawSimOverlay(args: DrawArgs, sim: Simulation): void {
       }
     }
     const rr = Math.max(2.6, g.r * 0.82)
-    for (const part of g.parts) {
-      const e = part.element
-      if (e.kind === 'lamp') {
-        const colour = lit.get(part)
-        ctx.beginPath()
-        ctx.arc(part.cx, part.cy, rr, 0, Math.PI * 2)
-        ctx.fillStyle = colour ?? DARK
-        ctx.shadowColor = colour ?? 'transparent'
-        ctx.shadowBlur = colour ? 10 : 0
-        ctx.fill()
-        ctx.shadowBlur = 0
-      } else if (e.kind === 'callingOn') {
-        ctx.beginPath()
-        ctx.arc(part.cx, part.cy, rr * 0.8, 0, Math.PI * 2)
-        ctx.fillStyle = v.callingOn ? YELLOW : DARK
-        ctx.shadowColor = YELLOW
-        ctx.shadowBlur = v.callingOn ? 10 : 0
-        ctx.fill()
-        ctx.shadowBlur = 0
-      } else if (e.kind === 'routeIndicator') {
-        if (v.routeIndicator) {
-          // Light the indicator's arms as drawn on the plan. The interlocking only says "diverging", not which way,
-          // so an indicator with several arms lights them all.
-          ctx.strokeStyle = WHITE
-          ctx.lineWidth = 2.5
-          ctx.shadowColor = WHITE
-          ctx.shadowBlur = 8
+    // Lamps sit in the signal's turned frame, like the drawing underneath.
+    withSignalFrame(ctx, g, () => {
+      for (const part of g.parts) {
+        const e = part.element
+        if (e.kind === 'lamp') {
+          const colour = lit.get(part)
           ctx.beginPath()
-          for (const arm of routeIndicatorArms(part, g)) {
-            ctx.moveTo(arm.from.x, arm.from.y)
-            ctx.lineTo(arm.to.x, arm.to.y)
+          ctx.arc(part.cx, part.cy, rr, 0, Math.PI * 2)
+          ctx.fillStyle = colour ?? DARK
+          ctx.shadowColor = colour ?? 'transparent'
+          ctx.shadowBlur = colour ? 10 : 0
+          ctx.fill()
+          ctx.shadowBlur = 0
+        } else if (e.kind === 'callingOn') {
+          ctx.beginPath()
+          ctx.arc(part.cx, part.cy, rr * 0.8, 0, Math.PI * 2)
+          ctx.fillStyle = v.callingOn ? YELLOW : DARK
+          ctx.shadowColor = YELLOW
+          ctx.shadowBlur = v.callingOn ? 10 : 0
+          ctx.fill()
+          ctx.shadowBlur = 0
+        } else if (e.kind === 'routeIndicator') {
+          if (v.routeIndicator) {
+            // Light the indicator's arms as drawn on the plan. The interlocking only says "diverging", not which way,
+            // so an indicator with several arms lights them all.
+            ctx.strokeStyle = WHITE
+            ctx.lineWidth = 2.5
+            ctx.shadowColor = WHITE
+            ctx.shadowBlur = 8
+            ctx.beginPath()
+            for (const arm of routeIndicatorArms(part, g)) {
+              ctx.moveTo(arm.from.x, arm.from.y)
+              ctx.lineTo(arm.to.x, arm.to.y)
+            }
+            ctx.stroke()
+            ctx.shadowBlur = 0
           }
-          ctx.stroke()
+        } else if (e.kind === 'shunt') {
+          // Position light: two whites, level when ON (independent shunt only), inclined when OFF.
+          const independent = sig.kind === 'shunt'
+          if (v.lampFailed || (!v.shunt && !independent)) continue
+          const dx = g.r * 0.7
+          const dy = v.shunt ? g.r * 0.7 : 0
+          ctx.fillStyle = WHITE
+          ctx.shadowColor = WHITE
+          ctx.shadowBlur = v.shunt ? 9 : 0
+          ctx.globalAlpha = v.shunt ? 1 : 0.75
+          for (const k of [-1, 1]) {
+            ctx.beginPath()
+            ctx.arc(part.cx + k * dx, part.cy - k * dy, Math.max(1.8, g.r * 0.36), 0, Math.PI * 2)
+            ctx.fill()
+          }
+          ctx.globalAlpha = 1
           ctx.shadowBlur = 0
         }
-      } else if (e.kind === 'shunt') {
-        // Position light: two whites, level when ON (independent shunt only), inclined when OFF.
-        const independent = sig.kind === 'shunt'
-        if (v.lampFailed || (!v.shunt && !independent)) continue
-        const dx = g.r * 0.7
-        const dy = v.shunt ? g.r * 0.7 : 0
-        ctx.fillStyle = WHITE
-        ctx.shadowColor = WHITE
-        ctx.shadowBlur = v.shunt ? 9 : 0
-        ctx.globalAlpha = v.shunt ? 1 : 0.75
-        for (const k of [-1, 1]) {
-          ctx.beginPath()
-          ctx.arc(part.cx + k * dx, part.cy - k * dy, Math.max(1.8, g.r * 0.36), 0, Math.PI * 2)
-          ctx.fill()
-        }
-        ctx.globalAlpha = 1
-        ctx.shadowBlur = 0
       }
-    }
+    })
     if (v.lampFailed) {
       ctx.strokeStyle = RED
       ctx.lineWidth = 1.5
@@ -199,7 +204,7 @@ export function drawSimOverlay(args: DrawArgs, sim: Simulation): void {
   // Trains.
   for (const t of sim.trains) {
     ctx.strokeStyle = t.leaving ? '#8fa6ff' : CYAN
-    ctx.lineWidth = 6
+    ctx.lineWidth = 12
     ctx.lineCap = 'round'
     for (const leg of t.trail) {
       const e = net.edges.get(leg.edge)
@@ -210,10 +215,11 @@ export function drawSimOverlay(args: DrawArgs, sim: Simulation): void {
       ctx.stroke()
     }
     const head = worldToScreen(camera, layout.place(net.pointOf(t.head)))
-    ctx.fillStyle = '#ffffff'
-    ctx.beginPath()
-    ctx.arc(head.x, head.y, 4.5, 0, Math.PI * 2)
-    ctx.fill()
+    ctx.fillStyle = '#ff00da'
+    ctx.fillRect(head.x - 4.5, head.y - 5.5, 24, 14)
+    ctx.lineWidth = 3.5
+    ctx.strokeStyle = '#a500ff'
+    ctx.strokeRect(head.x - 4.5, head.y - 5, 22, 12)
     ctx.font = '600 11px ui-sans-serif, system-ui, sans-serif'
     ctx.textAlign = 'center'
     ctx.textBaseline = 'bottom'

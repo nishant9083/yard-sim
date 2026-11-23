@@ -3,6 +3,7 @@ import {
   isTrackEnd,
   shapeCentre,
   type Bridge,
+  type BridgeKind,
   type LineArrow,
   type LineArrowDirection,
   type Shape,
@@ -27,6 +28,7 @@ import {
   newPoint,
   nextLineNumber,
   nextPointNumber,
+  nextBoardNumber,
   nextSignalNumber,
   signalOrientation,
   trackNameFor,
@@ -140,6 +142,7 @@ export function splitTrack(s: Station, trackId: string, p: Point): OpResult {
     signals: next.assets.signals.map((x) => (x.trackId === trackId && x.footX > splitX ? { ...x, trackId: newId } : x)),
     joints: next.assets.joints.map((x) => (x.trackId === trackId && x.x > splitX ? { ...x, trackId: newId } : x)),
     lineArrows: next.assets.lineArrows.map((x) => (x.trackId === trackId && x.x > splitX ? { ...x, trackId: newId } : x)),
+    bridges: next.assets.bridges.map((b) => (b.trackIds?.includes(trackId) && b.x > splitX ? { ...b, trackIds: b.trackIds.map((t) => (t === trackId ? newId : t)) } : b)),
     trackCircuits: next.assets.trackCircuits.map((tc) => ({
       ...tc,
       spans: tc.spans.flatMap((span) => {
@@ -203,6 +206,7 @@ export function mergeTracks(s: Station, aId: string, bId: string, choices: Track
     signals: next.assets.signals.map((x) => (x.trackId === bId ? { ...x, trackId: aId } : x)),
     joints: next.assets.joints.map((x) => (x.trackId === bId ? { ...x, trackId: aId } : x)),
     lineArrows: next.assets.lineArrows.map((x) => (x.trackId === bId ? { ...x, trackId: aId } : x)),
+    bridges: next.assets.bridges.map((b) => (b.trackIds?.includes(bId) ? { ...b, trackIds: [...new Set(b.trackIds.map((t) => (t === bId ? aId : t)))] } : b)),
     trackCircuits: next.assets.trackCircuits.map((tc) => ({
       ...tc,
       spans: tc.spans.map((span) => ('trackId' in span && span.trackId === bId ? { ...span, trackId: aId } : span)),
@@ -320,20 +324,22 @@ export function addSignal(s: Station, trackId: string, x: number, clickY: number
   if (!track || y === null) return { station: s }
   const preset = presetById(presetId)
   const orient = signalOrientation(track, y, clickY)
-  const n = nextSignalNumber(s, orient.direction)
-  const code = String(n)
+  // Boards carry no signal number: they are coded SB1, SB2 ... and get no VDU control.
+  const board = preset.kind === 'speedBoard'
+  const n = board ? nextBoardNumber(s) : nextSignalNumber(s, orient.direction)
+  const code = board ? `SB${n}` : String(n)
   const footX = round2(x)
   const signal = {
     id: uniqueId(`SIG_${idSafe(code)}`, s.assets.signals.map((g) => g.id)),
     code,
-    name: `Signal ${code}`,
+    name: board ? `Speed board ${code}` : `Signal ${code}`,
     kind: preset.kind,
     ...orient,
     trackId,
     footX,
     anchorX: round2(signalAnchorX({ footX, headDir: orient.headDir })),
     elements: preset.elements.map((e) => ({ ...e })),
-    control: n,
+    ...(!board && { control: n }),
   }
   return { station: withAssets(s, { signals: [...s.assets.signals, signal] }), ref: { type: 'signal', id: signal.id } }
 }
@@ -481,10 +487,13 @@ export function addStructure(s: Station, kind: StructureKind, a: Point, b: Point
   return { station: withAssets(s, { structures: [...s.assets.structures, structure] }), ref: { type: 'structure', id } }
 }
 
-export function addBridge(s: Station, x: number): OpResult {
+/** A bridge or level crossing at `x`: across every line there, or only across `trackIds` when given. */
+export function addBridge(s: Station, x: number, kind: BridgeKind = 'bridge', trackIds?: string[]): OpResult {
   const scale = s.meta.chainage
   const bridge: Bridge = {
-    id: nextId('BR', s.assets.bridges.map((b) => b.id), 2),
+    id: nextId(kind === 'levelCrossing' ? 'LC' : 'BR', s.assets.bridges.map((b) => b.id), 2),
+    ...(kind === 'levelCrossing' && { kind }),
+    ...(trackIds?.length && { trackIds: [...new Set(trackIds)] }),
     number: '',
     chainage: scale ? round2(chainageAt(scale, x)) : 0,
     x: round2(x),
@@ -681,6 +690,12 @@ function removeTrackOnly(s: Station, id: string): Station {
       joints: a.joints.filter((j) => j.trackId !== id),
       lineArrows: a.lineArrows.filter((l) => l.trackId !== id),
       signals: a.signals.filter((g) => g.trackId !== id),
+      // A crossing over chosen lines loses the deleted one; one that crossed only that line goes with it.
+      bridges: a.bridges.flatMap((b): Bridge[] => {
+        if (!b.trackIds?.includes(id)) return [b]
+        const rest = b.trackIds.filter((t) => t !== id)
+        return rest.length ? [{ ...b, trackIds: rest }] : []
+      }),
       breaks: a.breaks.filter((b) => b.trackId !== id),
       structures: a.structures.flatMap((st): Structure[] => {
         if (st.at?.trackId === id) return []

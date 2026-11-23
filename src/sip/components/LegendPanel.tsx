@@ -15,14 +15,15 @@ const SIGNAL_SYMBOLS: Entry[] = [
   { glyph: 'callingOn', title: 'Calling-on lamp', text: 'Capsule with a slash, usually on home signals.' },
   { glyph: 'routeIndicator', title: 'Route indicator', text: 'Arms from a pivot at the end of the head, one per route: left and right stand across the head (|), upper left and upper right are the diagonals (<). Any combination; drawn |<| facing east and |>| facing west.' },
   { glyph: 'shunt', title: 'Shunt signal', text: 'Quarter disc with three holes, standalone or as the shunt part of a main signal.' },
+  { glyph: 'speedBoard', title: 'Speed restriction board', text: 'Triangle with the speed limit (km/h) inside, pointing the way the head faces; on its own post or as part of a signal head. Shows no aspect.' },
 ]
 
 const FIELD_SYMBOLS: Entry[] = [
   { glyph: 'slBoard', title: 'SL board (printed)', text: '"ENTERING INTO SINGLE LINE TERRITORY". Shown at the home signal where it is printed.' },
   { glyph: 'dlBoard', title: 'DL board (printed)', text: '"ENTERING INTO DOUBLE LINE TERRITORY". Shown at the home signal where it is printed.' },
-  { glyph: 'locoPilot', title: 'Loco pilot board (printed)', text: '"LOCO PILOT-DRAW AHEAD RIGHT UPTO THE FOOT OF THE SIGNAL IF FOUND AT ON." Drawn as a box with the ※ sign outside the home signal.' },
+  { glyph: 'locoPilot', title: 'Loco pilot board (printed)', text: '"LOCO PILOT-DRAW AHEAD RIGHT UPTO THE FOOT OF THE SIGNAL IF FOUND AT ON." Drawn as a box with the ※ sign: on the signal post (hung from the wire, below any SL / DL board) or on its own post beside the line.' },
   { glyph: 'lvv', title: 'HASSDAC / LVV (printed)', text: 'Last vehicle check: dot pairs either side of the rail. HASSDAC is in the printed legend; LVV marks the same device at the block ends.' },
-  { glyph: 'detector', title: 'Box with circle', text: 'Detection point on the approach. Not every SIP legend defines this symbol.' },
+  { glyph: 'detector', title: 'Signal Warning Board', text: 'Signal Warning Board drawn as a rectangle with a circle symbol inside.' },
   { glyph: 'goomty', title: 'S&T goomty', text: 'Box on a post beside the line.' },
 ]
 
@@ -35,6 +36,7 @@ const TRACK_SYMBOLS: Entry[] = [
   { glyph: 'fob', title: 'Foot over bridge', text: 'FOB across the lines, linking the platforms, with its printed chainage and width.' },
   { glyph: 'building', title: 'Buildings', text: 'Existing and new station building, S.M. room (hatched).' },
   { glyph: 'bridge', title: 'Bridge / culvert', text: 'Dashed pair across the lines, with BR number and span in the strip above.' },
+  { glyph: 'levelCrossing', title: 'Level crossing gate', text: 'The road across the lines (dashed pair, splayed ends) with a gate boom at each end, across every line or only the chosen ones; LC number and class in the strip above.' },
 ]
 
 function dimSymbols(station: Station): Entry[] {

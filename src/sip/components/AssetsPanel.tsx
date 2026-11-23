@@ -1,6 +1,6 @@
 import { Search } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { SIGNAL_KIND_NAME, sameEntity, type EntityRef, type Station } from '@/sip/model'
+import { SIGNAL_KIND_NAME, bridgeTitle, sameEntity, type EntityRef, type Station } from '@/sip/model'
 
 interface AssetsPanelProps {
   station: Station
@@ -54,8 +54,8 @@ export function AssetsPanel({ station, selected, onSelect }: AssetsPanelProps) {
         rows: assets.platforms.map((p) => ({ ref: { type: 'platform', id: p.id }, code: p.name, detail: `${p.lengthM} M × ${p.widthM} M` })),
       },
       {
-        title: 'Bridges',
-        rows: assets.bridges.map((b) => ({ ref: { type: 'bridge', id: b.id }, code: `BR ${b.number}${b.isNew ? ' (NEW)' : ''}`, detail: `CH:${b.chainage.toFixed(2)}M · ${b.spec}` })),
+        title: 'Bridges & level crossings',
+        rows: assets.bridges.map((b) => ({ ref: { type: 'bridge', id: b.id }, code: bridgeTitle(b), detail: `CH:${b.chainage.toFixed(2)}M · ${b.spec}` })),
       },
       {
         title: 'Structures',

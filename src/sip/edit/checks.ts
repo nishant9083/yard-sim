@@ -1,4 +1,4 @@
-import { validateStation, type Station, type ValidationIssue } from '@/sip/model'
+import { isLevelCrossing, validateStation, type Station, type ValidationIssue } from '@/sip/model'
 
 /**
  * Structural validation plus completeness checks that only matter while authoring:
@@ -26,7 +26,7 @@ export function editorIssues(s: Station): ValidationIssue[] {
   dupes(s.assets.trackCircuits, 'Track circuit')
 
   for (const p of s.assets.points) if (!p.ratio.trim()) add('point.ratio', `Point ${p.code}: ratio not set (the SIP default will apply)`, p.id)
-  for (const b of s.assets.bridges) if (!b.number.trim()) add('bridge.number', 'Bridge has no number', b.id)
+  for (const b of s.assets.bridges) if (!b.number.trim()) add('bridge.number', `${isLevelCrossing(b) ? 'Level crossing' : 'Bridge'} has no number`, b.id)
   for (const p of s.assets.platforms) if (!p.widthM) add('platform.width', `${p.name}: width not set`, p.id)
   for (const t of s.tracks) if (!t.name.trim()) add('track.name', `Track ${t.id} has no name`, t.id)
   return issues

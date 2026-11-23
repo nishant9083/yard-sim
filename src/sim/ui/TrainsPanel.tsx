@@ -1,3 +1,4 @@
+import { showsAspect } from '@/sip/model'
 import { useState } from 'react'
 import type { Simulation } from '../engine/simulation'
 import { btn, btnPrimary, Chip, field, Section, useSimVersion } from './ui'
@@ -5,7 +6,7 @@ import { btn, btnPrimary, Chip, field, Section, useSimVersion } from './ui'
 export function TrainsPanel({ sim }: { sim: Simulation }) {
   useSimVersion(sim)
   // Stop signals only: a train cannot wait at a distant.
-  const signals = sim.station.assets.signals.filter((x) => x.kind !== 'distant')
+  const signals = sim.station.assets.signals.filter((x) => x.kind !== 'distant' && showsAspect(x))
   const tcs = sim.station.assets.trackCircuits.filter((t) => t.kind === 'trackCircuit')
   const [where, setWhere] = useState<'signal' | 'tc'>('signal')
   const [signal, setSignal] = useState(signals[0]?.id ?? '')
