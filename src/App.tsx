@@ -1,7 +1,9 @@
-import { FilePlus2, Pencil, Play, Upload } from 'lucide-react'
+import { ArrowLeft, ChevronDown, FilePlus2, Pencil, Play, Upload } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import {
+  AppHeader,
   blankStation,
+  CodeBadge,
   cloneStation,
   deleteDraft,
   EditorView,
@@ -17,11 +19,9 @@ import {
 } from '@/sip'
 import { hasSimulation } from '@/sim/registry'
 import { SimulationView } from '@/sim/ui/SimulationView'
+import { btn, btnGhost, btnPrimary, divider } from '@/sip/components/ui'
 
 const bundled = new Map(stationList.map((s) => [s.station.meta.code, s]))
-
-const headerButton =
-  'flex h-8 items-center gap-1.5 rounded-md border border-outline-variant px-2.5 text-xs text-on-surface transition-colors hover:bg-surface-container-high focus-visible:outline-2 focus-visible:outline-secondary'
 
 export default function App() {
   // Drafts are stations edited or created in the browser. A draft shadows the bundled station with the same code.
@@ -75,15 +75,21 @@ export default function App() {
   if (simStation && hasSimulation(simStation.meta.code)) {
     return (
       <div className="flex h-full flex-col">
-        <header className="flex items-center justify-between gap-4 border-b border-outline-variant bg-surface-container px-4 py-2">
-          <div className="min-w-0">
-            <h1 className="truncate text-sm font-medium text-on-surface">
-              {simStation.meta.name} <span className="text-on-surface-variant">({simStation.meta.code})</span> · Interlocking simulation
-            </h1>
-            <p className="truncate text-xs text-on-surface-variant">Driven by the route control chart · {simStation.meta.ends.west} ← → {simStation.meta.ends.east}</p>
-          </div>
-          <a className={headerButton} href="#/">Station viewer</a>
-        </header>
+        <AppHeader
+          section="Interlocking simulation"
+          title={
+            <>
+              {simStation.meta.name}
+              <CodeBadge>{simStation.meta.code}</CodeBadge>
+            </>
+          }
+          subtitle={`Driven by the route control chart · ${simStation.meta.ends.west} ← → ${simStation.meta.ends.east}`}
+        >
+          <a className={btn} href="#/">
+            <ArrowLeft className="size-3.5" aria-hidden />
+            Station viewer
+          </a>
+        </AppHeader>
         <main className="relative min-h-0 flex-1">
           <SimulationView key={simStation.meta.code} station={simStation} />
         </main>
@@ -120,23 +126,28 @@ export default function App() {
 
   return (
     <div className="flex h-full flex-col">
-      <header className="flex items-center justify-between gap-4 border-b border-outline-variant bg-surface-container px-4 py-2">
-        <div className="min-w-0">
-          <h1 className="truncate text-sm font-medium text-on-surface">
-            {station.meta.name} <span className="text-on-surface-variant">({station.meta.code})</span>
-          </h1>
-          <p className="truncate text-xs text-on-surface-variant">
-            {station.meta.sipRef} · {station.meta.ends.west} ← → {station.meta.ends.east}
-          </p>
-        </div>
-        <div className="flex items-center gap-3">
-          {importError && <span className="max-w-64 truncate text-xs text-error" title={importError}>{importError}</span>}
-          <label className="flex items-center gap-2 text-xs text-on-surface-variant">
-            Station
+      <AppHeader
+        section="Station viewer"
+        title={
+          <>
+            {station.meta.name}
+            <CodeBadge>{station.meta.code}</CodeBadge>
+          </>
+        }
+        subtitle={
+          <span title={station.meta.sipRef}>
+            {station.meta.ends.west} ← → {station.meta.ends.east}
+            {station.meta.sipRef && <span className="text-on-surface-variant/70"> · {station.meta.sipRef}</span>}
+          </span>
+        }
+        context={
+          <label className="relative flex shrink-0 items-center">
+            <span className="sr-only">Station</span>
             <select
               value={station.meta.code}
               onChange={(e) => setCode(e.target.value)}
-              className="rounded-md border border-outline-variant bg-surface px-2 py-1 text-xs text-on-surface focus-visible:outline-2 focus-visible:outline-secondary"
+              title="Choose a station"
+              className="h-8 w-56 appearance-none truncate rounded-md border border-outline-variant bg-surface-container-low pr-8 pl-2.5 text-xs font-medium text-on-surface transition-colors hover:border-outline focus:border-accent focus:outline-none"
             >
               {stationList.map((e) => (
                 <option key={e.station.meta.code} value={e.station.meta.code}>
@@ -144,40 +155,47 @@ export default function App() {
                 </option>
               ))}
             </select>
+            <ChevronDown className="pointer-events-none absolute right-2.5 size-3.5 text-on-surface-variant" aria-hidden />
           </label>
-          <ValidationSummary issues={issues} />
-          <span className="h-5 w-px bg-outline-variant" aria-hidden />
-          {hasSimulation(station.meta.code) && (
-            <a className={headerButton} href={`#/simulate/${station.meta.code}`} target="_blank" rel="noopener" title="Open the interlocking simulation for this station in a new page">
-              <Play className="size-3.5" aria-hidden />
-              Simulate
-            </a>
-          )}
-          <button type="button" className={headerButton} onClick={() => openEditor(drafts[station.meta.code] ?? cloneStation(station))} title="Edit this station (continues your saved draft if there is one). The bundled station is not touched.">
-            <Pencil className="size-3.5" aria-hidden />
-            Edit
-          </button>
-          <button type="button" className={headerButton} onClick={() => setCreating(true)}>
-            <FilePlus2 className="size-3.5" aria-hidden />
-            New station
-          </button>
-          <button type="button" className={headerButton} onClick={() => fileRef.current?.click()} title="Open a station JSON file in the editor">
-            <Upload className="size-3.5" aria-hidden />
-            Import
-          </button>
-          <input
-            ref={fileRef}
-            type="file"
-            accept="application/json,.json"
-            hidden
-            onChange={(e) => {
-              const file = e.target.files?.[0]
-              e.target.value = ''
-              if (file) void importFile(file)
-            }}
-          />
-        </div>
-      </header>
+        }
+      >
+        {importError && (
+          <span className="max-w-56 truncate rounded-md border border-error/40 bg-error/10 px-2 py-1 text-xs text-error" title={importError} role="alert">
+            {importError}
+          </span>
+        )}
+        <ValidationSummary issues={issues} />
+        <span className={divider} aria-hidden />
+        <button type="button" className={btnGhost} onClick={() => setCreating(true)} title="Start a new station from scratch">
+          <FilePlus2 className="size-3.5" aria-hidden />
+          New station
+        </button>
+        <button type="button" className={btnGhost} onClick={() => fileRef.current?.click()} title="Open a station JSON file in the editor">
+          <Upload className="size-3.5" aria-hidden />
+          Import
+        </button>
+        <input
+          ref={fileRef}
+          type="file"
+          accept="application/json,.json"
+          hidden
+          onChange={(e) => {
+            const file = e.target.files?.[0]
+            e.target.value = ''
+            if (file) void importFile(file)
+          }}
+        />
+        <button type="button" className={btn} onClick={() => openEditor(drafts[station.meta.code] ?? cloneStation(station))} title="Edit this station (continues your saved draft if there is one). The bundled station is not touched.">
+          <Pencil className="size-3.5" aria-hidden />
+          Edit
+        </button>
+        {hasSimulation(station.meta.code) && (
+          <a className={btnPrimary} href={`#/simulate/${station.meta.code}`} target="_blank" rel="noopener" title="Open the interlocking simulation for this station in a new page">
+            <Play className="size-3.5" aria-hidden />
+            Simulate
+          </a>
+        )}
+      </AppHeader>
       <main className="relative min-h-0 flex-1">
         <StationViewer key={station.meta.code} station={station} />
       </main>

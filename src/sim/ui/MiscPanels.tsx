@@ -79,7 +79,7 @@ export function ChecksPanel({ sim }: { sim: Simulation }) {
         <p className="mb-2 text-xs text-on-surface-variant">Every route is walked over the drawing with the points the chart asks for, and compared with the circuits, points and controls the chart lists.</p>
         <div className="flex gap-1.5">
           {(['error', 'warn', 'info'] as const).map((l) => (
-            <button key={l} onClick={() => setLevel(l)} className={`rounded border px-2 py-0.5 text-xs ${level === l ? 'border-secondary text-secondary' : 'border-outline-variant text-on-surface-variant'}`}>
+            <button key={l} onClick={() => setLevel(l)} className={`h-7 rounded-md border px-2.5 text-xs font-medium transition-colors ${level === l ? 'border-accent bg-accent/15 text-on-surface' : 'border-outline-variant text-on-surface-variant hover:border-outline hover:text-on-surface'}`}>
               {l} {counts[l]}
             </button>
           ))}

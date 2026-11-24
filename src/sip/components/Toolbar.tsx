@@ -1,7 +1,8 @@
-import { Focus, Maximize2, Ruler, Signal, Spline, TrainTrack } from 'lucide-react'
+import { Focus, Maximize2, Minus, MoveVertical, Plus, Ruler, Signal, Spline, TrainTrack } from 'lucide-react'
 import { MAX_ZOOM, MIN_ZOOM, type LayerVisibility } from '@/sip/render'
 import { LayerMenu } from './LayerMenu'
 import { LayerToggle } from './LayerToggle'
+import { btnGhost, btnIcon, divider, floating } from './ui'
 
 interface ToolbarProps {
   layers: LayerVisibility
@@ -9,28 +10,23 @@ interface ToolbarProps {
   yExaggeration: number
   onYExaggerationChange: (value: number) => void
   onFit: (mode: 'core' | 'all') => void
-  zoom: number
-  onZoomChange: (zoom: number) => void
 }
 
-const buttonClass =
-  'flex h-8 items-center gap-1.5 rounded-md px-2 text-xs text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface focus-visible:outline-2 focus-visible:outline-secondary'
-
-export function Toolbar({ layers, onLayersChange, yExaggeration, onYExaggerationChange, onFit, zoom, onZoomChange }: ToolbarProps) {
+export function Toolbar({ layers, onLayersChange, yExaggeration, onYExaggerationChange, onFit }: ToolbarProps) {
   const toggle = (key: keyof LayerVisibility) => () => onLayersChange({ ...layers, [key]: !layers[key] })
 
   return (
-    <div className="absolute top-3 left-3 z-10 flex flex-wrap items-center gap-1 rounded-lg border border-outline-variant bg-surface-container/90 p-1 backdrop-blur">
-      <button type="button" className={buttonClass} onClick={() => onFit('core')} title="Zoom to the station">
+    <div role="toolbar" aria-label="View" className={`${floating} absolute top-3 left-3 z-10 flex max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-0.5 p-1`}>
+      <button type="button" className={btnGhost} onClick={() => onFit('core')} title="Zoom to the station">
         <Focus className="size-4" aria-hidden />
         Station
       </button>
-      <button type="button" className={buttonClass} onClick={() => onFit('all')} title="Show the whole drawing">
+      <button type="button" className={btnGhost} onClick={() => onFit('all')} title="Show the whole drawing (double-click the drawing also re-fits)">
         <Maximize2 className="size-4" aria-hidden />
         Whole yard
       </button>
 
-      <span className="mx-1 h-5 w-px bg-outline-variant" aria-hidden />
+      <span className={divider} aria-hidden />
 
       <LayerToggle icon={Signal} label="Signals" active={layers.signals} onToggle={toggle('signals')} />
       <LayerToggle icon={Spline} label="Points" active={layers.points} onToggle={toggle('points')} />
@@ -38,10 +34,11 @@ export function Toolbar({ layers, onLayersChange, yExaggeration, onYExaggeration
       <LayerToggle icon={Ruler} label="Lengths" active={layers.dimensions} onToggle={toggle('dimensions')} />
       <LayerMenu layers={layers} onChange={onLayersChange} />
 
-      <span className="mx-1 h-5 w-px bg-outline-variant" aria-hidden />
+      <span className={divider} aria-hidden />
 
-      <label className="flex items-center gap-2 px-2 text-xs text-on-surface-variant">
-        Vertical stretch
+      <label className="flex h-8 items-center gap-2 px-2 text-xs font-medium text-on-surface-variant" title="Spread the lines apart vertically. The SIP is not to scale across the lines.">
+        <MoveVertical className="size-4" aria-hidden />
+        <span className="whitespace-nowrap">Vertical stretch</span>
         <input
           type="range"
           min={1}
@@ -49,26 +46,42 @@ export function Toolbar({ layers, onLayersChange, yExaggeration, onYExaggeration
           step={0.5}
           value={yExaggeration}
           onChange={(e) => onYExaggerationChange(Number(e.target.value))}
-          className="w-24 accent-primary"
+          className="w-24"
+          aria-label="Vertical stretch"
         />
-        <span className="w-6 tabular-nums text-on-surface">{yExaggeration}×</span>
+        <span className="w-8 text-right font-mono text-[11px] text-on-surface tabular-nums">{yExaggeration}×</span>
       </label>
+    </div>
+  )
+}
 
-      <span className="mx-1 h-5 w-px bg-outline-variant" aria-hidden />
+interface ZoomControlProps {
+  zoom: number
+  onZoomChange: (zoom: number) => void
+}
 
-      <label className="flex items-center gap-2 px-2 text-xs text-on-surface-variant">
-        Zoom
-        <input
-          type="range"
-          min={Math.log(MIN_ZOOM)}
-          max={Math.log(MAX_ZOOM)}
-          step={0.01}
-          value={Math.log(zoom)}
-          onChange={(e) => onZoomChange(Math.exp(Number(e.target.value)))}
-          className="w-28 accent-primary"
-          aria-label="Zoom"
-        />
-      </label>
+/** − slider + with the zoom as a percentage, for the status bar. */
+export function ZoomControl({ zoom, onZoomChange }: ZoomControlProps) {
+  const clamp = (z: number) => Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z))
+  return (
+    <div className="flex items-center gap-1" role="group" aria-label="Zoom">
+      <button type="button" className={`${btnIcon} size-6`} onClick={() => onZoomChange(clamp(zoom / 1.25))} disabled={zoom <= MIN_ZOOM * 1.001} title="Zoom out" aria-label="Zoom out">
+        <Minus className="size-3.5" aria-hidden />
+      </button>
+      <input
+        type="range"
+        min={Math.log(MIN_ZOOM)}
+        max={Math.log(MAX_ZOOM)}
+        step={0.01}
+        value={Math.log(zoom)}
+        onChange={(e) => onZoomChange(Math.exp(Number(e.target.value)))}
+        className="w-24"
+        aria-label="Zoom level"
+      />
+      <button type="button" className={`${btnIcon} size-6`} onClick={() => onZoomChange(clamp(zoom * 1.25))} disabled={zoom >= MAX_ZOOM * 0.999} title="Zoom in" aria-label="Zoom in">
+        <Plus className="size-3.5" aria-hidden />
+      </button>
+      <span className="w-12 text-right font-mono tabular-nums">{Math.round(zoom * 100)}%</span>
     </div>
   )
 }

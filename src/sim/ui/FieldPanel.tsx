@@ -94,7 +94,7 @@ export function FieldPanel({ sim }: { sim: Simulation }) {
                 return (
                   <li key={key} className="flex items-center justify-between gap-2 text-xs">
                     <span className="text-on-surface-variant" title={sec.label}>{i.label}</span>
-                    <button className={`${btn} ${on ? 'border-[#3ddc84] text-[#3ddc84]' : ''}`} onClick={() => sim.dispatch({ type: 'blockInput', section: sec.id, input: i.id, value: !on })}>
+                    <button className={`${btn} ${on ? 'border-success/60 bg-success/10 text-success' : ''}`} onClick={() => sim.dispatch({ type: 'blockInput', section: sec.id, input: i.id, value: !on })}>
                       {on ? 'Received' : 'Not received'}
                     </button>
                   </li>

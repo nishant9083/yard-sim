@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react'
+import { createContext, useContext, type ReactNode } from 'react'
+import { MousePointerClick } from 'lucide-react'
 import {
   bridgeTitle,
   circuitRangeMetres,
@@ -15,6 +16,7 @@ import {
   type Station,
   type StationIndex,
 } from '@/sip/model'
+import { floating, overline } from './ui'
 
 interface InspectorPanelProps {
   station: Station
@@ -25,15 +27,15 @@ interface InspectorPanelProps {
 
 function Row({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="flex justify-between gap-4">
-      <dt className="shrink-0 text-on-surface-variant">{label}</dt>
-      <dd className="text-right text-on-surface">{children}</dd>
+    <div className="grid grid-cols-[7.5rem_1fr] items-baseline gap-3 py-1">
+      <dt className="text-on-surface-variant">{label}</dt>
+      <dd className="min-w-0 text-right break-words text-on-surface tabular-nums">{children}</dd>
     </div>
   )
 }
 
 function RefButtons({ items, onSelect }: { items: { ref: EntityRef; label: string }[]; onSelect: (ref: EntityRef) => void }) {
-  if (items.length === 0) return <span className="text-on-surface-variant">none</span>
+  if (items.length === 0) return <span className="text-on-surface-variant">None</span>
   return (
     <span className="flex flex-wrap justify-end gap-1">
       {items.map(({ ref, label }) => (
@@ -41,7 +43,8 @@ function RefButtons({ items, onSelect }: { items: { ref: EntityRef; label: strin
           key={`${ref.type}:${ref.id}`}
           type="button"
           onClick={() => onSelect(ref)}
-          className="rounded bg-surface-container-high px-1.5 py-0.5 text-[11px] text-secondary hover:text-primary"
+          title="Select and show on the drawing"
+          className="rounded border border-outline-variant bg-surface-container-high px-1.5 py-px font-mono text-[11px] text-on-surface transition-colors hover:border-accent-fg hover:text-accent-fg"
         >
           {label}
         </button>
@@ -65,12 +68,16 @@ export function InspectorPanel({ station, index, entity, onSelect }: InspectorPa
 
   if (!entity) {
     return (
-      <Panel title="Nothing selected">
-        <p className="text-on-surface-variant">Hover or click a signal, point, track circuit, line or label. Double-click empty space to re-fit.</p>
-      </Panel>
+      <aside className={`${floating} pointer-events-none absolute bottom-3 left-3 z-10 flex max-w-[calc(100%-1.5rem)] items-center gap-2.5 px-3 py-2 text-xs text-on-surface-variant`}>
+        <MousePointerClick className="size-4 shrink-0" aria-hidden />
+        <span>Hover or click a signal, point, track circuit, line or label to inspect it.</span>
+      </aside>
     )
   }
 
+  return <KindContext.Provider value={TYPE_LABEL[entity.type] ?? entity.type}>{inspect(entity)}</KindContext.Provider>
+
+  function inspect(entity: EntityRef) {
   switch (entity.type) {
     case 'track': {
       const track = index.trackById.get(entity.id)
@@ -283,14 +290,37 @@ export function InspectorPanel({ station, index, entity, onSelect }: InspectorPa
       )
     }
   }
+  }
 }
 
+const TYPE_LABEL: Partial<Record<EntityRef['type'], string>> = {
+  track: 'Line',
+  connection: 'Connection',
+  node: 'Node',
+  signal: 'Signal',
+  point: 'Point',
+  trackCircuit: 'Track circuit',
+  joint: 'Joint',
+  platform: 'Platform',
+  structure: 'Structure',
+  bridge: 'Bridge',
+  dimension: 'Dimension',
+  chainageMark: 'Chainage mark',
+  gradient: 'Gradient',
+}
+
+const KindContext = createContext<string>('')
+
 function Panel({ title, subtitle, children }: { title: string; subtitle?: string; children: ReactNode }) {
+  const kind = useContext(KindContext)
   return (
-    <aside className="absolute bottom-3 left-3 z-10 w-80 rounded-lg border border-outline-variant bg-surface-container/90 p-3 text-xs backdrop-blur">
-      <h2 className="text-sm font-medium text-on-surface">{title}</h2>
-      {subtitle && <p className="mb-2 text-on-surface-variant">{subtitle}</p>}
-      {children}
+    <aside aria-label={`${kind} details`} className={`${floating} absolute bottom-3 left-3 z-10 max-h-[calc(100%-5rem)] w-[22rem] max-w-[calc(100%-1.5rem)] overflow-y-auto text-xs`}>
+      <div className="border-b border-outline-variant px-3.5 pt-2.5 pb-2">
+        {kind && <p className={`${overline} text-[10px]`}>{kind}</p>}
+        <h2 className="mt-0.5 text-sm leading-snug font-semibold text-on-surface">{title}</h2>
+        {subtitle && <p className="mt-0.5 leading-snug text-on-surface-variant">{subtitle}</p>}
+      </div>
+      <div className="px-3.5 py-2 leading-snug [&_dl]:divide-y [&_dl]:divide-outline-variant/60 [&_dl]:space-y-0">{children}</div>
     </aside>
   )
 }

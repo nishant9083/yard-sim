@@ -12,3 +12,4 @@ wheels/
 out/
 rcc/source/
 reports/
+stations/**.md

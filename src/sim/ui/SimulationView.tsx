@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Download, Focus, Maximize2, Pause, Play, RotateCcw, Signal, SkipForward, Spline, TrainTrack, Upload } from 'lucide-react'
+import { Download, Focus, Maximize2, PanelRightClose, PanelRightOpen, Pause, Play, RotateCcw, Signal, SkipForward, Spline, TrainTrack, Upload } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { layoutStation } from '@/sip/layout'
 import type { EntityRef, Station } from '@/sip/model'
@@ -14,7 +14,8 @@ import { ChecksPanel, LogPanel, SettingsPanel } from './MiscPanels'
 import { OperatePanel } from './OperatePanel'
 import { drawSimOverlay } from './overlay'
 import { TrainsPanel } from './TrainsPanel'
-import { btn, btnPrimary, useSimVersion } from './ui'
+import { btnGhost, btnIcon, btnPrimary as btnMain, divider, floating, tabClass } from '@/sip/components/ui'
+import { useSimVersion } from './ui'
 
 const TABS = ['Operate', 'Trains', 'Field', 'Log', 'Checks', 'Settings'] as const
 type Tab = (typeof TABS)[number]
@@ -108,32 +109,32 @@ export function SimulationView({ station }: { station: Station }) {
     <div className="flex h-full w-full overflow-hidden">
       <div className="relative min-w-0 flex-1">
         <SipCanvas layout={layout} layers={layers} hovered={hovered} selected={selected} fit={fit} focus={null} onHover={setHovered} onSelect={onSelect} overlay={overlay} />
-        <div className="absolute top-3 left-3 z-10 flex max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-1.5 rounded-md border border-outline-variant bg-surface-container/95 p-1.5 shadow-lg">
+        <div role="toolbar" aria-label="Simulation" className={`${floating} absolute top-3 left-3 z-10 flex max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-0.5 p-1`}>
           {!started ? (
-            <button className={btnPrimary} onClick={() => { setStarted(true); setPlaying(true) }}><Play className="size-3.5" />Start</button>
+            <button type="button" className={`${btnMain} mr-1`} onClick={() => { setStarted(true); setPlaying(true) }}><Play className="size-3.5" aria-hidden />Start</button>
           ) : (
-            <button className={btn} onClick={() => setPlaying((p) => !p)}>
-              {playing ? <Pause className="size-3.5" /> : <Play className="size-3.5" />}
+            <button type="button" className={`${btnGhost} w-[5.5rem] justify-start`} onClick={() => setPlaying((p) => !p)}>
+              {playing ? <Pause className="size-4" aria-hidden /> : <Play className="size-4" aria-hidden />}
               {playing ? 'Pause' : 'Resume'}
             </button>
           )}
-          <button className={btn} onClick={() => { setStarted(true); sim.run(1) }} title="Advance one second" aria-label="Step one second"><SkipForward className="size-3.5" />1 s</button>
-          <select className="h-7 rounded-md border border-outline-variant bg-surface px-1 text-xs text-on-surface" value={speed} onChange={(e) => setSpeed(+e.target.value)} aria-label="Speed">
+          <button type="button" className={btnGhost} onClick={() => { setStarted(true); sim.run(1) }} title="Advance one second" aria-label="Step one second"><SkipForward className="size-4" aria-hidden />1 s</button>
+          <select className="h-8 rounded-md border border-outline-variant bg-surface-container-low px-1.5 font-mono text-xs text-on-surface transition-colors hover:border-outline focus:border-accent focus:outline-none" value={speed} onChange={(e) => setSpeed(+e.target.value)} aria-label="Speed" title="Simulation speed">
             {SPEEDS.map((x) => <option key={x} value={x}>{x}×</option>)}
           </select>
-          <span className="flex w-24 items-center justify-end gap-1.5 text-xs text-on-surface tabular-nums" title={!started ? 'Not started' : playing ? 'Running' : 'Paused'}>
-            <i className={`inline-block size-2 rounded-full ${!started ? 'bg-outline' : playing ? 'bg-[#3ddc84]' : 'bg-sip-joint'}`} />
+          <span className="ml-1 flex h-8 min-w-24 items-center justify-center gap-2 rounded-md border border-outline-variant bg-surface px-2.5 font-mono text-xs text-on-surface tabular-nums" title={!started ? 'Not started' : playing ? 'Running' : 'Paused'}>
+            <i className={`inline-block size-2 rounded-full ${!started ? 'bg-outline' : playing ? 'bg-success shadow-[0_0_6px_var(--color-success)]' : 'bg-warning'}`} aria-hidden />
             {formatTime(sim.time)}
           </span>
-          <span className="h-5 w-px bg-outline-variant" aria-hidden />
-          <button className={btn} onClick={() => { sim.reset(); setStarted(false); setPlaying(false) }} title="Clear everything and start again"><RotateCcw className="size-3.5" />Reset</button>
-          <button className={btn} onClick={save} title="Save the commands so far as a scenario" aria-label="Save scenario"><Download className="size-3.5" /></button>
-          <button className={btn} onClick={() => fileRef.current?.click()} title="Load a scenario and replay it" aria-label="Load scenario"><Upload className="size-3.5" /></button>
+          <span className={divider} aria-hidden />
+          <button type="button" className={btnGhost} onClick={() => { sim.reset(); setStarted(false); setPlaying(false) }} title="Clear everything and start again"><RotateCcw className="size-4" aria-hidden />Reset</button>
+          <button type="button" className={btnIcon} onClick={save} title="Save the commands so far as a scenario" aria-label="Save scenario"><Download className="size-4" aria-hidden /></button>
+          <button type="button" className={btnIcon} onClick={() => fileRef.current?.click()} title="Load a scenario and replay it" aria-label="Load scenario"><Upload className="size-4" aria-hidden /></button>
           <input ref={fileRef} type="file" accept="application/json" hidden onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ''; if (f) void load(f) }} />
-          <span className="h-5 w-px bg-outline-variant" aria-hidden />
-          <button className={btn} onClick={() => setFit((f) => ({ mode: 'core', token: f.token + 1 }))} title="Zoom to the station"><Focus className="size-3.5" />Station</button>
-          <button className={btn} onClick={() => setFit((f) => ({ mode: 'all', token: f.token + 1 }))} title="Show the whole drawing"><Maximize2 className="size-3.5" />Whole yard</button>
-          <span className="h-5 w-px bg-outline-variant" aria-hidden />
+          <span className={divider} aria-hidden />
+          <button type="button" className={btnGhost} onClick={() => setFit((f) => ({ mode: 'core', token: f.token + 1 }))} title="Zoom to the station"><Focus className="size-4" aria-hidden /><span className="hidden 2xl:inline">Station</span></button>
+          <button type="button" className={btnGhost} onClick={() => setFit((f) => ({ mode: 'all', token: f.token + 1 }))} title="Show the whole drawing"><Maximize2 className="size-4" aria-hidden /><span className="hidden 2xl:inline">Whole yard</span></button>
+          <span className={divider} aria-hidden />
           <LayerToggle icon={Signal} label="Signals" active={layers.signals} onToggle={toggle('signals')} />
           <LayerToggle icon={Spline} label="Points" active={layers.points} onToggle={toggle('points')} />
           <LayerToggle icon={TrainTrack} label="Circuits" active={layers.trackCircuits} onToggle={toggle('trackCircuits')} />
@@ -141,24 +142,26 @@ export function SimulationView({ station }: { station: Station }) {
         </div>
         <Legend />
       </div>
-      <aside className={`flex shrink-0 flex-col border-l border-outline-variant bg-surface-container ${panelOpen ? 'w-100' : 'w-9'}`}>
+      <aside className={`flex shrink-0 flex-col border-l border-outline-variant bg-surface-container ${panelOpen ? 'w-[26rem] max-w-[45vw]' : 'w-11 items-center py-1.5'}`}>
         {!panelOpen && (
-          <button onClick={() => setPanelOpen(true)} aria-label="Expand side panel" title="Expand side panel" className="flex w-full items-center justify-center py-2 text-on-surface-variant hover:text-on-surface">
-            <ChevronLeft size={18} />
+          <button type="button" onClick={() => setPanelOpen(true)} aria-label="Expand side panel" title="Expand side panel" className={btnIcon}>
+            <PanelRightOpen className="size-4" aria-hidden />
           </button>
         )}
         {panelOpen && (
         <>
-        <nav className="flex border-b border-outline-variant" role="tablist">
-          {TABS.map((t) => (
-            <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`flex-1 px-1 py-2 text-xs transition-colors ${tab === t ? 'border-b-2 border-primary text-on-surface' : 'text-on-surface-variant hover:text-on-surface'}`}>
-              {t}
-            </button>
-          ))}
-          <button onClick={() => setPanelOpen(false)} aria-label="Collapse side panel" title="Collapse side panel" className="px-2 text-on-surface-variant hover:text-on-surface">
-            <ChevronRight size={16} />
+        <div className="flex items-center border-b border-outline-variant pr-1">
+          <nav className="flex min-w-0 flex-1" role="tablist" aria-label="Simulation panels">
+            {TABS.map((t) => (
+              <button key={t} type="button" role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`${tabClass(tab === t)} px-1`}>
+                {t}
+              </button>
+            ))}
+          </nav>
+          <button type="button" onClick={() => setPanelOpen(false)} aria-label="Collapse side panel" title="Collapse side panel" className={btnIcon}>
+            <PanelRightClose className="size-4" aria-hidden />
           </button>
-        </nav>
+        </div>
         <div className="min-h-0 flex-1 overflow-y-auto">
           {tab === 'Operate' && <OperatePanel sim={sim} focusSignal={focusSignal} onClearFocus={() => setSelected(null)} />}
           {tab === 'Trains' && <TrainsPanel sim={sim} />}
@@ -182,13 +185,14 @@ function formatTime(t: number): string {
 
 function Legend() {
   const item = (c: string, t: string) => (
-    <span className="flex items-center gap-1.5">
-      <i className="inline-block h-2 w-3 rounded-sm" style={{ background: c }} />
+    <span className="flex items-center gap-1.5 whitespace-nowrap">
+      <i className="inline-block h-1 w-4 rounded-full" style={{ background: c }} />
       {t}
     </span>
   )
   return (
-    <div className="pointer-events-none absolute bottom-3 left-3 flex gap-3 rounded-md border border-outline-variant bg-surface-container/90 px-2.5 py-1.5 text-[11px] text-on-surface-variant">
+    <div className={`${floating} pointer-events-none absolute bottom-3 left-3 flex max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-x-4 gap-y-1 px-3 py-2 text-[11px] text-on-surface-variant`}>
+      <span className="text-[10px] font-semibold tracking-[0.06em] uppercase">Key</span>
       {item('#ff5d6c', 'Occupied')}
       {item('#f4f6fa', 'Route reserved')}
       {item('#4cc9f0', 'Train / point locked')}

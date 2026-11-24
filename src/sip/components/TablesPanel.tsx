@@ -4,7 +4,7 @@ import { DataTable } from './DataTable'
 function Aspects({ chart }: { chart: AspectChart }) {
   return (
     <section>
-      <h3 className="mb-1.5 text-xs font-medium text-on-surface">{chart.title}</h3>
+      <h3 className="mb-2 text-xs font-semibold text-on-surface">{chart.title}</h3>
       <div className="overflow-x-auto rounded-md border border-outline-variant">
         <table className="w-full border-collapse text-center text-[11px]">
           <thead className="bg-surface-container-high text-on-surface-variant">
@@ -47,12 +47,12 @@ function Aspects({ chart }: { chart: AspectChart }) {
 export function TablesPanel({ station }: { station: Station }) {
   const { info } = station
   return (
-    <div className="space-y-5 p-4">
+    <div className="space-y-6 p-4">
       <section>
-        <h3 className="mb-1.5 text-xs font-medium text-on-surface">Title block</h3>
-        <dl className="space-y-1 text-[11px]">
+        <h3 className="mb-2 text-xs font-semibold text-on-surface">Title block</h3>
+        <dl className="divide-y divide-outline-variant overflow-hidden rounded-md border border-outline-variant text-[11px]">
           {info.titleBlock.map((r) => (
-            <div key={r.label} className="flex justify-between gap-4">
+            <div key={r.label} className="flex justify-between gap-4 px-2.5 py-1.5 even:bg-surface-container-low/60">
               <dt className="shrink-0 text-on-surface-variant">{r.label}</dt>
               <dd className="text-right text-on-surface">{r.value}</dd>
             </div>

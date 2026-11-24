@@ -1,8 +1,8 @@
 import { RotateCcw } from 'lucide-react'
 import { useEffect, useState, type ReactNode } from 'react'
+import { btn, input, overline } from '../ui'
 
-const inputClass =
-  'w-full min-w-0 rounded-md border border-outline-variant bg-surface px-2 py-1 text-xs text-on-surface placeholder:text-on-surface-variant/60 focus-visible:outline-2 focus-visible:outline-secondary'
+const inputClass = input
 
 interface FieldShellProps {
   label: string
@@ -19,17 +19,17 @@ export function FieldShell({ label, hint, auto, required, children }: FieldShell
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between gap-2">
-        <span className="text-[11px] text-on-surface-variant">
+        <span className="text-[11px] font-medium text-on-surface-variant">
           {label}
           {required && <span className="text-error"> *</span>}
         </span>
-        {isAuto && <span className="rounded bg-surface-container-high px-1.5 py-px text-[10px] text-secondary">auto</span>}
+        {isAuto && <span className="rounded border border-accent-fg/30 bg-accent/10 px-1.5 text-[10px] leading-4 font-medium text-accent-fg" title="Filled in for you">auto</span>}
         {canReset && (
           <button
             type="button"
             onClick={auto.onReset}
             title={`Reset to the generated value (${auto.value})`}
-            className="flex items-center gap-1 rounded px-1 text-[10px] text-on-surface-variant hover:text-primary"
+            className="flex items-center gap-1 rounded px-1 text-[10px] text-on-surface-variant hover:text-accent-fg"
           >
             <RotateCcw className="size-3" aria-hidden />
             auto
@@ -55,7 +55,7 @@ export function TextField({ value, onChange, onCommit, placeholder, multiline, a
   return (
     <FieldShell {...shell} auto={shell.auto && { ...shell.auto, current: value }}>
       {multiline ? (
-        <textarea value={value} rows={2} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} onBlur={onCommit} className={inputClass} />
+        <textarea value={value} rows={2} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} onBlur={onCommit} className={`${inputClass} h-auto py-1.5 leading-snug`} />
       ) : (
         <input
           type="text"
@@ -132,7 +132,7 @@ export function SelectField<T extends string>({ value, options, onChange, ...she
 export function CheckField({ label, checked, onChange, hint }: { label: string; checked: boolean; onChange: (v: boolean) => void; hint?: string }) {
   return (
     <label className="flex cursor-pointer items-start gap-2 text-xs text-on-surface">
-      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} className="mt-0.5 size-3.5 accent-primary" />
+      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} className="mt-0.5 size-3.5" />
       <span>
         {label}
         {hint && <span className="block text-[11px] text-on-surface-variant">{hint}</span>}
@@ -143,8 +143,8 @@ export function CheckField({ label, checked, onChange, hint }: { label: string; 
 
 export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="space-y-3 border-t border-outline-variant pt-3 first:border-t-0 first:pt-0">
-      <h3 className="text-[11px] font-medium tracking-wide text-on-surface-variant uppercase">{title}</h3>
+    <section className="space-y-3 border-t border-outline-variant pt-4 first:border-t-0 first:pt-0">
+      <h3 className={overline}>{title}</h3>
       {children}
     </section>
   )
@@ -159,5 +159,4 @@ export function ReadOnly({ label, children }: { label: string; children: ReactNo
   )
 }
 
-export const buttonClass =
-  'flex items-center justify-center gap-1.5 rounded-md border border-outline-variant px-2.5 py-1.5 text-xs text-on-surface transition-colors hover:bg-surface-container-high focus-visible:outline-2 focus-visible:outline-secondary disabled:cursor-not-allowed disabled:opacity-40'
+export const buttonClass = btn

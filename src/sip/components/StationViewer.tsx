@@ -5,7 +5,8 @@ import { DEFAULT_LAYERS, type LayerVisibility } from '@/sip/render'
 import { InspectorPanel } from './InspectorPanel'
 import { SidePanel } from './SidePanel'
 import { SipCanvas, type FitRequest, type FocusRequest, type ZoomRequest } from './SipCanvas'
-import { Toolbar } from './Toolbar'
+import { Crosshair, MousePointerClick } from 'lucide-react'
+import { Toolbar, ZoomControl } from './Toolbar'
 
 interface StationViewerProps {
   station: Station
@@ -38,35 +39,46 @@ export function StationViewer({ station }: StationViewerProps) {
 
   return (
     <div className="flex h-full w-full overflow-hidden">
-      <div className="relative min-w-0 flex-1">
-        <SipCanvas
-          layout={layout}
-          layers={layers}
-          hovered={hovered}
-          selected={selected}
-          fit={fit}
-          focus={focus}
-          zoomRequest={zoomRequest}
-          onZoomChange={setZoom}
-          onHover={setHovered}
-          onSelect={setSelected}
-          onCursorX={setCursorX}
-        />
-        <Toolbar
-          layers={layers}
-          onLayersChange={setLayers}
-          yExaggeration={yExaggeration}
-          onYExaggerationChange={setYExaggeration}
-          onFit={(mode) => setFit((f) => ({ mode, token: f.token + 1 }))}
-          zoom={zoom}
-          onZoomChange={(z) => setZoomRequest((r) => ({ zoom: z, token: (r?.token ?? 0) + 1 }))}
-        />
-        <InspectorPanel station={station} index={index} entity={hovered ?? selected} onSelect={selectAndFocus} />
-        {chainageText && (
-          <div className="pointer-events-none absolute right-3 bottom-3 rounded-md border border-outline-variant bg-surface-container/90 px-2 py-1 text-xs text-on-surface tabular-nums">
-            {chainageText}
+      <div className="flex min-w-0 flex-1 flex-col">
+        <div className="relative min-h-0 flex-1">
+          <SipCanvas
+            layout={layout}
+            layers={layers}
+            hovered={hovered}
+            selected={selected}
+            fit={fit}
+            focus={focus}
+            zoomRequest={zoomRequest}
+            onZoomChange={setZoom}
+            onHover={setHovered}
+            onSelect={setSelected}
+            onCursorX={setCursorX}
+          />
+          <Toolbar
+            layers={layers}
+            onLayersChange={setLayers}
+            yExaggeration={yExaggeration}
+            onYExaggerationChange={setYExaggeration}
+            onFit={(mode) => setFit((f) => ({ mode, token: f.token + 1 }))}
+          />
+          <InspectorPanel station={station} index={index} entity={hovered ?? selected} onSelect={selectAndFocus} />
+        </div>
+        <footer className="flex h-8 shrink-0 items-center gap-4 border-t border-outline-variant bg-surface-container px-3 text-[11px] text-on-surface-variant">
+          <span className="flex min-w-0 items-center gap-1.5" title="Chainage under the pointer">
+            <Crosshair className="size-3.5 shrink-0" aria-hidden />
+            <span className={`truncate tabular-nums ${chainageText ? 'font-mono text-on-surface' : ''}`}>
+              {chainageText ?? (station.meta.chainage ? 'Point at the drawing for chainage' : 'No chainage scale for this station')}
+            </span>
+          </span>
+          <div className="ml-auto flex shrink-0 items-center gap-4">
+            <span className="hidden items-center gap-1.5 whitespace-nowrap lg:flex">
+              <MousePointerClick className="size-3.5 shrink-0" aria-hidden />
+              Click to select · Drag to pan · Scroll to zoom · Double-click to fit
+            </span>
+            <span className="hidden h-4 w-px bg-outline-variant lg:block" aria-hidden />
+            <ZoomControl zoom={zoom} onZoomChange={(z) => setZoomRequest((r) => ({ zoom: z, token: (r?.token ?? 0) + 1 }))} />
           </div>
-        )}
+        </footer>
       </div>
       <SidePanel station={station} selected={selected} onSelect={selectAndFocus} open={panelOpen} onToggle={() => setPanelOpen((v) => !v)} />
     </div>

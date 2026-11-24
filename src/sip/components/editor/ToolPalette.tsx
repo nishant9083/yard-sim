@@ -21,6 +21,7 @@ import {
 import { SIGNAL_PRESETS, STRUCTURE_NAMES, TRACK_KINDS, type ToolId, type ToolOptions } from '@/sip/edit'
 import type { LineArrowDirection, StructureKind } from '@/sip/model'
 import { CheckField } from './fields'
+import { input, overline } from '../ui'
 
 interface ToolDef {
   id: ToolId
@@ -82,35 +83,38 @@ interface ToolPaletteProps {
   onOptions: (options: ToolOptions) => void
 }
 
-const selectClass = 'w-full rounded-md border border-outline-variant bg-surface px-2 py-1 text-xs text-on-surface focus-visible:outline-2 focus-visible:outline-secondary'
+const selectClass = input
 
 export function ToolPalette({ tool, onTool, options, onOptions }: ToolPaletteProps) {
   return (
-    <nav aria-label="Tools" className="flex h-full w-52 shrink-0 flex-col overflow-y-auto border-r border-outline-variant bg-surface-container">
-      <div className="space-y-3 p-2">
+    <nav aria-label="Tools" className="flex h-full w-56 shrink-0 flex-col overflow-y-auto border-r border-outline-variant bg-surface-container">
+      <div className="space-y-4 p-2 pt-3">
         {TOOL_GROUPS.map((group) => (
           <div key={group.title} className="space-y-0.5">
-            <p className="px-2 text-[10px] font-medium tracking-wide text-on-surface-variant uppercase">{group.title}</p>
+            <p className={`${overline} px-2 pb-1 text-[10px]`}>{group.title}</p>
             {group.tools.map(({ id, label, key, icon: Icon }) => (
               <button
                 key={id}
                 type="button"
                 aria-pressed={tool === id}
                 onClick={() => onTool(id)}
-                className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-xs transition-colors focus-visible:outline-2 focus-visible:outline-secondary ${
-                  tool === id ? 'bg-primary text-on-primary' : 'text-on-surface hover:bg-surface-container-high'
+                title={`${label} (${key})`}
+                className={`flex h-8 w-full items-center gap-2.5 rounded-md px-2 text-left text-xs transition-colors focus-visible:outline-2 focus-visible:outline-accent-fg ${
+                  tool === id
+                    ? 'bg-accent/15 font-medium text-on-surface shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--color-accent)_55%,transparent)]'
+                    : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
                 }`}
               >
-                <Icon className="size-4 shrink-0" aria-hidden />
-                <span className="flex-1">{label}</span>
-                <kbd className={`rounded px-1 text-[10px] ${tool === id ? 'bg-on-primary/15' : 'bg-surface-container-high text-on-surface-variant'}`}>{key}</kbd>
+                <Icon className={`size-4 shrink-0 ${tool === id ? 'text-accent-fg' : ''}`} aria-hidden />
+                <span className="flex-1 truncate">{label}</span>
+                <kbd className={`min-w-5 rounded border px-1 text-center text-[10px] leading-4 ${tool === id ? 'border-accent-fg/40 text-accent-fg' : 'border-outline-variant text-on-surface-variant'}`}>{key}</kbd>
               </button>
             ))}
           </div>
         ))}
       </div>
 
-      <div className="mt-auto space-y-2 border-t border-outline-variant p-3">
+      <div className="mt-auto space-y-2 border-t border-outline-variant bg-surface-container-low/60 p-3">
         {tool === 'track' && (
           <label className="block space-y-1 text-[11px] text-on-surface-variant">
             Type of line
@@ -149,8 +153,8 @@ export function ToolPalette({ tool, onTool, options, onOptions }: ToolPalettePro
                   type="button"
                   aria-pressed={options.arrowDirection === id}
                   onClick={() => onOptions({ ...options, arrowDirection: id })}
-                  className={`flex-1 rounded-md border px-2 py-1 font-mono text-sm focus-visible:outline-2 focus-visible:outline-secondary ${
-                    options.arrowDirection === id ? 'border-primary bg-primary text-on-primary' : 'border-outline-variant text-on-surface hover:bg-surface-container-high'
+                  className={`flex-1 rounded-md border px-2 py-1 font-mono text-sm focus-visible:outline-2 focus-visible:outline-accent-fg ${
+                    options.arrowDirection === id ? 'border-accent bg-accent text-on-accent' : 'border-outline-variant text-on-surface hover:bg-surface-container-high'
                   }`}
                 >
                   {label}
@@ -175,8 +179,8 @@ export function ToolPalette({ tool, onTool, options, onOptions }: ToolPalettePro
                   type="button"
                   aria-pressed={options.crossingSpan === id}
                   onClick={() => onOptions({ ...options, crossingSpan: id })}
-                  className={`flex-1 rounded-md border px-2 py-1 text-xs focus-visible:outline-2 focus-visible:outline-secondary ${
-                    options.crossingSpan === id ? 'border-primary bg-primary text-on-primary' : 'border-outline-variant text-on-surface hover:bg-surface-container-high'
+                  className={`flex-1 rounded-md border px-2 py-1 text-xs focus-visible:outline-2 focus-visible:outline-accent-fg ${
+                    options.crossingSpan === id ? 'border-accent bg-accent text-on-accent' : 'border-outline-variant text-on-surface hover:bg-surface-container-high'
                   }`}
                 >
                   {label}

@@ -81,12 +81,12 @@ function directionText(station: Station): string {
 function Section({ title, entries }: { title: string; entries: Entry[] }) {
   return (
     <section>
-      <h3 className="mb-2 text-xs font-medium tracking-wide text-on-surface-variant uppercase">{title}</h3>
+      <h3 className="mb-2.5 text-[11px] font-semibold tracking-[0.06em] text-on-surface-variant uppercase">{title}</h3>
       <ul className="space-y-2.5">
         {entries.map((e) => (
-          <li key={e.title} className="flex items-center gap-3">
-            {GLYPHS[e.glyph] as ReactNode}
-            <div className="min-w-0">
+          <li key={e.title} className="flex items-start gap-3">
+            <span className="flex h-10 w-[5.25rem] shrink-0 items-center justify-center rounded-md border border-outline-variant bg-surface">{GLYPHS[e.glyph] as ReactNode}</span>
+            <div className="min-w-0 pt-0.5">
               <p className="text-xs font-medium text-on-surface">{e.title}</p>
               <p className="text-[11px] leading-snug text-on-surface-variant">{e.text}</p>
             </div>
@@ -100,13 +100,13 @@ function Section({ title, entries }: { title: string; entries: Entry[] }) {
 export function LegendPanel({ station }: { station: Station }) {
   const printed = station.info.legend
   return (
-    <div className="space-y-5 p-4">
+    <div className="space-y-6 p-4">
       {printed.length > 0 && (
         <section>
-          <h3 className="mb-2 text-xs font-medium tracking-wide text-on-surface-variant uppercase">Legend printed on the SIP</h3>
-          <dl className="space-y-1.5 text-xs">
+          <h3 className="mb-2.5 text-[11px] font-semibold tracking-[0.06em] text-on-surface-variant uppercase">Legend printed on the SIP</h3>
+          <dl className="divide-y divide-outline-variant overflow-hidden rounded-md border border-outline-variant text-xs">
             {printed.map((e) => (
-              <div key={e.id}>
+              <div key={e.id} className="px-3 py-2">
                 <dt className="font-medium text-on-surface">{e.title}</dt>
                 <dd className="text-on-surface-variant">{e.text}</dd>
               </div>
@@ -119,8 +119,8 @@ export function LegendPanel({ station }: { station: Station }) {
       <Section title="Line equipment" entries={TRACK_SYMBOLS} />
       <Section title="Lengths and chainage" entries={dimSymbols(station)} />
       <section>
-        <h3 className="mb-2 text-xs font-medium tracking-wide text-on-surface-variant uppercase">Direction</h3>
-        <p className="text-xs text-on-surface-variant">{directionText(station)}</p>
+        <h3 className="mb-2.5 text-[11px] font-semibold tracking-[0.06em] text-on-surface-variant uppercase">Direction</h3>
+        <p className="text-xs leading-relaxed text-on-surface-variant">{directionText(station)}</p>
       </section>
     </div>
   )

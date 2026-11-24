@@ -5,6 +5,10 @@
  * CSS variables so the canvas renderer can read them at runtime.
  * The palette borrows the vocabulary of an EI operator VDU: black field,
  * grey track, yellow route/selection, cyan hover, magenta labels.
+ *
+ * The drawing tokens (surface, primary, secondary, sip-*) are read by the
+ * canvas renderer. The interface tokens below them (accent, success, warning,
+ * surface-container-low/highest) are used only by the application chrome.
  */
 @theme static {
   --color-surface: #0a0c10;
@@ -40,6 +44,23 @@
   --color-sip-dimension: #6f8aa8;
   --color-sip-chainage: #8f99a8;
   --color-sip-route: #f2c94c;
+
+  /* Interface chrome only. */
+  --color-surface-container-low: #0d1015;
+  --color-surface-container-highest: #222a35;
+  --color-accent: #2f6fe4;
+  --color-accent-hover: #3b7cf0;
+  --color-on-accent: #ffffff;
+  --color-accent-fg: #8db4ff;
+  --color-success: #3ddc84;
+  --color-warning: #ffb454;
+
+  --font-sans: 'Segoe UI Variable Text', 'Segoe UI', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Mono', ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+:root {
+  color-scheme: dark;
 }
 
 html,
@@ -52,5 +73,124 @@ body,
 body {
   background-color: var(--color-surface);
   color: var(--color-on-surface);
-  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  color: var(--color-on-surface);
+}
+
+/* Keyboard focus: one consistent ring across the app. */
+:focus-visible {
+  outline: 2px solid var(--color-accent-fg);
+  outline-offset: 1px;
+}
+
+/* Buttons and links get the pointer cursor (Tailwind v4 resets it). */
+button:not(:disabled),
+[role='button']:not([aria-disabled='true']),
+summary,
+select,
+label:has(> input[type='checkbox']) {
+  cursor: pointer;
+}
+
+/* Native form controls follow the dark theme. */
+select,
+option {
+  background-color: var(--color-surface-container-low);
+  color: var(--color-on-surface);
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: var(--color-accent);
+}
+
+/* Range sliders: slim track, round thumb, interface accent. */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  background: transparent;
+  accent-color: var(--color-accent);
+}
+input[type='range']::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-outline);
+}
+input[type='range']::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-outline);
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -5.5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--color-on-surface);
+  border: 2px solid var(--color-surface-container);
+  box-shadow: 0 0 0 1px var(--color-outline);
+}
+input[type='range']::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-on-surface);
+  border: 2px solid var(--color-surface-container);
+  box-shadow: 0 0 0 1px var(--color-outline);
+}
+input[type='range']:hover::-webkit-slider-thumb {
+  background: #ffffff;
+}
+
+/* Thin, quiet scrollbars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-outline) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+  background-clip: padding-box;
+}
+
+kbd {
+  font-family: var(--font-mono);
+}
+
+/* <details> popovers: hide the default marker everywhere. */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

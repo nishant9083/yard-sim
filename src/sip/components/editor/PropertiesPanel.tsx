@@ -31,6 +31,7 @@ import {
   STRUCTURE_NAMES,
   trackXRange,
 } from '@/sip/edit'
+import { btnDanger } from '../ui'
 import { buttonClass, CheckField, NumberField, ReadOnly, Section, SelectField, TextField } from './fields'
 
 interface PropertiesPanelProps {
@@ -216,7 +217,7 @@ function RouteArmsEditor({ routes, headDir, onChange }: { routes: RouteIndicator
               title={last ? 'A route indicator needs at least one arm' : `${on ? 'Remove' : 'Add'} the ${r.label.toLowerCase()} arm (as the driver sees it)`}
               onClick={() => onChange(sortRoutes(on ? routes.filter((x) => x !== r.id) : [...routes, r.id]))}
               className={`rounded-md border px-1.5 py-0.5 text-[11px] transition-colors disabled:cursor-not-allowed ${
-                on ? 'border-primary bg-primary text-on-primary' : 'border-outline-variant text-on-surface-variant hover:text-on-surface'
+                on ? 'border-accent bg-accent text-on-accent' : 'border-outline-variant text-on-surface-variant hover:text-on-surface'
               }`}
             >
               {r.short} {r.label}
@@ -334,7 +335,7 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
       <div className="space-y-2 p-4 text-xs text-on-surface-variant">
         <p className="text-sm text-on-surface">Nothing selected</p>
         <p>Pick a tool on the left and draw, or use the Select tool to click anything on the drawing.</p>
-        <p>Generated values (codes, chainages, sizes) are filled in for you and marked <span className="text-secondary">auto</span>. Anything you change can be reset.</p>
+        <p>Generated values (codes, chainages, sizes) are filled in for you and marked <span className="font-medium text-accent-fg">auto</span>. Anything you change can be reset.</p>
       </div>
     )
   }
@@ -390,7 +391,7 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
                       type="button"
                       onClick={() => onSelect({ type: 'node', id })}
                       title={n ? `x ${n.x}, y ${n.y} (${n.kind})` : id}
-                      className="rounded bg-surface-container-high px-2 py-0.5 text-xs text-secondary tabular-nums hover:text-primary"
+                      className="rounded border border-outline-variant bg-surface-container-high px-2 py-0.5 font-mono text-[11px] text-on-surface tabular-nums transition-colors hover:border-accent-fg hover:text-accent-fg"
                     >
                       {i + 1}
                       {n ? ` · ${n.x.toFixed(0)}, ${n.y.toFixed(0)}` : ''}
@@ -432,7 +433,7 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
               {pts.length === 0 && <p className="text-xs text-on-surface-variant">No point machines. Use the Point tool on either end.</p>}
               <div className="flex flex-wrap gap-1">
                 {pts.map((p) => (
-                  <button key={p.id} type="button" onClick={() => onSelect({ type: 'point', id: p.id })} className="rounded bg-surface-container-high px-2 py-0.5 text-xs text-secondary hover:text-primary">
+                  <button key={p.id} type="button" onClick={() => onSelect({ type: 'point', id: p.id })} className="rounded border border-outline-variant bg-surface-container-high px-2 py-0.5 font-mono text-[11px] text-on-surface transition-colors hover:border-accent-fg hover:text-accent-fg">
                     {p.code}
                   </button>
                 ))}
@@ -756,7 +757,7 @@ export function PropertiesPanel({ station, selected, onEdit, onChange, onCommit,
         <p className="text-xs text-on-surface-variant">
           {selected.type} · <span className="text-on-surface">{selected.id}</span>
         </p>
-        <button type="button" onClick={onDelete} className={`${buttonClass} text-error hover:border-error`}>
+        <button type="button" onClick={onDelete} className={btnDanger}>
           <Trash2 className="size-3.5" aria-hidden />
           Delete
         </button>

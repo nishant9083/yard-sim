@@ -2,6 +2,7 @@ import { Download, FilePlus2, Ruler, Sparkles, Undo2, Upload } from 'lucide-reac
 import { useRef } from 'react'
 import { autoCircuits, linesTable, parseStationFile } from '@/sip/edit'
 import type { Station } from '@/sip/model'
+import { btnDanger } from '../ui'
 import { buttonClass, NumberField, ReadOnly, Section, TextField } from './fields'
 
 interface StationPanelProps {
@@ -126,7 +127,7 @@ export function StationPanel({ station, onChange, onPickOrigin, onExport, onImpo
           <FilePlus2 className="mr-1 inline size-3" aria-hidden />
           Drop the exported file into <code>src/sip/data</code> to ship it with the app.
         </p>
-        <button type="button" className={`${buttonClass} w-full text-error hover:border-error`} onClick={onDiscard}>
+        <button type="button" className={`${btnDanger} w-full`} onClick={onDiscard}>
           <Undo2 className="size-3.5" aria-hidden />
           {discardLabel}
         </button>

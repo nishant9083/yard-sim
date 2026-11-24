@@ -1,10 +1,11 @@
-import { BookOpen, ChevronLeft, ChevronRight, FileText, List, Table2, type LucideIcon } from 'lucide-react'
+import { BookOpen, FileText, List, PanelRightClose, PanelRightOpen, Table2, type LucideIcon } from 'lucide-react'
 import { useState } from 'react'
 import type { EntityRef, Station } from '@/sip/model'
 import { AssetsPanel } from './AssetsPanel'
 import { LegendPanel } from './LegendPanel'
 import { NotesPanel } from './NotesPanel'
 import { TablesPanel } from './TablesPanel'
+import { btnIcon, tabClass } from './ui'
 
 type TabId = 'assets' | 'legend' | 'tables' | 'notes'
 
@@ -27,33 +28,42 @@ export function SidePanel({ station, selected, onSelect, open, onToggle }: SideP
   const [tab, setTab] = useState<TabId>('assets')
   if (!open) {
     return (
-      <aside className="flex h-full w-9 shrink-0 flex-col border-l border-outline-variant bg-surface-container">
-        <button type="button" onClick={onToggle} aria-label="Expand side panel" title="Expand side panel" className="flex w-full items-center justify-center py-2.5 text-on-surface-variant hover:text-on-surface">
-          <ChevronLeft className="size-4" aria-hidden />
+      <aside aria-label="Station information" className="flex h-full w-11 shrink-0 flex-col items-center gap-1 border-l border-outline-variant bg-surface-container py-1.5">
+        <button type="button" onClick={onToggle} aria-label="Expand side panel" title="Expand side panel" className={btnIcon}>
+          <PanelRightOpen className="size-4" aria-hidden />
         </button>
+        <span className="my-1 h-px w-6 bg-outline-variant" aria-hidden />
+        {TABS.map(({ id, label, icon: Icon }) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => {
+              setTab(id)
+              onToggle()
+            }}
+            aria-label={`Open ${label}`}
+            title={label}
+            className={btnIcon}
+          >
+            <Icon className="size-4" aria-hidden />
+          </button>
+        ))}
       </aside>
     )
   }
   return (
     <aside className="flex h-full w-[26rem] max-w-[45vw] shrink-0 flex-col border-l border-outline-variant bg-surface-container">
-      <div role="tablist" aria-label="Station information" className="flex border-b border-outline-variant">
-        {TABS.map(({ id, label, icon: Icon }) => (
-          <button
-            key={id}
-            type="button"
-            role="tab"
-            aria-selected={tab === id}
-            onClick={() => setTab(id)}
-            className={`flex flex-1 items-center justify-center gap-1.5 border-b-2 px-2 py-2.5 text-xs transition-colors focus-visible:outline-2 focus-visible:outline-secondary ${
-              tab === id ? 'border-primary text-on-surface' : 'border-transparent text-on-surface-variant hover:text-on-surface'
-            }`}
-          >
-            <Icon className="size-4" aria-hidden />
-            {label}
-          </button>
-        ))}
-        <button type="button" onClick={onToggle} aria-label="Collapse side panel" title="Collapse side panel" className="px-2 text-on-surface-variant hover:text-on-surface">
-          <ChevronRight className="size-4" aria-hidden />
+      <div className="flex items-center border-b border-outline-variant pr-1">
+        <div role="tablist" aria-label="Station information" className="flex min-w-0 flex-1">
+          {TABS.map(({ id, label, icon: Icon }) => (
+            <button key={id} type="button" role="tab" aria-selected={tab === id} onClick={() => setTab(id)} className={tabClass(tab === id)}>
+              <Icon className="size-3.5" aria-hidden />
+              {label}
+            </button>
+          ))}
+        </div>
+        <button type="button" onClick={onToggle} aria-label="Collapse side panel" title="Collapse side panel" className={btnIcon}>
+          <PanelRightClose className="size-4" aria-hidden />
         </button>
       </div>
       <div role="tabpanel" className="min-h-0 flex-1 overflow-y-auto">
